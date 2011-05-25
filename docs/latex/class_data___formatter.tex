@@ -1,0 +1,93 @@
+\hypertarget{class_data___formatter}{
+\section{Data\_\-Formatter Class Reference}
+\label{class_data___formatter}\index{Data\_\-Formatter@{Data\_\-Formatter}}
+}
+
+
+An interface for formatter objects.  
+
+
+
+
+{\ttfamily \#include $<$Data\_\-Formatter.h$>$}
+
+Inheritance diagram for Data\_\-Formatter:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_data___formatter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_data___formatter_a4180972aaff1249e0290c3544665403d}{format} ()=0
+\begin{DoxyCompactList}\small\item\em Perform the actual formatting. \item\end{DoxyCompactList}\item 
+virtual \hyperlink{class_word_index_dictionary}{WordIndexDictionary} \& \hyperlink{class_data___formatter_ad7371376f95eddd15fb197a729b28c50}{get\_\-dictionary} ()=0
+\begin{DoxyCompactList}\small\item\em Return the dictionary being used by the formatter. \item\end{DoxyCompactList}\item 
+virtual int \hyperlink{class_data___formatter_aec61a89d2fc394ac8f28fb502357c90e}{get\_\-num\_\-docs} ()=0
+\begin{DoxyCompactList}\small\item\em The number of documents formatted. \item\end{DoxyCompactList}\item 
+virtual int \hyperlink{class_data___formatter_aec312da75df72aa23974051db72e4b69}{get\_\-total\_\-num\_\-words} ()=0
+\begin{DoxyCompactList}\small\item\em The total number of words found. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An interface for formatter objects. A formatter is an object that converts raw text corpus into binary so that its disk footprint is low and there is no parsing involved while reading it back 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_data___formatter_a4180972aaff1249e0290c3544665403d}{
+\index{Data\_\-Formatter@{Data\_\-Formatter}!format@{format}}
+\index{format@{format}!Data_Formatter@{Data\_\-Formatter}}
+\subsubsection[{format}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Data\_\-Formatter::format ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_data___formatter_a4180972aaff1249e0290c3544665403d}
+
+
+Perform the actual formatting. 
+
+
+
+Implemented in \hyperlink{class_unigram___train___data___formatter_a36638dccaf14cf8ab597a3f8f0694cfe}{Unigram\_\-Train\_\-Data\_\-Formatter}.
+
+\hypertarget{class_data___formatter_ad7371376f95eddd15fb197a729b28c50}{
+\index{Data\_\-Formatter@{Data\_\-Formatter}!get\_\-dictionary@{get\_\-dictionary}}
+\index{get\_\-dictionary@{get\_\-dictionary}!Data_Formatter@{Data\_\-Formatter}}
+\subsubsection[{get\_\-dictionary}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf WordIndexDictionary}\& Data\_\-Formatter::get\_\-dictionary ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_data___formatter_ad7371376f95eddd15fb197a729b28c50}
+
+
+Return the dictionary being used by the formatter. 
+
+
+
+Implemented in \hyperlink{class_unigram___train___data___formatter_ab406933ef119074cab682cb07c9078b4}{Unigram\_\-Train\_\-Data\_\-Formatter}.
+
+\hypertarget{class_data___formatter_aec61a89d2fc394ac8f28fb502357c90e}{
+\index{Data\_\-Formatter@{Data\_\-Formatter}!get\_\-num\_\-docs@{get\_\-num\_\-docs}}
+\index{get\_\-num\_\-docs@{get\_\-num\_\-docs}!Data_Formatter@{Data\_\-Formatter}}
+\subsubsection[{get\_\-num\_\-docs}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Data\_\-Formatter::get\_\-num\_\-docs ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_data___formatter_aec61a89d2fc394ac8f28fb502357c90e}
+
+
+The number of documents formatted. 
+
+
+
+Implemented in \hyperlink{class_unigram___train___data___formatter_afbc58721bb9c38bdcd2684ef048b6807}{Unigram\_\-Train\_\-Data\_\-Formatter}.
+
+\hypertarget{class_data___formatter_aec312da75df72aa23974051db72e4b69}{
+\index{Data\_\-Formatter@{Data\_\-Formatter}!get\_\-total\_\-num\_\-words@{get\_\-total\_\-num\_\-words}}
+\index{get\_\-total\_\-num\_\-words@{get\_\-total\_\-num\_\-words}!Data_Formatter@{Data\_\-Formatter}}
+\subsubsection[{get\_\-total\_\-num\_\-words}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Data\_\-Formatter::get\_\-total\_\-num\_\-words ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_data___formatter_aec312da75df72aa23974051db72e4b69}
+
+
+The total number of words found. 
+
+
+
+Implemented in \hyperlink{class_unigram___train___data___formatter_a89a89ebbf1d42f49f4e2f86307d47bb8}{Unigram\_\-Train\_\-Data\_\-Formatter}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/commons/Formatter/\hyperlink{_data___formatter_8h}{Data\_\-Formatter.h}\end{DoxyCompactItemize}

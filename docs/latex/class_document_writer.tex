@@ -1,0 +1,47 @@
+\hypertarget{class_document_writer}{
+\section{DocumentWriter Class Reference}
+\label{class_document_writer}\index{DocumentWriter@{DocumentWriter}}
+}
+
+
+{\ttfamily \#include $<$DocumentWriter.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_document_writer_ab13000f42effbe825b5d3cdc7ed9615d}{DocumentWriter} (string w\_\-fname\_\-)
+\item 
+virtual \hyperlink{class_document_writer_a71da55790068366b80289c6da2f936fe}{$\sim$DocumentWriter} ()
+\item 
+bool \hyperlink{class_document_writer_a5d532963d09bdd313cd3c094e8bbff16}{write} (const google::protobuf::Message \&msg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Wrapper around protobuf msgs for convenient writing of words, topics \& (word,index) pairs into word, topic, dictionary dump files respectively. Each msg is written into a binary file in record$\ast$ format where record=(size of serialized msg,msg serialized as string) 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_document_writer_ab13000f42effbe825b5d3cdc7ed9615d}{
+\index{DocumentWriter@{DocumentWriter}!DocumentWriter@{DocumentWriter}}
+\index{DocumentWriter@{DocumentWriter}!DocumentWriter@{DocumentWriter}}
+\subsubsection[{DocumentWriter}]{\setlength{\rightskip}{0pt plus 5cm}DocumentWriter::DocumentWriter (string {\em w\_\-fname\_\-})}}
+\label{class_document_writer_ab13000f42effbe825b5d3cdc7ed9615d}
+Constructs a \hyperlink{class_document_writer}{DocumentWriter} object to write msgs into w\_\-fname and optionally topics to t\_\-fname. You can however choose to ignore the words file if you want to write only topics by setting w\_\-fname\_\-=\char`\"{}\char`\"{} \& using write\_\-topics() method. \hypertarget{class_document_writer_a71da55790068366b80289c6da2f936fe}{
+\index{DocumentWriter@{DocumentWriter}!$\sim$DocumentWriter@{$\sim$DocumentWriter}}
+\index{$\sim$DocumentWriter@{$\sim$DocumentWriter}!DocumentWriter@{DocumentWriter}}
+\subsubsection[{$\sim$DocumentWriter}]{\setlength{\rightskip}{0pt plus 5cm}DocumentWriter::$\sim$DocumentWriter ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_document_writer_a71da55790068366b80289c6da2f936fe}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_document_writer_a5d532963d09bdd313cd3c094e8bbff16}{
+\index{DocumentWriter@{DocumentWriter}!write@{write}}
+\index{write@{write}!DocumentWriter@{DocumentWriter}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}bool DocumentWriter::write (const google::protobuf::Message \& {\em msg})}}
+\label{class_document_writer_a5d532963d09bdd313cd3c094e8bbff16}
+The default method to write a message to w\_\-fname in (size of serialized msg,msg serialized as string)$\ast$ format 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/\hyperlink{_document_writer_8h}{DocumentWriter.h}\item 
+src/commons/\hyperlink{_document_writer_8cpp}{DocumentWriter.cpp}\end{DoxyCompactItemize}

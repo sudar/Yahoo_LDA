@@ -1,0 +1,129 @@
+\hypertarget{class_unigram___model}{
+\section{Unigram\_\-Model Class Reference}
+\label{class_unigram___model}\index{Unigram\_\-Model@{Unigram\_\-Model}}
+}
+
+
+{\ttfamily \#include $<$Unigram\_\-Model.h$>$}
+
+Inheritance diagram for Unigram\_\-Model:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_unigram___model}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_unigram___model_aa86fe0d209d879da85845ac965b81114}{Unigram\_\-Model} (int, int)
+\item 
+virtual \hyperlink{class_unigram___model_ad586c2960ea07499611ca3c35050d8d3}{$\sim$Unigram\_\-Model} ()
+\item 
+\hyperlink{struct_parameter}{Parameter} \& \hyperlink{class_unigram___model_a4019fec4ad9201ff501e9649c7d56dac}{get\_\-parameter} (int)
+\item 
+void \hyperlink{class_unigram___model_a6c75eb8c6c27305b9d37f2425c471c34}{set\_\-parameter} (int, \hyperlink{struct_parameter}{Parameter} \&)
+\item 
+\hyperlink{class_type_topic_counts}{TypeTopicCounts} \& \hyperlink{class_unigram___model_ad658c21f80aed90d7a06bcc627a23032}{get\_\-ttc} ()
+\item 
+double \hyperlink{class_unigram___model_a68837b7da897fc7ce834df31d6930281}{get\_\-eval} ()
+\begin{DoxyCompactList}\small\item\em Model's contribution of log-\/likelihood. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_unigram___model_a8ca0b95bc57583f70035825f1f950314}{save} ()
+\begin{DoxyCompactList}\small\item\em Serialize to disk. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_unigram___model_a15ce4009b3434ea11a5045f8f20ce294}{write\_\-statistics} (\hyperlink{class_word_index_dictionary}{WordIndexDictionary} \&)
+\begin{DoxyCompactList}\small\item\em Explain: word mixtures for the latent topics. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{class_unigram___model_aa5cba2e31940356b03895c5ff509ea4e}{ALPHA} = 1
+\item 
+static const int \hyperlink{class_unigram___model_a863bfe2570e8033eec42004a9b4239f8}{BETA} = 2
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_unigram___model_aa86fe0d209d879da85845ac965b81114}{
+\index{Unigram\_\-Model@{Unigram\_\-Model}!Unigram\_\-Model@{Unigram\_\-Model}}
+\index{Unigram\_\-Model@{Unigram\_\-Model}!Unigram_Model@{Unigram\_\-Model}}
+\subsubsection[{Unigram\_\-Model}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model::Unigram\_\-Model (int {\em num\_\-words}, \/  int {\em num\_\-topics})}}
+\label{class_unigram___model_aa86fe0d209d879da85845ac965b81114}
+\hypertarget{class_unigram___model_ad586c2960ea07499611ca3c35050d8d3}{
+\index{Unigram\_\-Model@{Unigram\_\-Model}!$\sim$Unigram\_\-Model@{$\sim$Unigram\_\-Model}}
+\index{$\sim$Unigram\_\-Model@{$\sim$Unigram\_\-Model}!Unigram_Model@{Unigram\_\-Model}}
+\subsubsection[{$\sim$Unigram\_\-Model}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model::$\sim$Unigram\_\-Model ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model_ad586c2960ea07499611ca3c35050d8d3}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_unigram___model_a68837b7da897fc7ce834df31d6930281}{
+\index{Unigram\_\-Model@{Unigram\_\-Model}!get\_\-eval@{get\_\-eval}}
+\index{get\_\-eval@{get\_\-eval}!Unigram_Model@{Unigram\_\-Model}}
+\subsubsection[{get\_\-eval}]{\setlength{\rightskip}{0pt plus 5cm}double Unigram\_\-Model::get\_\-eval ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model_a68837b7da897fc7ce834df31d6930281}
+
+
+Model's contribution of log-\/likelihood. 
+
+
+
+Implements \hyperlink{class_model_a36d3376040155630afbfcbdc3160c839}{Model}.
+
+\hypertarget{class_unigram___model_a4019fec4ad9201ff501e9649c7d56dac}{
+\index{Unigram\_\-Model@{Unigram\_\-Model}!get\_\-parameter@{get\_\-parameter}}
+\index{get\_\-parameter@{get\_\-parameter}!Unigram_Model@{Unigram\_\-Model}}
+\subsubsection[{get\_\-parameter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parameter} \& Unigram\_\-Model::get\_\-parameter (int {\em which})}}
+\label{class_unigram___model_a4019fec4ad9201ff501e9649c7d56dac}
+\hypertarget{class_unigram___model_ad658c21f80aed90d7a06bcc627a23032}{
+\index{Unigram\_\-Model@{Unigram\_\-Model}!get\_\-ttc@{get\_\-ttc}}
+\index{get\_\-ttc@{get\_\-ttc}!Unigram_Model@{Unigram\_\-Model}}
+\subsubsection[{get\_\-ttc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TypeTopicCounts} \& Unigram\_\-Model::get\_\-ttc ()}}
+\label{class_unigram___model_ad658c21f80aed90d7a06bcc627a23032}
+\hypertarget{class_unigram___model_a8ca0b95bc57583f70035825f1f950314}{
+\index{Unigram\_\-Model@{Unigram\_\-Model}!save@{save}}
+\index{save@{save}!Unigram_Model@{Unigram\_\-Model}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}bool Unigram\_\-Model::save ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model_a8ca0b95bc57583f70035825f1f950314}
+
+
+Serialize to disk. 
+
+
+
+Implements \hyperlink{class_model_a9eb67634d1cbfbbe5758571e230834d4}{Model}.
+
+\hypertarget{class_unigram___model_a6c75eb8c6c27305b9d37f2425c471c34}{
+\index{Unigram\_\-Model@{Unigram\_\-Model}!set\_\-parameter@{set\_\-parameter}}
+\index{set\_\-parameter@{set\_\-parameter}!Unigram_Model@{Unigram\_\-Model}}
+\subsubsection[{set\_\-parameter}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model::set\_\-parameter (int {\em which}, \/  {\bf Parameter} \& {\em param})}}
+\label{class_unigram___model_a6c75eb8c6c27305b9d37f2425c471c34}
+\hypertarget{class_unigram___model_a15ce4009b3434ea11a5045f8f20ce294}{
+\index{Unigram\_\-Model@{Unigram\_\-Model}!write\_\-statistics@{write\_\-statistics}}
+\index{write\_\-statistics@{write\_\-statistics}!Unigram_Model@{Unigram\_\-Model}}
+\subsubsection[{write\_\-statistics}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model::write\_\-statistics ({\bf WordIndexDictionary} \&)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model_a15ce4009b3434ea11a5045f8f20ce294}
+
+
+Explain: word mixtures for the latent topics. 
+
+
+
+Implements \hyperlink{class_model_a166812818e0039417ddeeb661c8bafec}{Model}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_unigram___model_aa5cba2e31940356b03895c5ff509ea4e}{
+\index{Unigram\_\-Model@{Unigram\_\-Model}!ALPHA@{ALPHA}}
+\index{ALPHA@{ALPHA}!Unigram_Model@{Unigram\_\-Model}}
+\subsubsection[{ALPHA}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf Unigram\_\-Model::ALPHA} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_unigram___model_aa5cba2e31940356b03895c5ff509ea4e}
+\hypertarget{class_unigram___model_a863bfe2570e8033eec42004a9b4239f8}{
+\index{Unigram\_\-Model@{Unigram\_\-Model}!BETA@{BETA}}
+\index{BETA@{BETA}!Unigram_Model@{Unigram\_\-Model}}
+\subsubsection[{BETA}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf Unigram\_\-Model::BETA} = 2\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_unigram___model_a863bfe2570e8033eec42004a9b4239f8}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model_8h}{Unigram\_\-Model.h}\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model_8cpp}{Unigram\_\-Model.cpp}\end{DoxyCompactItemize}

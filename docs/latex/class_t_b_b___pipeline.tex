@@ -1,0 +1,269 @@
+\hypertarget{class_t_b_b___pipeline}{
+\section{TBB\_\-Pipeline Class Reference}
+\label{class_t_b_b___pipeline}\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}}
+}
+
+
+{\ttfamily \#include $<$TBB\_\-Pipeline.h$>$}
+
+Inheritance diagram for TBB\_\-Pipeline:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_t_b_b___pipeline}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_t_b_b___pipeline_a561ce191121bc84b60f10e37f68a98ba}{TBB\_\-Pipeline} (\hyperlink{class_model___refiner}{Model\_\-Refiner} \&)
+\item 
+virtual \hyperlink{class_t_b_b___pipeline_a65557a5775e20adea05413e6d61a0395}{$\sim$TBB\_\-Pipeline} ()
+\item 
+void \hyperlink{class_t_b_b___pipeline_aa4730c25bfcb3a817452024c7d77006f}{init} ()
+\item 
+void \hyperlink{class_t_b_b___pipeline_a80c9dfeac28acbbfd58bb74667aed6c0}{add\_\-reader} ()
+\item 
+void \hyperlink{class_t_b_b___pipeline_a366b2c3a7c457132fdf1e37e4176cc2a}{add\_\-sampler} ()
+\item 
+void \hyperlink{class_t_b_b___pipeline_a510fca80eb5804ab4a3fd102e008b166}{add\_\-updater} ()
+\item 
+void \hyperlink{class_t_b_b___pipeline_a69754a3a67b889f107a09cb54a86aa99}{add\_\-optimizer} ()
+\item 
+void \hyperlink{class_t_b_b___pipeline_a8e0e2d2172adea44eceecb7538a69435}{add\_\-eval} ()
+\item 
+void \hyperlink{class_t_b_b___pipeline_ae6c06e4aa81d4141810fe48af846357a}{add\_\-writer} ()
+\item 
+void \hyperlink{class_t_b_b___pipeline_a08d85d063aa95ccc7ff3b637ca626376}{add\_\-tester} ()
+\item 
+void \hyperlink{class_t_b_b___pipeline_abff2c28ffcec8d6483ab5e5fae829600}{clear} ()
+\item 
+void \hyperlink{class_t_b_b___pipeline_aeaa444a64c92dbf4a3e81ba4864d5086}{destroy} ()
+\item 
+void \hyperlink{class_t_b_b___pipeline_a8f7d9f64786ae4269e213bcefab17d2f}{run} ()
+\item 
+\hyperlink{class_model___refiner}{Model\_\-Refiner} \& \hyperlink{class_t_b_b___pipeline_aa1880e8333868d0d0d15edf202cd6a03}{get\_\-refiner} ()
+\item 
+double \hyperlink{class_t_b_b___pipeline_aaa0d5fa5c3095a21692e20763a79d11f}{get\_\-eval} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+task\_\-scheduler\_\-init \hyperlink{class_t_b_b___pipeline_a5afa7b7dd6ea345daf478a30ae856a01}{\_\-init}
+\item 
+tbb::pipeline $\ast$ \hyperlink{class_t_b_b___pipeline_a71a2339f6141d223b204d5cb710b380d}{\_\-pipeline}
+\item 
+\hyperlink{class_model___refiner}{Model\_\-Refiner} \& \hyperlink{class_t_b_b___pipeline_a429639439a653192fbb488fa2b9e7fc1}{\_\-refiner}
+\item 
+filter $\ast$ \hyperlink{class_t_b_b___pipeline_aee550ec35ad5fce3fe82a171334e17b0}{\_\-reader}
+\item 
+filter $\ast$ \hyperlink{class_t_b_b___pipeline_a67ef0e2e97fda0e3a417c7c06eeebb5e}{\_\-sampler}
+\item 
+filter $\ast$ \hyperlink{class_t_b_b___pipeline_a78a0c5508945e6e7f8b1683cb392ff6b}{\_\-updater}
+\item 
+filter $\ast$ \hyperlink{class_t_b_b___pipeline_aa1ee5801dbd1747a71d5e0ea09e8e4fe}{\_\-optimizer}
+\item 
+filter $\ast$ \hyperlink{class_t_b_b___pipeline_a1587eefcdc92c74bc6f3960c1a8ee229}{\_\-eval}
+\item 
+filter $\ast$ \hyperlink{class_t_b_b___pipeline_a4da76c6cef0601a18612938486a0324b}{\_\-writer}
+\item 
+filter $\ast$ \hyperlink{class_t_b_b___pipeline_a846043268728c75f49907f1f06d25be8}{\_\-tester}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An implementation of the \hyperlink{class_pipeline}{Pipeline} interface using Intel's Threading Building Blocks. TBB::filter is the basic unit of computation and TBB::Pipeline puts the filters together.
+
+What filters exist in a pipeline and how the pipeline is executed is implemented via an Execution Strategy
+
+Calling each of the add methods adds that particular filter to the pipeline 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_t_b_b___pipeline_a561ce191121bc84b60f10e37f68a98ba}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!TBB\_\-Pipeline@{TBB\_\-Pipeline}}
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{TBB\_\-Pipeline}]{\setlength{\rightskip}{0pt plus 5cm}TBB\_\-Pipeline::TBB\_\-Pipeline ({\bf Model\_\-Refiner} \& {\em refiner})}}
+\label{class_t_b_b___pipeline_a561ce191121bc84b60f10e37f68a98ba}
+\hypertarget{class_t_b_b___pipeline_a65557a5775e20adea05413e6d61a0395}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!$\sim$TBB\_\-Pipeline@{$\sim$TBB\_\-Pipeline}}
+\index{$\sim$TBB\_\-Pipeline@{$\sim$TBB\_\-Pipeline}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{$\sim$TBB\_\-Pipeline}]{\setlength{\rightskip}{0pt plus 5cm}TBB\_\-Pipeline::$\sim$TBB\_\-Pipeline ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_a65557a5775e20adea05413e6d61a0395}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_t_b_b___pipeline_a8e0e2d2172adea44eceecb7538a69435}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!add\_\-eval@{add\_\-eval}}
+\index{add\_\-eval@{add\_\-eval}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{add\_\-eval}]{\setlength{\rightskip}{0pt plus 5cm}void TBB\_\-Pipeline::add\_\-eval ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_a8e0e2d2172adea44eceecb7538a69435}
+
+
+Implements \hyperlink{class_pipeline_aa6fd3ded1ad9d36ced67ee2f888edd80}{Pipeline}.
+
+\hypertarget{class_t_b_b___pipeline_a69754a3a67b889f107a09cb54a86aa99}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!add\_\-optimizer@{add\_\-optimizer}}
+\index{add\_\-optimizer@{add\_\-optimizer}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{add\_\-optimizer}]{\setlength{\rightskip}{0pt plus 5cm}void TBB\_\-Pipeline::add\_\-optimizer ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_a69754a3a67b889f107a09cb54a86aa99}
+
+
+Implements \hyperlink{class_pipeline_accee7285f24478fa58ad34a9d6bca1f4}{Pipeline}.
+
+\hypertarget{class_t_b_b___pipeline_a80c9dfeac28acbbfd58bb74667aed6c0}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!add\_\-reader@{add\_\-reader}}
+\index{add\_\-reader@{add\_\-reader}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{add\_\-reader}]{\setlength{\rightskip}{0pt plus 5cm}void TBB\_\-Pipeline::add\_\-reader ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_a80c9dfeac28acbbfd58bb74667aed6c0}
+
+
+Implements \hyperlink{class_pipeline_a7919be26846bd13f614f823f180aec42}{Pipeline}.
+
+\hypertarget{class_t_b_b___pipeline_a366b2c3a7c457132fdf1e37e4176cc2a}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!add\_\-sampler@{add\_\-sampler}}
+\index{add\_\-sampler@{add\_\-sampler}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{add\_\-sampler}]{\setlength{\rightskip}{0pt plus 5cm}void TBB\_\-Pipeline::add\_\-sampler ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_a366b2c3a7c457132fdf1e37e4176cc2a}
+
+
+Implements \hyperlink{class_pipeline_aa1bdee70f85f452a2f68c67313d8b2d0}{Pipeline}.
+
+\hypertarget{class_t_b_b___pipeline_a08d85d063aa95ccc7ff3b637ca626376}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!add\_\-tester@{add\_\-tester}}
+\index{add\_\-tester@{add\_\-tester}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{add\_\-tester}]{\setlength{\rightskip}{0pt plus 5cm}void TBB\_\-Pipeline::add\_\-tester ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_a08d85d063aa95ccc7ff3b637ca626376}
+
+
+Implements \hyperlink{class_pipeline_afbc6eaee843ebceca849ed9a5078bd9c}{Pipeline}.
+
+\hypertarget{class_t_b_b___pipeline_a510fca80eb5804ab4a3fd102e008b166}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!add\_\-updater@{add\_\-updater}}
+\index{add\_\-updater@{add\_\-updater}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{add\_\-updater}]{\setlength{\rightskip}{0pt plus 5cm}void TBB\_\-Pipeline::add\_\-updater ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_a510fca80eb5804ab4a3fd102e008b166}
+
+
+Implements \hyperlink{class_pipeline_a60f948a86dd41079ea887a77a0a3614e}{Pipeline}.
+
+\hypertarget{class_t_b_b___pipeline_ae6c06e4aa81d4141810fe48af846357a}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!add\_\-writer@{add\_\-writer}}
+\index{add\_\-writer@{add\_\-writer}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{add\_\-writer}]{\setlength{\rightskip}{0pt plus 5cm}void TBB\_\-Pipeline::add\_\-writer ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_ae6c06e4aa81d4141810fe48af846357a}
+
+
+Implements \hyperlink{class_pipeline_a0dc7f98daffefe534ff469ab3c8336b9}{Pipeline}.
+
+\hypertarget{class_t_b_b___pipeline_abff2c28ffcec8d6483ab5e5fae829600}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!clear@{clear}}
+\index{clear@{clear}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void TBB\_\-Pipeline::clear ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_abff2c28ffcec8d6483ab5e5fae829600}
+
+
+Implements \hyperlink{class_pipeline_a4d58883c3b93f17c56c65474e0179bcb}{Pipeline}.
+
+\hypertarget{class_t_b_b___pipeline_aeaa444a64c92dbf4a3e81ba4864d5086}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!destroy@{destroy}}
+\index{destroy@{destroy}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}void TBB\_\-Pipeline::destroy ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_aeaa444a64c92dbf4a3e81ba4864d5086}
+
+
+Implements \hyperlink{class_pipeline_aa8eaf1bc52b077b4483f28bd97c60abe}{Pipeline}.
+
+\hypertarget{class_t_b_b___pipeline_aaa0d5fa5c3095a21692e20763a79d11f}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!get\_\-eval@{get\_\-eval}}
+\index{get\_\-eval@{get\_\-eval}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{get\_\-eval}]{\setlength{\rightskip}{0pt plus 5cm}double TBB\_\-Pipeline::get\_\-eval ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_aaa0d5fa5c3095a21692e20763a79d11f}
+
+
+Implements \hyperlink{class_pipeline_aabb2894f21a40ef218d08b48e0056671}{Pipeline}.
+
+\hypertarget{class_t_b_b___pipeline_aa1880e8333868d0d0d15edf202cd6a03}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!get\_\-refiner@{get\_\-refiner}}
+\index{get\_\-refiner@{get\_\-refiner}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{get\_\-refiner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\_\-Refiner} \& TBB\_\-Pipeline::get\_\-refiner ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_aa1880e8333868d0d0d15edf202cd6a03}
+
+
+Implements \hyperlink{class_pipeline_af75e9044b4f846daf5dd09064e74b85c}{Pipeline}.
+
+\hypertarget{class_t_b_b___pipeline_aa4730c25bfcb3a817452024c7d77006f}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!init@{init}}
+\index{init@{init}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void TBB\_\-Pipeline::init ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_aa4730c25bfcb3a817452024c7d77006f}
+
+
+Implements \hyperlink{class_pipeline_a4ebb79a6018c72d196f480a4300ac302}{Pipeline}.
+
+\hypertarget{class_t_b_b___pipeline_a8f7d9f64786ae4269e213bcefab17d2f}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!run@{run}}
+\index{run@{run}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void TBB\_\-Pipeline::run ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_t_b_b___pipeline_a8f7d9f64786ae4269e213bcefab17d2f}
+
+
+Implements \hyperlink{class_pipeline_a6d2bae2931edbb5177e1f1aec27ab9c6}{Pipeline}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_t_b_b___pipeline_a1587eefcdc92c74bc6f3960c1a8ee229}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!\_\-eval@{\_\-eval}}
+\index{\_\-eval@{\_\-eval}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{\_\-eval}]{\setlength{\rightskip}{0pt plus 5cm}filter $\ast$ {\bf TBB\_\-Pipeline::\_\-eval}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_t_b_b___pipeline_a1587eefcdc92c74bc6f3960c1a8ee229}
+\hypertarget{class_t_b_b___pipeline_a5afa7b7dd6ea345daf478a30ae856a01}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!\_\-init@{\_\-init}}
+\index{\_\-init@{\_\-init}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}task\_\-scheduler\_\-init {\bf TBB\_\-Pipeline::\_\-init}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_t_b_b___pipeline_a5afa7b7dd6ea345daf478a30ae856a01}
+\hypertarget{class_t_b_b___pipeline_aa1ee5801dbd1747a71d5e0ea09e8e4fe}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!\_\-optimizer@{\_\-optimizer}}
+\index{\_\-optimizer@{\_\-optimizer}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{\_\-optimizer}]{\setlength{\rightskip}{0pt plus 5cm}filter $\ast$ {\bf TBB\_\-Pipeline::\_\-optimizer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_t_b_b___pipeline_aa1ee5801dbd1747a71d5e0ea09e8e4fe}
+\hypertarget{class_t_b_b___pipeline_a71a2339f6141d223b204d5cb710b380d}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!\_\-pipeline@{\_\-pipeline}}
+\index{\_\-pipeline@{\_\-pipeline}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{\_\-pipeline}]{\setlength{\rightskip}{0pt plus 5cm}tbb::pipeline$\ast$ {\bf TBB\_\-Pipeline::\_\-pipeline}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_t_b_b___pipeline_a71a2339f6141d223b204d5cb710b380d}
+\hypertarget{class_t_b_b___pipeline_aee550ec35ad5fce3fe82a171334e17b0}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!\_\-reader@{\_\-reader}}
+\index{\_\-reader@{\_\-reader}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{\_\-reader}]{\setlength{\rightskip}{0pt plus 5cm}filter$\ast$ {\bf TBB\_\-Pipeline::\_\-reader}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_t_b_b___pipeline_aee550ec35ad5fce3fe82a171334e17b0}
+\hypertarget{class_t_b_b___pipeline_a429639439a653192fbb488fa2b9e7fc1}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!\_\-refiner@{\_\-refiner}}
+\index{\_\-refiner@{\_\-refiner}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{\_\-refiner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\_\-Refiner}\& {\bf TBB\_\-Pipeline::\_\-refiner}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_t_b_b___pipeline_a429639439a653192fbb488fa2b9e7fc1}
+\hypertarget{class_t_b_b___pipeline_a67ef0e2e97fda0e3a417c7c06eeebb5e}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!\_\-sampler@{\_\-sampler}}
+\index{\_\-sampler@{\_\-sampler}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{\_\-sampler}]{\setlength{\rightskip}{0pt plus 5cm}filter $\ast$ {\bf TBB\_\-Pipeline::\_\-sampler}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_t_b_b___pipeline_a67ef0e2e97fda0e3a417c7c06eeebb5e}
+\hypertarget{class_t_b_b___pipeline_a846043268728c75f49907f1f06d25be8}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!\_\-tester@{\_\-tester}}
+\index{\_\-tester@{\_\-tester}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{\_\-tester}]{\setlength{\rightskip}{0pt plus 5cm}filter $\ast$ {\bf TBB\_\-Pipeline::\_\-tester}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_t_b_b___pipeline_a846043268728c75f49907f1f06d25be8}
+\hypertarget{class_t_b_b___pipeline_a78a0c5508945e6e7f8b1683cb392ff6b}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!\_\-updater@{\_\-updater}}
+\index{\_\-updater@{\_\-updater}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{\_\-updater}]{\setlength{\rightskip}{0pt plus 5cm}filter $\ast$ {\bf TBB\_\-Pipeline::\_\-updater}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_t_b_b___pipeline_a78a0c5508945e6e7f8b1683cb392ff6b}
+\hypertarget{class_t_b_b___pipeline_a4da76c6cef0601a18612938486a0324b}{
+\index{TBB\_\-Pipeline@{TBB\_\-Pipeline}!\_\-writer@{\_\-writer}}
+\index{\_\-writer@{\_\-writer}!TBB_Pipeline@{TBB\_\-Pipeline}}
+\subsubsection[{\_\-writer}]{\setlength{\rightskip}{0pt plus 5cm}filter $\ast$ {\bf TBB\_\-Pipeline::\_\-writer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_t_b_b___pipeline_a4da76c6cef0601a18612938486a0324b}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_t_b_b___pipeline_8h}{TBB\_\-Pipeline.h}\item 
+src/commons/TopicLearner/\hyperlink{_t_b_b___pipeline_8cpp}{TBB\_\-Pipeline.cpp}\end{DoxyCompactItemize}

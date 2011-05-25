@@ -1,0 +1,94 @@
+\hypertarget{class_p_n_g_callback}{
+\section{PNGCallback Class Reference}
+\label{class_p_n_g_callback}\index{PNGCallback@{PNGCallback}}
+}
+
+
+The call back object for the Put and Get AMI.  
+
+
+
+
+{\ttfamily \#include $<$DM\_\-Client.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_p_n_g_callback_a5171eeb1412a198a7645858067ee0e32}{PNGCallback} (\hyperlink{class_synchronizer___helper}{Synchronizer\_\-Helper} \&sync\_\-helper, int num\_\-msgs)
+\begin{DoxyCompactList}\small\item\em The sync\_\-helper and the max num of msgs to track. \item\end{DoxyCompactList}\item 
+\hyperlink{class_p_n_g_callback_ac3e33d408123c2cfafef78a38652fdaa}{$\sim$PNGCallback} ()
+\item 
+bool \hyperlink{class_p_n_g_callback_ad596e1f14c89d03e3f18cb71833d02c5}{wait\_\-till\_\-done} (int msg\_\-id)
+\begin{DoxyCompactList}\small\item\em Wait till the server responds to msg with id msg\_\-id. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_p_n_g_callback_acdc65eaca43bead9c0f08cfe5e9e5338}{set\_\-done} (int msg\_\-id, bool status)
+\begin{DoxyCompactList}\small\item\em set or clear the status flag for a particular msg\_\-id \item\end{DoxyCompactList}\item 
+int \hyperlink{class_p_n_g_callback_a29f77829fce8f6a82032ece93fc8226e}{num\_\-synchs} ()
+\begin{DoxyCompactList}\small\item\em Provides the number of completed AMI callbacks. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_p_n_g_callback_a568d03d9ea319a1b2d7207b25a3847a5}{finished} (const Ice::AsyncResultPtr \&r)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The call back object for the Put and Get AMI. Ice calls the finished method once the AMI completes. The client is not tied to any particular call back. The actual call back is provided by a helper class, the sync\_\-helper whose end method is called to complete the full AMI call.
+
+This call back class also doubles up as a rate limiter implementing a sliding window mechanism for sending messages to the server.
+
+Given a max number of msgs, it creates an array to track the status of the msgs that have been sent to the server
+
+It provides a monitor based wait mechanism for the client which can wait till the server responds back to a particular msg. We take the liberty of making a fcfs assumption on the server side processing for keeping things simple. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_p_n_g_callback_a5171eeb1412a198a7645858067ee0e32}{
+\index{PNGCallback@{PNGCallback}!PNGCallback@{PNGCallback}}
+\index{PNGCallback@{PNGCallback}!PNGCallback@{PNGCallback}}
+\subsubsection[{PNGCallback}]{\setlength{\rightskip}{0pt plus 5cm}PNGCallback::PNGCallback ({\bf Synchronizer\_\-Helper} \& {\em sync\_\-helper}, \/  int {\em num\_\-msgs})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_p_n_g_callback_a5171eeb1412a198a7645858067ee0e32}
+
+
+The sync\_\-helper and the max num of msgs to track. 
+
+\hypertarget{class_p_n_g_callback_ac3e33d408123c2cfafef78a38652fdaa}{
+\index{PNGCallback@{PNGCallback}!$\sim$PNGCallback@{$\sim$PNGCallback}}
+\index{$\sim$PNGCallback@{$\sim$PNGCallback}!PNGCallback@{PNGCallback}}
+\subsubsection[{$\sim$PNGCallback}]{\setlength{\rightskip}{0pt plus 5cm}PNGCallback::$\sim$PNGCallback ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_p_n_g_callback_ac3e33d408123c2cfafef78a38652fdaa}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_p_n_g_callback_a568d03d9ea319a1b2d7207b25a3847a5}{
+\index{PNGCallback@{PNGCallback}!finished@{finished}}
+\index{finished@{finished}!PNGCallback@{PNGCallback}}
+\subsubsection[{finished}]{\setlength{\rightskip}{0pt plus 5cm}void PNGCallback::finished (const Ice::AsyncResultPtr \& {\em r})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_p_n_g_callback_a568d03d9ea319a1b2d7207b25a3847a5}
+This method is called by Ice run time when the server responds. We do some bookkeeping and delegate the task of actually completing the AMI by calling sync\_\-helper.end method \hypertarget{class_p_n_g_callback_a29f77829fce8f6a82032ece93fc8226e}{
+\index{PNGCallback@{PNGCallback}!num\_\-synchs@{num\_\-synchs}}
+\index{num\_\-synchs@{num\_\-synchs}!PNGCallback@{PNGCallback}}
+\subsubsection[{num\_\-synchs}]{\setlength{\rightskip}{0pt plus 5cm}int PNGCallback::num\_\-synchs ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_p_n_g_callback_a29f77829fce8f6a82032ece93fc8226e}
+
+
+Provides the number of completed AMI callbacks. 
+
+\hypertarget{class_p_n_g_callback_acdc65eaca43bead9c0f08cfe5e9e5338}{
+\index{PNGCallback@{PNGCallback}!set\_\-done@{set\_\-done}}
+\index{set\_\-done@{set\_\-done}!PNGCallback@{PNGCallback}}
+\subsubsection[{set\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}void PNGCallback::set\_\-done (int {\em msg\_\-id}, \/  bool {\em status})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_p_n_g_callback_acdc65eaca43bead9c0f08cfe5e9e5338}
+
+
+set or clear the status flag for a particular msg\_\-id 
+
+\hypertarget{class_p_n_g_callback_ad596e1f14c89d03e3f18cb71833d02c5}{
+\index{PNGCallback@{PNGCallback}!wait\_\-till\_\-done@{wait\_\-till\_\-done}}
+\index{wait\_\-till\_\-done@{wait\_\-till\_\-done}!PNGCallback@{PNGCallback}}
+\subsubsection[{wait\_\-till\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}bool PNGCallback::wait\_\-till\_\-done (int {\em msg\_\-id})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_p_n_g_callback_ad596e1f14c89d03e3f18cb71833d02c5}
+
+
+Wait till the server responds to msg with id msg\_\-id. 
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_d_m___client_8h}{DM\_\-Client.h}\end{DoxyCompactItemize}

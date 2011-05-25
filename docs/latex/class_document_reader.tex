@@ -1,0 +1,47 @@
+\hypertarget{class_document_reader}{
+\section{DocumentReader Class Reference}
+\label{class_document_reader}\index{DocumentReader@{DocumentReader}}
+}
+
+
+{\ttfamily \#include $<$DocumentReader.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_document_reader_acd670709e278e782a5a9c79d86ebd086}{DocumentReader} (string w\_\-fname\_\-)
+\item 
+virtual \hyperlink{class_document_reader_a7f2c184fd2e50aac424543a74373c329}{$\sim$DocumentReader} ()
+\item 
+int \hyperlink{class_document_reader_a9a3ef697689b237ae93d4d6a1ef73797}{read} (google::protobuf::Message $\ast$msg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Wrapper around protobuf messages for convenient reading of words, topics \& (word,index) pairs from word, topic, dictionary dump files respectively. Assumes that each msg is in a binary file in record$\ast$ format where record=(size of serialized msg,msg serialized as string) 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_document_reader_acd670709e278e782a5a9c79d86ebd086}{
+\index{DocumentReader@{DocumentReader}!DocumentReader@{DocumentReader}}
+\index{DocumentReader@{DocumentReader}!DocumentReader@{DocumentReader}}
+\subsubsection[{DocumentReader}]{\setlength{\rightskip}{0pt plus 5cm}DocumentReader::DocumentReader (string {\em w\_\-fname\_\-})}}
+\label{class_document_reader_acd670709e278e782a5a9c79d86ebd086}
+Constructs a \hyperlink{class_document_reader}{DocumentReader} object to read msgs from w\_\-fname and optionally topics from t\_\-fname \hypertarget{class_document_reader_a7f2c184fd2e50aac424543a74373c329}{
+\index{DocumentReader@{DocumentReader}!$\sim$DocumentReader@{$\sim$DocumentReader}}
+\index{$\sim$DocumentReader@{$\sim$DocumentReader}!DocumentReader@{DocumentReader}}
+\subsubsection[{$\sim$DocumentReader}]{\setlength{\rightskip}{0pt plus 5cm}DocumentReader::$\sim$DocumentReader ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_document_reader_a7f2c184fd2e50aac424543a74373c329}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_document_reader_a9a3ef697689b237ae93d4d6a1ef73797}{
+\index{DocumentReader@{DocumentReader}!read@{read}}
+\index{read@{read}!DocumentReader@{DocumentReader}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}int DocumentReader::read (google::protobuf::Message $\ast$ {\em msg})}}
+\label{class_document_reader_a9a3ef697689b237ae93d4d6a1ef73797}
+The default method to read a message from w\_\-fname which is in (size of serialized msg,msg serialized as string)$\ast$ format 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/\hyperlink{_document_reader_8h}{DocumentReader.h}\item 
+src/commons/\hyperlink{_document_reader_8cpp}{DocumentReader.cpp}\end{DoxyCompactItemize}

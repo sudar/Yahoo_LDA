@@ -1,0 +1,203 @@
+\hypertarget{class_global_table_1_1_distributed_map}{
+\section{GlobalTable::DistributedMap Class Reference}
+\label{class_global_table_1_1_distributed_map}\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+}
+
+
+{\ttfamily \#include $<$DistributedMap.h$>$}
+
+Inheritance diagram for GlobalTable::DistributedMap:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_global_table_1_1_distributed_map}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{namespace_global_table_a54672ca2efff5152d9759b4eb9957676}{DistributedMapPrx} \hyperlink{class_global_table_1_1_distributed_map_a9c12eff07798c7a775fc2f2e91d7f240}{ProxyType}
+\item 
+typedef \hyperlink{namespace_global_table_a37c83cf33bd6e59c8b648a60e1309e5b}{DistributedMapPtr} \hyperlink{class_global_table_1_1_distributed_map_a72fa66c995c2be63800ed403c30b64ad}{PointerType}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual ::Ice::ObjectPtr \hyperlink{class_global_table_1_1_distributed_map_a4a8b48c7d1b425910616cc6dc3aff56d}{ice\_\-clone} () const 
+\item 
+virtual bool \hyperlink{class_global_table_1_1_distributed_map_a1647e32806d42ace0aecb773bd96959f}{ice\_\-isA} (const ::std::string \&, const ::Ice::Current \&=::Ice::Current()) const 
+\item 
+virtual ::std::vector$<$ ::std::string $>$ \hyperlink{class_global_table_1_1_distributed_map_a3160cec3051d85a8fbaf4e97ba47f342}{ice\_\-ids} (const ::Ice::Current \&=::Ice::Current()) const 
+\item 
+virtual const ::std::string \& \hyperlink{class_global_table_1_1_distributed_map_ac76200d6aeeac0d53b68e04312dbd9c9}{ice\_\-id} (const ::Ice::Current \&=::Ice::Current()) const 
+\item 
+virtual void \hyperlink{class_global_table_1_1_distributed_map_a13884a4b83237c7f4809f162ed470404}{put} (const ::std::string \&, const ::std::string \&, const ::Ice::Current \&=::Ice::Current())=0
+\item 
+::Ice::DispatchStatus \hyperlink{class_global_table_1_1_distributed_map_af3512ae03f3c215d69d52f46b6341385}{\_\-\_\-\_\-put} (::IceInternal::Incoming \&, const ::Ice::Current \&)
+\item 
+virtual void \hyperlink{class_global_table_1_1_distributed_map_a6d83cd25ead69ddbe7c756646ee3a9c1}{set} (const ::std::string \&, const ::std::string \&, const ::Ice::Current \&=::Ice::Current())=0
+\item 
+::Ice::DispatchStatus \hyperlink{class_global_table_1_1_distributed_map_a936c60bcc14ff6df79444825a45262a6}{\_\-\_\-\_\-set} (::IceInternal::Incoming \&, const ::Ice::Current \&)
+\item 
+virtual bool \hyperlink{class_global_table_1_1_distributed_map_af961f29730e0bb80e3c8a9fd2ce0a5a7}{remove} (const ::std::string \&,::std::string \&, const ::Ice::Current \&=::Ice::Current())=0
+\item 
+::Ice::DispatchStatus \hyperlink{class_global_table_1_1_distributed_map_ad4122b38aa7a4fd717eb67c0bb94e209}{\_\-\_\-\_\-remove} (::IceInternal::Incoming \&, const ::Ice::Current \&)
+\item 
+virtual void \hyperlink{class_global_table_1_1_distributed_map_a32186a130b563bcc04707277dd3e600b}{putNget\_\-async} (const ::\hyperlink{namespace_global_table_a428cb1ad01dcd657dfcfef5d25f3ac5a}{GlobalTable::AMD\_\-DistributedMap\_\-putNgetPtr} \&, const ::std::string \&, const ::std::string \&, const ::Ice::Current \&=::Ice::Current())=0
+\item 
+::Ice::DispatchStatus \hyperlink{class_global_table_1_1_distributed_map_af93cc87ef0ac309db7d414c033db31e6}{\_\-\_\-\_\-putNget} (::IceInternal::Incoming \&, const ::Ice::Current \&)
+\item 
+virtual bool \hyperlink{class_global_table_1_1_distributed_map_a5a434538e73a409df08c2c37829b77ef}{get} (const ::std::string \&,::std::string \&, const ::Ice::Current \&=::Ice::Current())=0
+\item 
+::Ice::DispatchStatus \hyperlink{class_global_table_1_1_distributed_map_a5a40a86ee15c5e514ad11d40f9d2d933}{\_\-\_\-\_\-get} (::IceInternal::Incoming \&, const ::Ice::Current \&)
+\item 
+virtual void \hyperlink{class_global_table_1_1_distributed_map_a776b9313fa65f6d2c32b8820247045c2}{waitForAllClients\_\-async} (const ::\hyperlink{namespace_global_table_af3e96d293fa3f6f274f78b841b3c3097}{GlobalTable::AMD\_\-DistributedMap\_\-waitForAllClientsPtr} \&, const ::Ice::Current \&=::Ice::Current())=0
+\item 
+::Ice::DispatchStatus \hyperlink{class_global_table_1_1_distributed_map_addf6be4bfe092e27935eba59a1b61dcb}{\_\-\_\-\_\-waitForAllClients} (::IceInternal::Incoming \&, const ::Ice::Current \&)
+\item 
+virtual ::Ice::DispatchStatus \hyperlink{class_global_table_1_1_distributed_map_a759c073848cc37b788357c0ce5115119}{\_\-\_\-dispatch} (::IceInternal::Incoming \&, const ::Ice::Current \&)
+\item 
+virtual void \hyperlink{class_global_table_1_1_distributed_map_a9965a47daa0af75e64fd2f1428f94d5a}{\_\-\_\-write} (::IceInternal::BasicStream $\ast$) const 
+\item 
+virtual void \hyperlink{class_global_table_1_1_distributed_map_a077b9be47f7dd5a4b4e2ff72ece9b7bc}{\_\-\_\-read} (::IceInternal::BasicStream $\ast$, bool)
+\item 
+virtual void \hyperlink{class_global_table_1_1_distributed_map_a862fa3febeee2772f21a144f35d97fd5}{\_\-\_\-write} (const ::Ice::OutputStreamPtr \&) const 
+\item 
+virtual void \hyperlink{class_global_table_1_1_distributed_map_aad7fc00a443c0ded6693678f41683892}{\_\-\_\-read} (const ::Ice::InputStreamPtr \&, bool)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const ::std::string \& \hyperlink{class_global_table_1_1_distributed_map_a8c59ff096e7f3257afbaa41c3d6e6905}{ice\_\-staticId} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_global_table_1_1_distributed_map_a72fa66c995c2be63800ed403c30b64ad}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!PointerType@{PointerType}}
+\index{PointerType@{PointerType}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{PointerType}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf DistributedMapPtr} {\bf GlobalTable::DistributedMap::PointerType}}}
+\label{class_global_table_1_1_distributed_map_a72fa66c995c2be63800ed403c30b64ad}
+\hypertarget{class_global_table_1_1_distributed_map_a9c12eff07798c7a775fc2f2e91d7f240}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!ProxyType@{ProxyType}}
+\index{ProxyType@{ProxyType}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{ProxyType}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf DistributedMapPrx} {\bf GlobalTable::DistributedMap::ProxyType}}}
+\label{class_global_table_1_1_distributed_map_a9c12eff07798c7a775fc2f2e91d7f240}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_global_table_1_1_distributed_map_a5a40a86ee15c5e514ad11d40f9d2d933}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!\_\-\_\-\_\-get@{\_\-\_\-\_\-get}}
+\index{\_\-\_\-\_\-get@{\_\-\_\-\_\-get}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{\_\-\_\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}Ice::DispatchStatus GlobalTable::DistributedMap::\_\-\_\-\_\-get (::IceInternal::Incoming \& {\em \_\-\_\-inS}, \/  const ::Ice::Current \& {\em \_\-\_\-current})}}
+\label{class_global_table_1_1_distributed_map_a5a40a86ee15c5e514ad11d40f9d2d933}
+\hypertarget{class_global_table_1_1_distributed_map_af3512ae03f3c215d69d52f46b6341385}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!\_\-\_\-\_\-put@{\_\-\_\-\_\-put}}
+\index{\_\-\_\-\_\-put@{\_\-\_\-\_\-put}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{\_\-\_\-\_\-put}]{\setlength{\rightskip}{0pt plus 5cm}Ice::DispatchStatus GlobalTable::DistributedMap::\_\-\_\-\_\-put (::IceInternal::Incoming \& {\em \_\-\_\-inS}, \/  const ::Ice::Current \& {\em \_\-\_\-current})}}
+\label{class_global_table_1_1_distributed_map_af3512ae03f3c215d69d52f46b6341385}
+\hypertarget{class_global_table_1_1_distributed_map_af93cc87ef0ac309db7d414c033db31e6}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!\_\-\_\-\_\-putNget@{\_\-\_\-\_\-putNget}}
+\index{\_\-\_\-\_\-putNget@{\_\-\_\-\_\-putNget}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{\_\-\_\-\_\-putNget}]{\setlength{\rightskip}{0pt plus 5cm}Ice::DispatchStatus GlobalTable::DistributedMap::\_\-\_\-\_\-putNget (::IceInternal::Incoming \& {\em \_\-\_\-inS}, \/  const ::Ice::Current \& {\em \_\-\_\-current})}}
+\label{class_global_table_1_1_distributed_map_af93cc87ef0ac309db7d414c033db31e6}
+\hypertarget{class_global_table_1_1_distributed_map_ad4122b38aa7a4fd717eb67c0bb94e209}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!\_\-\_\-\_\-remove@{\_\-\_\-\_\-remove}}
+\index{\_\-\_\-\_\-remove@{\_\-\_\-\_\-remove}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{\_\-\_\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}Ice::DispatchStatus GlobalTable::DistributedMap::\_\-\_\-\_\-remove (::IceInternal::Incoming \& {\em \_\-\_\-inS}, \/  const ::Ice::Current \& {\em \_\-\_\-current})}}
+\label{class_global_table_1_1_distributed_map_ad4122b38aa7a4fd717eb67c0bb94e209}
+\hypertarget{class_global_table_1_1_distributed_map_a936c60bcc14ff6df79444825a45262a6}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!\_\-\_\-\_\-set@{\_\-\_\-\_\-set}}
+\index{\_\-\_\-\_\-set@{\_\-\_\-\_\-set}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{\_\-\_\-\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}Ice::DispatchStatus GlobalTable::DistributedMap::\_\-\_\-\_\-set (::IceInternal::Incoming \& {\em \_\-\_\-inS}, \/  const ::Ice::Current \& {\em \_\-\_\-current})}}
+\label{class_global_table_1_1_distributed_map_a936c60bcc14ff6df79444825a45262a6}
+\hypertarget{class_global_table_1_1_distributed_map_addf6be4bfe092e27935eba59a1b61dcb}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!\_\-\_\-\_\-waitForAllClients@{\_\-\_\-\_\-waitForAllClients}}
+\index{\_\-\_\-\_\-waitForAllClients@{\_\-\_\-\_\-waitForAllClients}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{\_\-\_\-\_\-waitForAllClients}]{\setlength{\rightskip}{0pt plus 5cm}Ice::DispatchStatus GlobalTable::DistributedMap::\_\-\_\-\_\-waitForAllClients (::IceInternal::Incoming \& {\em \_\-\_\-inS}, \/  const ::Ice::Current \& {\em \_\-\_\-current})}}
+\label{class_global_table_1_1_distributed_map_addf6be4bfe092e27935eba59a1b61dcb}
+\hypertarget{class_global_table_1_1_distributed_map_a759c073848cc37b788357c0ce5115119}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!\_\-\_\-dispatch@{\_\-\_\-dispatch}}
+\index{\_\-\_\-dispatch@{\_\-\_\-dispatch}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{\_\-\_\-dispatch}]{\setlength{\rightskip}{0pt plus 5cm}Ice::DispatchStatus GlobalTable::DistributedMap::\_\-\_\-dispatch (::IceInternal::Incoming \& {\em in}, \/  const ::Ice::Current \& {\em current})}}
+\label{class_global_table_1_1_distributed_map_a759c073848cc37b788357c0ce5115119}
+\hypertarget{class_global_table_1_1_distributed_map_aad7fc00a443c0ded6693678f41683892}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!\_\-\_\-read@{\_\-\_\-read}}
+\index{\_\-\_\-read@{\_\-\_\-read}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{\_\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}void GlobalTable::DistributedMap::\_\-\_\-read (const ::Ice::InputStreamPtr \&, \/  bool)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_aad7fc00a443c0ded6693678f41683892}
+\hypertarget{class_global_table_1_1_distributed_map_a077b9be47f7dd5a4b4e2ff72ece9b7bc}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!\_\-\_\-read@{\_\-\_\-read}}
+\index{\_\-\_\-read@{\_\-\_\-read}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{\_\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}void GlobalTable::DistributedMap::\_\-\_\-read (::IceInternal::BasicStream $\ast$ {\em \_\-\_\-is}, \/  bool {\em \_\-\_\-rid})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_a077b9be47f7dd5a4b4e2ff72ece9b7bc}
+\hypertarget{class_global_table_1_1_distributed_map_a862fa3febeee2772f21a144f35d97fd5}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!\_\-\_\-write@{\_\-\_\-write}}
+\index{\_\-\_\-write@{\_\-\_\-write}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{\_\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}void GlobalTable::DistributedMap::\_\-\_\-write (const ::Ice::OutputStreamPtr \&) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_a862fa3febeee2772f21a144f35d97fd5}
+\hypertarget{class_global_table_1_1_distributed_map_a9965a47daa0af75e64fd2f1428f94d5a}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!\_\-\_\-write@{\_\-\_\-write}}
+\index{\_\-\_\-write@{\_\-\_\-write}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{\_\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}void GlobalTable::DistributedMap::\_\-\_\-write (::IceInternal::BasicStream $\ast$ {\em \_\-\_\-os}) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_a9965a47daa0af75e64fd2f1428f94d5a}
+\hypertarget{class_global_table_1_1_distributed_map_a5a434538e73a409df08c2c37829b77ef}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!get@{get}}
+\index{get@{get}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool GlobalTable::DistributedMap::get (const ::std::string \&, \/  ::std::string \&, \/  const ::Ice::Current \& = {\ttfamily ::Ice::Current()})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_a5a434538e73a409df08c2c37829b77ef}
+\hypertarget{class_global_table_1_1_distributed_map_a4a8b48c7d1b425910616cc6dc3aff56d}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!ice\_\-clone@{ice\_\-clone}}
+\index{ice\_\-clone@{ice\_\-clone}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{ice\_\-clone}]{\setlength{\rightskip}{0pt plus 5cm}Ice::ObjectPtr GlobalTable::DistributedMap::ice\_\-clone () const}}
+\label{class_global_table_1_1_distributed_map_a4a8b48c7d1b425910616cc6dc3aff56d}
+\hypertarget{class_global_table_1_1_distributed_map_ac76200d6aeeac0d53b68e04312dbd9c9}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!ice\_\-id@{ice\_\-id}}
+\index{ice\_\-id@{ice\_\-id}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{ice\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}const ::std::string \& GlobalTable::DistributedMap::ice\_\-id (const ::Ice::Current \& = {\ttfamily ::Ice::Current()}) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_ac76200d6aeeac0d53b68e04312dbd9c9}
+\hypertarget{class_global_table_1_1_distributed_map_a3160cec3051d85a8fbaf4e97ba47f342}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!ice\_\-ids@{ice\_\-ids}}
+\index{ice\_\-ids@{ice\_\-ids}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{ice\_\-ids}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$::std::string $>$ GlobalTable::DistributedMap::ice\_\-ids (const ::Ice::Current \& = {\ttfamily ::Ice::Current()}) const}}
+\label{class_global_table_1_1_distributed_map_a3160cec3051d85a8fbaf4e97ba47f342}
+\hypertarget{class_global_table_1_1_distributed_map_a1647e32806d42ace0aecb773bd96959f}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!ice\_\-isA@{ice\_\-isA}}
+\index{ice\_\-isA@{ice\_\-isA}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{ice\_\-isA}]{\setlength{\rightskip}{0pt plus 5cm}bool GlobalTable::DistributedMap::ice\_\-isA (const ::std::string \& {\em \_\-s}, \/  const ::Ice::Current \& = {\ttfamily ::Ice::Current()}) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_a1647e32806d42ace0aecb773bd96959f}
+\hypertarget{class_global_table_1_1_distributed_map_a8c59ff096e7f3257afbaa41c3d6e6905}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!ice\_\-staticId@{ice\_\-staticId}}
+\index{ice\_\-staticId@{ice\_\-staticId}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{ice\_\-staticId}]{\setlength{\rightskip}{0pt plus 5cm}const ::std::string \& GlobalTable::DistributedMap::ice\_\-staticId ()\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_a8c59ff096e7f3257afbaa41c3d6e6905}
+\hypertarget{class_global_table_1_1_distributed_map_a13884a4b83237c7f4809f162ed470404}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!put@{put}}
+\index{put@{put}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GlobalTable::DistributedMap::put (const ::std::string \&, \/  const ::std::string \&, \/  const ::Ice::Current \& = {\ttfamily ::Ice::Current()})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_a13884a4b83237c7f4809f162ed470404}
+\hypertarget{class_global_table_1_1_distributed_map_a32186a130b563bcc04707277dd3e600b}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!putNget\_\-async@{putNget\_\-async}}
+\index{putNget\_\-async@{putNget\_\-async}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{putNget\_\-async}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GlobalTable::DistributedMap::putNget\_\-async (const ::{\bf GlobalTable::AMD\_\-DistributedMap\_\-putNgetPtr} \&, \/  const ::std::string \&, \/  const ::std::string \&, \/  const ::Ice::Current \& = {\ttfamily ::Ice::Current()})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_a32186a130b563bcc04707277dd3e600b}
+\hypertarget{class_global_table_1_1_distributed_map_af961f29730e0bb80e3c8a9fd2ce0a5a7}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!remove@{remove}}
+\index{remove@{remove}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool GlobalTable::DistributedMap::remove (const ::std::string \&, \/  ::std::string \&, \/  const ::Ice::Current \& = {\ttfamily ::Ice::Current()})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_af961f29730e0bb80e3c8a9fd2ce0a5a7}
+\hypertarget{class_global_table_1_1_distributed_map_a6d83cd25ead69ddbe7c756646ee3a9c1}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!set@{set}}
+\index{set@{set}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GlobalTable::DistributedMap::set (const ::std::string \&, \/  const ::std::string \&, \/  const ::Ice::Current \& = {\ttfamily ::Ice::Current()})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_a6d83cd25ead69ddbe7c756646ee3a9c1}
+\hypertarget{class_global_table_1_1_distributed_map_a776b9313fa65f6d2c32b8820247045c2}{
+\index{GlobalTable::DistributedMap@{GlobalTable::DistributedMap}!waitForAllClients\_\-async@{waitForAllClients\_\-async}}
+\index{waitForAllClients\_\-async@{waitForAllClients\_\-async}!GlobalTable::DistributedMap@{GlobalTable::DistributedMap}}
+\subsubsection[{waitForAllClients\_\-async}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GlobalTable::DistributedMap::waitForAllClients\_\-async (const ::{\bf GlobalTable::AMD\_\-DistributedMap\_\-waitForAllClientsPtr} \&, \/  const ::Ice::Current \& = {\ttfamily ::Ice::Current()})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_global_table_1_1_distributed_map_a776b9313fa65f6d2c32b8820247045c2}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/Server/\hyperlink{_distributed_map_8h}{DistributedMap.h}\item 
+src/commons/Server/\hyperlink{_distributed_map_8cpp}{DistributedMap.cpp}\end{DoxyCompactItemize}

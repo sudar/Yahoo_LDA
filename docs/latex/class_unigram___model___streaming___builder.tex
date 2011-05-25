@@ -1,0 +1,163 @@
+\hypertarget{class_unigram___model___streaming___builder}{
+\section{Unigram\_\-Model\_\-Streaming\_\-Builder Class Reference}
+\label{class_unigram___model___streaming___builder}\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+}
+
+
+{\ttfamily \#include $<$Unigram\_\-Model\_\-Streaming\_\-Builder.h$>$}
+
+Inheritance diagram for Unigram\_\-Model\_\-Streaming\_\-Builder:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_unigram___model___streaming___builder}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_unigram___model___streaming___builder_a44b21e7bd2e8cb1c60bfea440096fe7a}{Unigram\_\-Model\_\-Streaming\_\-Builder} ()
+\item 
+virtual \hyperlink{class_unigram___model___streaming___builder_ad0dfdc71d21460ed1d16fa3585051500}{$\sim$Unigram\_\-Model\_\-Streaming\_\-Builder} ()
+\item 
+virtual \hyperlink{class_model___refiner}{Model\_\-Refiner} \& \hyperlink{class_unigram___model___streaming___builder_a99deeb4b433573561f57df03c4d10bd2}{create\_\-model\_\-refiner} ()
+\item 
+virtual \hyperlink{class_pipeline}{Pipeline} \& \hyperlink{class_unigram___model___streaming___builder_af846cbebd1061196deaae3ec1ae7e7c2}{create\_\-pipeline} (\hyperlink{class_model___refiner}{Model\_\-Refiner} \&)
+\item 
+virtual \hyperlink{class_execution___strategy}{Execution\_\-Strategy} \& \hyperlink{class_unigram___model___streaming___builder_abd9759893f1f7da00cf5b4b1abc68064}{create\_\-execution\_\-strategy} (\hyperlink{class_pipeline}{Pipeline} \&)
+\item 
+void \hyperlink{class_unigram___model___streaming___builder_a82ebccd666a5c8f46886323a323679e6}{create\_\-output} ()
+\item 
+\hyperlink{class_model}{Model} \& \hyperlink{class_unigram___model___streaming___builder_a9afdd36c7ece8fa1ad87fa1b3f898d20}{get\_\-model} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_unigram___model___streaming___builder_adeef20b390c1f3801a6dfec0b297caee}{init\_\-dict} ()
+\item 
+\hyperlink{class_word_index_dictionary}{WordIndexDictionary} \& \hyperlink{class_unigram___model___streaming___builder_a5f29e8eaf012c9112c69155cb50a11da}{get\_\-dict} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_unigram___model}{Unigram\_\-Model} $\ast$ \hyperlink{class_unigram___model___streaming___builder_aec55472cf6c9e808387eaecc5db3c285}{\_\-model}
+\item 
+\hyperlink{class_word_index_dictionary}{WordIndexDictionary} $\ast$ \hyperlink{class_unigram___model___streaming___builder_ac7c2b9038dac10bcd773e0e16d31818b}{\_\-dict}
+\item 
+\hyperlink{class_word_index_dictionary}{WordIndexDictionary} $\ast$ \hyperlink{class_unigram___model___streaming___builder_acd6b7ee8e92d9e6b6a1fb7dba376050a}{\_\-global\_\-dict}
+\item 
+\hyperlink{class_model___refiner}{Model\_\-Refiner} $\ast$ \hyperlink{class_unigram___model___streaming___builder_a8ecadb0794c19faa329ec649c3971af7}{\_\-refiner}
+\item 
+\hyperlink{class_pipeline}{Pipeline} $\ast$ \hyperlink{class_unigram___model___streaming___builder_a92fea933c39e4671079e895ff3d1911e}{\_\-pipeline}
+\item 
+\hyperlink{class_execution___strategy}{Execution\_\-Strategy} $\ast$ \hyperlink{class_unigram___model___streaming___builder_af5e8797481308aca8fc2b1528fa0fde7}{\_\-strategy}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_unigram___model___streaming___builder_a44b21e7bd2e8cb1c60bfea440096fe7a}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{Unigram\_\-Model\_\-Streaming\_\-Builder}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model\_\-Streaming\_\-Builder::Unigram\_\-Model\_\-Streaming\_\-Builder ()}}
+\label{class_unigram___model___streaming___builder_a44b21e7bd2e8cb1c60bfea440096fe7a}
+\hypertarget{class_unigram___model___streaming___builder_ad0dfdc71d21460ed1d16fa3585051500}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!$\sim$Unigram\_\-Model\_\-Streaming\_\-Builder@{$\sim$Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\index{$\sim$Unigram\_\-Model\_\-Streaming\_\-Builder@{$\sim$Unigram\_\-Model\_\-Streaming\_\-Builder}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{$\sim$Unigram\_\-Model\_\-Streaming\_\-Builder}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model\_\-Streaming\_\-Builder::$\sim$Unigram\_\-Model\_\-Streaming\_\-Builder ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_ad0dfdc71d21460ed1d16fa3585051500}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_unigram___model___streaming___builder_abd9759893f1f7da00cf5b4b1abc68064}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!create\_\-execution\_\-strategy@{create\_\-execution\_\-strategy}}
+\index{create\_\-execution\_\-strategy@{create\_\-execution\_\-strategy}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{create\_\-execution\_\-strategy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Execution\_\-Strategy} \& Unigram\_\-Model\_\-Streaming\_\-Builder::create\_\-execution\_\-strategy ({\bf Pipeline} \& {\em pipeline})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_abd9759893f1f7da00cf5b4b1abc68064}
+
+
+Implements \hyperlink{class_model___builder_a52e9a4125b917b015f13c709ddef3a88}{Model\_\-Builder}.
+
+\hypertarget{class_unigram___model___streaming___builder_a99deeb4b433573561f57df03c4d10bd2}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!create\_\-model\_\-refiner@{create\_\-model\_\-refiner}}
+\index{create\_\-model\_\-refiner@{create\_\-model\_\-refiner}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{create\_\-model\_\-refiner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\_\-Refiner} \& Unigram\_\-Model\_\-Streaming\_\-Builder::create\_\-model\_\-refiner ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_a99deeb4b433573561f57df03c4d10bd2}
+
+
+Implements \hyperlink{class_model___builder_abc7e4f108067afb34fb8c0fc305b06ea}{Model\_\-Builder}.
+
+\hypertarget{class_unigram___model___streaming___builder_a82ebccd666a5c8f46886323a323679e6}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!create\_\-output@{create\_\-output}}
+\index{create\_\-output@{create\_\-output}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{create\_\-output}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Streaming\_\-Builder::create\_\-output ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_a82ebccd666a5c8f46886323a323679e6}
+
+
+Implements \hyperlink{class_model___builder_aab7de81c31d1a76e5427023b6cb95490}{Model\_\-Builder}.
+
+\hypertarget{class_unigram___model___streaming___builder_af846cbebd1061196deaae3ec1ae7e7c2}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!create\_\-pipeline@{create\_\-pipeline}}
+\index{create\_\-pipeline@{create\_\-pipeline}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{create\_\-pipeline}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pipeline} \& Unigram\_\-Model\_\-Streaming\_\-Builder::create\_\-pipeline ({\bf Model\_\-Refiner} \& {\em refiner})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_af846cbebd1061196deaae3ec1ae7e7c2}
+
+
+Implements \hyperlink{class_model___builder_a6818803bf65009076dd09dcd9bb9a0b8}{Model\_\-Builder}.
+
+\hypertarget{class_unigram___model___streaming___builder_a5f29e8eaf012c9112c69155cb50a11da}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!get\_\-dict@{get\_\-dict}}
+\index{get\_\-dict@{get\_\-dict}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{get\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WordIndexDictionary} \& Unigram\_\-Model\_\-Streaming\_\-Builder::get\_\-dict ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_a5f29e8eaf012c9112c69155cb50a11da}
+\hypertarget{class_unigram___model___streaming___builder_a9afdd36c7ece8fa1ad87fa1b3f898d20}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!get\_\-model@{get\_\-model}}
+\index{get\_\-model@{get\_\-model}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{get\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model} \& Unigram\_\-Model\_\-Streaming\_\-Builder::get\_\-model ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_a9afdd36c7ece8fa1ad87fa1b3f898d20}
+
+
+Implements \hyperlink{class_model___builder_a2cd7a2ce64bdc1377f6deee168e1bcd2}{Model\_\-Builder}.
+
+\hypertarget{class_unigram___model___streaming___builder_adeef20b390c1f3801a6dfec0b297caee}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!init\_\-dict@{init\_\-dict}}
+\index{init\_\-dict@{init\_\-dict}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{init\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Streaming\_\-Builder::init\_\-dict ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_adeef20b390c1f3801a6dfec0b297caee}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_unigram___model___streaming___builder_ac7c2b9038dac10bcd773e0e16d31818b}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!\_\-dict@{\_\-dict}}
+\index{\_\-dict@{\_\-dict}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WordIndexDictionary}$\ast$ {\bf Unigram\_\-Model\_\-Streaming\_\-Builder::\_\-dict}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_ac7c2b9038dac10bcd773e0e16d31818b}
+\hypertarget{class_unigram___model___streaming___builder_acd6b7ee8e92d9e6b6a1fb7dba376050a}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!\_\-global\_\-dict@{\_\-global\_\-dict}}
+\index{\_\-global\_\-dict@{\_\-global\_\-dict}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{\_\-global\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WordIndexDictionary}$\ast$ {\bf Unigram\_\-Model\_\-Streaming\_\-Builder::\_\-global\_\-dict}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_acd6b7ee8e92d9e6b6a1fb7dba376050a}
+\hypertarget{class_unigram___model___streaming___builder_aec55472cf6c9e808387eaecc5db3c285}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!\_\-model@{\_\-model}}
+\index{\_\-model@{\_\-model}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Unigram\_\-Model}$\ast$ {\bf Unigram\_\-Model\_\-Streaming\_\-Builder::\_\-model}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_aec55472cf6c9e808387eaecc5db3c285}
+\hypertarget{class_unigram___model___streaming___builder_a92fea933c39e4671079e895ff3d1911e}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!\_\-pipeline@{\_\-pipeline}}
+\index{\_\-pipeline@{\_\-pipeline}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{\_\-pipeline}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pipeline}$\ast$ {\bf Unigram\_\-Model\_\-Streaming\_\-Builder::\_\-pipeline}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_a92fea933c39e4671079e895ff3d1911e}
+\hypertarget{class_unigram___model___streaming___builder_a8ecadb0794c19faa329ec649c3971af7}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!\_\-refiner@{\_\-refiner}}
+\index{\_\-refiner@{\_\-refiner}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{\_\-refiner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\_\-Refiner}$\ast$ {\bf Unigram\_\-Model\_\-Streaming\_\-Builder::\_\-refiner}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_a8ecadb0794c19faa329ec649c3971af7}
+\hypertarget{class_unigram___model___streaming___builder_af5e8797481308aca8fc2b1528fa0fde7}{
+\index{Unigram\_\-Model\_\-Streaming\_\-Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}!\_\-strategy@{\_\-strategy}}
+\index{\_\-strategy@{\_\-strategy}!Unigram_Model_Streaming_Builder@{Unigram\_\-Model\_\-Streaming\_\-Builder}}
+\subsubsection[{\_\-strategy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Execution\_\-Strategy}$\ast$ {\bf Unigram\_\-Model\_\-Streaming\_\-Builder::\_\-strategy}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___streaming___builder_af5e8797481308aca8fc2b1528fa0fde7}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model___streaming___builder_8h}{Unigram\_\-Model\_\-Streaming\_\-Builder.h}\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model___streaming___builder_8cpp}{Unigram\_\-Model\_\-Streaming\_\-Builder.cpp}\end{DoxyCompactItemize}

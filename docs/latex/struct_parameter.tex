@@ -1,0 +1,106 @@
+\hypertarget{struct_parameter}{
+\section{Parameter Struct Reference}
+\label{struct_parameter}\index{Parameter@{Parameter}}
+}
+
+
+{\ttfamily \#include $<$Parameter.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_parameter_a5ba93ca36c3261d3850e67f92717c2f5}{Parameter} ()
+\item 
+\hyperlink{struct_parameter_af74ffe8ba8d86ce71d061a2147d54f46}{Parameter} (const \hyperlink{struct_parameter}{Parameter} \&\hyperlink{struct_parameter}{param})
+\item 
+virtual \hyperlink{struct_parameter_a6e2ade42a712f1d3675653329266e42d}{$\sim$Parameter} ()
+\item 
+\hyperlink{struct_parameter}{Parameter} \& \hyperlink{struct_parameter_adb1df6ea6fccec000753226f28957f3a}{operator=} (const \hyperlink{struct_parameter}{Parameter} \&\hyperlink{struct_parameter}{param})
+\item 
+virtual void \hyperlink{struct_parameter_a9196971fa12b28330c9baef92671ed70}{dump} (string fname)
+\item 
+virtual void \hyperlink{struct_parameter_a7af368f9019c0d7591b5cd783222b051}{initialize\_\-from\_\-dump} (string fname)
+\item 
+virtual void \hyperlink{struct_parameter_a3f4dc4990a4301f103d606060ab0a1b1}{initialize\_\-from\_\-values} (int length\_\-, const double $\ast$values\_\-, float sum\_\-)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{struct_parameter_ad700759feb1ec5b3e03edf7adf375e29}{length}
+\item 
+double $\ast$ \hyperlink{struct_parameter_aeb2a5bbab553c19dc910c1d1e19eb73d}{values}
+\item 
+double \hyperlink{struct_parameter_a17e743cd43b792d51b704a0fb596d734}{sum}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class to represent the various parameters like the dirichlet conjugate weights and such
+
+Can be vector valued parameters
+
+This class additionally stores the sum and provides functionality to dump to and initialize from disk 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{struct_parameter_a5ba93ca36c3261d3850e67f92717c2f5}{
+\index{Parameter@{Parameter}!Parameter@{Parameter}}
+\index{Parameter@{Parameter}!Parameter@{Parameter}}
+\subsubsection[{Parameter}]{\setlength{\rightskip}{0pt plus 5cm}Parameter::Parameter ()}}
+\label{struct_parameter_a5ba93ca36c3261d3850e67f92717c2f5}
+\hypertarget{struct_parameter_af74ffe8ba8d86ce71d061a2147d54f46}{
+\index{Parameter@{Parameter}!Parameter@{Parameter}}
+\index{Parameter@{Parameter}!Parameter@{Parameter}}
+\subsubsection[{Parameter}]{\setlength{\rightskip}{0pt plus 5cm}Parameter::Parameter (const {\bf Parameter} \& {\em param})}}
+\label{struct_parameter_af74ffe8ba8d86ce71d061a2147d54f46}
+\hypertarget{struct_parameter_a6e2ade42a712f1d3675653329266e42d}{
+\index{Parameter@{Parameter}!$\sim$Parameter@{$\sim$Parameter}}
+\index{$\sim$Parameter@{$\sim$Parameter}!Parameter@{Parameter}}
+\subsubsection[{$\sim$Parameter}]{\setlength{\rightskip}{0pt plus 5cm}Parameter::$\sim$Parameter ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{struct_parameter_a6e2ade42a712f1d3675653329266e42d}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{struct_parameter_a9196971fa12b28330c9baef92671ed70}{
+\index{Parameter@{Parameter}!dump@{dump}}
+\index{dump@{dump}!Parameter@{Parameter}}
+\subsubsection[{dump}]{\setlength{\rightskip}{0pt plus 5cm}void Parameter::dump (string {\em fname})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{struct_parameter_a9196971fa12b28330c9baef92671ed70}
+\hypertarget{struct_parameter_a7af368f9019c0d7591b5cd783222b051}{
+\index{Parameter@{Parameter}!initialize\_\-from\_\-dump@{initialize\_\-from\_\-dump}}
+\index{initialize\_\-from\_\-dump@{initialize\_\-from\_\-dump}!Parameter@{Parameter}}
+\subsubsection[{initialize\_\-from\_\-dump}]{\setlength{\rightskip}{0pt plus 5cm}void Parameter::initialize\_\-from\_\-dump (string {\em fname})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{struct_parameter_a7af368f9019c0d7591b5cd783222b051}
+\hypertarget{struct_parameter_a3f4dc4990a4301f103d606060ab0a1b1}{
+\index{Parameter@{Parameter}!initialize\_\-from\_\-values@{initialize\_\-from\_\-values}}
+\index{initialize\_\-from\_\-values@{initialize\_\-from\_\-values}!Parameter@{Parameter}}
+\subsubsection[{initialize\_\-from\_\-values}]{\setlength{\rightskip}{0pt plus 5cm}void Parameter::initialize\_\-from\_\-values (int {\em length\_\-}, \/  const double $\ast$ {\em values\_\-}, \/  float {\em sum\_\-})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{struct_parameter_a3f4dc4990a4301f103d606060ab0a1b1}
+\hypertarget{struct_parameter_adb1df6ea6fccec000753226f28957f3a}{
+\index{Parameter@{Parameter}!operator=@{operator=}}
+\index{operator=@{operator=}!Parameter@{Parameter}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parameter} \& Parameter::operator= (const {\bf Parameter} \& {\em param})}}
+\label{struct_parameter_adb1df6ea6fccec000753226f28957f3a}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_parameter_ad700759feb1ec5b3e03edf7adf375e29}{
+\index{Parameter@{Parameter}!length@{length}}
+\index{length@{length}!Parameter@{Parameter}}
+\subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf Parameter::length}}}
+\label{struct_parameter_ad700759feb1ec5b3e03edf7adf375e29}
+\hypertarget{struct_parameter_a17e743cd43b792d51b704a0fb596d734}{
+\index{Parameter@{Parameter}!sum@{sum}}
+\index{sum@{sum}!Parameter@{Parameter}}
+\subsubsection[{sum}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf Parameter::sum}}}
+\label{struct_parameter_a17e743cd43b792d51b704a0fb596d734}
+\hypertarget{struct_parameter_aeb2a5bbab553c19dc910c1d1e19eb73d}{
+\index{Parameter@{Parameter}!values@{values}}
+\index{values@{values}!Parameter@{Parameter}}
+\subsubsection[{values}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf Parameter::values}}}
+\label{struct_parameter_aeb2a5bbab553c19dc910c1d1e19eb73d}
+
+
+The documentation for this struct was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_parameter_8h}{Parameter.h}\item 
+src/commons/TopicLearner/\hyperlink{_parameter_8cpp}{Parameter.cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,62 @@
+\hypertarget{class_p_n_g_job}{
+\section{PNGJob Class Reference}
+\label{class_p_n_g_job}\index{PNGJob@{PNGJob}}
+}
+
+
+{\ttfamily \#include $<$DM\_\-Server.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_p_n_g_job_ac11a419aaeb0086fa6580f0f11c44db0}{PNGJob} (const AMD\_\-DistributedMap\_\-putNgetPtr \&cb, const string \&\hyperlink{class_p_n_g_job_a7223a76a5e6fde2dcaeab8186e22c805}{word}, const string \&\hyperlink{class_p_n_g_job_a98b48618013386d8882f8e8f20db297f}{delta})
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+AMD\_\-DistributedMap\_\-putNgetPtr \hyperlink{class_p_n_g_job_adcdd819579a1e45da875aefb5bd72954}{png\_\-cb}
+\begin{DoxyCompactList}\small\item\em The call back object. \item\end{DoxyCompactList}\item 
+string \hyperlink{class_p_n_g_job_a7223a76a5e6fde2dcaeab8186e22c805}{word}
+\item 
+string \hyperlink{class_p_n_g_job_a98b48618013386d8882f8e8f20db297f}{delta}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Container class for a put and get job. The putNget\_\-async operation is an asynchronous operation with asynchronous method dispatch.
+
+Hence a call should be queued up for later processing and this class stores all the details pertinent to that call. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_p_n_g_job_ac11a419aaeb0086fa6580f0f11c44db0}{
+\index{PNGJob@{PNGJob}!PNGJob@{PNGJob}}
+\index{PNGJob@{PNGJob}!PNGJob@{PNGJob}}
+\subsubsection[{PNGJob}]{\setlength{\rightskip}{0pt plus 5cm}PNGJob::PNGJob (const AMD\_\-DistributedMap\_\-putNgetPtr \& {\em cb}, \/  const string \& {\em word}, \/  const string \& {\em delta})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_p_n_g_job_ac11a419aaeb0086fa6580f0f11c44db0}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_p_n_g_job_a98b48618013386d8882f8e8f20db297f}{
+\index{PNGJob@{PNGJob}!delta@{delta}}
+\index{delta@{delta}!PNGJob@{PNGJob}}
+\subsubsection[{delta}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf PNGJob::delta}}}
+\label{class_p_n_g_job_a98b48618013386d8882f8e8f20db297f}
+The serialized form of data that needs to be accumulated into the entry pointed by word \hypertarget{class_p_n_g_job_adcdd819579a1e45da875aefb5bd72954}{
+\index{PNGJob@{PNGJob}!png\_\-cb@{png\_\-cb}}
+\index{png\_\-cb@{png\_\-cb}!PNGJob@{PNGJob}}
+\subsubsection[{png\_\-cb}]{\setlength{\rightskip}{0pt plus 5cm}AMD\_\-DistributedMap\_\-putNgetPtr {\bf PNGJob::png\_\-cb}}}
+\label{class_p_n_g_job_adcdd819579a1e45da875aefb5bd72954}
+
+
+The call back object. 
+
+\hypertarget{class_p_n_g_job_a7223a76a5e6fde2dcaeab8186e22c805}{
+\index{PNGJob@{PNGJob}!word@{word}}
+\index{word@{word}!PNGJob@{PNGJob}}
+\subsubsection[{word}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf PNGJob::word}}}
+\label{class_p_n_g_job_a7223a76a5e6fde2dcaeab8186e22c805}
+The word on which this operation is called 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/commons/Server/\hyperlink{_d_m___server_8h}{DM\_\-Server.h}\end{DoxyCompactItemize}

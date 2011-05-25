@@ -1,0 +1,53 @@
+\hypertarget{comparator_8cpp}{
+\section{src/commons/comparator.cpp File Reference}
+\label{comparator_8cpp}\index{src/commons/comparator.cpp@{src/commons/comparator.cpp}}
+}
+{\ttfamily \#include \char`\"{}types.h\char`\"{}}\par
+{\ttfamily \#include $<$vector$>$}\par
+{\ttfamily \#include \char`\"{}tbb/spin\_\-rw\_\-mutex.h\char`\"{}}\par
+{\ttfamily \#include $<$string$>$}\par
+{\ttfamily \#include $<$google/protobuf/stubs/common.h$>$}\par
+{\ttfamily \#include $<$google/protobuf/generated\_\-message\_\-util.h$>$}\par
+{\ttfamily \#include $<$google/protobuf/repeated\_\-field.h$>$}\par
+{\ttfamily \#include $<$google/protobuf/extension\_\-set.h$>$}\par
+{\ttfamily \#include $<$google/protobuf/generated\_\-message\_\-reflection.h$>$}\par
+{\ttfamily \#include \char`\"{}tbb/tick\_\-count.h\char`\"{}}\par
+{\ttfamily \#include $<$sstream$>$}\par
+{\ttfamily \#include $<$boost/random/mersenne\_\-twister.hpp$>$}\par
+{\ttfamily \#include \char`\"{}glog/logging.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}boost/unordered\_\-map.hpp\char`\"{}}\par
+{\ttfamily \#include \char`\"{}tbb/atomic.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{comparator_8cpp_a31420f0b909b22fca77edb4e930977c5}{cnt\_\-cmp} (packed\_\-t i, packed\_\-t j)
+\item 
+bool \hyperlink{comparator_8cpp_aa31ee6d997481cbdd0b392e6014b503c}{cnt\_\-cmp\_\-ttc} (cnt\_\-topic\_\-t i, cnt\_\-topic\_\-t j)
+\item 
+bool \hyperlink{comparator_8cpp_aeeb167d6bbee00967bce1a697caaad28}{prob\_\-cmp} (\hyperlink{types_8h_affc73fd95a9372593440aa3da0e367f4}{tppair} v1, \hyperlink{types_8h_affc73fd95a9372593440aa3da0e367f4}{tppair} v2)
+\item 
+bool \hyperlink{comparator_8cpp_aa9b7f281dee43b6146ae2c3e2fffe0df}{freq\_\-cmp} (id2freq\_\-t v1, id2freq\_\-t v2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{comparator_8cpp_a31420f0b909b22fca77edb4e930977c5}{
+\index{comparator.cpp@{comparator.cpp}!cnt\_\-cmp@{cnt\_\-cmp}}
+\index{cnt\_\-cmp@{cnt\_\-cmp}!comparator.cpp@{comparator.cpp}}
+\subsubsection[{cnt\_\-cmp}]{\setlength{\rightskip}{0pt plus 5cm}bool cnt\_\-cmp (packed\_\-t {\em i}, \/  packed\_\-t {\em j})}}
+\label{comparator_8cpp_a31420f0b909b22fca77edb4e930977c5}
+\hypertarget{comparator_8cpp_aa31ee6d997481cbdd0b392e6014b503c}{
+\index{comparator.cpp@{comparator.cpp}!cnt\_\-cmp\_\-ttc@{cnt\_\-cmp\_\-ttc}}
+\index{cnt\_\-cmp\_\-ttc@{cnt\_\-cmp\_\-ttc}!comparator.cpp@{comparator.cpp}}
+\subsubsection[{cnt\_\-cmp\_\-ttc}]{\setlength{\rightskip}{0pt plus 5cm}bool cnt\_\-cmp\_\-ttc (cnt\_\-topic\_\-t {\em i}, \/  cnt\_\-topic\_\-t {\em j})}}
+\label{comparator_8cpp_aa31ee6d997481cbdd0b392e6014b503c}
+\hypertarget{comparator_8cpp_aa9b7f281dee43b6146ae2c3e2fffe0df}{
+\index{comparator.cpp@{comparator.cpp}!freq\_\-cmp@{freq\_\-cmp}}
+\index{freq\_\-cmp@{freq\_\-cmp}!comparator.cpp@{comparator.cpp}}
+\subsubsection[{freq\_\-cmp}]{\setlength{\rightskip}{0pt plus 5cm}bool freq\_\-cmp (id2freq\_\-t {\em v1}, \/  id2freq\_\-t {\em v2})}}
+\label{comparator_8cpp_aa9b7f281dee43b6146ae2c3e2fffe0df}
+\hypertarget{comparator_8cpp_aeeb167d6bbee00967bce1a697caaad28}{
+\index{comparator.cpp@{comparator.cpp}!prob\_\-cmp@{prob\_\-cmp}}
+\index{prob\_\-cmp@{prob\_\-cmp}!comparator.cpp@{comparator.cpp}}
+\subsubsection[{prob\_\-cmp}]{\setlength{\rightskip}{0pt plus 5cm}bool prob\_\-cmp ({\bf tppair} {\em v1}, \/  {\bf tppair} {\em v2})}}
+\label{comparator_8cpp_aeeb167d6bbee00967bce1a697caaad28}

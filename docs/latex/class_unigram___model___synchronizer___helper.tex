@@ -1,0 +1,98 @@
+\hypertarget{class_unigram___model___synchronizer___helper}{
+\section{Unigram\_\-Model\_\-Synchronizer\_\-Helper Class Reference}
+\label{class_unigram___model___synchronizer___helper}\index{Unigram\_\-Model\_\-Synchronizer\_\-Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}}
+}
+
+
+{\ttfamily \#include $<$Unigram\_\-Model\_\-Synchronizer\_\-Helper.h$>$}
+
+Inheritance diagram for Unigram\_\-Model\_\-Synchronizer\_\-Helper:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_unigram___model___synchronizer___helper}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_unigram___model___synchronizer___helper_a19885d499775be2eeb436c50a9b8aabc}{Unigram\_\-Model\_\-Synchronizer\_\-Helper} (\hyperlink{class_type_topic_counts}{TypeTopicCounts} \&ttc, \hyperlink{class_word_index_dictionary}{WordIndexDictionary} \&dict)
+\item 
+virtual \hyperlink{class_unigram___model___synchronizer___helper_a7f69b2fb3efc93bd61a7c0446d257d86}{$\sim$Unigram\_\-Model\_\-Synchronizer\_\-Helper} ()
+\item 
+void \hyperlink{class_unigram___model___synchronizer___helper_aa1f5e5b097ff5f089dde9b34dd2fae3e}{initialize} ()
+\item 
+bool \hyperlink{class_unigram___model___synchronizer___helper_ac07d07668ba79d9748d2f52629ccf50e}{has\_\-to\_\-synchronize} ()
+\item 
+void \hyperlink{class_unigram___model___synchronizer___helper_a3e9fef7c7c827ced4ec473e99c2c2ba0}{reset\_\-to\_\-synchronize} ()
+\item 
+void \hyperlink{class_unigram___model___synchronizer___helper_a270835ef882ab219a7f9ffe6000627e7}{synchronize} ()
+\item 
+void \hyperlink{class_unigram___model___synchronizer___helper_a07f7982f9ad12c616fef9d3abefe23e1}{end\_\-putNget} (const std::string \&word, const std::string \&counts)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_unigram___model___synchronizer___helper_a19885d499775be2eeb436c50a9b8aabc}{
+\index{Unigram\_\-Model\_\-Synchronizer\_\-Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}!Unigram\_\-Model\_\-Synchronizer\_\-Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}}
+\index{Unigram\_\-Model\_\-Synchronizer\_\-Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}!Unigram_Model_Synchronizer_Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}}
+\subsubsection[{Unigram\_\-Model\_\-Synchronizer\_\-Helper}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model\_\-Synchronizer\_\-Helper::Unigram\_\-Model\_\-Synchronizer\_\-Helper ({\bf TypeTopicCounts} \& {\em ttc}, \/  {\bf WordIndexDictionary} \& {\em dict})}}
+\label{class_unigram___model___synchronizer___helper_a19885d499775be2eeb436c50a9b8aabc}
+\hypertarget{class_unigram___model___synchronizer___helper_a7f69b2fb3efc93bd61a7c0446d257d86}{
+\index{Unigram\_\-Model\_\-Synchronizer\_\-Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}!$\sim$Unigram\_\-Model\_\-Synchronizer\_\-Helper@{$\sim$Unigram\_\-Model\_\-Synchronizer\_\-Helper}}
+\index{$\sim$Unigram\_\-Model\_\-Synchronizer\_\-Helper@{$\sim$Unigram\_\-Model\_\-Synchronizer\_\-Helper}!Unigram_Model_Synchronizer_Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}}
+\subsubsection[{$\sim$Unigram\_\-Model\_\-Synchronizer\_\-Helper}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model\_\-Synchronizer\_\-Helper::$\sim$Unigram\_\-Model\_\-Synchronizer\_\-Helper ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___synchronizer___helper_a7f69b2fb3efc93bd61a7c0446d257d86}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_unigram___model___synchronizer___helper_a07f7982f9ad12c616fef9d3abefe23e1}{
+\index{Unigram\_\-Model\_\-Synchronizer\_\-Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}!end\_\-putNget@{end\_\-putNget}}
+\index{end\_\-putNget@{end\_\-putNget}!Unigram_Model_Synchronizer_Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}}
+\subsubsection[{end\_\-putNget}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Synchronizer\_\-Helper::end\_\-putNget (const std::string \& {\em word}, \/  const std::string \& {\em counts})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___synchronizer___helper_a07f7982f9ad12c616fef9d3abefe23e1}
+This is a callback from the \hyperlink{class_client}{Client} when an async\_\-putNget is used on the \hyperlink{class_client}{Client} So when a \hyperlink{class_client}{Client} is instantiated, you need to pass a reference of ($\ast$this) 
+
+Implements \hyperlink{class_synchronizer___helper_a29ac0b4b630f56e59e6587bb6275d97e}{Synchronizer\_\-Helper}.
+
+\hypertarget{class_unigram___model___synchronizer___helper_ac07d07668ba79d9748d2f52629ccf50e}{
+\index{Unigram\_\-Model\_\-Synchronizer\_\-Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}!has\_\-to\_\-synchronize@{has\_\-to\_\-synchronize}}
+\index{has\_\-to\_\-synchronize@{has\_\-to\_\-synchronize}!Unigram_Model_Synchronizer_Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}}
+\subsubsection[{has\_\-to\_\-synchronize}]{\setlength{\rightskip}{0pt plus 5cm}bool Unigram\_\-Model\_\-Synchronizer\_\-Helper::has\_\-to\_\-synchronize ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___synchronizer___helper_ac07d07668ba79d9748d2f52629ccf50e}
+Returns true as long as all items to be synchronized are not synchronized 
+
+Implements \hyperlink{class_synchronizer___helper_a1d9c38f95c9a3a517e5a89659aa4c522}{Synchronizer\_\-Helper}.
+
+\hypertarget{class_unigram___model___synchronizer___helper_aa1f5e5b097ff5f089dde9b34dd2fae3e}{
+\index{Unigram\_\-Model\_\-Synchronizer\_\-Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}!initialize@{initialize}}
+\index{initialize@{initialize}!Unigram_Model_Synchronizer_Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Synchronizer\_\-Helper::initialize ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___synchronizer___helper_aa1f5e5b097ff5f089dde9b34dd2fae3e}
+
+
+Implements \hyperlink{class_synchronizer___helper_a7732654b0b1f02ba661e520564a690b8}{Synchronizer\_\-Helper}.
+
+\hypertarget{class_unigram___model___synchronizer___helper_a3e9fef7c7c827ced4ec473e99c2c2ba0}{
+\index{Unigram\_\-Model\_\-Synchronizer\_\-Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}!reset\_\-to\_\-synchronize@{reset\_\-to\_\-synchronize}}
+\index{reset\_\-to\_\-synchronize@{reset\_\-to\_\-synchronize}!Unigram_Model_Synchronizer_Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}}
+\subsubsection[{reset\_\-to\_\-synchronize}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Synchronizer\_\-Helper::reset\_\-to\_\-synchronize ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___synchronizer___helper_a3e9fef7c7c827ced4ec473e99c2c2ba0}
+After this call, \hyperlink{class_unigram___model___synchronizer___helper_ac07d07668ba79d9748d2f52629ccf50e}{has\_\-to\_\-synchronize()} should return true 
+
+Implements \hyperlink{class_synchronizer___helper_ac58a4f287d5edd1fa6883701567da75a}{Synchronizer\_\-Helper}.
+
+\hypertarget{class_unigram___model___synchronizer___helper_a270835ef882ab219a7f9ffe6000627e7}{
+\index{Unigram\_\-Model\_\-Synchronizer\_\-Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}!synchronize@{synchronize}}
+\index{synchronize@{synchronize}!Unigram_Model_Synchronizer_Helper@{Unigram\_\-Model\_\-Synchronizer\_\-Helper}}
+\subsubsection[{synchronize}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Synchronizer\_\-Helper::synchronize ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___synchronizer___helper_a270835ef882ab219a7f9ffe6000627e7}
+
+
+Implements \hyperlink{class_synchronizer___helper_a18aca854fe152f99640556a2a4e04f96}{Synchronizer\_\-Helper}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model___synchronizer___helper_8h}{Unigram\_\-Model\_\-Synchronizer\_\-Helper.h}\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model___synchronizer___helper_8cpp}{Unigram\_\-Model\_\-Synchronizer\_\-Helper.cpp}\end{DoxyCompactItemize}

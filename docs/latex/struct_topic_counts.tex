@@ -1,0 +1,292 @@
+\hypertarget{struct_topic_counts}{
+\section{TopicCounts Struct Reference}
+\label{struct_topic_counts}\index{TopicCounts@{TopicCounts}}
+}
+
+
+{\ttfamily \#include $<$TopicCounts.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_topic_counts_a8610e13cc9d52222d4c34c1914f70640}{TopicCounts} ()
+\item 
+\hyperlink{struct_topic_counts_a58673c799b8bd91f357d5492df78e9cf}{TopicCounts} (int \hyperlink{struct_topic_counts_abbecea34e46a52c0bfec37872960e18d}{length})
+\item 
+\hyperlink{struct_topic_counts_a045ad6ded5a1b6bcf608c2aa65370622}{TopicCounts} (cnt\_\-topic\_\-t $\ast$it, int len)
+\item 
+\hyperlink{struct_topic_counts_a999dc787d880d568be9f5c8475fea998}{TopicCounts} (const std::string \&counts)
+\item 
+void \hyperlink{struct_topic_counts_aa2c279222d93b6e5329b16744fdb2218}{init} (cnt\_\-topic\_\-t $\ast$it, int len)
+\item 
+void \hyperlink{struct_topic_counts_a1b625b3b8e01723b1cd79ac436b50b3e}{init} (const std::string \&counts)
+\item 
+\hyperlink{struct_topic_counts_aa57464ff14acfe74e7d402bc9b3af6aa}{$\sim$TopicCounts} ()
+\item 
+void \hyperlink{struct_topic_counts_a1c7c655d5af23b70a29e236d2814d6e0}{assign} (int \hyperlink{struct_topic_counts_abbecea34e46a52c0bfec37872960e18d}{length}, bool setLen=true)
+\item 
+void \hyperlink{struct_topic_counts_ac51ca3ff002097319e5e7562cf98f31e}{setLength} (int length\_\-)
+\item 
+void \hyperlink{struct_topic_counts_ae4bd9fecceabe2e87ebd54b81442055f}{findOldnNew} (topic\_\-t oldTopic, topic\_\-t newTopic, topic\_\-t $\ast$$\ast$oldTop, topic\_\-t $\ast$$\ast$newTop)
+\item 
+int \hyperlink{struct_topic_counts_aaab5b0bf2f9051671d4a53ac0b60e1a5}{get\_\-frequency} ()
+\item 
+cnt\_\-t \hyperlink{struct_topic_counts_a1289a13a2d59db891d9775acab93cc1e}{get\_\-counts} (topic\_\-t topic)
+\item 
+int \hyperlink{struct_topic_counts_a2db273b308ba9485c0cb87600c141936}{convertTo} (\hyperlink{types_8h_a4fed6ff282eca8f2c6ebdb4bc2e99e8b}{mapped\_\-vec} \&map, int mult=1) const 
+\item 
+void \hyperlink{struct_topic_counts_a874b4422e106155a6a4c09eddf6ff459}{convertTo} (\hyperlink{classsimple__map}{simple\_\-map} \&map, int mult=1) const 
+\item 
+void \hyperlink{struct_topic_counts_a9550ee80a5fbe0d708b4f760f897d2d5}{convertTo} (std::string \&counts) const 
+\item 
+int \hyperlink{struct_topic_counts_a966dfd85c2c14918bed470515e88aa3b}{convertTo\_\-d} (\hyperlink{types_8h_a4fed6ff282eca8f2c6ebdb4bc2e99e8b}{mapped\_\-vec} \&map, double mult) const 
+\item 
+bool \hyperlink{struct_topic_counts_ad4751b60bf3af5a7c532ca547878a3ea}{findAndIncrement} (topic\_\-t topic)
+\item 
+bool \hyperlink{struct_topic_counts_afd277219286187aaddd4acebc8a944bc}{findAndDecrement} (topic\_\-t topic)
+\item 
+void \hyperlink{struct_topic_counts_aa00483314f56e5c97f7feec15cf6dde2}{compact} ()
+\item 
+void \hyperlink{struct_topic_counts_ad23a451d973f5a1a9ea3be5f24191568}{addNewTop} (topic\_\-t topic, cnt\_\-t count=1)
+\item 
+void \hyperlink{struct_topic_counts_a464225e562d192981988a8c2d412bd31}{addNewTopAftChk} (topic\_\-t topic, cnt\_\-t count=1)
+\item 
+void \hyperlink{struct_topic_counts_a2aa45ac9efa134fe2977385110854d43}{upd\_\-count} (\hyperlink{types_8h_a4fed6ff282eca8f2c6ebdb4bc2e99e8b}{mapped\_\-vec} \&delta, tbb::atomic$<$ topic\_\-t $>$ $\ast$t=NULL)
+\item 
+void \hyperlink{struct_topic_counts_af65a213b5195d6c2ba547e28e3727b91}{operator+=} (\hyperlink{struct_topic_counts}{TopicCounts} \&inp)
+\item 
+void \hyperlink{struct_topic_counts_a1317117ae2bff6188196ffec46f23dc5}{operator-\/=} (\hyperlink{struct_topic_counts}{TopicCounts} \&inp)
+\item 
+void \hyperlink{struct_topic_counts_a623d6cd7178f596cffee5047ccb95d49}{removeOldTop} (topic\_\-t ind, cnt\_\-topic\_\-t \&ct)
+\item 
+void \hyperlink{struct_topic_counts_a4b92d60f9c8f202924803d903ebc3c34}{replace} (\hyperlink{struct_topic_counts}{TopicCounts} \&tc)
+\item 
+void \hyperlink{struct_topic_counts_a0c6d1cf4216657d55566b56923c71122}{decrement} (topic\_\-t ind, topic\_\-t $\ast$$\ast$newTop)
+\item 
+void \hyperlink{struct_topic_counts_a326672023fd147088bd27a4a5f33c0c1}{increment} (topic\_\-t ind)
+\item 
+std::string \hyperlink{struct_topic_counts_ae8b91f5e30f6cc071f31db43f39e66e9}{print} ()
+\item 
+\hyperlink{struct_topic_counts_aafbb66681d6b34ac5c272a2d38f4ddcb}{TopicCounts} (\hyperlink{types_8h_a4fed6ff282eca8f2c6ebdb4bc2e99e8b}{mapped\_\-vec} \&map)
+\item 
+bool \hyperlink{struct_topic_counts_a6ce31e2d544126f259f5f07117552284}{equal} (const \hyperlink{struct_topic_counts}{TopicCounts} \&expected)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+cnt\_\-topic\_\-t $\ast$ \hyperlink{struct_topic_counts_a50185bb9cf12838252564d28c00e59a7}{items}
+\item 
+topic\_\-t \hyperlink{struct_topic_counts_abbecea34e46a52c0bfec37872960e18d}{length}
+\item 
+topic\_\-t \hyperlink{struct_topic_counts_af564d3c9b1e333865e07e0e9bcad497f}{origLength}
+\item 
+std::vector$<$ cnt\_\-topic\_\-t $>$ \hyperlink{struct_topic_counts_a8f8362bcc278b7a7bdccec005f21c4a0}{vec\_\-items}
+\item 
+int \hyperlink{struct_topic_counts_a13c5a4d017260fe85c564319f0a4fe90}{frequency}
+\item 
+bool \hyperlink{struct_topic_counts_a4bd537cce5cd7adadc45e3355bf5a943}{QUIT}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{struct_topic_counts_a8610e13cc9d52222d4c34c1914f70640}{
+\index{TopicCounts@{TopicCounts}!TopicCounts@{TopicCounts}}
+\index{TopicCounts@{TopicCounts}!TopicCounts@{TopicCounts}}
+\subsubsection[{TopicCounts}]{\setlength{\rightskip}{0pt plus 5cm}TopicCounts::TopicCounts ()}}
+\label{struct_topic_counts_a8610e13cc9d52222d4c34c1914f70640}
+\hypertarget{struct_topic_counts_a58673c799b8bd91f357d5492df78e9cf}{
+\index{TopicCounts@{TopicCounts}!TopicCounts@{TopicCounts}}
+\index{TopicCounts@{TopicCounts}!TopicCounts@{TopicCounts}}
+\subsubsection[{TopicCounts}]{\setlength{\rightskip}{0pt plus 5cm}TopicCounts::TopicCounts (int {\em length})}}
+\label{struct_topic_counts_a58673c799b8bd91f357d5492df78e9cf}
+Typical constructor usage. Constructs a \hyperlink{struct_topic_counts}{TopicCounts} structure which can hold length elements. However, this is a dynamic structure and length can change in the process of usage by the use of setter methods This also allocates sufficient storage to store length elements \hypertarget{struct_topic_counts_a045ad6ded5a1b6bcf608c2aa65370622}{
+\index{TopicCounts@{TopicCounts}!TopicCounts@{TopicCounts}}
+\index{TopicCounts@{TopicCounts}!TopicCounts@{TopicCounts}}
+\subsubsection[{TopicCounts}]{\setlength{\rightskip}{0pt plus 5cm}TopicCounts::TopicCounts (cnt\_\-topic\_\-t $\ast$ {\em it}, \/  int {\em len})}}
+\label{struct_topic_counts_a045ad6ded5a1b6bcf608c2aa65370622}
+Constructs \hyperlink{struct_topic_counts}{TopicCounts} from it \& len \hypertarget{struct_topic_counts_a999dc787d880d568be9f5c8475fea998}{
+\index{TopicCounts@{TopicCounts}!TopicCounts@{TopicCounts}}
+\index{TopicCounts@{TopicCounts}!TopicCounts@{TopicCounts}}
+\subsubsection[{TopicCounts}]{\setlength{\rightskip}{0pt plus 5cm}TopicCounts::TopicCounts (const std::string \& {\em counts})}}
+\label{struct_topic_counts_a999dc787d880d568be9f5c8475fea998}
+\hypertarget{struct_topic_counts_aa57464ff14acfe74e7d402bc9b3af6aa}{
+\index{TopicCounts@{TopicCounts}!$\sim$TopicCounts@{$\sim$TopicCounts}}
+\index{$\sim$TopicCounts@{$\sim$TopicCounts}!TopicCounts@{TopicCounts}}
+\subsubsection[{$\sim$TopicCounts}]{\setlength{\rightskip}{0pt plus 5cm}TopicCounts::$\sim$TopicCounts ()}}
+\label{struct_topic_counts_aa57464ff14acfe74e7d402bc9b3af6aa}
+\hypertarget{struct_topic_counts_aafbb66681d6b34ac5c272a2d38f4ddcb}{
+\index{TopicCounts@{TopicCounts}!TopicCounts@{TopicCounts}}
+\index{TopicCounts@{TopicCounts}!TopicCounts@{TopicCounts}}
+\subsubsection[{TopicCounts}]{\setlength{\rightskip}{0pt plus 5cm}TopicCounts::TopicCounts ({\bf mapped\_\-vec} \& {\em map})}}
+\label{struct_topic_counts_aafbb66681d6b34ac5c272a2d38f4ddcb}
+Initialize the structure from the map This is only for testing purposes and should be used with caution. 
+
+\subsection{Member Function Documentation}
+\hypertarget{struct_topic_counts_ad23a451d973f5a1a9ea3be5f24191568}{
+\index{TopicCounts@{TopicCounts}!addNewTop@{addNewTop}}
+\index{addNewTop@{addNewTop}!TopicCounts@{TopicCounts}}
+\subsubsection[{addNewTop}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::addNewTop (topic\_\-t {\em topic}, \/  cnt\_\-t {\em count} = {\ttfamily 1})}}
+\label{struct_topic_counts_ad23a451d973f5a1a9ea3be5f24191568}
+Adds a new topic to the array making sure to resize it if required. Doesn't check for uniqueness Also assumes that memory allocation has happened \hypertarget{struct_topic_counts_a464225e562d192981988a8c2d412bd31}{
+\index{TopicCounts@{TopicCounts}!addNewTopAftChk@{addNewTopAftChk}}
+\index{addNewTopAftChk@{addNewTopAftChk}!TopicCounts@{TopicCounts}}
+\subsubsection[{addNewTopAftChk}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::addNewTopAftChk (topic\_\-t {\em topic}, \/  cnt\_\-t {\em count} = {\ttfamily 1})}}
+\label{struct_topic_counts_a464225e562d192981988a8c2d412bd31}
+Same as above but also checks if memory has been allocated. If not, tries to allocate memory. The check for allocated memory is not very robust as all the members are public and malicious users can set things such that it does not work. \hypertarget{struct_topic_counts_a1c7c655d5af23b70a29e236d2814d6e0}{
+\index{TopicCounts@{TopicCounts}!assign@{assign}}
+\index{assign@{assign}!TopicCounts@{TopicCounts}}
+\subsubsection[{assign}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::assign (int {\em length}, \/  bool {\em setLen} = {\ttfamily true})}}
+\label{struct_topic_counts_a1c7c655d5af23b70a29e236d2814d6e0}
+The function that allocates memory. origLength memory must be allocated since length can grow upto origLenth. It supports finer granularity access. You can disable the block aligment of lenth which is done by default using setLen if you have already made sure of this \hypertarget{struct_topic_counts_aa00483314f56e5c97f7feec15cf6dde2}{
+\index{TopicCounts@{TopicCounts}!compact@{compact}}
+\index{compact@{compact}!TopicCounts@{TopicCounts}}
+\subsubsection[{compact}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::compact ()}}
+\label{struct_topic_counts_aa00483314f56e5c97f7feec15cf6dde2}
+Checks if there is memory wastage and tries to reduce it by compacting memory. It does compaction only when there are more than INIT\_\-TC\_\-SIZE + SUBSEQ\_\-ALLOCS entries and there is at least INIT\_\-TC\_\-ZISE memory being wasted. In such a case, it compact SUBSEQ\_\-ALLOCS of memory. Usually SUBSEQ\_\-ALLOCS should be set to half of INIT\_\-TC\_\-SIZE
+
+$\ast$$\ast$$\ast$$\ast$$\ast$ All pointers to items are invalid once this runs successfully. Use extra caution when you use this or some method which uses this $\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ \hypertarget{struct_topic_counts_a9550ee80a5fbe0d708b4f760f897d2d5}{
+\index{TopicCounts@{TopicCounts}!convertTo@{convertTo}}
+\index{convertTo@{convertTo}!TopicCounts@{TopicCounts}}
+\subsubsection[{convertTo}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::convertTo (std::string \& {\em counts}) const}}
+\label{struct_topic_counts_a9550ee80a5fbe0d708b4f760f897d2d5}
+\hypertarget{struct_topic_counts_a874b4422e106155a6a4c09eddf6ff459}{
+\index{TopicCounts@{TopicCounts}!convertTo@{convertTo}}
+\index{convertTo@{convertTo}!TopicCounts@{TopicCounts}}
+\subsubsection[{convertTo}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::convertTo ({\bf simple\_\-map} \& {\em map}, \/  int {\em mult} = {\ttfamily 1}) const}}
+\label{struct_topic_counts_a874b4422e106155a6a4c09eddf6ff459}
+\hypertarget{struct_topic_counts_a2db273b308ba9485c0cb87600c141936}{
+\index{TopicCounts@{TopicCounts}!convertTo@{convertTo}}
+\index{convertTo@{convertTo}!TopicCounts@{TopicCounts}}
+\subsubsection[{convertTo}]{\setlength{\rightskip}{0pt plus 5cm}int TopicCounts::convertTo ({\bf mapped\_\-vec} \& {\em map}, \/  int {\em mult} = {\ttfamily 1}) const}}
+\label{struct_topic_counts_a2db273b308ba9485c0cb87600c141936}
+Stores a map representation of this vector into map. You can specify an optional multiplier to get a representation of (-\/1 $\ast$ TC) or (2 $\ast$ TC) where TC is the current structure. This multiplies count of each topic by the multiplier \hypertarget{struct_topic_counts_a966dfd85c2c14918bed470515e88aa3b}{
+\index{TopicCounts@{TopicCounts}!convertTo\_\-d@{convertTo\_\-d}}
+\index{convertTo\_\-d@{convertTo\_\-d}!TopicCounts@{TopicCounts}}
+\subsubsection[{convertTo\_\-d}]{\setlength{\rightskip}{0pt plus 5cm}int TopicCounts::convertTo\_\-d ({\bf mapped\_\-vec} \& {\em map}, \/  double {\em mult}) const}}
+\label{struct_topic_counts_a966dfd85c2c14918bed470515e88aa3b}
+\hypertarget{struct_topic_counts_a0c6d1cf4216657d55566b56923c71122}{
+\index{TopicCounts@{TopicCounts}!decrement@{decrement}}
+\index{decrement@{decrement}!TopicCounts@{TopicCounts}}
+\subsubsection[{decrement}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::decrement (topic\_\-t {\em ind}, \/  topic\_\-t $\ast$$\ast$ {\em newTop})}}
+\label{struct_topic_counts_a0c6d1cf4216657d55566b56923c71122}
+Used to decrement the count of the topic found at index ind by 1. Also takes care of repointing newTop if its position changes. \hypertarget{struct_topic_counts_a6ce31e2d544126f259f5f07117552284}{
+\index{TopicCounts@{TopicCounts}!equal@{equal}}
+\index{equal@{equal}!TopicCounts@{TopicCounts}}
+\subsubsection[{equal}]{\setlength{\rightskip}{0pt plus 5cm}bool TopicCounts::equal (const {\bf TopicCounts} \& {\em expected})}}
+\label{struct_topic_counts_a6ce31e2d544126f259f5f07117552284}
+\hypertarget{struct_topic_counts_afd277219286187aaddd4acebc8a944bc}{
+\index{TopicCounts@{TopicCounts}!findAndDecrement@{findAndDecrement}}
+\index{findAndDecrement@{findAndDecrement}!TopicCounts@{TopicCounts}}
+\subsubsection[{findAndDecrement}]{\setlength{\rightskip}{0pt plus 5cm}bool TopicCounts::findAndDecrement (topic\_\-t {\em topic})}}
+\label{struct_topic_counts_afd277219286187aaddd4acebc8a944bc}
+\hypertarget{struct_topic_counts_ad4751b60bf3af5a7c532ca547878a3ea}{
+\index{TopicCounts@{TopicCounts}!findAndIncrement@{findAndIncrement}}
+\index{findAndIncrement@{findAndIncrement}!TopicCounts@{TopicCounts}}
+\subsubsection[{findAndIncrement}]{\setlength{\rightskip}{0pt plus 5cm}bool TopicCounts::findAndIncrement (topic\_\-t {\em topic})}}
+\label{struct_topic_counts_ad4751b60bf3af5a7c532ca547878a3ea}
+If you want to increment the count of a topic by 1 without knowing the index, you can use this method. But usually increment and decrement are joint operations and you would not want to iterate through the entire array twice. Its advantageous to use the findOldnNew function and increment \& decrement methods directly as in TypeTopicCounts::upd\_\-count(word,oldTop,newTop) \hypertarget{struct_topic_counts_ae4bd9fecceabe2e87ebd54b81442055f}{
+\index{TopicCounts@{TopicCounts}!findOldnNew@{findOldnNew}}
+\index{findOldnNew@{findOldnNew}!TopicCounts@{TopicCounts}}
+\subsubsection[{findOldnNew}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::findOldnNew (topic\_\-t {\em oldTopic}, \/  topic\_\-t {\em newTopic}, \/  topic\_\-t $\ast$$\ast$ {\em oldTop}, \/  topic\_\-t $\ast$$\ast$ {\em newTop})}}
+\label{struct_topic_counts_ae4bd9fecceabe2e87ebd54b81442055f}
+Typical ways of creating \hyperlink{struct_topic_counts}{TopicCounts}: 1.TopicCounts(length) 2.TopicCounts();assign(length);init(items,length) 3.TopicCounts();assign(-\/1,false);init(items,length) Find oldTopic \& newTopic positions in items and retun them in oldTop \& newTop. Note that cnt\_\-topic\_\-t is a packed structure. So accessing either the topic or count individually will modify your pointer arithmetic by two \hypertarget{struct_topic_counts_a1289a13a2d59db891d9775acab93cc1e}{
+\index{TopicCounts@{TopicCounts}!get\_\-counts@{get\_\-counts}}
+\index{get\_\-counts@{get\_\-counts}!TopicCounts@{TopicCounts}}
+\subsubsection[{get\_\-counts}]{\setlength{\rightskip}{0pt plus 5cm}cnt\_\-t TopicCounts::get\_\-counts (topic\_\-t {\em topic})}}
+\label{struct_topic_counts_a1289a13a2d59db891d9775acab93cc1e}
+\hypertarget{struct_topic_counts_aaab5b0bf2f9051671d4a53ac0b60e1a5}{
+\index{TopicCounts@{TopicCounts}!get\_\-frequency@{get\_\-frequency}}
+\index{get\_\-frequency@{get\_\-frequency}!TopicCounts@{TopicCounts}}
+\subsubsection[{get\_\-frequency}]{\setlength{\rightskip}{0pt plus 5cm}int TopicCounts::get\_\-frequency ()}}
+\label{struct_topic_counts_aaab5b0bf2f9051671d4a53ac0b60e1a5}
+\hypertarget{struct_topic_counts_a326672023fd147088bd27a4a5f33c0c1}{
+\index{TopicCounts@{TopicCounts}!increment@{increment}}
+\index{increment@{increment}!TopicCounts@{TopicCounts}}
+\subsubsection[{increment}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::increment (topic\_\-t {\em ind})}}
+\label{struct_topic_counts_a326672023fd147088bd27a4a5f33c0c1}
+Used to increment by 1 the count of an existing topic found at index ind. This assumes that the ind is in range and hence that the topic exists \hypertarget{struct_topic_counts_a1b625b3b8e01723b1cd79ac436b50b3e}{
+\index{TopicCounts@{TopicCounts}!init@{init}}
+\index{init@{init}!TopicCounts@{TopicCounts}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::init (const std::string \& {\em counts})}}
+\label{struct_topic_counts_a1b625b3b8e01723b1cd79ac436b50b3e}
+\hypertarget{struct_topic_counts_aa2c279222d93b6e5329b16744fdb2218}{
+\index{TopicCounts@{TopicCounts}!init@{init}}
+\index{init@{init}!TopicCounts@{TopicCounts}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::init (cnt\_\-topic\_\-t $\ast$ {\em it}, \/  int {\em len})}}
+\label{struct_topic_counts_aa2c279222d93b6e5329b16744fdb2218}
+This assumes that sufficient memory has already been allocated to hold len elems and just copies them to items \hypertarget{struct_topic_counts_af65a213b5195d6c2ba547e28e3727b91}{
+\index{TopicCounts@{TopicCounts}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!TopicCounts@{TopicCounts}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::operator+= ({\bf TopicCounts} \& {\em inp})}}
+\label{struct_topic_counts_af65a213b5195d6c2ba547e28e3727b91}
+Convenience operators for syntactic sugar \hypertarget{struct_topic_counts_a1317117ae2bff6188196ffec46f23dc5}{
+\index{TopicCounts@{TopicCounts}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!TopicCounts@{TopicCounts}}
+\subsubsection[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::operator-\/= ({\bf TopicCounts} \& {\em inp})}}
+\label{struct_topic_counts_a1317117ae2bff6188196ffec46f23dc5}
+Convenience operators for syntactic sugar \hypertarget{struct_topic_counts_ae8b91f5e30f6cc071f31db43f39e66e9}{
+\index{TopicCounts@{TopicCounts}!print@{print}}
+\index{print@{print}!TopicCounts@{TopicCounts}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}std::string TopicCounts::print ()}}
+\label{struct_topic_counts_ae8b91f5e30f6cc071f31db43f39e66e9}
+\hypertarget{struct_topic_counts_a623d6cd7178f596cffee5047ccb95d49}{
+\index{TopicCounts@{TopicCounts}!removeOldTop@{removeOldTop}}
+\index{removeOldTop@{removeOldTop}!TopicCounts@{TopicCounts}}
+\subsubsection[{removeOldTop}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::removeOldTop (topic\_\-t {\em ind}, \/  cnt\_\-topic\_\-t \& {\em ct})}}
+\label{struct_topic_counts_a623d6cd7178f596cffee5047ccb95d49}
+Should be called when you know that ct.choose.cnt==1 or ct.choose.cnt-\/1==0. This will logically remove this entry from the array also taking care of repointing the newTop to the correct position once ct is removed. After length is decremented it is checked if compaction is needed and if so, SUBSEQ\_\-ALLOCS of memory is compacted. The removal is simply a swap with the last element since the current count is 1 and the items array is always sorted in descending order and only has non-\/zero entries. Also all pointers to items are going to be invalid if compaction runs successfully.
+
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ Be extra careful while using this $\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ \hypertarget{struct_topic_counts_a4b92d60f9c8f202924803d903ebc3c34}{
+\index{TopicCounts@{TopicCounts}!replace@{replace}}
+\index{replace@{replace}!TopicCounts@{TopicCounts}}
+\subsubsection[{replace}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::replace ({\bf TopicCounts} \& {\em tc})}}
+\label{struct_topic_counts_a4b92d60f9c8f202924803d903ebc3c34}
+Replace the current counts with thos in tc \hypertarget{struct_topic_counts_ac51ca3ff002097319e5e7562cf98f31e}{
+\index{TopicCounts@{TopicCounts}!setLength@{setLength}}
+\index{setLength@{setLength}!TopicCounts@{TopicCounts}}
+\subsubsection[{setLength}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::setLength (int {\em length\_\-})}}
+\label{struct_topic_counts_ac51ca3ff002097319e5e7562cf98f31e}
+Block aligns the length and sets the origLength parameter to suit that. origLength is always INIT\_\-TC + i$\ast$SUBSEQ\_\-ALLOCS where i=0,1,2.... \hypertarget{struct_topic_counts_a2aa45ac9efa134fe2977385110854d43}{
+\index{TopicCounts@{TopicCounts}!upd\_\-count@{upd\_\-count}}
+\index{upd\_\-count@{upd\_\-count}!TopicCounts@{TopicCounts}}
+\subsubsection[{upd\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}void TopicCounts::upd\_\-count ({\bf mapped\_\-vec} \& {\em delta}, \/  tbb::atomic$<$ topic\_\-t $>$ $\ast$ {\em t} = {\ttfamily NULL})}}
+\label{struct_topic_counts_a2aa45ac9efa134fe2977385110854d43}
+Update items with the delta counts passed as a map Also update n(t) simultaneously using t. Note that delta is modified because elements are removed from it. If you don't want this, create a copy and send it along. The strategy is to update items with the counts in delta in place and sort it finally. 
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_topic_counts_a13c5a4d017260fe85c564319f0a4fe90}{
+\index{TopicCounts@{TopicCounts}!frequency@{frequency}}
+\index{frequency@{frequency}!TopicCounts@{TopicCounts}}
+\subsubsection[{frequency}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf TopicCounts::frequency}}}
+\label{struct_topic_counts_a13c5a4d017260fe85c564319f0a4fe90}
+\hypertarget{struct_topic_counts_a50185bb9cf12838252564d28c00e59a7}{
+\index{TopicCounts@{TopicCounts}!items@{items}}
+\index{items@{items}!TopicCounts@{TopicCounts}}
+\subsubsection[{items}]{\setlength{\rightskip}{0pt plus 5cm}cnt\_\-topic\_\-t$\ast$ {\bf TopicCounts::items}}}
+\label{struct_topic_counts_a50185bb9cf12838252564d28c00e59a7}
+\hypertarget{struct_topic_counts_abbecea34e46a52c0bfec37872960e18d}{
+\index{TopicCounts@{TopicCounts}!length@{length}}
+\index{length@{length}!TopicCounts@{TopicCounts}}
+\subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}topic\_\-t {\bf TopicCounts::length}}}
+\label{struct_topic_counts_abbecea34e46a52c0bfec37872960e18d}
+\hypertarget{struct_topic_counts_af564d3c9b1e333865e07e0e9bcad497f}{
+\index{TopicCounts@{TopicCounts}!origLength@{origLength}}
+\index{origLength@{origLength}!TopicCounts@{TopicCounts}}
+\subsubsection[{origLength}]{\setlength{\rightskip}{0pt plus 5cm}topic\_\-t {\bf TopicCounts::origLength}}}
+\label{struct_topic_counts_af564d3c9b1e333865e07e0e9bcad497f}
+\hypertarget{struct_topic_counts_a4bd537cce5cd7adadc45e3355bf5a943}{
+\index{TopicCounts@{TopicCounts}!QUIT@{QUIT}}
+\index{QUIT@{QUIT}!TopicCounts@{TopicCounts}}
+\subsubsection[{QUIT}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf TopicCounts::QUIT}}}
+\label{struct_topic_counts_a4bd537cce5cd7adadc45e3355bf5a943}
+\hypertarget{struct_topic_counts_a8f8362bcc278b7a7bdccec005f21c4a0}{
+\index{TopicCounts@{TopicCounts}!vec\_\-items@{vec\_\-items}}
+\index{vec\_\-items@{vec\_\-items}!TopicCounts@{TopicCounts}}
+\subsubsection[{vec\_\-items}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$cnt\_\-topic\_\-t$>$ {\bf TopicCounts::vec\_\-items}}}
+\label{struct_topic_counts_a8f8362bcc278b7a7bdccec005f21c4a0}
+
+
+The documentation for this struct was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_topic_counts_8h}{TopicCounts.h}\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_topic_counts_8cpp}{TopicCounts.cpp}\end{DoxyCompactItemize}

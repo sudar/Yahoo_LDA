@@ -1,0 +1,86 @@
+\hypertarget{class_model}{
+\section{Model Class Reference}
+\label{class_model}\index{Model@{Model}}
+}
+
+
+{\ttfamily \#include $<$Model.h$>$}
+
+Inheritance diagram for Model:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_model}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual double \hyperlink{class_model_a36d3376040155630afbfcbdc3160c839}{get\_\-eval} ()=0
+\begin{DoxyCompactList}\small\item\em Model's contribution of log-\/likelihood. \item\end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_model_a9eb67634d1cbfbbe5758571e230834d4}{save} ()=0
+\begin{DoxyCompactList}\small\item\em Serialize to disk. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{class_model_a166812818e0039417ddeeb661c8bafec}{write\_\-statistics} (\hyperlink{class_word_index_dictionary}{WordIndexDictionary} \&)=0
+\begin{DoxyCompactList}\small\item\em Explain: word mixtures for the latent topics. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{class_model_a84d38ec3409863e98cf31d9b311c5008}{UNIGRAM} = 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A marker interface for the LDA graphical model and its extensions. A model should be able to compute its contribution to the log-\/likelihood, serialize to disk \& also explain itself by writing the word mixtures that represent the latent topics to disk 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_model_a36d3376040155630afbfcbdc3160c839}{
+\index{Model@{Model}!get\_\-eval@{get\_\-eval}}
+\index{get\_\-eval@{get\_\-eval}!Model@{Model}}
+\subsubsection[{get\_\-eval}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Model::get\_\-eval ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model_a36d3376040155630afbfcbdc3160c839}
+
+
+Model's contribution of log-\/likelihood. 
+
+
+
+Implemented in \hyperlink{class_unigram___model_a68837b7da897fc7ce834df31d6930281}{Unigram\_\-Model}.
+
+\hypertarget{class_model_a9eb67634d1cbfbbe5758571e230834d4}{
+\index{Model@{Model}!save@{save}}
+\index{save@{save}!Model@{Model}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Model::save ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model_a9eb67634d1cbfbbe5758571e230834d4}
+
+
+Serialize to disk. 
+
+
+
+Implemented in \hyperlink{class_unigram___model_a8ca0b95bc57583f70035825f1f950314}{Unigram\_\-Model}.
+
+\hypertarget{class_model_a166812818e0039417ddeeb661c8bafec}{
+\index{Model@{Model}!write\_\-statistics@{write\_\-statistics}}
+\index{write\_\-statistics@{write\_\-statistics}!Model@{Model}}
+\subsubsection[{write\_\-statistics}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Model::write\_\-statistics ({\bf WordIndexDictionary} \&)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model_a166812818e0039417ddeeb661c8bafec}
+
+
+Explain: word mixtures for the latent topics. 
+
+
+
+Implemented in \hyperlink{class_unigram___model_a15ce4009b3434ea11a5045f8f20ce294}{Unigram\_\-Model}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_model_a84d38ec3409863e98cf31d9b311c5008}{
+\index{Model@{Model}!UNIGRAM@{UNIGRAM}}
+\index{UNIGRAM@{UNIGRAM}!Model@{Model}}
+\subsubsection[{UNIGRAM}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf Model::UNIGRAM} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_model_a84d38ec3409863e98cf31d9b311c5008}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_model_8h}{Model.h}\end{DoxyCompactItemize}

@@ -1,0 +1,41 @@
+\hypertarget{_d_m___client_8h}{
+\section{src/commons/TopicLearner/DM\_\-Client.h File Reference}
+\label{_d_m___client_8h}\index{src/commons/TopicLearner/DM\_\-Client.h@{src/commons/TopicLearner/DM\_\-Client.h}}
+}
+{\ttfamily \#include $<$Ice/Ice.h$>$}\par
+{\ttfamily \#include $<$vector$>$}\par
+{\ttfamily \#include \char`\"{}Server/DistributedMap.h\char`\"{}}\par
+{\ttfamily \#include $<$IceUtil/Handle.h$>$}\par
+{\ttfamily \#include \char`\"{}TopicLearner/Synchronizer\_\-Helper.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Client.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}boost/unordered\_\-map.hpp\char`\"{}}\par
+{\ttfamily \#include \char`\"{}constants.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_cookie}{Cookie}
+\item 
+class \hyperlink{class_p_n_g_callback}{PNGCallback}
+\begin{DoxyCompactList}\small\item\em The call back object for the Put and Get AMI. \item\end{DoxyCompactList}\item 
+class \hyperlink{class_d_m___client}{DM\_\-Client}
+\begin{DoxyCompactList}\small\item\em The client used to access the Distributed Map. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef IceUtil::Handle$<$ \hyperlink{struct_cookie}{Cookie} $>$ \hyperlink{_d_m___client_8h_aa1b3c782db5b0bc73e294ec95ebd43c6}{CookiePtr}
+\item 
+typedef IceUtil::Handle$<$ \hyperlink{class_p_n_g_callback}{PNGCallback} $>$ \hyperlink{_d_m___client_8h_a592c96463884c49ba35c94bf1d3f30e7}{PNGCallbackPtr}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_d_m___client_8h_aa1b3c782db5b0bc73e294ec95ebd43c6}{
+\index{DM\_\-Client.h@{DM\_\-Client.h}!CookiePtr@{CookiePtr}}
+\index{CookiePtr@{CookiePtr}!DM_Client.h@{DM\_\-Client.h}}
+\subsubsection[{CookiePtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef IceUtil::Handle$<${\bf Cookie}$>$ {\bf CookiePtr}}}
+\label{_d_m___client_8h_aa1b3c782db5b0bc73e294ec95ebd43c6}
+\hypertarget{_d_m___client_8h_a592c96463884c49ba35c94bf1d3f30e7}{
+\index{DM\_\-Client.h@{DM\_\-Client.h}!PNGCallbackPtr@{PNGCallbackPtr}}
+\index{PNGCallbackPtr@{PNGCallbackPtr}!DM_Client.h@{DM\_\-Client.h}}
+\subsubsection[{PNGCallbackPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef IceUtil::Handle$<${\bf PNGCallback}$>$ {\bf PNGCallbackPtr}}}
+\label{_d_m___client_8h_a592c96463884c49ba35c94bf1d3f30e7}

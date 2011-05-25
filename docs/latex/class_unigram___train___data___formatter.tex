@@ -1,0 +1,172 @@
+\hypertarget{class_unigram___train___data___formatter}{
+\section{Unigram\_\-Train\_\-Data\_\-Formatter Class Reference}
+\label{class_unigram___train___data___formatter}\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+}
+
+
+{\ttfamily \#include $<$Unigram\_\-Train\_\-Data\_\-Formatter.h$>$}
+
+Inheritance diagram for Unigram\_\-Train\_\-Data\_\-Formatter:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_unigram___train___data___formatter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_unigram___train___data___formatter_aa068bb8b734f2401dba5a360120a8f33}{Unigram\_\-Train\_\-Data\_\-Formatter} ()
+\item 
+virtual \hyperlink{class_unigram___train___data___formatter_ac28f8c1217e864043d34094fde2bcad5}{$\sim$Unigram\_\-Train\_\-Data\_\-Formatter} ()
+\item 
+void \hyperlink{class_unigram___train___data___formatter_a36638dccaf14cf8ab597a3f8f0694cfe}{format} ()
+\begin{DoxyCompactList}\small\item\em Perform the actual formatting. \item\end{DoxyCompactList}\item 
+\hyperlink{class_word_index_dictionary}{WordIndexDictionary} \& \hyperlink{class_unigram___train___data___formatter_ab406933ef119074cab682cb07c9078b4}{get\_\-dictionary} ()
+\begin{DoxyCompactList}\small\item\em Return the dictionary being used by the formatter. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_unigram___train___data___formatter_afbc58721bb9c38bdcd2684ef048b6807}{get\_\-num\_\-docs} ()
+\begin{DoxyCompactList}\small\item\em The number of documents formatted. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_unigram___train___data___formatter_a89a89ebbf1d42f49f4e2f86307d47bb8}{get\_\-total\_\-num\_\-words} ()
+\begin{DoxyCompactList}\small\item\em The total number of words found. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \hyperlink{class_unigram___train___data___formatter_a0023886209f7fd1441a256238c86844a}{insert\_\-word\_\-to\_\-dict} (std::string word)
+\item 
+int \hyperlink{class_unigram___train___data___formatter_ac4ef66ddab566b3293bdb659e8ac8c58}{read\_\-from\_\-inp} (LDA::unigram\_\-document \&wdoc, std::istream \&inp)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_word_index_dictionary}{WordIndexDictionary} \hyperlink{class_unigram___train___data___formatter_adddae72976929b052eea7fcfc9e08591}{\_\-dict}
+\item 
+int \hyperlink{class_unigram___train___data___formatter_a7f950a2118eaece102aaf7c7c50bbfa5}{\_\-num\_\-docs}
+\item 
+int \hyperlink{class_unigram___train___data___formatter_a0397b3d404743bc5211260a1d65c77af}{\_\-num\_\-words\_\-in\_\-all\_\-docs}
+\item 
+boost::unordered\_\-set$<$ string $>$ \hyperlink{class_unigram___train___data___formatter_a46f152f878318a6d76ddf36a40e8b232}{\_\-stopWords}
+\item 
+std::ifstream \hyperlink{class_unigram___train___data___formatter_a5b7f90646a209171c921cb4238fff69f}{\_\-in}
+\item 
+\hyperlink{class_document_writer}{DocumentWriter} $\ast$ \hyperlink{class_unigram___train___data___formatter_ae8191138ad8b3e2265dec5332ab69638}{\_\-doc\_\-writer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_unigram___train___data___formatter_aa068bb8b734f2401dba5a360120a8f33}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{Unigram\_\-Train\_\-Data\_\-Formatter}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Train\_\-Data\_\-Formatter::Unigram\_\-Train\_\-Data\_\-Formatter ()}}
+\label{class_unigram___train___data___formatter_aa068bb8b734f2401dba5a360120a8f33}
+\hypertarget{class_unigram___train___data___formatter_ac28f8c1217e864043d34094fde2bcad5}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!$\sim$Unigram\_\-Train\_\-Data\_\-Formatter@{$\sim$Unigram\_\-Train\_\-Data\_\-Formatter}}
+\index{$\sim$Unigram\_\-Train\_\-Data\_\-Formatter@{$\sim$Unigram\_\-Train\_\-Data\_\-Formatter}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{$\sim$Unigram\_\-Train\_\-Data\_\-Formatter}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Train\_\-Data\_\-Formatter::$\sim$Unigram\_\-Train\_\-Data\_\-Formatter ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___train___data___formatter_ac28f8c1217e864043d34094fde2bcad5}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_unigram___train___data___formatter_a36638dccaf14cf8ab597a3f8f0694cfe}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!format@{format}}
+\index{format@{format}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{format}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Train\_\-Data\_\-Formatter::format ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___train___data___formatter_a36638dccaf14cf8ab597a3f8f0694cfe}
+
+
+Perform the actual formatting. 
+
+
+
+Implements \hyperlink{class_data___formatter_a4180972aaff1249e0290c3544665403d}{Data\_\-Formatter}.
+
+\hypertarget{class_unigram___train___data___formatter_ab406933ef119074cab682cb07c9078b4}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!get\_\-dictionary@{get\_\-dictionary}}
+\index{get\_\-dictionary@{get\_\-dictionary}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{get\_\-dictionary}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WordIndexDictionary} \& Unigram\_\-Train\_\-Data\_\-Formatter::get\_\-dictionary ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___train___data___formatter_ab406933ef119074cab682cb07c9078b4}
+
+
+Return the dictionary being used by the formatter. 
+
+
+
+Implements \hyperlink{class_data___formatter_ad7371376f95eddd15fb197a729b28c50}{Data\_\-Formatter}.
+
+\hypertarget{class_unigram___train___data___formatter_afbc58721bb9c38bdcd2684ef048b6807}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!get\_\-num\_\-docs@{get\_\-num\_\-docs}}
+\index{get\_\-num\_\-docs@{get\_\-num\_\-docs}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{get\_\-num\_\-docs}]{\setlength{\rightskip}{0pt plus 5cm}int Unigram\_\-Train\_\-Data\_\-Formatter::get\_\-num\_\-docs ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___train___data___formatter_afbc58721bb9c38bdcd2684ef048b6807}
+
+
+The number of documents formatted. 
+
+
+
+Implements \hyperlink{class_data___formatter_aec61a89d2fc394ac8f28fb502357c90e}{Data\_\-Formatter}.
+
+\hypertarget{class_unigram___train___data___formatter_a89a89ebbf1d42f49f4e2f86307d47bb8}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!get\_\-total\_\-num\_\-words@{get\_\-total\_\-num\_\-words}}
+\index{get\_\-total\_\-num\_\-words@{get\_\-total\_\-num\_\-words}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{get\_\-total\_\-num\_\-words}]{\setlength{\rightskip}{0pt plus 5cm}int Unigram\_\-Train\_\-Data\_\-Formatter::get\_\-total\_\-num\_\-words ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___train___data___formatter_a89a89ebbf1d42f49f4e2f86307d47bb8}
+
+
+The total number of words found. 
+
+
+
+Implements \hyperlink{class_data___formatter_aec312da75df72aa23974051db72e4b69}{Data\_\-Formatter}.
+
+\hypertarget{class_unigram___train___data___formatter_a0023886209f7fd1441a256238c86844a}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!insert\_\-word\_\-to\_\-dict@{insert\_\-word\_\-to\_\-dict}}
+\index{insert\_\-word\_\-to\_\-dict@{insert\_\-word\_\-to\_\-dict}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{insert\_\-word\_\-to\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Unigram\_\-Train\_\-Data\_\-Formatter::insert\_\-word\_\-to\_\-dict (std::string {\em word})\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{class_unigram___train___data___formatter_a0023886209f7fd1441a256238c86844a}
+
+
+Reimplemented in \hyperlink{class_unigram___test___data___formatter_a0bbe30a897b9e2a01795ef3ccae38612}{Unigram\_\-Test\_\-Data\_\-Formatter}, and \hyperlink{class_unigram___model___streamer_a51a09e569da02b64cec4a551cc4f3ba0}{Unigram\_\-Model\_\-Streamer}.
+
+\hypertarget{class_unigram___train___data___formatter_ac4ef66ddab566b3293bdb659e8ac8c58}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!read\_\-from\_\-inp@{read\_\-from\_\-inp}}
+\index{read\_\-from\_\-inp@{read\_\-from\_\-inp}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{read\_\-from\_\-inp}]{\setlength{\rightskip}{0pt plus 5cm}int Unigram\_\-Train\_\-Data\_\-Formatter::read\_\-from\_\-inp (LDA::unigram\_\-document \& {\em wdoc}, \/  std::istream \& {\em inp})\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___train___data___formatter_ac4ef66ddab566b3293bdb659e8ac8c58}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_unigram___train___data___formatter_adddae72976929b052eea7fcfc9e08591}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!\_\-dict@{\_\-dict}}
+\index{\_\-dict@{\_\-dict}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WordIndexDictionary} {\bf Unigram\_\-Train\_\-Data\_\-Formatter::\_\-dict}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___train___data___formatter_adddae72976929b052eea7fcfc9e08591}
+\hypertarget{class_unigram___train___data___formatter_ae8191138ad8b3e2265dec5332ab69638}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!\_\-doc\_\-writer@{\_\-doc\_\-writer}}
+\index{\_\-doc\_\-writer@{\_\-doc\_\-writer}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{\_\-doc\_\-writer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DocumentWriter}$\ast$ {\bf Unigram\_\-Train\_\-Data\_\-Formatter::\_\-doc\_\-writer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___train___data___formatter_ae8191138ad8b3e2265dec5332ab69638}
+\hypertarget{class_unigram___train___data___formatter_a5b7f90646a209171c921cb4238fff69f}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!\_\-in@{\_\-in}}
+\index{\_\-in@{\_\-in}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}std::ifstream {\bf Unigram\_\-Train\_\-Data\_\-Formatter::\_\-in}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___train___data___formatter_a5b7f90646a209171c921cb4238fff69f}
+\hypertarget{class_unigram___train___data___formatter_a7f950a2118eaece102aaf7c7c50bbfa5}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!\_\-num\_\-docs@{\_\-num\_\-docs}}
+\index{\_\-num\_\-docs@{\_\-num\_\-docs}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{\_\-num\_\-docs}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf Unigram\_\-Train\_\-Data\_\-Formatter::\_\-num\_\-docs}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___train___data___formatter_a7f950a2118eaece102aaf7c7c50bbfa5}
+\hypertarget{class_unigram___train___data___formatter_a0397b3d404743bc5211260a1d65c77af}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!\_\-num\_\-words\_\-in\_\-all\_\-docs@{\_\-num\_\-words\_\-in\_\-all\_\-docs}}
+\index{\_\-num\_\-words\_\-in\_\-all\_\-docs@{\_\-num\_\-words\_\-in\_\-all\_\-docs}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{\_\-num\_\-words\_\-in\_\-all\_\-docs}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf Unigram\_\-Train\_\-Data\_\-Formatter::\_\-num\_\-words\_\-in\_\-all\_\-docs}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___train___data___formatter_a0397b3d404743bc5211260a1d65c77af}
+\hypertarget{class_unigram___train___data___formatter_a46f152f878318a6d76ddf36a40e8b232}{
+\index{Unigram\_\-Train\_\-Data\_\-Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}!\_\-stopWords@{\_\-stopWords}}
+\index{\_\-stopWords@{\_\-stopWords}!Unigram_Train_Data_Formatter@{Unigram\_\-Train\_\-Data\_\-Formatter}}
+\subsubsection[{\_\-stopWords}]{\setlength{\rightskip}{0pt plus 5cm}boost::unordered\_\-set$<$string$>$ {\bf Unigram\_\-Train\_\-Data\_\-Formatter::\_\-stopWords}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___train___data___formatter_a46f152f878318a6d76ddf36a40e8b232}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/Unigram\_\-Model/Formatter/\hyperlink{_unigram___train___data___formatter_8h}{Unigram\_\-Train\_\-Data\_\-Formatter.h}\item 
+src/Unigram\_\-Model/Formatter/\hyperlink{_unigram___train___data___formatter_8cpp}{Unigram\_\-Train\_\-Data\_\-Formatter.cpp}\end{DoxyCompactItemize}

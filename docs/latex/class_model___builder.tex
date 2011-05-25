@@ -1,0 +1,87 @@
+\hypertarget{class_model___builder}{
+\section{Model\_\-Builder Class Reference}
+\label{class_model___builder}\index{Model\_\-Builder@{Model\_\-Builder}}
+}
+
+
+{\ttfamily \#include $<$Model\_\-Builder.h$>$}
+
+Inheritance diagram for Model\_\-Builder:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.91126cm]{class_model___builder}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{class_model___refiner}{Model\_\-Refiner} \& \hyperlink{class_model___builder_abc7e4f108067afb34fb8c0fc305b06ea}{create\_\-model\_\-refiner} ()=0
+\item 
+virtual \hyperlink{class_pipeline}{Pipeline} \& \hyperlink{class_model___builder_a6818803bf65009076dd09dcd9bb9a0b8}{create\_\-pipeline} (\hyperlink{class_model___refiner}{Model\_\-Refiner} \&)=0
+\item 
+virtual \hyperlink{class_execution___strategy}{Execution\_\-Strategy} \& \hyperlink{class_model___builder_a52e9a4125b917b015f13c709ddef3a88}{create\_\-execution\_\-strategy} (\hyperlink{class_pipeline}{Pipeline} \&)=0
+\item 
+virtual void \hyperlink{class_model___builder_aab7de81c31d1a76e5427023b6cb95490}{create\_\-output} ()=0
+\item 
+virtual \hyperlink{class_model}{Model} \& \hyperlink{class_model___builder_a2cd7a2ce64bdc1377f6deee168e1bcd2}{get\_\-model} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The builder class which builds the different components needed to create the model. We use the Builder pattern.
+
+The components are: 1. \hyperlink{class_model___refiner}{Model\_\-Refiner}: This main component that describes how the model should be refined as documents pass through the pipeline 2. \hyperlink{class_pipeline}{Pipeline}: A pipeline of filters that perform the various refinements defined by the refiner 3. \hyperlink{class_execution___strategy}{Execution\_\-Strategy}: A strategy that defines how the pipeline of filters has to be executed
+
+Usually, different modes demand different builders and similar or different components. So keep in mind that inheritance can be used here to maximize code reuse 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_model___builder_a52e9a4125b917b015f13c709ddef3a88}{
+\index{Model\_\-Builder@{Model\_\-Builder}!create\_\-execution\_\-strategy@{create\_\-execution\_\-strategy}}
+\index{create\_\-execution\_\-strategy@{create\_\-execution\_\-strategy}!Model_Builder@{Model\_\-Builder}}
+\subsubsection[{create\_\-execution\_\-strategy}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Execution\_\-Strategy}\& Model\_\-Builder::create\_\-execution\_\-strategy ({\bf Pipeline} \&)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___builder_a52e9a4125b917b015f13c709ddef3a88}
+
+
+Implemented in \hyperlink{class_unigram___model___streaming___builder_abd9759893f1f7da00cf5b4b1abc68064}{Unigram\_\-Model\_\-Streaming\_\-Builder}, \hyperlink{class_unigram___model___synchronized___training___builder_a756ac51fbf24f5c0381dfe402ee53ef0}{Unigram\_\-Model\_\-Synchronized\_\-Training\_\-Builder}, \hyperlink{class_unigram___model___testing___builder_a934d4e14760ff82eeae8165f9c628a95}{Unigram\_\-Model\_\-Testing\_\-Builder}, and \hyperlink{class_unigram___model___training___builder_a7115521792cd0262b3bf99de8474420d}{Unigram\_\-Model\_\-Training\_\-Builder}.
+
+\hypertarget{class_model___builder_abc7e4f108067afb34fb8c0fc305b06ea}{
+\index{Model\_\-Builder@{Model\_\-Builder}!create\_\-model\_\-refiner@{create\_\-model\_\-refiner}}
+\index{create\_\-model\_\-refiner@{create\_\-model\_\-refiner}!Model_Builder@{Model\_\-Builder}}
+\subsubsection[{create\_\-model\_\-refiner}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Model\_\-Refiner}\& Model\_\-Builder::create\_\-model\_\-refiner ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___builder_abc7e4f108067afb34fb8c0fc305b06ea}
+
+
+Implemented in \hyperlink{class_unigram___model___streaming___builder_a99deeb4b433573561f57df03c4d10bd2}{Unigram\_\-Model\_\-Streaming\_\-Builder}, \hyperlink{class_unigram___model___testing___builder_a694c9cb5f270cad6ff5e9d0b45da9ba6}{Unigram\_\-Model\_\-Testing\_\-Builder}, and \hyperlink{class_unigram___model___training___builder_a6693c87834917804525d1d8f4d638507}{Unigram\_\-Model\_\-Training\_\-Builder}.
+
+\hypertarget{class_model___builder_aab7de81c31d1a76e5427023b6cb95490}{
+\index{Model\_\-Builder@{Model\_\-Builder}!create\_\-output@{create\_\-output}}
+\index{create\_\-output@{create\_\-output}!Model_Builder@{Model\_\-Builder}}
+\subsubsection[{create\_\-output}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Model\_\-Builder::create\_\-output ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___builder_aab7de81c31d1a76e5427023b6cb95490}
+
+
+Implemented in \hyperlink{class_unigram___model___streaming___builder_a82ebccd666a5c8f46886323a323679e6}{Unigram\_\-Model\_\-Streaming\_\-Builder}, and \hyperlink{class_unigram___model___training___builder_a5377e0fdb76e0068a02cbc0ce5c385fb}{Unigram\_\-Model\_\-Training\_\-Builder}.
+
+\hypertarget{class_model___builder_a6818803bf65009076dd09dcd9bb9a0b8}{
+\index{Model\_\-Builder@{Model\_\-Builder}!create\_\-pipeline@{create\_\-pipeline}}
+\index{create\_\-pipeline@{create\_\-pipeline}!Model_Builder@{Model\_\-Builder}}
+\subsubsection[{create\_\-pipeline}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Pipeline}\& Model\_\-Builder::create\_\-pipeline ({\bf Model\_\-Refiner} \&)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___builder_a6818803bf65009076dd09dcd9bb9a0b8}
+
+
+Implemented in \hyperlink{class_unigram___model___streaming___builder_af846cbebd1061196deaae3ec1ae7e7c2}{Unigram\_\-Model\_\-Streaming\_\-Builder}, and \hyperlink{class_unigram___model___training___builder_a9f52dba1344442bc6455cf8b166f398c}{Unigram\_\-Model\_\-Training\_\-Builder}.
+
+\hypertarget{class_model___builder_a2cd7a2ce64bdc1377f6deee168e1bcd2}{
+\index{Model\_\-Builder@{Model\_\-Builder}!get\_\-model@{get\_\-model}}
+\index{get\_\-model@{get\_\-model}!Model_Builder@{Model\_\-Builder}}
+\subsubsection[{get\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Model}\& Model\_\-Builder::get\_\-model ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___builder_a2cd7a2ce64bdc1377f6deee168e1bcd2}
+
+
+Implemented in \hyperlink{class_unigram___model___streaming___builder_a9afdd36c7ece8fa1ad87fa1b3f898d20}{Unigram\_\-Model\_\-Streaming\_\-Builder}, and \hyperlink{class_unigram___model___training___builder_a06bbd9a4b897a0357078f3279825409d}{Unigram\_\-Model\_\-Training\_\-Builder}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_model___builder_8h}{Model\_\-Builder.h}\end{DoxyCompactItemize}

@@ -1,0 +1,77 @@
+\hypertarget{class_synchronizer}{
+\section{Synchronizer Class Reference}
+\label{class_synchronizer}\index{Synchronizer@{Synchronizer}}
+}
+
+
+{\ttfamily \#include $<$Synchronizer.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_synchronizer_a7b0b39f6e15645271bf1afa043027ceb}{Synchronizer} (\hyperlink{class_synchronizer___helper}{Synchronizer\_\-Helper} \&)
+\item 
+virtual \hyperlink{class_synchronizer_a3fb971c6c9cdb4ab5cddb3e2d3b6ac6f}{$\sim$Synchronizer} ()
+\item 
+void \hyperlink{class_synchronizer_aa633d250239482b3e11c958560308107}{synchronize} ()
+\begin{DoxyCompactList}\small\item\em The synchronization strategy. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_synchronizer_a892a030d7fecf6a204721a75b43d8ca9}{set\_\-all\_\-iters\_\-done} ()
+\item 
+bool \hyperlink{class_synchronizer_a204d452071fdb6db0247fa2ec1194511}{is\_\-all\_\-iters\_\-done} ()
+\begin{DoxyCompactList}\small\item\em Check if the \hyperlink{class_execution___strategy}{Execution\_\-Strategy} has finished. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The synchronization strategy that uses the \hyperlink{class_synchronizer___helper}{Synchronizer\_\-Helper} to perform the concrete synchronization steps. It provides slots, so to say, for synchronization and calls the \hyperlink{class_synchronizer___helper}{Synchronizer\_\-Helper} to perform its duties for that slot.
+
+This greatly reduces the burden on the model writer
+
+So whenever a model needs to be scaled by providing a distributed inferencing solution, all the model writer has to do is write a \hyperlink{class_synchronizer___helper}{Synchronizer\_\-Helper}.
+
+This is a default synchronization strategy provided and users can implement their own strategy by extending this
+
+The main aim is to run the inferencing locally while keeping the model in sync globally through the use of this \hyperlink{class_synchronizer}{Synchronizer} and a Distributed Map 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_synchronizer_a7b0b39f6e15645271bf1afa043027ceb}{
+\index{Synchronizer@{Synchronizer}!Synchronizer@{Synchronizer}}
+\index{Synchronizer@{Synchronizer}!Synchronizer@{Synchronizer}}
+\subsubsection[{Synchronizer}]{\setlength{\rightskip}{0pt plus 5cm}Synchronizer::Synchronizer ({\bf Synchronizer\_\-Helper} \& {\em sync\_\-helper})}}
+\label{class_synchronizer_a7b0b39f6e15645271bf1afa043027ceb}
+\hypertarget{class_synchronizer_a3fb971c6c9cdb4ab5cddb3e2d3b6ac6f}{
+\index{Synchronizer@{Synchronizer}!$\sim$Synchronizer@{$\sim$Synchronizer}}
+\index{$\sim$Synchronizer@{$\sim$Synchronizer}!Synchronizer@{Synchronizer}}
+\subsubsection[{$\sim$Synchronizer}]{\setlength{\rightskip}{0pt plus 5cm}Synchronizer::$\sim$Synchronizer ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_synchronizer_a3fb971c6c9cdb4ab5cddb3e2d3b6ac6f}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_synchronizer_a204d452071fdb6db0247fa2ec1194511}{
+\index{Synchronizer@{Synchronizer}!is\_\-all\_\-iters\_\-done@{is\_\-all\_\-iters\_\-done}}
+\index{is\_\-all\_\-iters\_\-done@{is\_\-all\_\-iters\_\-done}!Synchronizer@{Synchronizer}}
+\subsubsection[{is\_\-all\_\-iters\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}bool Synchronizer::is\_\-all\_\-iters\_\-done ()}}
+\label{class_synchronizer_a204d452071fdb6db0247fa2ec1194511}
+
+
+Check if the \hyperlink{class_execution___strategy}{Execution\_\-Strategy} has finished. 
+
+\hypertarget{class_synchronizer_a892a030d7fecf6a204721a75b43d8ca9}{
+\index{Synchronizer@{Synchronizer}!set\_\-all\_\-iters\_\-done@{set\_\-all\_\-iters\_\-done}}
+\index{set\_\-all\_\-iters\_\-done@{set\_\-all\_\-iters\_\-done}!Synchronizer@{Synchronizer}}
+\subsubsection[{set\_\-all\_\-iters\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}void Synchronizer::set\_\-all\_\-iters\_\-done ()}}
+\label{class_synchronizer_a892a030d7fecf6a204721a75b43d8ca9}
+Set that all iterations of the \hyperlink{class_execution___strategy}{Execution\_\-Strategy} have been done \hypertarget{class_synchronizer_aa633d250239482b3e11c958560308107}{
+\index{Synchronizer@{Synchronizer}!synchronize@{synchronize}}
+\index{synchronize@{synchronize}!Synchronizer@{Synchronizer}}
+\subsubsection[{synchronize}]{\setlength{\rightskip}{0pt plus 5cm}void Synchronizer::synchronize ()}}
+\label{class_synchronizer_aa633d250239482b3e11c958560308107}
+
+
+The synchronization strategy. 
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_synchronizer_8h}{Synchronizer.h}\item 
+src/commons/TopicLearner/\hyperlink{_synchronizer_8cpp}{Synchronizer.cpp}\end{DoxyCompactItemize}

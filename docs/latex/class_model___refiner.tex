@@ -1,0 +1,151 @@
+\hypertarget{class_model___refiner}{
+\section{Model\_\-Refiner Class Reference}
+\label{class_model___refiner}\index{Model\_\-Refiner@{Model\_\-Refiner}}
+}
+
+
+{\ttfamily \#include $<$Model\_\-Refiner.h$>$}
+
+Inheritance diagram for Model\_\-Refiner:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_model___refiner}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual google::protobuf::Message $\ast$ \hyperlink{class_model___refiner_a516dd37d4b76cceeb18e6bdf269b8b04}{allocate\_\-document\_\-buffer} (size\_\-t)=0
+\item 
+virtual void \hyperlink{class_model___refiner_a3787b875dfd41de8db8b1e46cfe40d16}{deallocate\_\-document\_\-buffer} (google::protobuf::Message $\ast$)=0
+\item 
+virtual google::protobuf::Message $\ast$ \hyperlink{class_model___refiner_a6d3bb23a5d76951144004d61b2fdcbe7}{get\_\-nth\_\-document} (google::protobuf::Message $\ast$docs, size\_\-t n)=0
+\item 
+virtual void $\ast$ \hyperlink{class_model___refiner_ae6b2ecaaddf8aa0876cfb42bff713607}{read} (google::protobuf::Message \&)=0
+\item 
+virtual void $\ast$ \hyperlink{class_model___refiner_a6c2ecd4d1df247352c8319e0eb17e1e2}{sample} (void $\ast$)=0
+\item 
+virtual void $\ast$ \hyperlink{class_model___refiner_a5aeef4eee7a0d4f1878356d891ded76d}{test} (void $\ast$)=0
+\item 
+virtual void $\ast$ \hyperlink{class_model___refiner_a5766465773d95e73a36dac702cfe2298}{update} (void $\ast$)=0
+\item 
+virtual void $\ast$ \hyperlink{class_model___refiner_a238a8d648f8b1c0966ea8e4cbbaa9e9e}{optimize} (void $\ast$)=0
+\item 
+virtual void $\ast$ \hyperlink{class_model___refiner_afc5cd8181d1f6fc3ebf0a6bad1d8f023}{eval} (void $\ast$, double \&)=0
+\item 
+virtual void \hyperlink{class_model___refiner_a7a98ac7633d5d15d959d9b9c1a414576}{write} (void $\ast$)=0
+\item 
+virtual void \hyperlink{class_model___refiner_a570c3bd6742f609ba86d724e8f070f1a}{iteration\_\-done} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An interface that defines the necessary refinements for refining the LDA graphical model and its extensions. A refinement is defined as an operation done to improve the model like sampling. The definition is also extended to operations that enable a refinement like reading documents and evaluating log-\/likelihoods.
+
+The provider of a model's implementation has to implement this interface suitably 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_model___refiner_a516dd37d4b76cceeb18e6bdf269b8b04}{
+\index{Model\_\-Refiner@{Model\_\-Refiner}!allocate\_\-document\_\-buffer@{allocate\_\-document\_\-buffer}}
+\index{allocate\_\-document\_\-buffer@{allocate\_\-document\_\-buffer}!Model_Refiner@{Model\_\-Refiner}}
+\subsubsection[{allocate\_\-document\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}virtual google::protobuf::Message$\ast$ Model\_\-Refiner::allocate\_\-document\_\-buffer (size\_\-t)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___refiner_a516dd37d4b76cceeb18e6bdf269b8b04}
+
+
+Implemented in \hyperlink{class_unigram___model___tester_a81877bb24ead9124407d32109a83acba}{Unigram\_\-Model\_\-Tester}, and \hyperlink{class_unigram___model___trainer_a92e5a9c1dcd4f1fdf4a2b158f6b31c7b}{Unigram\_\-Model\_\-Trainer}.
+
+\hypertarget{class_model___refiner_a3787b875dfd41de8db8b1e46cfe40d16}{
+\index{Model\_\-Refiner@{Model\_\-Refiner}!deallocate\_\-document\_\-buffer@{deallocate\_\-document\_\-buffer}}
+\index{deallocate\_\-document\_\-buffer@{deallocate\_\-document\_\-buffer}!Model_Refiner@{Model\_\-Refiner}}
+\subsubsection[{deallocate\_\-document\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Model\_\-Refiner::deallocate\_\-document\_\-buffer (google::protobuf::Message $\ast$)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___refiner_a3787b875dfd41de8db8b1e46cfe40d16}
+
+
+Implemented in \hyperlink{class_unigram___model___tester_a239d3ab22007a073927dcd80501e6579}{Unigram\_\-Model\_\-Tester}, and \hyperlink{class_unigram___model___trainer_aa5f8c8441588c341c42ec6685bc313d7}{Unigram\_\-Model\_\-Trainer}.
+
+\hypertarget{class_model___refiner_afc5cd8181d1f6fc3ebf0a6bad1d8f023}{
+\index{Model\_\-Refiner@{Model\_\-Refiner}!eval@{eval}}
+\index{eval@{eval}!Model_Refiner@{Model\_\-Refiner}}
+\subsubsection[{eval}]{\setlength{\rightskip}{0pt plus 5cm}virtual void$\ast$ Model\_\-Refiner::eval (void $\ast$, \/  double \&)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___refiner_afc5cd8181d1f6fc3ebf0a6bad1d8f023}
+
+
+Implemented in \hyperlink{class_unigram___model___tester_afb32ae60aac5863d0f8ac50af4fd9ff2}{Unigram\_\-Model\_\-Tester}, and \hyperlink{class_unigram___model___trainer_a354f9cc690b803bc17284b6742702a66}{Unigram\_\-Model\_\-Trainer}.
+
+\hypertarget{class_model___refiner_a6d3bb23a5d76951144004d61b2fdcbe7}{
+\index{Model\_\-Refiner@{Model\_\-Refiner}!get\_\-nth\_\-document@{get\_\-nth\_\-document}}
+\index{get\_\-nth\_\-document@{get\_\-nth\_\-document}!Model_Refiner@{Model\_\-Refiner}}
+\subsubsection[{get\_\-nth\_\-document}]{\setlength{\rightskip}{0pt plus 5cm}virtual google::protobuf::Message$\ast$ Model\_\-Refiner::get\_\-nth\_\-document (google::protobuf::Message $\ast$ {\em docs}, \/  size\_\-t {\em n})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___refiner_a6d3bb23a5d76951144004d61b2fdcbe7}
+
+
+Implemented in \hyperlink{class_unigram___model___tester_a0062dadca66fc40748590b4aa721a291}{Unigram\_\-Model\_\-Tester}, and \hyperlink{class_unigram___model___trainer_a032b2dcd9676b5a7ced2dcb57d509c84}{Unigram\_\-Model\_\-Trainer}.
+
+\hypertarget{class_model___refiner_a570c3bd6742f609ba86d724e8f070f1a}{
+\index{Model\_\-Refiner@{Model\_\-Refiner}!iteration\_\-done@{iteration\_\-done}}
+\index{iteration\_\-done@{iteration\_\-done}!Model_Refiner@{Model\_\-Refiner}}
+\subsubsection[{iteration\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Model\_\-Refiner::iteration\_\-done ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___refiner_a570c3bd6742f609ba86d724e8f070f1a}
+
+
+Implemented in \hyperlink{class_unigram___model___streamer_a60124013b5da9fabc486558801fa3ab4}{Unigram\_\-Model\_\-Streamer}, \hyperlink{class_unigram___model___tester_a04021ed578bfeaa08a8956fc611c2722}{Unigram\_\-Model\_\-Tester}, and \hyperlink{class_unigram___model___trainer_a8034a5fd2767a6869f87a82956e127d6}{Unigram\_\-Model\_\-Trainer}.
+
+\hypertarget{class_model___refiner_a238a8d648f8b1c0966ea8e4cbbaa9e9e}{
+\index{Model\_\-Refiner@{Model\_\-Refiner}!optimize@{optimize}}
+\index{optimize@{optimize}!Model_Refiner@{Model\_\-Refiner}}
+\subsubsection[{optimize}]{\setlength{\rightskip}{0pt plus 5cm}virtual void$\ast$ Model\_\-Refiner::optimize (void $\ast$)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___refiner_a238a8d648f8b1c0966ea8e4cbbaa9e9e}
+
+
+Implemented in \hyperlink{class_unigram___model___tester_a1f1c50061c974325ec32810e27428d08}{Unigram\_\-Model\_\-Tester}, and \hyperlink{class_unigram___model___trainer_afaf685a22d603c7a0b44ed692a928c13}{Unigram\_\-Model\_\-Trainer}.
+
+\hypertarget{class_model___refiner_ae6b2ecaaddf8aa0876cfb42bff713607}{
+\index{Model\_\-Refiner@{Model\_\-Refiner}!read@{read}}
+\index{read@{read}!Model_Refiner@{Model\_\-Refiner}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}virtual void$\ast$ Model\_\-Refiner::read (google::protobuf::Message \&)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___refiner_ae6b2ecaaddf8aa0876cfb42bff713607}
+
+
+Implemented in \hyperlink{class_unigram___model___streamer_a8a092c8036f7eb09b76b200fb5524ea0}{Unigram\_\-Model\_\-Streamer}, \hyperlink{class_unigram___model___tester_a3d6b3c06e90df22b72bbd979eedef78e}{Unigram\_\-Model\_\-Tester}, and \hyperlink{class_unigram___model___trainer_af4f1230edeb83227aaeee31e9f81aeeb}{Unigram\_\-Model\_\-Trainer}.
+
+\hypertarget{class_model___refiner_a6c2ecd4d1df247352c8319e0eb17e1e2}{
+\index{Model\_\-Refiner@{Model\_\-Refiner}!sample@{sample}}
+\index{sample@{sample}!Model_Refiner@{Model\_\-Refiner}}
+\subsubsection[{sample}]{\setlength{\rightskip}{0pt plus 5cm}virtual void$\ast$ Model\_\-Refiner::sample (void $\ast$)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___refiner_a6c2ecd4d1df247352c8319e0eb17e1e2}
+
+
+Implemented in \hyperlink{class_unigram___model___tester_a81e1571fb84f36e059d8e68e01ab91f1}{Unigram\_\-Model\_\-Tester}, and \hyperlink{class_unigram___model___trainer_a03d020dca2c75815773ba726c294e3d1}{Unigram\_\-Model\_\-Trainer}.
+
+\hypertarget{class_model___refiner_a5aeef4eee7a0d4f1878356d891ded76d}{
+\index{Model\_\-Refiner@{Model\_\-Refiner}!test@{test}}
+\index{test@{test}!Model_Refiner@{Model\_\-Refiner}}
+\subsubsection[{test}]{\setlength{\rightskip}{0pt plus 5cm}virtual void$\ast$ Model\_\-Refiner::test (void $\ast$)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___refiner_a5aeef4eee7a0d4f1878356d891ded76d}
+
+
+Implemented in \hyperlink{class_unigram___model___tester_ab006fec2130a391827c117a126b00d09}{Unigram\_\-Model\_\-Tester}, and \hyperlink{class_unigram___model___trainer_a959873d7b22e159694473fdbcd470785}{Unigram\_\-Model\_\-Trainer}.
+
+\hypertarget{class_model___refiner_a5766465773d95e73a36dac702cfe2298}{
+\index{Model\_\-Refiner@{Model\_\-Refiner}!update@{update}}
+\index{update@{update}!Model_Refiner@{Model\_\-Refiner}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}virtual void$\ast$ Model\_\-Refiner::update (void $\ast$)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___refiner_a5766465773d95e73a36dac702cfe2298}
+
+
+Implemented in \hyperlink{class_unigram___model___tester_a067e8f0f15ce9c48eef77d22978eaceb}{Unigram\_\-Model\_\-Tester}, and \hyperlink{class_unigram___model___trainer_af9031fc304f82bb2f9209c0913f36df6}{Unigram\_\-Model\_\-Trainer}.
+
+\hypertarget{class_model___refiner_a7a98ac7633d5d15d959d9b9c1a414576}{
+\index{Model\_\-Refiner@{Model\_\-Refiner}!write@{write}}
+\index{write@{write}!Model_Refiner@{Model\_\-Refiner}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Model\_\-Refiner::write (void $\ast$)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_model___refiner_a7a98ac7633d5d15d959d9b9c1a414576}
+
+
+Implemented in \hyperlink{class_unigram___model___streamer_a236395088d23966ec59a85582e4d470f}{Unigram\_\-Model\_\-Streamer}, \hyperlink{class_unigram___model___tester_a9f9538866008fd7dfd681faaf4562b74}{Unigram\_\-Model\_\-Tester}, and \hyperlink{class_unigram___model___trainer_aab907b06b666d441ec60c4703d2a8e4e}{Unigram\_\-Model\_\-Trainer}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_model___refiner_8h}{Model\_\-Refiner.h}\end{DoxyCompactItemize}

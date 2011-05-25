@@ -1,0 +1,90 @@
+\hypertarget{class_synchronizer___helper}{
+\section{Synchronizer\_\-Helper Class Reference}
+\label{class_synchronizer___helper}\index{Synchronizer\_\-Helper@{Synchronizer\_\-Helper}}
+}
+
+
+A helper class for the synchronizer.  
+
+
+
+
+{\ttfamily \#include $<$Synchronizer\_\-Helper.h$>$}
+
+Inheritance diagram for Synchronizer\_\-Helper:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_synchronizer___helper}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_synchronizer___helper_a7732654b0b1f02ba661e520564a690b8}{initialize} ()=0
+\item 
+virtual void \hyperlink{class_synchronizer___helper_a18aca854fe152f99640556a2a4e04f96}{synchronize} ()=0
+\item 
+virtual bool \hyperlink{class_synchronizer___helper_a1d9c38f95c9a3a517e5a89659aa4c522}{has\_\-to\_\-synchronize} ()=0
+\item 
+virtual void \hyperlink{class_synchronizer___helper_ac58a4f287d5edd1fa6883701567da75a}{reset\_\-to\_\-synchronize} ()=0
+\item 
+virtual void \hyperlink{class_synchronizer___helper_a29ac0b4b630f56e59e6587bb6275d97e}{end\_\-putNget} (const std::string \&word, const std::string \&counts)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A helper class for the synchronizer. Each helper object implements synchronization algorithms for maintaining the data structures in sync
+
+The \hyperlink{class_synchronizer}{Synchronizer} class depends on this interface to enable synchronization of a multi-\/machine LDA set-\/up 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_synchronizer___helper_a29ac0b4b630f56e59e6587bb6275d97e}{
+\index{Synchronizer\_\-Helper@{Synchronizer\_\-Helper}!end\_\-putNget@{end\_\-putNget}}
+\index{end\_\-putNget@{end\_\-putNget}!Synchronizer_Helper@{Synchronizer\_\-Helper}}
+\subsubsection[{end\_\-putNget}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Synchronizer\_\-Helper::end\_\-putNget (const std::string \& {\em word}, \/  const std::string \& {\em counts})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_synchronizer___helper_a29ac0b4b630f56e59e6587bb6275d97e}
+This is a callback from the \hyperlink{class_client}{Client} when an async\_\-putNget is used on the \hyperlink{class_client}{Client} So when a \hyperlink{class_client}{Client} is instantiated, you need to pass a reference of ($\ast$this) 
+
+Implemented in \hyperlink{class_unigram___model___synchronizer___helper_a07f7982f9ad12c616fef9d3abefe23e1}{Unigram\_\-Model\_\-Synchronizer\_\-Helper}.
+
+\hypertarget{class_synchronizer___helper_a1d9c38f95c9a3a517e5a89659aa4c522}{
+\index{Synchronizer\_\-Helper@{Synchronizer\_\-Helper}!has\_\-to\_\-synchronize@{has\_\-to\_\-synchronize}}
+\index{has\_\-to\_\-synchronize@{has\_\-to\_\-synchronize}!Synchronizer_Helper@{Synchronizer\_\-Helper}}
+\subsubsection[{has\_\-to\_\-synchronize}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Synchronizer\_\-Helper::has\_\-to\_\-synchronize ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_synchronizer___helper_a1d9c38f95c9a3a517e5a89659aa4c522}
+Returns true as long as all items to be synchronized are not synchronized 
+
+Implemented in \hyperlink{class_unigram___model___synchronizer___helper_ac07d07668ba79d9748d2f52629ccf50e}{Unigram\_\-Model\_\-Synchronizer\_\-Helper}.
+
+\hypertarget{class_synchronizer___helper_a7732654b0b1f02ba661e520564a690b8}{
+\index{Synchronizer\_\-Helper@{Synchronizer\_\-Helper}!initialize@{initialize}}
+\index{initialize@{initialize}!Synchronizer_Helper@{Synchronizer\_\-Helper}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Synchronizer\_\-Helper::initialize ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_synchronizer___helper_a7732654b0b1f02ba661e520564a690b8}
+
+
+Implemented in \hyperlink{class_unigram___model___synchronizer___helper_aa1f5e5b097ff5f089dde9b34dd2fae3e}{Unigram\_\-Model\_\-Synchronizer\_\-Helper}.
+
+\hypertarget{class_synchronizer___helper_ac58a4f287d5edd1fa6883701567da75a}{
+\index{Synchronizer\_\-Helper@{Synchronizer\_\-Helper}!reset\_\-to\_\-synchronize@{reset\_\-to\_\-synchronize}}
+\index{reset\_\-to\_\-synchronize@{reset\_\-to\_\-synchronize}!Synchronizer_Helper@{Synchronizer\_\-Helper}}
+\subsubsection[{reset\_\-to\_\-synchronize}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Synchronizer\_\-Helper::reset\_\-to\_\-synchronize ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_synchronizer___helper_ac58a4f287d5edd1fa6883701567da75a}
+After this call, \hyperlink{class_synchronizer___helper_a1d9c38f95c9a3a517e5a89659aa4c522}{has\_\-to\_\-synchronize()} should return true 
+
+Implemented in \hyperlink{class_unigram___model___synchronizer___helper_a3e9fef7c7c827ced4ec473e99c2c2ba0}{Unigram\_\-Model\_\-Synchronizer\_\-Helper}.
+
+\hypertarget{class_synchronizer___helper_a18aca854fe152f99640556a2a4e04f96}{
+\index{Synchronizer\_\-Helper@{Synchronizer\_\-Helper}!synchronize@{synchronize}}
+\index{synchronize@{synchronize}!Synchronizer_Helper@{Synchronizer\_\-Helper}}
+\subsubsection[{synchronize}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Synchronizer\_\-Helper::synchronize ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_synchronizer___helper_a18aca854fe152f99640556a2a4e04f96}
+
+
+Implemented in \hyperlink{class_unigram___model___synchronizer___helper_a270835ef882ab219a7f9ffe6000627e7}{Unigram\_\-Model\_\-Synchronizer\_\-Helper}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_synchronizer___helper_8h}{Synchronizer\_\-Helper.h}\end{DoxyCompactItemize}

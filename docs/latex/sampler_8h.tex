@@ -1,0 +1,19 @@
+\hypertarget{sampler_8h}{
+\section{src/Unigram\_\-Model/TopicLearner/sampler.h File Reference}
+\label{sampler_8h}\index{src/Unigram\_\-Model/TopicLearner/sampler.h@{src/Unigram\_\-Model/TopicLearner/sampler.h}}
+}
+{\ttfamily \#include \char`\"{}constants.h\char`\"{}}\par
+{\ttfamily \#include $<$boost/random/variate\_\-generator.hpp$>$}\par
+{\ttfamily \#include $<$boost/random/uniform\_\-real.hpp$>$}\par
+{\ttfamily \#include \char`\"{}tbb/atomic.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TopicCounts.h\char`\"{}}\par
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacesampler}{sampler}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+topic\_\-t \hyperlink{namespacesampler_a5e94e46fa64275d6575d568932f827be}{sampler::sample} (const \hyperlink{struct_topic_counts}{topicCounts} $\ast$currentTypeTopicCounts, topic\_\-t old\_\-topic, const atomic$<$ topic\_\-t $>$ $\ast$tokens\_\-per\_\-topic, const topic\_\-t $\ast$local\_\-topic\_\-counts, const topic\_\-t $\ast$local\_\-topic\_\-index, const int \&non\_\-zero\_\-topics, const double \&smoothingOnlyMass, const double \&topicBetaMass, const double $\ast$cachedCoefficients, const double \&betaSum, const double $\ast$alpha, double $\ast$topic\_\-term\_\-scores, const topic\_\-t \&numTopics, variate\_\-generator$<$ \hyperlink{types_8h_a17e4235145adf580fbfd1b811467e3b9}{base\_\-generator\_\-type} \&, boost::uniform\_\-real$<$$>$ $>$ $\ast$unif01)
+\end{DoxyCompactItemize}

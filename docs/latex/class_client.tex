@@ -1,0 +1,109 @@
+\hypertarget{class_client}{
+\section{Client Class Reference}
+\label{class_client}\index{Client@{Client}}
+}
+
+
+{\ttfamily \#include $<$Client.h$>$}
+
+Inheritance diagram for Client:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_client}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{class_client_aa1e3f5566dadd85d3ac575c7978f65ea}{get} (const string \&key, string \&val)=0
+\item 
+virtual void \hyperlink{class_client_a5efb1076768c93a53355bc7bdc8b430f}{set} (const string \&key, const string \&val)=0
+\item 
+virtual void \hyperlink{class_client_a7369bb878f12a07b717638efb5871668}{put} (const string \&key, const string \&delta)=0
+\item 
+virtual void \hyperlink{class_client_a3c7e1cbb61e8a9b2c5c89de884f22253}{begin\_\-putNget} (const string \&key, const string \&val)=0
+\item 
+virtual bool \hyperlink{class_client_ac60bd2cf7928c64a662fa8c0af748d0c}{remove} (const string \&key, string \&val)=0
+\item 
+virtual void \hyperlink{class_client_af1bfd186c6afcddd19e0e6f69e1a8fc1}{wait\_\-for\_\-all} ()=0
+\begin{DoxyCompactList}\small\item\em Provides barrier functionality. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{class_client_a7cc1fed7f1d161586a8abef93a24b715}{wait\_\-till\_\-done} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The interface to be implemented by any client for the Distributed Map service 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_client_a3c7e1cbb61e8a9b2c5c89de884f22253}{
+\index{Client@{Client}!begin\_\-putNget@{begin\_\-putNget}}
+\index{begin\_\-putNget@{begin\_\-putNget}!Client@{Client}}
+\subsubsection[{begin\_\-putNget}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Client::begin\_\-putNget (const string \& {\em key}, \/  const string \& {\em val})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_client_a3c7e1cbb61e8a9b2c5c89de884f22253}
+Asynchronous put and get operation. It begins with a put. The call back in \hyperlink{class_synchronizer___helper}{Synchronizer\_\-Helper} is called which creates the effect of a get 
+
+Implemented in \hyperlink{class_d_m___client_a55c5ec85e4e670a6ec5a4da71e4d50cf}{DM\_\-Client}.
+
+\hypertarget{class_client_aa1e3f5566dadd85d3ac575c7978f65ea}{
+\index{Client@{Client}!get@{get}}
+\index{get@{get}!Client@{Client}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Client::get (const string \& {\em key}, \/  string \& {\em val})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_client_aa1e3f5566dadd85d3ac575c7978f65ea}
+Gets the serialized val stored for the key in the Distributed Map. Returns true if key exists and false otherwise 
+
+Implemented in \hyperlink{class_d_m___client_aef212e65cee0c1cd11f9480e68f923cd}{DM\_\-Client}.
+
+\hypertarget{class_client_a7369bb878f12a07b717638efb5871668}{
+\index{Client@{Client}!put@{put}}
+\index{put@{put}!Client@{Client}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Client::put (const string \& {\em key}, \/  const string \& {\em delta})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_client_a7369bb878f12a07b717638efb5871668}
+Adds delta to the serialized value for the key in the Distributed Map. This has accumulator semantics. The accumulator logic is provided by the \hyperlink{class_server___helper}{Server\_\-Helper}. 
+
+Implemented in \hyperlink{class_d_m___client_a8285b5edb01bfe9325d887a4bb4e17d7}{DM\_\-Client}.
+
+\hypertarget{class_client_ac60bd2cf7928c64a662fa8c0af748d0c}{
+\index{Client@{Client}!remove@{remove}}
+\index{remove@{remove}!Client@{Client}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Client::remove (const string \& {\em key}, \/  string \& {\em val})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_client_ac60bd2cf7928c64a662fa8c0af748d0c}
+Remove the key from the Distributed Map returning the serialized value stored as val. Returns true if key exists and false otherwise 
+
+Implemented in \hyperlink{class_d_m___client_a856f11737f8dce9f842256a3391b084b}{DM\_\-Client}.
+
+\hypertarget{class_client_a5efb1076768c93a53355bc7bdc8b430f}{
+\index{Client@{Client}!set@{set}}
+\index{set@{set}!Client@{Client}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Client::set (const string \& {\em key}, \/  const string \& {\em val})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_client_a5efb1076768c93a53355bc7bdc8b430f}
+Sets val as the serialized value for the key in the Distributed Map. This has replace semantics 
+
+Implemented in \hyperlink{class_d_m___client_aebf92e20f8ae0517bee2c956593f3748}{DM\_\-Client}.
+
+\hypertarget{class_client_af1bfd186c6afcddd19e0e6f69e1a8fc1}{
+\index{Client@{Client}!wait\_\-for\_\-all@{wait\_\-for\_\-all}}
+\index{wait\_\-for\_\-all@{wait\_\-for\_\-all}!Client@{Client}}
+\subsubsection[{wait\_\-for\_\-all}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Client::wait\_\-for\_\-all ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_client_af1bfd186c6afcddd19e0e6f69e1a8fc1}
+
+
+Provides barrier functionality. 
+
+
+
+Implemented in \hyperlink{class_d_m___client_a93c89b66097d58302c1322918ec76fca}{DM\_\-Client}.
+
+\hypertarget{class_client_a7cc1fed7f1d161586a8abef93a24b715}{
+\index{Client@{Client}!wait\_\-till\_\-done@{wait\_\-till\_\-done}}
+\index{wait\_\-till\_\-done@{wait\_\-till\_\-done}!Client@{Client}}
+\subsubsection[{wait\_\-till\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Client::wait\_\-till\_\-done ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_client_a7cc1fed7f1d161586a8abef93a24b715}
+Provides functionality to wait for any asynchronous communication to end 
+
+Implemented in \hyperlink{class_d_m___client_a2ea7e411fb8e92febc74c90b8ab886c6}{DM\_\-Client}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/commons/\hyperlink{_client_8h}{Client.h}\end{DoxyCompactItemize}

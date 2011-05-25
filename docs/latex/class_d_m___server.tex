@@ -1,0 +1,107 @@
+\hypertarget{class_d_m___server}{
+\section{DM\_\-Server Class Reference}
+\label{class_d_m___server}\index{DM\_\-Server@{DM\_\-Server}}
+}
+
+
+The Server class that implements the DistributedMap Ice interface.  
+
+
+
+
+{\ttfamily \#include $<$DM\_\-Server.h$>$}
+
+Inheritance diagram for DM\_\-Server:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_d_m___server}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_d_m___server_a1cd634944614b427c01095814f91e8e4}{DM\_\-Server} (int num\_\-clients, \hyperlink{class_server___helper}{Server\_\-Helper} \&)
+\item 
+virtual \hyperlink{class_d_m___server_a5ca03ed605fe2eeabfc0e86b8d9348e5}{$\sim$DM\_\-Server} ()
+\item 
+void \hyperlink{class_d_m___server_a2ef825954e6bfea85484800642f93136}{put} (const string \&key, const string \&val, const Ice::Current \&)
+\item 
+void \hyperlink{class_d_m___server_af56ffe1e8d40e23d30f4bf1a93b1a6c8}{set} (const string \&key, const string \&val, const Ice::Current \&)
+\item 
+bool \hyperlink{class_d_m___server_ae440379cb66a3725c1fd7666e6287fa1}{get} (const string \&key, string \&val, const Ice::Current \&)
+\item 
+bool \hyperlink{class_d_m___server_af60a2b4c3d5f5bfaceaa09797ecf54f8}{remove} (const string \&, string \&, const Ice::Current \&)
+\item 
+void \hyperlink{class_d_m___server_ad90ade02956d09234831cf7edd61fff5}{putNget\_\-async} (const AMD\_\-DistributedMap\_\-putNgetPtr \&png\_\-cb, const string \&word, const string \&delta, const Ice::Current \&)
+\item 
+void \hyperlink{class_d_m___server_adedd58e27509b0a4eeebbc08cb5c20d8}{waitForAllClients\_\-async} (const AMD\_\-DistributedMap\_\-waitForAllClientsPtr \&, const Ice::Current \&)
+\begin{DoxyCompactList}\small\item\em Barrier. Helps clients synchronize. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The Server class that implements the DistributedMap Ice interface. It essentially holds a part of the distributed map. Associates a 'key' to a particular 'value'
+
+The implementation abstracts out the semantics. The only accepted key \& value types are strings Other types of objects have to be serialized before they can be stored.
+
+It provides the usual get, set \& remove operations with the usual semantics.
+
+It also provides accumulator semantics with the put operation. Values stored using a put operation are accumulated instead of being replaced. Note that the semantics of this accumulating is provided by a helper class that implements the \hyperlink{class_server___helper}{Server\_\-Helper} interface
+
+There is also a putNget operation which uses AMD to not block dispatch threads. The putNget is also an AMI. More info on AMI in client class. Please look up Ice documentation for more details. This operation puts a value for the given key and returns the result of the accumulate operation.
+
+It also provides a barrier implementation that lets clients synchronize. This is a very simple use of AMD The dispatch threads are released without busy waiting. Only a counter is incremented with every call. Once the counter reaches num\_\-clients registered, a response is sent to all queued up call back objects. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_d_m___server_a1cd634944614b427c01095814f91e8e4}{
+\index{DM\_\-Server@{DM\_\-Server}!DM\_\-Server@{DM\_\-Server}}
+\index{DM\_\-Server@{DM\_\-Server}!DM_Server@{DM\_\-Server}}
+\subsubsection[{DM\_\-Server}]{\setlength{\rightskip}{0pt plus 5cm}DM\_\-Server::DM\_\-Server (int {\em num\_\-clients}, \/  {\bf Server\_\-Helper} \& {\em server\_\-helper})}}
+\label{class_d_m___server_a1cd634944614b427c01095814f91e8e4}
+The num of clients that will be accessing the DistributedMap This parameter is used to provide a barrier \hypertarget{class_d_m___server_a5ca03ed605fe2eeabfc0e86b8d9348e5}{
+\index{DM\_\-Server@{DM\_\-Server}!$\sim$DM\_\-Server@{$\sim$DM\_\-Server}}
+\index{$\sim$DM\_\-Server@{$\sim$DM\_\-Server}!DM_Server@{DM\_\-Server}}
+\subsubsection[{$\sim$DM\_\-Server}]{\setlength{\rightskip}{0pt plus 5cm}DM\_\-Server::$\sim$DM\_\-Server ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_d_m___server_a5ca03ed605fe2eeabfc0e86b8d9348e5}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_d_m___server_ae440379cb66a3725c1fd7666e6287fa1}{
+\index{DM\_\-Server@{DM\_\-Server}!get@{get}}
+\index{get@{get}!DM_Server@{DM\_\-Server}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}bool DM\_\-Server::get (const string \& {\em key}, \/  string \& {\em val}, \/  const Ice::Current \&)}}
+\label{class_d_m___server_ae440379cb66a3725c1fd7666e6287fa1}
+The get operation. Sets val with the value of the key and returns true if the key exists. Else does not set val and returns false \hypertarget{class_d_m___server_a2ef825954e6bfea85484800642f93136}{
+\index{DM\_\-Server@{DM\_\-Server}!put@{put}}
+\index{put@{put}!DM_Server@{DM\_\-Server}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}void DM\_\-Server::put (const string \& {\em key}, \/  const string \& {\em val}, \/  const Ice::Current \&)}}
+\label{class_d_m___server_a2ef825954e6bfea85484800642f93136}
+The put operation. Note the slight difference in semantics This has accumulator semantics. The value is accumulated and not replaced \hypertarget{class_d_m___server_ad90ade02956d09234831cf7edd61fff5}{
+\index{DM\_\-Server@{DM\_\-Server}!putNget\_\-async@{putNget\_\-async}}
+\index{putNget\_\-async@{putNget\_\-async}!DM_Server@{DM\_\-Server}}
+\subsubsection[{putNget\_\-async}]{\setlength{\rightskip}{0pt plus 5cm}void DM\_\-Server::putNget\_\-async (const AMD\_\-DistributedMap\_\-putNgetPtr \& {\em png\_\-cb}, \/  const string \& {\em word}, \/  const string \& {\em delta}, \/  const Ice::Current \&)}}
+\label{class_d_m___server_ad90ade02956d09234831cf7edd61fff5}
+The put and get operation. Does a put(word,delta) and returns the updated value png\_\-cb is the AMD call back object \hypertarget{class_d_m___server_af60a2b4c3d5f5bfaceaa09797ecf54f8}{
+\index{DM\_\-Server@{DM\_\-Server}!remove@{remove}}
+\index{remove@{remove}!DM_Server@{DM\_\-Server}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}bool DM\_\-Server::remove (const string \& {\em word}, \/  string \& {\em counts}, \/  const Ice::Current \&)}}
+\label{class_d_m___server_af60a2b4c3d5f5bfaceaa09797ecf54f8}
+The remove operation. Removes the key-\/value pair from the table If the key does not exist, returns false. Else returns true \hypertarget{class_d_m___server_af56ffe1e8d40e23d30f4bf1a93b1a6c8}{
+\index{DM\_\-Server@{DM\_\-Server}!set@{set}}
+\index{set@{set}!DM_Server@{DM\_\-Server}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}void DM\_\-Server::set (const string \& {\em key}, \/  const string \& {\em val}, \/  const Ice::Current \&)}}
+\label{class_d_m___server_af56ffe1e8d40e23d30f4bf1a93b1a6c8}
+The set operation. The value is replaced if the key already exists \hypertarget{class_d_m___server_adedd58e27509b0a4eeebbc08cb5c20d8}{
+\index{DM\_\-Server@{DM\_\-Server}!waitForAllClients\_\-async@{waitForAllClients\_\-async}}
+\index{waitForAllClients\_\-async@{waitForAllClients\_\-async}!DM_Server@{DM\_\-Server}}
+\subsubsection[{waitForAllClients\_\-async}]{\setlength{\rightskip}{0pt plus 5cm}void DM\_\-Server::waitForAllClients\_\-async (const AMD\_\-DistributedMap\_\-waitForAllClientsPtr \& {\em cb}, \/  const Ice::Current \&)}}
+\label{class_d_m___server_adedd58e27509b0a4eeebbc08cb5c20d8}
+
+
+Barrier. Helps clients synchronize. 
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/Server/\hyperlink{_d_m___server_8h}{DM\_\-Server.h}\item 
+src/commons/Server/\hyperlink{_d_m___server_8cpp}{DM\_\-Server.cpp}\end{DoxyCompactItemize}

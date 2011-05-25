@@ -1,0 +1,58 @@
+\hypertarget{_merge___topic___counts_8cpp}{
+\section{src/Unigram\_\-Model/Merge/Merge\_\-Topic\_\-Counts.cpp File Reference}
+\label{_merge___topic___counts_8cpp}\index{src/Unigram\_\-Model/Merge/Merge\_\-Topic\_\-Counts.cpp@{src/Unigram\_\-Model/Merge/Merge\_\-Topic\_\-Counts.cpp}}
+}
+{\ttfamily \#include \char`\"{}gflags/gflags.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}glog/logging.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}WordIndexDictionary.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TopicLearner/TypeTopicCounts.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TopicLearner/Synchronizer\_\-Helper.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TopicLearner/DM\_\-Client.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_merge___topic___counts_8cpp_abedd384df3941d8eaa49a6d03c724935}{DEFINE\_\-int32} (clientid,-\/1,\char`\"{}The id that this client should use and means that this is now a part of the multi-\/machine setup\char`\"{})
+\item 
+\hyperlink{_merge___topic___counts_8cpp_affdcf157fa957207e86460d611618042}{DEFINE\_\-string} (servers,\char`\"{}specify\char`\"{},\char`\"{}The set of all memcached servers that are storing the state. E.g. 192.168.0.1, 192.168.0.3:44, 200.132.12.34\char`\"{})
+\item 
+\hyperlink{_merge___topic___counts_8cpp_ae536e913fdb3d8357d5e5bb248d82e84}{DEFINE\_\-string} (outputprefix,\char`\"{}lda\char`\"{},\char`\"{}A prefix that will be used with all files output by the program\char`\"{})
+\item 
+\hyperlink{_merge___topic___counts_8cpp_a422add84076f4eeb9d7f40e4404fc6af}{DEFINE\_\-string} (globaldictionary,\char`\"{}specify\char`\"{},\char`\"{}The global dictionary; topic counts of parts of which have to be retrieved\char`\"{})
+\item 
+\hyperlink{_merge___topic___counts_8cpp_ad0570eab5419a897915b7bbebcc6e7a5}{DEFINE\_\-int32} (topics, 100,\char`\"{}The number of topics to be used by LDA.\char`\"{})
+\item 
+int \hyperlink{_merge___topic___counts_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_merge___topic___counts_8cpp_ad0570eab5419a897915b7bbebcc6e7a5}{
+\index{Merge\_\-Topic\_\-Counts.cpp@{Merge\_\-Topic\_\-Counts.cpp}!DEFINE\_\-int32@{DEFINE\_\-int32}}
+\index{DEFINE\_\-int32@{DEFINE\_\-int32}!Merge_Topic_Counts.cpp@{Merge\_\-Topic\_\-Counts.cpp}}
+\subsubsection[{DEFINE\_\-int32}]{\setlength{\rightskip}{0pt plus 5cm}DEFINE\_\-int32 (topics, \/  100, \/  \char`\"{}The number of topics to be used by LDA.\char`\"{})}}
+\label{_merge___topic___counts_8cpp_ad0570eab5419a897915b7bbebcc6e7a5}
+\hypertarget{_merge___topic___counts_8cpp_abedd384df3941d8eaa49a6d03c724935}{
+\index{Merge\_\-Topic\_\-Counts.cpp@{Merge\_\-Topic\_\-Counts.cpp}!DEFINE\_\-int32@{DEFINE\_\-int32}}
+\index{DEFINE\_\-int32@{DEFINE\_\-int32}!Merge_Topic_Counts.cpp@{Merge\_\-Topic\_\-Counts.cpp}}
+\subsubsection[{DEFINE\_\-int32}]{\setlength{\rightskip}{0pt plus 5cm}DEFINE\_\-int32 (clientid, \/  -\/ {\em 1}, \/  \char`\"{}The id that this client should use and means that this is now a part of the multi-\/machine setup\char`\"{})}}
+\label{_merge___topic___counts_8cpp_abedd384df3941d8eaa49a6d03c724935}
+\hypertarget{_merge___topic___counts_8cpp_a422add84076f4eeb9d7f40e4404fc6af}{
+\index{Merge\_\-Topic\_\-Counts.cpp@{Merge\_\-Topic\_\-Counts.cpp}!DEFINE\_\-string@{DEFINE\_\-string}}
+\index{DEFINE\_\-string@{DEFINE\_\-string}!Merge_Topic_Counts.cpp@{Merge\_\-Topic\_\-Counts.cpp}}
+\subsubsection[{DEFINE\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}DEFINE\_\-string (globaldictionary, \/  \char`\"{}specify\char`\"{}, \/  \char`\"{}The global dictionary; topic counts of parts of which have to be retrieved\char`\"{})}}
+\label{_merge___topic___counts_8cpp_a422add84076f4eeb9d7f40e4404fc6af}
+\hypertarget{_merge___topic___counts_8cpp_ae536e913fdb3d8357d5e5bb248d82e84}{
+\index{Merge\_\-Topic\_\-Counts.cpp@{Merge\_\-Topic\_\-Counts.cpp}!DEFINE\_\-string@{DEFINE\_\-string}}
+\index{DEFINE\_\-string@{DEFINE\_\-string}!Merge_Topic_Counts.cpp@{Merge\_\-Topic\_\-Counts.cpp}}
+\subsubsection[{DEFINE\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}DEFINE\_\-string (outputprefix, \/  \char`\"{}lda\char`\"{}, \/  \char`\"{}A prefix that will be used with all files output by the program\char`\"{})}}
+\label{_merge___topic___counts_8cpp_ae536e913fdb3d8357d5e5bb248d82e84}
+\hypertarget{_merge___topic___counts_8cpp_affdcf157fa957207e86460d611618042}{
+\index{Merge\_\-Topic\_\-Counts.cpp@{Merge\_\-Topic\_\-Counts.cpp}!DEFINE\_\-string@{DEFINE\_\-string}}
+\index{DEFINE\_\-string@{DEFINE\_\-string}!Merge_Topic_Counts.cpp@{Merge\_\-Topic\_\-Counts.cpp}}
+\subsubsection[{DEFINE\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}DEFINE\_\-string (servers, \/  \char`\"{}specify\char`\"{}, \/  \char`\"{}The set of all memcached servers that are storing the state. E.g. 192.168.0. {\em 1}, \/  192.168.0.3:44, \/  200.132.12.34\char`\"{})}}
+\label{_merge___topic___counts_8cpp_affdcf157fa957207e86460d611618042}
+\hypertarget{_merge___topic___counts_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{
+\index{Merge\_\-Topic\_\-Counts.cpp@{Merge\_\-Topic\_\-Counts.cpp}!main@{main}}
+\index{main@{main}!Merge_Topic_Counts.cpp@{Merge\_\-Topic\_\-Counts.cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]})}}
+\label{_merge___topic___counts_8cpp_a0ddf1224851353fc92bfbff6f499fa97}

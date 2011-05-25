@@ -1,0 +1,149 @@
+\hypertarget{class_word_index_dictionary}{
+\section{WordIndexDictionary Class Reference}
+\label{class_word_index_dictionary}\index{WordIndexDictionary@{WordIndexDictionary}}
+}
+
+
+A two way dictionary of words to indices.  
+
+
+
+
+{\ttfamily \#include $<$WordIndexDictionary.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_word_index_dictionary_a25019e66f8c3c6e1adba40157abf69bc}{WordIndexDictionary} ()
+\item 
+virtual \hyperlink{class_word_index_dictionary_a6e3ee8eeacf9ace4757f4f345e519e30}{$\sim$WordIndexDictionary} ()
+\item 
+int \hyperlink{class_word_index_dictionary_a683dcfdc3714b73402a3e331db88e33a}{get\_\-index} (string word)
+\item 
+string \hyperlink{class_word_index_dictionary_a58ab80daf59d8bad6cd105166c3feb8b}{get\_\-word} (int index)
+\item 
+int \hyperlink{class_word_index_dictionary_a1aef628d50e42417dd1099598687c848}{insert\_\-word} (string word)
+\item 
+int \hyperlink{class_word_index_dictionary_aa4e879ad400d0b35a5fbfb358d3bf8e2}{get\_\-num\_\-words} () const 
+\item 
+void \hyperlink{class_word_index_dictionary_a4781b2b79231219cb3ecbe59e8adb483}{print} ()
+\item 
+bool \hyperlink{class_word_index_dictionary_aaadc560c3572f6e3006212d9b56c32b2}{match\_\-word\_\-index} ()
+\item 
+void \hyperlink{class_word_index_dictionary_a5263558f64f5890577e795ccd2834a5b}{dump} (string fname)
+\item 
+void \hyperlink{class_word_index_dictionary_a415c20e6f67555c105cdc4da3abe730f}{initialize\_\-from\_\-dict} (\hyperlink{class_word_index_dictionary}{WordIndexDictionary} $\ast$dict, bool sort=false)
+\item 
+void \hyperlink{class_word_index_dictionary_abbc261e4c314aace9917fcb5c5ec127f}{initialize\_\-from\_\-dump} (string fname, int num\_\-words=INT\_\-MAX, bool sort=false)
+\item 
+void \hyperlink{class_word_index_dictionary_a83c3a82b71ffec88dee7b58c01234de0}{initialize\_\-from\_\-dumps} (string prefix, int dumps)
+\item 
+size\_\-t \hyperlink{class_word_index_dictionary_ad2cc989f8d453e0353cc6de8e73d4aa0}{size} ()
+\item 
+int \hyperlink{class_word_index_dictionary_a834b4657d8c84ed3051c23668e2fe607}{get\_\-prev\_\-index} (int new\_\-id)
+\item 
+int \hyperlink{class_word_index_dictionary_af81362ed63cf02ef2722ff3087e01ac8}{get\_\-freq} (int index)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ id2freq\_\-t $>$ \hyperlink{class_word_index_dictionary_abcff7bfd6b63bf0a14ba38bf8bb7be9f}{frequencies}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A two way dictionary of words to indices. Provides a two way dictionary mapping words as strings to a unique int index and vice versa. The hashtable implementation of boost/unordered\_\-map is used. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_word_index_dictionary_a25019e66f8c3c6e1adba40157abf69bc}{
+\index{WordIndexDictionary@{WordIndexDictionary}!WordIndexDictionary@{WordIndexDictionary}}
+\index{WordIndexDictionary@{WordIndexDictionary}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{WordIndexDictionary}]{\setlength{\rightskip}{0pt plus 5cm}WordIndexDictionary::WordIndexDictionary ()}}
+\label{class_word_index_dictionary_a25019e66f8c3c6e1adba40157abf69bc}
+Constructs an empty dictionary \hypertarget{class_word_index_dictionary_a6e3ee8eeacf9ace4757f4f345e519e30}{
+\index{WordIndexDictionary@{WordIndexDictionary}!$\sim$WordIndexDictionary@{$\sim$WordIndexDictionary}}
+\index{$\sim$WordIndexDictionary@{$\sim$WordIndexDictionary}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{$\sim$WordIndexDictionary}]{\setlength{\rightskip}{0pt plus 5cm}WordIndexDictionary::$\sim$WordIndexDictionary ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_word_index_dictionary_a6e3ee8eeacf9ace4757f4f345e519e30}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_word_index_dictionary_a5263558f64f5890577e795ccd2834a5b}{
+\index{WordIndexDictionary@{WordIndexDictionary}!dump@{dump}}
+\index{dump@{dump}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{dump}]{\setlength{\rightskip}{0pt plus 5cm}void WordIndexDictionary::dump (string {\em fname})}}
+\label{class_word_index_dictionary_a5263558f64f5890577e795ccd2834a5b}
+Dumps the dictionary onto disk in protobuffer binary format so that a new dictionary can be intialized later from the dump using initialize\_\-from\_\-dump Also the dump does batch write to disk to optimize io. Batches 1000 (word,index) pairs and then writes them to disk using \hyperlink{class_document_writer}{DocumentWriter} \hypertarget{class_word_index_dictionary_af81362ed63cf02ef2722ff3087e01ac8}{
+\index{WordIndexDictionary@{WordIndexDictionary}!get\_\-freq@{get\_\-freq}}
+\index{get\_\-freq@{get\_\-freq}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{get\_\-freq}]{\setlength{\rightskip}{0pt plus 5cm}int WordIndexDictionary::get\_\-freq (int {\em index})}}
+\label{class_word_index_dictionary_af81362ed63cf02ef2722ff3087e01ac8}
+\hypertarget{class_word_index_dictionary_a683dcfdc3714b73402a3e331db88e33a}{
+\index{WordIndexDictionary@{WordIndexDictionary}!get\_\-index@{get\_\-index}}
+\index{get\_\-index@{get\_\-index}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{get\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}int WordIndexDictionary::get\_\-index (string {\em word})}}
+\label{class_word_index_dictionary_a683dcfdc3714b73402a3e331db88e33a}
+Find the unique index assigned to word \hypertarget{class_word_index_dictionary_aa4e879ad400d0b35a5fbfb358d3bf8e2}{
+\index{WordIndexDictionary@{WordIndexDictionary}!get\_\-num\_\-words@{get\_\-num\_\-words}}
+\index{get\_\-num\_\-words@{get\_\-num\_\-words}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{get\_\-num\_\-words}]{\setlength{\rightskip}{0pt plus 5cm}int WordIndexDictionary::get\_\-num\_\-words () const}}
+\label{class_word_index_dictionary_aa4e879ad400d0b35a5fbfb358d3bf8e2}
+\hypertarget{class_word_index_dictionary_a834b4657d8c84ed3051c23668e2fe607}{
+\index{WordIndexDictionary@{WordIndexDictionary}!get\_\-prev\_\-index@{get\_\-prev\_\-index}}
+\index{get\_\-prev\_\-index@{get\_\-prev\_\-index}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{get\_\-prev\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}int WordIndexDictionary::get\_\-prev\_\-index (int {\em new\_\-id})}}
+\label{class_word_index_dictionary_a834b4657d8c84ed3051c23668e2fe607}
+\hypertarget{class_word_index_dictionary_a58ab80daf59d8bad6cd105166c3feb8b}{
+\index{WordIndexDictionary@{WordIndexDictionary}!get\_\-word@{get\_\-word}}
+\index{get\_\-word@{get\_\-word}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{get\_\-word}]{\setlength{\rightskip}{0pt plus 5cm}string WordIndexDictionary::get\_\-word (int {\em index})}}
+\label{class_word_index_dictionary_a58ab80daf59d8bad6cd105166c3feb8b}
+Find the word having index as its index \hypertarget{class_word_index_dictionary_a415c20e6f67555c105cdc4da3abe730f}{
+\index{WordIndexDictionary@{WordIndexDictionary}!initialize\_\-from\_\-dict@{initialize\_\-from\_\-dict}}
+\index{initialize\_\-from\_\-dict@{initialize\_\-from\_\-dict}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{initialize\_\-from\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}void WordIndexDictionary::initialize\_\-from\_\-dict ({\bf WordIndexDictionary} $\ast$ {\em dict}, \/  bool {\em sort} = {\ttfamily false})}}
+\label{class_word_index_dictionary_a415c20e6f67555c105cdc4da3abe730f}
+\hypertarget{class_word_index_dictionary_abbc261e4c314aace9917fcb5c5ec127f}{
+\index{WordIndexDictionary@{WordIndexDictionary}!initialize\_\-from\_\-dump@{initialize\_\-from\_\-dump}}
+\index{initialize\_\-from\_\-dump@{initialize\_\-from\_\-dump}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{initialize\_\-from\_\-dump}]{\setlength{\rightskip}{0pt plus 5cm}void WordIndexDictionary::initialize\_\-from\_\-dump (string {\em fname}, \/  int {\em num\_\-words} = {\ttfamily INT\_\-MAX}, \/  bool {\em sort} = {\ttfamily false})}}
+\label{class_word_index_dictionary_abbc261e4c314aace9917fcb5c5ec127f}
+Initializes from a dump file produced by dump Reads the (word,index) pairs from the file \& populates the maps \hypertarget{class_word_index_dictionary_a83c3a82b71ffec88dee7b58c01234de0}{
+\index{WordIndexDictionary@{WordIndexDictionary}!initialize\_\-from\_\-dumps@{initialize\_\-from\_\-dumps}}
+\index{initialize\_\-from\_\-dumps@{initialize\_\-from\_\-dumps}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{initialize\_\-from\_\-dumps}]{\setlength{\rightskip}{0pt plus 5cm}void WordIndexDictionary::initialize\_\-from\_\-dumps (string {\em prefix}, \/  int {\em dumps})}}
+\label{class_word_index_dictionary_a83c3a82b71ffec88dee7b58c01234de0}
+\hypertarget{class_word_index_dictionary_a1aef628d50e42417dd1099598687c848}{
+\index{WordIndexDictionary@{WordIndexDictionary}!insert\_\-word@{insert\_\-word}}
+\index{insert\_\-word@{insert\_\-word}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{insert\_\-word}]{\setlength{\rightskip}{0pt plus 5cm}int WordIndexDictionary::insert\_\-word (string {\em word})}}
+\label{class_word_index_dictionary_a1aef628d50e42417dd1099598687c848}
+Insert the word into the dictionary if it doesn't exist This automatically manages assigning unique indices \hypertarget{class_word_index_dictionary_aaadc560c3572f6e3006212d9b56c32b2}{
+\index{WordIndexDictionary@{WordIndexDictionary}!match\_\-word\_\-index@{match\_\-word\_\-index}}
+\index{match\_\-word\_\-index@{match\_\-word\_\-index}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{match\_\-word\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}bool WordIndexDictionary::match\_\-word\_\-index ()}}
+\label{class_word_index_dictionary_aaadc560c3572f6e3006212d9b56c32b2}
+This is a method aiding testing. This tests for the uniqueness of indices. It also does this by making the assumption that the indices have to sequential and reduces the complexity of testing uniqueness by checking the actual sum of the indices assigned to the expected sum comuted as sigma(last\_\-index\_\-assigned) Should always return true. If you change the logic for assigning unique indices, make sure you modify this method to verify it. \hypertarget{class_word_index_dictionary_a4781b2b79231219cb3ecbe59e8adb483}{
+\index{WordIndexDictionary@{WordIndexDictionary}!print@{print}}
+\index{print@{print}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void WordIndexDictionary::print ()}}
+\label{class_word_index_dictionary_a4781b2b79231219cb3ecbe59e8adb483}
+Log the dictionary to log(INFO) \hypertarget{class_word_index_dictionary_ad2cc989f8d453e0353cc6de8e73d4aa0}{
+\index{WordIndexDictionary@{WordIndexDictionary}!size@{size}}
+\index{size@{size}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}size\_\-t WordIndexDictionary::size ()}}
+\label{class_word_index_dictionary_ad2cc989f8d453e0353cc6de8e73d4aa0}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_word_index_dictionary_abcff7bfd6b63bf0a14ba38bf8bb7be9f}{
+\index{WordIndexDictionary@{WordIndexDictionary}!frequencies@{frequencies}}
+\index{frequencies@{frequencies}!WordIndexDictionary@{WordIndexDictionary}}
+\subsubsection[{frequencies}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$id2freq\_\-t$>$ {\bf WordIndexDictionary::frequencies}}}
+\label{class_word_index_dictionary_abcff7bfd6b63bf0a14ba38bf8bb7be9f}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/\hyperlink{_word_index_dictionary_8h}{WordIndexDictionary.h}\item 
+src/commons/\hyperlink{_word_index_dictionary_8cpp}{WordIndexDictionary.cpp}\end{DoxyCompactItemize}

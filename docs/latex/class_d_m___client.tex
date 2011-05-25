@@ -1,0 +1,147 @@
+\hypertarget{class_d_m___client}{
+\section{DM\_\-Client Class Reference}
+\label{class_d_m___client}\index{DM\_\-Client@{DM\_\-Client}}
+}
+
+
+The client used to access the Distributed Map.  
+
+
+
+
+{\ttfamily \#include $<$DM\_\-Client.h$>$}
+
+Inheritance diagram for DM\_\-Client:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_d_m___client}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_d_m___client_a4366fbc81789bd7b4ba0f681ad4b7c0e}{DM\_\-Client} (int num\_\-entities, const string \&servers, \hyperlink{class_synchronizer___helper}{Synchronizer\_\-Helper} \&sync\_\-helper)
+\item 
+virtual \hyperlink{class_d_m___client_a7c4036aa31873a238dca15210d4c15bc}{$\sim$DM\_\-Client} ()
+\item 
+void \hyperlink{class_d_m___client_a8285b5edb01bfe9325d887a4bb4e17d7}{put} (const string \&entity, const string \&delta)
+\begin{DoxyCompactList}\small\item\em The usual map operations. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_d_m___client_aebf92e20f8ae0517bee2c956593f3748}{set} (const string \&entity, const string \&counts)
+\item 
+bool \hyperlink{class_d_m___client_aef212e65cee0c1cd11f9480e68f923cd}{get} (const string \&entity, string \&counts)
+\item 
+bool \hyperlink{class_d_m___client_a856f11737f8dce9f842256a3391b084b}{remove} (const string \&entity, string \&counts)
+\item 
+void \hyperlink{class_d_m___client_a55c5ec85e4e670a6ec5a4da71e4d50cf}{begin\_\-putNget} (const string \&entity, const string \&delta)
+\begin{DoxyCompactList}\small\item\em Start the asynchronous putNget operation. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_d_m___client_a93c89b66097d58302c1322918ec76fca}{wait\_\-for\_\-all} ()
+\begin{DoxyCompactList}\small\item\em Execute a barrier. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_d_m___client_a2ea7e411fb8e92febc74c90b8ab886c6}{wait\_\-till\_\-done} ()
+\item 
+int \hyperlink{class_d_m___client_a6064058c7470f12b8825b1482db08331}{get\_\-num\_\-servers} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The client used to access the Distributed Map. Wrapper class to delegate the Distributed Map operations to the appropriate Server 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_d_m___client_a4366fbc81789bd7b4ba0f681ad4b7c0e}{
+\index{DM\_\-Client@{DM\_\-Client}!DM\_\-Client@{DM\_\-Client}}
+\index{DM\_\-Client@{DM\_\-Client}!DM_Client@{DM\_\-Client}}
+\subsubsection[{DM\_\-Client}]{\setlength{\rightskip}{0pt plus 5cm}DM\_\-Client::DM\_\-Client (int {\em num\_\-entities}, \/  const string \& {\em servers}, \/  {\bf Synchronizer\_\-Helper} \& {\em sync\_\-helper})}}
+\label{class_d_m___client_a4366fbc81789bd7b4ba0f681ad4b7c0e}
+The servers in the Distributed Map setup The max number of entities that you are going to store in the map. This is just to make sure that things dont break when you are processing a very small number of entities particularly smaller than MAX\_\-MSGS The helper class that provides the actual call back functionality \hypertarget{class_d_m___client_a7c4036aa31873a238dca15210d4c15bc}{
+\index{DM\_\-Client@{DM\_\-Client}!$\sim$DM\_\-Client@{$\sim$DM\_\-Client}}
+\index{$\sim$DM\_\-Client@{$\sim$DM\_\-Client}!DM_Client@{DM\_\-Client}}
+\subsubsection[{$\sim$DM\_\-Client}]{\setlength{\rightskip}{0pt plus 5cm}DM\_\-Client::$\sim$DM\_\-Client ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_d_m___client_a7c4036aa31873a238dca15210d4c15bc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_d_m___client_a55c5ec85e4e670a6ec5a4da71e4d50cf}{
+\index{DM\_\-Client@{DM\_\-Client}!begin\_\-putNget@{begin\_\-putNget}}
+\index{begin\_\-putNget@{begin\_\-putNget}!DM_Client@{DM\_\-Client}}
+\subsubsection[{begin\_\-putNget}]{\setlength{\rightskip}{0pt plus 5cm}void DM\_\-Client::begin\_\-putNget (const string \& {\em entity}, \/  const string \& {\em delta})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_d_m___client_a55c5ec85e4e670a6ec5a4da71e4d50cf}
+
+
+Start the asynchronous putNget operation. 
+
+
+
+Implements \hyperlink{class_client_a3c7e1cbb61e8a9b2c5c89de884f22253}{Client}.
+
+\hypertarget{class_d_m___client_aef212e65cee0c1cd11f9480e68f923cd}{
+\index{DM\_\-Client@{DM\_\-Client}!get@{get}}
+\index{get@{get}!DM_Client@{DM\_\-Client}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}bool DM\_\-Client::get (const string \& {\em key}, \/  string \& {\em val})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_d_m___client_aef212e65cee0c1cd11f9480e68f923cd}
+Gets the serialized val stored for the key in the Distributed Map. Returns true if key exists and false otherwise 
+
+Implements \hyperlink{class_client_aa1e3f5566dadd85d3ac575c7978f65ea}{Client}.
+
+\hypertarget{class_d_m___client_a6064058c7470f12b8825b1482db08331}{
+\index{DM\_\-Client@{DM\_\-Client}!get\_\-num\_\-servers@{get\_\-num\_\-servers}}
+\index{get\_\-num\_\-servers@{get\_\-num\_\-servers}!DM_Client@{DM\_\-Client}}
+\subsubsection[{get\_\-num\_\-servers}]{\setlength{\rightskip}{0pt plus 5cm}int DM\_\-Client::get\_\-num\_\-servers ()}}
+\label{class_d_m___client_a6064058c7470f12b8825b1482db08331}
+\hypertarget{class_d_m___client_a8285b5edb01bfe9325d887a4bb4e17d7}{
+\index{DM\_\-Client@{DM\_\-Client}!put@{put}}
+\index{put@{put}!DM_Client@{DM\_\-Client}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}void DM\_\-Client::put (const string \& {\em entity}, \/  const string \& {\em delta})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_d_m___client_a8285b5edb01bfe9325d887a4bb4e17d7}
+
+
+The usual map operations. 
+
+
+
+Implements \hyperlink{class_client_a7369bb878f12a07b717638efb5871668}{Client}.
+
+\hypertarget{class_d_m___client_a856f11737f8dce9f842256a3391b084b}{
+\index{DM\_\-Client@{DM\_\-Client}!remove@{remove}}
+\index{remove@{remove}!DM_Client@{DM\_\-Client}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}bool DM\_\-Client::remove (const string \& {\em key}, \/  string \& {\em val})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_d_m___client_a856f11737f8dce9f842256a3391b084b}
+Remove the key from the Distributed Map returning the serialized value stored as val. Returns true if key exists and false otherwise 
+
+Implements \hyperlink{class_client_ac60bd2cf7928c64a662fa8c0af748d0c}{Client}.
+
+\hypertarget{class_d_m___client_aebf92e20f8ae0517bee2c956593f3748}{
+\index{DM\_\-Client@{DM\_\-Client}!set@{set}}
+\index{set@{set}!DM_Client@{DM\_\-Client}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}void DM\_\-Client::set (const string \& {\em key}, \/  const string \& {\em val})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_d_m___client_aebf92e20f8ae0517bee2c956593f3748}
+Sets val as the serialized value for the key in the Distributed Map. This has replace semantics 
+
+Implements \hyperlink{class_client_a5efb1076768c93a53355bc7bdc8b430f}{Client}.
+
+\hypertarget{class_d_m___client_a93c89b66097d58302c1322918ec76fca}{
+\index{DM\_\-Client@{DM\_\-Client}!wait\_\-for\_\-all@{wait\_\-for\_\-all}}
+\index{wait\_\-for\_\-all@{wait\_\-for\_\-all}!DM_Client@{DM\_\-Client}}
+\subsubsection[{wait\_\-for\_\-all}]{\setlength{\rightskip}{0pt plus 5cm}void DM\_\-Client::wait\_\-for\_\-all ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_d_m___client_a93c89b66097d58302c1322918ec76fca}
+
+
+Execute a barrier. 
+
+
+
+Implements \hyperlink{class_client_af1bfd186c6afcddd19e0e6f69e1a8fc1}{Client}.
+
+\hypertarget{class_d_m___client_a2ea7e411fb8e92febc74c90b8ab886c6}{
+\index{DM\_\-Client@{DM\_\-Client}!wait\_\-till\_\-done@{wait\_\-till\_\-done}}
+\index{wait\_\-till\_\-done@{wait\_\-till\_\-done}!DM_Client@{DM\_\-Client}}
+\subsubsection[{wait\_\-till\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}void DM\_\-Client::wait\_\-till\_\-done ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_d_m___client_a2ea7e411fb8e92febc74c90b8ab886c6}
+Provides functionality to wait for any asynchronous communication to end 
+
+Implements \hyperlink{class_client_a7cc1fed7f1d161586a8abef93a24b715}{Client}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_d_m___client_8h}{DM\_\-Client.h}\item 
+src/commons/TopicLearner/\hyperlink{_d_m___client_8cpp}{DM\_\-Client.cpp}\end{DoxyCompactItemize}

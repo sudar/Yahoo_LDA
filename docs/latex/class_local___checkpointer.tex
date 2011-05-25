@@ -1,0 +1,92 @@
+\hypertarget{class_local___checkpointer}{
+\section{Local\_\-Checkpointer Class Reference}
+\label{class_local___checkpointer}\index{Local\_\-Checkpointer@{Local\_\-Checkpointer}}
+}
+
+
+{\ttfamily \#include $<$Local\_\-Checkpointer.h$>$}
+
+Inheritance diagram for Local\_\-Checkpointer:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_local___checkpointer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_local___checkpointer_aade758e515038c5c20b3ea4cb64e0732}{Local\_\-Checkpointer} ()
+\item 
+virtual \hyperlink{class_local___checkpointer_a62ad6f9cfea93826687e138f98182e2f}{$\sim$Local\_\-Checkpointer} ()
+\item 
+virtual void \hyperlink{class_local___checkpointer_a9539be451ec14462873da2658e3ead80}{save\_\-metadata} (std::string \&state)
+\begin{DoxyCompactList}\small\item\em Serialize the metadata. \item\end{DoxyCompactList}\item 
+virtual std::string \hyperlink{class_local___checkpointer_a3a2bdc4e2afa1434605c69c3f46db69f}{load\_\-metadata} ()
+\begin{DoxyCompactList}\small\item\em Load the metadata. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{class_local___checkpointer_aa271d3a80545d6a962c959c82fa7b7c7}{checkpoint} ()
+\begin{DoxyCompactList}\small\item\em Serialize other necessary data structures. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_local___checkpointer_aade758e515038c5c20b3ea4cb64e0732}{
+\index{Local\_\-Checkpointer@{Local\_\-Checkpointer}!Local\_\-Checkpointer@{Local\_\-Checkpointer}}
+\index{Local\_\-Checkpointer@{Local\_\-Checkpointer}!Local_Checkpointer@{Local\_\-Checkpointer}}
+\subsubsection[{Local\_\-Checkpointer}]{\setlength{\rightskip}{0pt plus 5cm}Local\_\-Checkpointer::Local\_\-Checkpointer ()}}
+\label{class_local___checkpointer_aade758e515038c5c20b3ea4cb64e0732}
+\hypertarget{class_local___checkpointer_a62ad6f9cfea93826687e138f98182e2f}{
+\index{Local\_\-Checkpointer@{Local\_\-Checkpointer}!$\sim$Local\_\-Checkpointer@{$\sim$Local\_\-Checkpointer}}
+\index{$\sim$Local\_\-Checkpointer@{$\sim$Local\_\-Checkpointer}!Local_Checkpointer@{Local\_\-Checkpointer}}
+\subsubsection[{$\sim$Local\_\-Checkpointer}]{\setlength{\rightskip}{0pt plus 5cm}Local\_\-Checkpointer::$\sim$Local\_\-Checkpointer ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_local___checkpointer_a62ad6f9cfea93826687e138f98182e2f}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_local___checkpointer_aa271d3a80545d6a962c959c82fa7b7c7}{
+\index{Local\_\-Checkpointer@{Local\_\-Checkpointer}!checkpoint@{checkpoint}}
+\index{checkpoint@{checkpoint}!Local_Checkpointer@{Local\_\-Checkpointer}}
+\subsubsection[{checkpoint}]{\setlength{\rightskip}{0pt plus 5cm}void Local\_\-Checkpointer::checkpoint ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_local___checkpointer_aa271d3a80545d6a962c959c82fa7b7c7}
+
+
+Serialize other necessary data structures. 
+
+
+
+Implements \hyperlink{class_checkpointer_a7a0f2b3220292d7a3be972776ea8f2d3}{Checkpointer}.
+
+
+
+Reimplemented in \hyperlink{class_hadoop___checkpointer_acf19b7cb85d84a51584bd06de37e8fee}{Hadoop\_\-Checkpointer}.
+
+\hypertarget{class_local___checkpointer_a3a2bdc4e2afa1434605c69c3f46db69f}{
+\index{Local\_\-Checkpointer@{Local\_\-Checkpointer}!load\_\-metadata@{load\_\-metadata}}
+\index{load\_\-metadata@{load\_\-metadata}!Local_Checkpointer@{Local\_\-Checkpointer}}
+\subsubsection[{load\_\-metadata}]{\setlength{\rightskip}{0pt plus 5cm}std::string Local\_\-Checkpointer::load\_\-metadata ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_local___checkpointer_a3a2bdc4e2afa1434605c69c3f46db69f}
+
+
+Load the metadata. 
+
+
+
+Implements \hyperlink{class_checkpointer_ab3823bbe8bab653084697af29296323d}{Checkpointer}.
+
+\hypertarget{class_local___checkpointer_a9539be451ec14462873da2658e3ead80}{
+\index{Local\_\-Checkpointer@{Local\_\-Checkpointer}!save\_\-metadata@{save\_\-metadata}}
+\index{save\_\-metadata@{save\_\-metadata}!Local_Checkpointer@{Local\_\-Checkpointer}}
+\subsubsection[{save\_\-metadata}]{\setlength{\rightskip}{0pt plus 5cm}void Local\_\-Checkpointer::save\_\-metadata (std::string \& {\em state})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_local___checkpointer_a9539be451ec14462873da2658e3ead80}
+
+
+Serialize the metadata. 
+
+
+
+Implements \hyperlink{class_checkpointer_a2dd3cfe87847c8e3d1dac001c8d75a8c}{Checkpointer}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_local___checkpointer_8h}{Local\_\-Checkpointer.h}\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_local___checkpointer_8cpp}{Local\_\-Checkpointer.cpp}\end{DoxyCompactItemize}

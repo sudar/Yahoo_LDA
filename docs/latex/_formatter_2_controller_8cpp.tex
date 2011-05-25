@@ -1,0 +1,41 @@
+\hypertarget{_formatter_2_controller_8cpp}{
+\section{src/commons/Formatter/Controller.cpp File Reference}
+\label{_formatter_2_controller_8cpp}\index{src/commons/Formatter/Controller.cpp@{src/commons/Formatter/Controller.cpp}}
+}
+{\ttfamily \#include \char`\"{}FormatData\_\-flags\_\-define.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}gflags/gflags.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}glog/logging.h\char`\"{}}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include \char`\"{}WordIndexDictionary.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Formatter/Unigram\_\-Train\_\-Data\_\-Formatter.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Formatter/Unigram\_\-Test\_\-Data\_\-Formatter.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Context.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TopicLearner/Model.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_data___formatter}{Data\_\-Formatter} $\ast$ \hyperlink{_formatter_2_controller_8cpp_a8af57be999c8cfe506a66bd037f08083}{get\_\-data\_\-formatter} ()
+\item 
+void \hyperlink{_formatter_2_controller_8cpp_a7c8ac17d0108e2f368610c8fcea37b5b}{release\_\-data\_\-formatter} (\hyperlink{class_data___formatter}{Data\_\-Formatter} $\ast$formatter)
+\item 
+int \hyperlink{_formatter_2_controller_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_formatter_2_controller_8cpp_a8af57be999c8cfe506a66bd037f08083}{
+\index{Formatter/Controller.cpp@{Formatter/Controller.cpp}!get\_\-data\_\-formatter@{get\_\-data\_\-formatter}}
+\index{get\_\-data\_\-formatter@{get\_\-data\_\-formatter}!Formatter/Controller.cpp@{Formatter/Controller.cpp}}
+\subsubsection[{get\_\-data\_\-formatter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data\_\-Formatter}$\ast$ get\_\-data\_\-formatter ()}}
+\label{_formatter_2_controller_8cpp_a8af57be999c8cfe506a66bd037f08083}
+Returns the formatter for the chosen model \hypertarget{_formatter_2_controller_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{
+\index{Formatter/Controller.cpp@{Formatter/Controller.cpp}!main@{main}}
+\index{main@{main}!Formatter/Controller.cpp@{Formatter/Controller.cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]})}}
+\label{_formatter_2_controller_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+Main \hypertarget{_formatter_2_controller_8cpp_a7c8ac17d0108e2f368610c8fcea37b5b}{
+\index{Formatter/Controller.cpp@{Formatter/Controller.cpp}!release\_\-data\_\-formatter@{release\_\-data\_\-formatter}}
+\index{release\_\-data\_\-formatter@{release\_\-data\_\-formatter}!Formatter/Controller.cpp@{Formatter/Controller.cpp}}
+\subsubsection[{release\_\-data\_\-formatter}]{\setlength{\rightskip}{0pt plus 5cm}void release\_\-data\_\-formatter ({\bf Data\_\-Formatter} $\ast$ {\em formatter})}}
+\label{_formatter_2_controller_8cpp_a7c8ac17d0108e2f368610c8fcea37b5b}
+Deallocate resources held by the formatter 

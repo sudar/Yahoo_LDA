@@ -1,0 +1,80 @@
+\hypertarget{class_checkpointer}{
+\section{Checkpointer Class Reference}
+\label{class_checkpointer}\index{Checkpointer@{Checkpointer}}
+}
+
+
+Used to implement failure recovery.  
+
+
+
+
+{\ttfamily \#include $<$Checkpointer.h$>$}
+
+Inheritance diagram for Checkpointer:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_checkpointer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_checkpointer_a2dd3cfe87847c8e3d1dac001c8d75a8c}{save\_\-metadata} (std::string \&state)=0
+\begin{DoxyCompactList}\small\item\em Serialize the metadata. \item\end{DoxyCompactList}\item 
+virtual std::string \hyperlink{class_checkpointer_ab3823bbe8bab653084697af29296323d}{load\_\-metadata} ()=0
+\begin{DoxyCompactList}\small\item\em Load the metadata. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{class_checkpointer_a7a0f2b3220292d7a3be972776ea8f2d3}{checkpoint} ()=0
+\begin{DoxyCompactList}\small\item\em Serialize other necessary data structures. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Used to implement failure recovery. The checkpointer interface. A checkpointer object helps create a checkpoint and also to load from a checkpoint
+
+A checkpointer has two things: 1. Metadata -\/ (Ex.: The iteration at which this checkpoint was created) 2. The method to serialize the necessary data structures to disk 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_checkpointer_a7a0f2b3220292d7a3be972776ea8f2d3}{
+\index{Checkpointer@{Checkpointer}!checkpoint@{checkpoint}}
+\index{checkpoint@{checkpoint}!Checkpointer@{Checkpointer}}
+\subsubsection[{checkpoint}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Checkpointer::checkpoint ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_checkpointer_a7a0f2b3220292d7a3be972776ea8f2d3}
+
+
+Serialize other necessary data structures. 
+
+
+
+Implemented in \hyperlink{class_hadoop___checkpointer_acf19b7cb85d84a51584bd06de37e8fee}{Hadoop\_\-Checkpointer}, and \hyperlink{class_local___checkpointer_aa271d3a80545d6a962c959c82fa7b7c7}{Local\_\-Checkpointer}.
+
+\hypertarget{class_checkpointer_ab3823bbe8bab653084697af29296323d}{
+\index{Checkpointer@{Checkpointer}!load\_\-metadata@{load\_\-metadata}}
+\index{load\_\-metadata@{load\_\-metadata}!Checkpointer@{Checkpointer}}
+\subsubsection[{load\_\-metadata}]{\setlength{\rightskip}{0pt plus 5cm}virtual std::string Checkpointer::load\_\-metadata ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_checkpointer_ab3823bbe8bab653084697af29296323d}
+
+
+Load the metadata. 
+
+
+
+Implemented in \hyperlink{class_local___checkpointer_a3a2bdc4e2afa1434605c69c3f46db69f}{Local\_\-Checkpointer}.
+
+\hypertarget{class_checkpointer_a2dd3cfe87847c8e3d1dac001c8d75a8c}{
+\index{Checkpointer@{Checkpointer}!save\_\-metadata@{save\_\-metadata}}
+\index{save\_\-metadata@{save\_\-metadata}!Checkpointer@{Checkpointer}}
+\subsubsection[{save\_\-metadata}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Checkpointer::save\_\-metadata (std::string \& {\em state})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_checkpointer_a2dd3cfe87847c8e3d1dac001c8d75a8c}
+
+
+Serialize the metadata. 
+
+
+
+Implemented in \hyperlink{class_local___checkpointer_a9539be451ec14462873da2658e3ead80}{Local\_\-Checkpointer}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_checkpointer_8h}{Checkpointer.h}\end{DoxyCompactItemize}

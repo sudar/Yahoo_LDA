@@ -1,0 +1,91 @@
+\hypertarget{class_context}{
+\section{Context Class Reference}
+\label{class_context}\index{Context@{Context}}
+}
+
+
+An object that maintains the context for the executing code.  
+
+
+
+
+{\ttfamily \#include $<$Context.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_context_a0b8f0d939e07208fe32337ace2196f24}{get\_\-int} (string key)
+\begin{DoxyCompactList}\small\item\em Get an integer valued property named key. \item\end{DoxyCompactList}\item 
+string \hyperlink{class_context_af0cb505ad6b35c252e69de53c193f6f4}{get\_\-string} (string key)
+\begin{DoxyCompactList}\small\item\em Get a string valued property named key. \item\end{DoxyCompactList}\item 
+double \hyperlink{class_context_a71717f004732933da32ba9de6db156b3}{get\_\-double} (string key)
+\begin{DoxyCompactList}\small\item\em Get a double valued property named key. \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_context_a16045011711b9cf47ef4a54c73427f43}{get\_\-bool} (string key)
+\begin{DoxyCompactList}\small\item\em Get a bool valued property named key. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_context_a324bb843de0425a28051ccc872f3bbe2}{put\_\-string} (string key, string val)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_context}{Context} \& \hyperlink{class_context_a021d5f8012c65a185a9b14e210eb289c}{get\_\-instance} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An object that maintains the context for the executing code. This is a Singleton object that maintains a context for the executing code. It contains a list of properties stored as a key-\/value map
+
+All the flags defined are made available through this object. It can also be used as a mechanism for message passing. This reduces coupling between the code and gflags. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_context_a16045011711b9cf47ef4a54c73427f43}{
+\index{Context@{Context}!get\_\-bool@{get\_\-bool}}
+\index{get\_\-bool@{get\_\-bool}!Context@{Context}}
+\subsubsection[{get\_\-bool}]{\setlength{\rightskip}{0pt plus 5cm}bool Context::get\_\-bool (string {\em key})}}
+\label{class_context_a16045011711b9cf47ef4a54c73427f43}
+
+
+Get a bool valued property named key. 
+
+\hypertarget{class_context_a71717f004732933da32ba9de6db156b3}{
+\index{Context@{Context}!get\_\-double@{get\_\-double}}
+\index{get\_\-double@{get\_\-double}!Context@{Context}}
+\subsubsection[{get\_\-double}]{\setlength{\rightskip}{0pt plus 5cm}double Context::get\_\-double (string {\em key})}}
+\label{class_context_a71717f004732933da32ba9de6db156b3}
+
+
+Get a double valued property named key. 
+
+\hypertarget{class_context_a021d5f8012c65a185a9b14e210eb289c}{
+\index{Context@{Context}!get\_\-instance@{get\_\-instance}}
+\index{get\_\-instance@{get\_\-instance}!Context@{Context}}
+\subsubsection[{get\_\-instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Context} \& Context::get\_\-instance ()\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_context_a021d5f8012c65a185a9b14e210eb289c}
+\hypertarget{class_context_a0b8f0d939e07208fe32337ace2196f24}{
+\index{Context@{Context}!get\_\-int@{get\_\-int}}
+\index{get\_\-int@{get\_\-int}!Context@{Context}}
+\subsubsection[{get\_\-int}]{\setlength{\rightskip}{0pt plus 5cm}int Context::get\_\-int (string {\em key})}}
+\label{class_context_a0b8f0d939e07208fe32337ace2196f24}
+
+
+Get an integer valued property named key. 
+
+\hypertarget{class_context_af0cb505ad6b35c252e69de53c193f6f4}{
+\index{Context@{Context}!get\_\-string@{get\_\-string}}
+\index{get\_\-string@{get\_\-string}!Context@{Context}}
+\subsubsection[{get\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}string Context::get\_\-string (string {\em key})}}
+\label{class_context_af0cb505ad6b35c252e69de53c193f6f4}
+
+
+Get a string valued property named key. 
+
+\hypertarget{class_context_a324bb843de0425a28051ccc872f3bbe2}{
+\index{Context@{Context}!put\_\-string@{put\_\-string}}
+\index{put\_\-string@{put\_\-string}!Context@{Context}}
+\subsubsection[{put\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}void Context::put\_\-string (string {\em key}, \/  string {\em val})}}
+\label{class_context_a324bb843de0425a28051ccc872f3bbe2}
+Put a string value for property key into the map 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/\hyperlink{_context_8h}{Context.h}\item 
+src/commons/\hyperlink{_context_8cpp}{Context.cpp}\end{DoxyCompactItemize}

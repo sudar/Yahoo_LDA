@@ -1,0 +1,178 @@
+\hypertarget{class_unigram___model___training___builder}{
+\section{Unigram\_\-Model\_\-Training\_\-Builder Class Reference}
+\label{class_unigram___model___training___builder}\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+}
+
+
+{\ttfamily \#include $<$Unigram\_\-Model\_\-Training\_\-Builder.h$>$}
+
+Inheritance diagram for Unigram\_\-Model\_\-Training\_\-Builder:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.86689cm]{class_unigram___model___training___builder}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_unigram___model___training___builder_aa050ceecba581ea76465d6e534b6e014}{Unigram\_\-Model\_\-Training\_\-Builder} ()
+\item 
+virtual \hyperlink{class_unigram___model___training___builder_ad256c5144db8fb63caa70f3ea8e77129}{$\sim$Unigram\_\-Model\_\-Training\_\-Builder} ()
+\item 
+virtual \hyperlink{class_model___refiner}{Model\_\-Refiner} \& \hyperlink{class_unigram___model___training___builder_a6693c87834917804525d1d8f4d638507}{create\_\-model\_\-refiner} ()
+\item 
+virtual \hyperlink{class_pipeline}{Pipeline} \& \hyperlink{class_unigram___model___training___builder_a9f52dba1344442bc6455cf8b166f398c}{create\_\-pipeline} (\hyperlink{class_model___refiner}{Model\_\-Refiner} \&)
+\item 
+virtual \hyperlink{class_execution___strategy}{Execution\_\-Strategy} \& \hyperlink{class_unigram___model___training___builder_a7115521792cd0262b3bf99de8474420d}{create\_\-execution\_\-strategy} (\hyperlink{class_pipeline}{Pipeline} \&)
+\item 
+void \hyperlink{class_unigram___model___training___builder_a5377e0fdb76e0068a02cbc0ce5c385fb}{create\_\-output} ()
+\item 
+\hyperlink{class_model}{Model} \& \hyperlink{class_unigram___model___training___builder_a06bbd9a4b897a0357078f3279825409d}{get\_\-model} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_unigram___model___training___builder_a5916d53b0ba0c60d64697d9e420b7432}{init\_\-dict} ()
+\item 
+\hyperlink{class_word_index_dictionary}{WordIndexDictionary} \& \hyperlink{class_unigram___model___training___builder_a6751bf1cff94a4173bb0e4000090161b}{get\_\-dict} ()
+\item 
+void \hyperlink{class_unigram___model___training___builder_a1ae126c30790abdf2ede9e885dab848d}{initialize\_\-topics} (string, string, int)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_unigram___model}{Unigram\_\-Model} $\ast$ \hyperlink{class_unigram___model___training___builder_a0d53dd16af10325a2005562593ea254d}{\_\-model}
+\item 
+\hyperlink{class_word_index_dictionary}{WordIndexDictionary} $\ast$ \hyperlink{class_unigram___model___training___builder_aeba918f38fe252eacd18e4c5912f1847}{\_\-dict}
+\item 
+\hyperlink{class_model___refiner}{Model\_\-Refiner} $\ast$ \hyperlink{class_unigram___model___training___builder_a4afccdf5cdd23d88883e4b7793345cd6}{\_\-refiner}
+\item 
+\hyperlink{class_pipeline}{Pipeline} $\ast$ \hyperlink{class_unigram___model___training___builder_a45916934a9ad507fae26423b4f264723}{\_\-pipeline}
+\item 
+\hyperlink{class_checkpointer}{Checkpointer} $\ast$ \hyperlink{class_unigram___model___training___builder_a8c0687e2b469e2b541e7cd282e893383}{\_\-checkpointer}
+\item 
+\hyperlink{class_execution___strategy}{Execution\_\-Strategy} $\ast$ \hyperlink{class_unigram___model___training___builder_a15d25a41a50233e6856e14c4eb445628}{\_\-strategy}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_unigram___model___training___builder_aa050ceecba581ea76465d6e534b6e014}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{Unigram\_\-Model\_\-Training\_\-Builder}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model\_\-Training\_\-Builder::Unigram\_\-Model\_\-Training\_\-Builder ()}}
+\label{class_unigram___model___training___builder_aa050ceecba581ea76465d6e534b6e014}
+\hypertarget{class_unigram___model___training___builder_ad256c5144db8fb63caa70f3ea8e77129}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!$\sim$Unigram\_\-Model\_\-Training\_\-Builder@{$\sim$Unigram\_\-Model\_\-Training\_\-Builder}}
+\index{$\sim$Unigram\_\-Model\_\-Training\_\-Builder@{$\sim$Unigram\_\-Model\_\-Training\_\-Builder}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{$\sim$Unigram\_\-Model\_\-Training\_\-Builder}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model\_\-Training\_\-Builder::$\sim$Unigram\_\-Model\_\-Training\_\-Builder ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___training___builder_ad256c5144db8fb63caa70f3ea8e77129}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_unigram___model___training___builder_a7115521792cd0262b3bf99de8474420d}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!create\_\-execution\_\-strategy@{create\_\-execution\_\-strategy}}
+\index{create\_\-execution\_\-strategy@{create\_\-execution\_\-strategy}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{create\_\-execution\_\-strategy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Execution\_\-Strategy} \& Unigram\_\-Model\_\-Training\_\-Builder::create\_\-execution\_\-strategy ({\bf Pipeline} \& {\em pipeline})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___training___builder_a7115521792cd0262b3bf99de8474420d}
+
+
+Implements \hyperlink{class_model___builder_a52e9a4125b917b015f13c709ddef3a88}{Model\_\-Builder}.
+
+
+
+Reimplemented in \hyperlink{class_unigram___model___synchronized___training___builder_a756ac51fbf24f5c0381dfe402ee53ef0}{Unigram\_\-Model\_\-Synchronized\_\-Training\_\-Builder}, and \hyperlink{class_unigram___model___testing___builder_a934d4e14760ff82eeae8165f9c628a95}{Unigram\_\-Model\_\-Testing\_\-Builder}.
+
+\hypertarget{class_unigram___model___training___builder_a6693c87834917804525d1d8f4d638507}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!create\_\-model\_\-refiner@{create\_\-model\_\-refiner}}
+\index{create\_\-model\_\-refiner@{create\_\-model\_\-refiner}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{create\_\-model\_\-refiner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\_\-Refiner} \& Unigram\_\-Model\_\-Training\_\-Builder::create\_\-model\_\-refiner ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___training___builder_a6693c87834917804525d1d8f4d638507}
+
+
+Implements \hyperlink{class_model___builder_abc7e4f108067afb34fb8c0fc305b06ea}{Model\_\-Builder}.
+
+
+
+Reimplemented in \hyperlink{class_unigram___model___testing___builder_a694c9cb5f270cad6ff5e9d0b45da9ba6}{Unigram\_\-Model\_\-Testing\_\-Builder}.
+
+\hypertarget{class_unigram___model___training___builder_a5377e0fdb76e0068a02cbc0ce5c385fb}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!create\_\-output@{create\_\-output}}
+\index{create\_\-output@{create\_\-output}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{create\_\-output}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Training\_\-Builder::create\_\-output ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___training___builder_a5377e0fdb76e0068a02cbc0ce5c385fb}
+
+
+Implements \hyperlink{class_model___builder_aab7de81c31d1a76e5427023b6cb95490}{Model\_\-Builder}.
+
+\hypertarget{class_unigram___model___training___builder_a9f52dba1344442bc6455cf8b166f398c}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!create\_\-pipeline@{create\_\-pipeline}}
+\index{create\_\-pipeline@{create\_\-pipeline}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{create\_\-pipeline}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pipeline} \& Unigram\_\-Model\_\-Training\_\-Builder::create\_\-pipeline ({\bf Model\_\-Refiner} \& {\em refiner})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___training___builder_a9f52dba1344442bc6455cf8b166f398c}
+
+
+Implements \hyperlink{class_model___builder_a6818803bf65009076dd09dcd9bb9a0b8}{Model\_\-Builder}.
+
+\hypertarget{class_unigram___model___training___builder_a6751bf1cff94a4173bb0e4000090161b}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!get\_\-dict@{get\_\-dict}}
+\index{get\_\-dict@{get\_\-dict}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{get\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WordIndexDictionary} \& Unigram\_\-Model\_\-Training\_\-Builder::get\_\-dict ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___training___builder_a6751bf1cff94a4173bb0e4000090161b}
+\hypertarget{class_unigram___model___training___builder_a06bbd9a4b897a0357078f3279825409d}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!get\_\-model@{get\_\-model}}
+\index{get\_\-model@{get\_\-model}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{get\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model} \& Unigram\_\-Model\_\-Training\_\-Builder::get\_\-model ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___training___builder_a06bbd9a4b897a0357078f3279825409d}
+
+
+Implements \hyperlink{class_model___builder_a2cd7a2ce64bdc1377f6deee168e1bcd2}{Model\_\-Builder}.
+
+\hypertarget{class_unigram___model___training___builder_a5916d53b0ba0c60d64697d9e420b7432}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!init\_\-dict@{init\_\-dict}}
+\index{init\_\-dict@{init\_\-dict}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{init\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Training\_\-Builder::init\_\-dict ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___training___builder_a5916d53b0ba0c60d64697d9e420b7432}
+\hypertarget{class_unigram___model___training___builder_a1ae126c30790abdf2ede9e885dab848d}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!initialize\_\-topics@{initialize\_\-topics}}
+\index{initialize\_\-topics@{initialize\_\-topics}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{initialize\_\-topics}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Training\_\-Builder::initialize\_\-topics (string {\em input\_\-w}, \/  string {\em input\_\-t}, \/  int {\em num\_\-topics})\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___training___builder_a1ae126c30790abdf2ede9e885dab848d}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_unigram___model___training___builder_a8c0687e2b469e2b541e7cd282e893383}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!\_\-checkpointer@{\_\-checkpointer}}
+\index{\_\-checkpointer@{\_\-checkpointer}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{\_\-checkpointer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Checkpointer}$\ast$ {\bf Unigram\_\-Model\_\-Training\_\-Builder::\_\-checkpointer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___training___builder_a8c0687e2b469e2b541e7cd282e893383}
+\hypertarget{class_unigram___model___training___builder_aeba918f38fe252eacd18e4c5912f1847}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!\_\-dict@{\_\-dict}}
+\index{\_\-dict@{\_\-dict}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}{\bf WordIndexDictionary}$\ast$ {\bf Unigram\_\-Model\_\-Training\_\-Builder::\_\-dict}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___training___builder_aeba918f38fe252eacd18e4c5912f1847}
+\hypertarget{class_unigram___model___training___builder_a0d53dd16af10325a2005562593ea254d}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!\_\-model@{\_\-model}}
+\index{\_\-model@{\_\-model}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Unigram\_\-Model}$\ast$ {\bf Unigram\_\-Model\_\-Training\_\-Builder::\_\-model}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___training___builder_a0d53dd16af10325a2005562593ea254d}
+\hypertarget{class_unigram___model___training___builder_a45916934a9ad507fae26423b4f264723}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!\_\-pipeline@{\_\-pipeline}}
+\index{\_\-pipeline@{\_\-pipeline}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{\_\-pipeline}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pipeline}$\ast$ {\bf Unigram\_\-Model\_\-Training\_\-Builder::\_\-pipeline}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___training___builder_a45916934a9ad507fae26423b4f264723}
+\hypertarget{class_unigram___model___training___builder_a4afccdf5cdd23d88883e4b7793345cd6}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!\_\-refiner@{\_\-refiner}}
+\index{\_\-refiner@{\_\-refiner}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{\_\-refiner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\_\-Refiner}$\ast$ {\bf Unigram\_\-Model\_\-Training\_\-Builder::\_\-refiner}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___training___builder_a4afccdf5cdd23d88883e4b7793345cd6}
+\hypertarget{class_unigram___model___training___builder_a15d25a41a50233e6856e14c4eb445628}{
+\index{Unigram\_\-Model\_\-Training\_\-Builder@{Unigram\_\-Model\_\-Training\_\-Builder}!\_\-strategy@{\_\-strategy}}
+\index{\_\-strategy@{\_\-strategy}!Unigram_Model_Training_Builder@{Unigram\_\-Model\_\-Training\_\-Builder}}
+\subsubsection[{\_\-strategy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Execution\_\-Strategy}$\ast$ {\bf Unigram\_\-Model\_\-Training\_\-Builder::\_\-strategy}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___training___builder_a15d25a41a50233e6856e14c4eb445628}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model___training___builder_8h}{Unigram\_\-Model\_\-Training\_\-Builder.h}\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model___training___builder_8cpp}{Unigram\_\-Model\_\-Training\_\-Builder.cpp}\end{DoxyCompactItemize}

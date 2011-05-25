@@ -1,0 +1,176 @@
+\hypertarget{class_pipeline}{
+\section{Pipeline Class Reference}
+\label{class_pipeline}\index{Pipeline@{Pipeline}}
+}
+
+
+An interface that all pipeline objects must implement.  
+
+
+
+
+{\ttfamily \#include $<$Pipeline.h$>$}
+
+Inheritance diagram for Pipeline:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_pipeline}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_pipeline_a4ebb79a6018c72d196f480a4300ac302}{init} ()=0
+\item 
+virtual void \hyperlink{class_pipeline_a7919be26846bd13f614f823f180aec42}{add\_\-reader} ()=0
+\item 
+virtual void \hyperlink{class_pipeline_aa1bdee70f85f452a2f68c67313d8b2d0}{add\_\-sampler} ()=0
+\item 
+virtual void \hyperlink{class_pipeline_a60f948a86dd41079ea887a77a0a3614e}{add\_\-updater} ()=0
+\item 
+virtual void \hyperlink{class_pipeline_accee7285f24478fa58ad34a9d6bca1f4}{add\_\-optimizer} ()=0
+\item 
+virtual void \hyperlink{class_pipeline_aa6fd3ded1ad9d36ced67ee2f888edd80}{add\_\-eval} ()=0
+\item 
+virtual void \hyperlink{class_pipeline_a0dc7f98daffefe534ff469ab3c8336b9}{add\_\-writer} ()=0
+\item 
+virtual void \hyperlink{class_pipeline_afbc6eaee843ebceca849ed9a5078bd9c}{add\_\-tester} ()=0
+\item 
+virtual void \hyperlink{class_pipeline_a4d58883c3b93f17c56c65474e0179bcb}{clear} ()=0
+\item 
+virtual void \hyperlink{class_pipeline_aa8eaf1bc52b077b4483f28bd97c60abe}{destroy} ()=0
+\item 
+virtual void \hyperlink{class_pipeline_a6d2bae2931edbb5177e1f1aec27ab9c6}{run} ()=0
+\item 
+virtual \hyperlink{class_model___refiner}{Model\_\-Refiner} \& \hyperlink{class_pipeline_af75e9044b4f846daf5dd09064e74b85c}{get\_\-refiner} ()=0
+\item 
+virtual double \hyperlink{class_pipeline_aabb2894f21a40ef218d08b48e0056671}{get\_\-eval} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An interface that all pipeline objects must implement. A pipeline is a sequence of computation steps that can be performed on some data passing through it. Its similar to an assembly pipeline. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_pipeline_aa6fd3ded1ad9d36ced67ee2f888edd80}{
+\index{Pipeline@{Pipeline}!add\_\-eval@{add\_\-eval}}
+\index{add\_\-eval@{add\_\-eval}!Pipeline@{Pipeline}}
+\subsubsection[{add\_\-eval}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Pipeline::add\_\-eval ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_aa6fd3ded1ad9d36ced67ee2f888edd80}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_a8e0e2d2172adea44eceecb7538a69435}{TBB\_\-Pipeline}.
+
+\hypertarget{class_pipeline_accee7285f24478fa58ad34a9d6bca1f4}{
+\index{Pipeline@{Pipeline}!add\_\-optimizer@{add\_\-optimizer}}
+\index{add\_\-optimizer@{add\_\-optimizer}!Pipeline@{Pipeline}}
+\subsubsection[{add\_\-optimizer}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Pipeline::add\_\-optimizer ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_accee7285f24478fa58ad34a9d6bca1f4}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_a69754a3a67b889f107a09cb54a86aa99}{TBB\_\-Pipeline}.
+
+\hypertarget{class_pipeline_a7919be26846bd13f614f823f180aec42}{
+\index{Pipeline@{Pipeline}!add\_\-reader@{add\_\-reader}}
+\index{add\_\-reader@{add\_\-reader}!Pipeline@{Pipeline}}
+\subsubsection[{add\_\-reader}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Pipeline::add\_\-reader ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_a7919be26846bd13f614f823f180aec42}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_a80c9dfeac28acbbfd58bb74667aed6c0}{TBB\_\-Pipeline}.
+
+\hypertarget{class_pipeline_aa1bdee70f85f452a2f68c67313d8b2d0}{
+\index{Pipeline@{Pipeline}!add\_\-sampler@{add\_\-sampler}}
+\index{add\_\-sampler@{add\_\-sampler}!Pipeline@{Pipeline}}
+\subsubsection[{add\_\-sampler}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Pipeline::add\_\-sampler ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_aa1bdee70f85f452a2f68c67313d8b2d0}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_a366b2c3a7c457132fdf1e37e4176cc2a}{TBB\_\-Pipeline}.
+
+\hypertarget{class_pipeline_afbc6eaee843ebceca849ed9a5078bd9c}{
+\index{Pipeline@{Pipeline}!add\_\-tester@{add\_\-tester}}
+\index{add\_\-tester@{add\_\-tester}!Pipeline@{Pipeline}}
+\subsubsection[{add\_\-tester}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Pipeline::add\_\-tester ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_afbc6eaee843ebceca849ed9a5078bd9c}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_a08d85d063aa95ccc7ff3b637ca626376}{TBB\_\-Pipeline}.
+
+\hypertarget{class_pipeline_a60f948a86dd41079ea887a77a0a3614e}{
+\index{Pipeline@{Pipeline}!add\_\-updater@{add\_\-updater}}
+\index{add\_\-updater@{add\_\-updater}!Pipeline@{Pipeline}}
+\subsubsection[{add\_\-updater}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Pipeline::add\_\-updater ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_a60f948a86dd41079ea887a77a0a3614e}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_a510fca80eb5804ab4a3fd102e008b166}{TBB\_\-Pipeline}.
+
+\hypertarget{class_pipeline_a0dc7f98daffefe534ff469ab3c8336b9}{
+\index{Pipeline@{Pipeline}!add\_\-writer@{add\_\-writer}}
+\index{add\_\-writer@{add\_\-writer}!Pipeline@{Pipeline}}
+\subsubsection[{add\_\-writer}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Pipeline::add\_\-writer ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_a0dc7f98daffefe534ff469ab3c8336b9}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_ae6c06e4aa81d4141810fe48af846357a}{TBB\_\-Pipeline}.
+
+\hypertarget{class_pipeline_a4d58883c3b93f17c56c65474e0179bcb}{
+\index{Pipeline@{Pipeline}!clear@{clear}}
+\index{clear@{clear}!Pipeline@{Pipeline}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Pipeline::clear ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_a4d58883c3b93f17c56c65474e0179bcb}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_abff2c28ffcec8d6483ab5e5fae829600}{TBB\_\-Pipeline}.
+
+\hypertarget{class_pipeline_aa8eaf1bc52b077b4483f28bd97c60abe}{
+\index{Pipeline@{Pipeline}!destroy@{destroy}}
+\index{destroy@{destroy}!Pipeline@{Pipeline}}
+\subsubsection[{destroy}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Pipeline::destroy ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_aa8eaf1bc52b077b4483f28bd97c60abe}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_aeaa444a64c92dbf4a3e81ba4864d5086}{TBB\_\-Pipeline}.
+
+\hypertarget{class_pipeline_aabb2894f21a40ef218d08b48e0056671}{
+\index{Pipeline@{Pipeline}!get\_\-eval@{get\_\-eval}}
+\index{get\_\-eval@{get\_\-eval}!Pipeline@{Pipeline}}
+\subsubsection[{get\_\-eval}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Pipeline::get\_\-eval ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_aabb2894f21a40ef218d08b48e0056671}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_aaa0d5fa5c3095a21692e20763a79d11f}{TBB\_\-Pipeline}.
+
+\hypertarget{class_pipeline_af75e9044b4f846daf5dd09064e74b85c}{
+\index{Pipeline@{Pipeline}!get\_\-refiner@{get\_\-refiner}}
+\index{get\_\-refiner@{get\_\-refiner}!Pipeline@{Pipeline}}
+\subsubsection[{get\_\-refiner}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Model\_\-Refiner}\& Pipeline::get\_\-refiner ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_af75e9044b4f846daf5dd09064e74b85c}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_aa1880e8333868d0d0d15edf202cd6a03}{TBB\_\-Pipeline}.
+
+\hypertarget{class_pipeline_a4ebb79a6018c72d196f480a4300ac302}{
+\index{Pipeline@{Pipeline}!init@{init}}
+\index{init@{init}!Pipeline@{Pipeline}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Pipeline::init ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_a4ebb79a6018c72d196f480a4300ac302}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_aa4730c25bfcb3a817452024c7d77006f}{TBB\_\-Pipeline}.
+
+\hypertarget{class_pipeline_a6d2bae2931edbb5177e1f1aec27ab9c6}{
+\index{Pipeline@{Pipeline}!run@{run}}
+\index{run@{run}!Pipeline@{Pipeline}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Pipeline::run ()\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_pipeline_a6d2bae2931edbb5177e1f1aec27ab9c6}
+
+
+Implemented in \hyperlink{class_t_b_b___pipeline_a8f7d9f64786ae4269e213bcefab17d2f}{TBB\_\-Pipeline}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_pipeline_8h}{Pipeline.h}\end{DoxyCompactItemize}

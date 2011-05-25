@@ -1,0 +1,289 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.8.27)  22 APR 2011 00:42
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**annotated.tex _checkpointer_8h.tex class_checkpointer.tex class_client.tex cl
+ass_context.tex class_data___formatter.tex class_d_m___client.tex class_d_m___s
+erver.tex class_document_reader.tex class_document_writer.tex class_execution__
+_strategy.tex class_filter___eval.tex class_filter___optimizer.tex class_filter
+___reader.tex class_filter___sampler.tex class_filter___tester.tex class_filter
+___updater.tex class_filter___writer.tex class_generic_top_k_list.tex class_glo
+bal_table_1_1_a_m_d___distributed_map__put_nget.tex class_global_table_1_1_a_m_
+d___distributed_map__wait_for_all_clients.tex class_global_table_1_1_callback__
+_distributed_map__get___base.tex class_global_table_1_1_callback___distributed_
+map__get.tex class_global_table_1_1_callback___distributed_map__put___base.tex 
+class_global_table_1_1_callback___distributed_map__put_nget___base.tex class_gl
+obal_table_1_1_callback___distributed_map__put_nget.tex class_global_table_1_1_
+callback___distributed_map__put.tex class_global_table_1_1_callback___distribut
+ed_map__remove___base.tex class_global_table_1_1_callback___distributed_map__re
+move.tex class_global_table_1_1_callback___distributed_map__set___base.tex clas
+s_global_table_1_1_callback___distributed_map__set.tex class_global_table_1_1_c
+allback___distributed_map__wait_for_all_clients___base.tex class_global_table_1
+_1_callback___distributed_map__wait_for_all_clients.tex class_global_table_1_1_
+callback_n_c___distributed_map__get.tex class_global_table_1_1_callback_n_c___d
+istributed_map__put_nget.tex class_global_table_1_1_callback_n_c___distributed_
+map__put.tex class_global_table_1_1_callback_n_c___distributed_map__remove.tex 
+class_global_table_1_1_callback_n_c___distributed_map__set.tex class_global_tab
+le_1_1_callback_n_c___distributed_map__wait_for_all_clients.tex class_global_ta
+ble_1_1_distributed_map.tex class_hadoop___checkpointer.tex class_hashmap___arr
+ay_1_1iterator.tex class_hashmap___array.tex class_ice_async_1_1_global_table_1
+_1_a_m_d___distributed_map__put_nget.tex class_ice_async_1_1_global_table_1_1_a
+_m_d___distributed_map__wait_for_all_clients.tex class_ice_delegate_1_1_global_
+table_1_1_distributed_map.tex class_ice_delegate_d_1_1_global_table_1_1_distrib
+uted_map.tex class_ice_delegate_m_1_1_global_table_1_1_distributed_map.tex clas
+s_ice_proxy_1_1_global_table_1_1_distributed_map.tex class_invalid_old_topic_ex
+c.tex class_l_d_a_1_1header.tex class_l_d_a_1_1parameters.tex class_l_d_a_1_1un
+igram__counts.tex class_l_d_a_1_1unigram__document.tex class_l_d_a_1_1word__ind
+__pair.tex class_l_d_a_util_1_1_d_m___server___names.tex class_l_d_a_util_1_1_i
+toa.tex class_l_d_a_util_1_1_string_tokenizer.tex class_l_d_a_util_1_1_string_t
+rimmer.tex class_local___checkpointer.tex class_model___builder.tex class_model
+___director.tex class_model___refiner.tex class_model.tex class_pipeline.tex cl
+ass_p_n_g_callback.tex class_p_n_g_job.tex class_server___helper.tex classsimpl
+e__map.tex class_synchronized___training___execution___strategy.tex class_synch
+ronizer___helper.tex class_synchronizer.tex class_t_b_b___pipeline.tex class_te
+sting___execution___strategy.tex class_top_k_list.tex class_training___executio
+n___strategy.tex class_type_topic_counts.tex class_unigram___model___server___h
+elper.tex class_unigram___model___streamer.tex class_unigram___model___streamin
+g___builder.tex class_unigram___model___synchronized___training___builder.tex c
+lass_unigram___model___synchronizer___helper.tex class_unigram___model___tester
+.tex class_unigram___model___testing___builder.tex class_unigram___model.tex cl
+ass_unigram___model___trainer.tex class_unigram___model___training___builder.te
+x class_unigram___test___data___formatter.tex class_unigram___train___data___fo
+rmatter.tex class_word_index_dictionary.tex _client_8h.tex comparator_8cpp.tex 
+comparator_8h.tex constants_8h.tex _context_8cpp.tex _context_8h.tex _data___fo
+rmatter_8h.tex _dirichlet_8cpp.tex _dirichlet_8h.tex _distributed_map_8cpp.tex 
+_distributed_map_8h.tex _d_m___client_8cpp.tex _d_m___client_8h.tex _d_m___serv
+er_8cpp.tex _d_m___server_8h.tex document_8pb_8cc.tex document_8pb_8h.tex _docu
+ment_reader_8cpp.tex _document_reader_8h.tex _document_writer_8cpp.tex _documen
+t_writer_8h.tex eff__small__map_8cpp.tex eff__small__map_8h.tex _execution___st
+rategy_8h.tex files.tex _filter___eval_8cpp.tex _filter___eval_8h.tex _filter__
+_optimizer_8cpp.tex _filter___optimizer_8h.tex _filter___reader_8cpp.tex _filte
+r___reader_8h.tex _filter___sampler_8cpp.tex _filter___sampler_8h.tex _filter__
+_tester_8cpp.tex _filter___tester_8h.tex _filter___updater_8cpp.tex _filter___u
+pdater_8h.tex _filter___writer_8cpp.tex _filter___writer_8h.tex _format_data__f
+lags__define_8h.tex _formatter_2_controller_8cpp.tex _generic_top_k_list_8h.tex
+ _hadoop___checkpointer_8cpp.tex _hadoop___checkpointer_8h.tex _hashmap___array
+_8h.tex hierarchy.tex _l_d_a_util_8cpp.tex _l_d_a_util_8h.tex _local___checkpoi
+nter_8cpp.tex _local___checkpointer_8h.tex _main__flags__define_8h.tex mainpage
+_8h.tex _merge___dictionaries_8cpp.tex _merge___topic___counts_8cpp.tex _model_
+8h.tex _model___builder_8h.tex _model___director_8cpp.tex _model___director_8h.
+tex _model___refiner_8h.tex namespace_global_table.tex namespacegoogle_1_1proto
+buf.tex namespacegoogle.tex namespace_ice_async_1_1_global_table.tex namespace_
+ice_async.tex namespace_ice_delegate_1_1_global_table.tex namespace_ice_delegat
+e_d_1_1_global_table.tex namespace_ice_delegate_d.tex namespace_ice_delegate_m_
+1_1_global_table.tex namespace_ice_delegate_m.tex namespace_ice_delegate.tex na
+mespace_ice_internal.tex namespace_ice_proxy_1_1_global_table.tex namespace_ice
+_proxy.tex namespace_l_d_a.tex namespace_l_d_a_util.tex namespacesampler.tex na
+mespaces.tex _parameter_8cpp.tex _parameter_8h.tex _pipeline_8h.tex refman.tex 
+sampler_8cpp.tex sampler_8h.tex _server___helper_8h.tex structbigppair__gt.tex 
+structchange__elem__t.tex structchoose__t.tex struct_cookie.tex struct_l_d_a_1_
+1_static_descriptor_initializer__document__2eproto.tex struct_parameter.tex str
+uct_topic_counts.tex structupdate__t.tex structwppair__gt.tex _synchronized___t
+raining___execution___strategy_8cpp.tex _synchronized___training___execution___
+strategy_8h.tex _synchronizer_8cpp.tex _synchronizer_8h.tex _synchronizer___hel
+per_8h.tex _t_b_b___pipeline_8cpp.tex _t_b_b___pipeline_8h.tex _testing___execu
+tion___strategy_8cpp.tex _testing___execution___strategy_8h.tex _topic_counts_8
+cpp.tex _topic_counts_8h.tex _topic_learner_2_controller_8cpp.tex _top_k_list_8
+cpp.tex _top_k_list_8h.tex _training___execution___strategy_8cpp.tex _training_
+__execution___strategy_8h.tex types_8h.tex _type_topic_counts_8cpp.tex _type_to
+pic_counts_8h.tex _unigram___model_8cpp.tex _unigram___model_8h.tex _unigram___
+model___server___helper_8cpp.tex _unigram___model___server___helper_8h.tex _uni
+gram___model___streamer_8cpp.tex _unigram___model___streamer_8h.tex _unigram___
+model___streaming___builder_8cpp.tex _unigram___model___streaming___builder_8h.
+tex _unigram___model___synchronized___training___builder_8cpp.tex _unigram___mo
+del___synchronized___training___builder_8h.tex _unigram___model___synchronizer_
+__helper_8cpp.tex _unigram___model___synchronizer___helper_8h.tex _unigram___mo
+del___tester_8cpp.tex _unigram___model___tester_8h.tex _unigram___model___testi
+ng___builder_8cpp.tex _unigram___model___testing___builder_8h.tex _unigram___mo
+del___trainer_8cpp.tex _unigram___model___trainer_8h.tex _unigram___model___tra
+ining___builder_8cpp.tex _unigram___model___training___builder_8h.tex _unigram_
+__test___data___formatter_8cpp.tex _unigram___test___data___formatter_8h.tex _u
+nigram___train___data___formatter_8cpp.tex _unigram___train___data___formatter_
+8h.tex unioncnt__topic__t.tex _word_index_dictionary_8cpp.tex _word_index_dicti
+onary_8h.tex --output-directory=output/
+(./annotated.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+! Undefined control sequence.
+l.1 \section
+            {Class List}
+? 
+! Interruption.
+<to be read again> 
+                   {
+l.1 \section{
+             Class List}
+? 
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \section{C
+              lass List}
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.1 \section{C
+              lass List}
+? 
+Missing character: There is no C in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no H in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no : in font nullfont!
+
+! LaTeX Error: Environment DoxyCompactList undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 ... brief descriptions:\begin{DoxyCompactList}
+                                                  
+? 
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--3
+[]
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \item\contentsline
+                      {section}{\hyperlink{class_checkpointer}{Checkpointer}...
+
+? 
+! Undefined control sequence.
+l.3 \item\contentsline{section}{\hyperlink
+                                          {class_checkpointer}{Checkpointer}...
+
+? 
+Missing character: There is no c in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no s in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.3 \item\contentsline{section}{\hyperlink{class_
+                                                 checkpointer}{Checkpointer}...
+
+? 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+! Extra }, or forgotten $.
+l.3 ...ine{section}{\hyperlink{class_checkpointer}
+                                                  {Checkpointer} (Used to im...
+
+? 
+! Extra }, or forgotten $.
+l.3 ...ter} (Used to implement failure recovery )}
+                                                  {\pageref{class_checkpoint...
+
+? 
+! Undefined control sequence.
+<write> ... `class_checkpointer' on page \thepage 
+                                                  \space undefined\on@line .
+l.3 ...re recovery )}{\pageref{class_checkpointer}
+                                                  }{}
+? 
+! Emergency stop.
+<write> ... `class_checkpointer' on page \thepage 
+                                                  \space undefined\on@line .
+l.3 ...re recovery )}{\pageref{class_checkpointer}
+                                                  }{}
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 13 strings out of 495061
+ 238 string characters out of 1182621
+ 45108 words of memory out of 3000000
+ 3289 multiletter control sequences out of 15000+50000
+ 3948 words of font info for 15 fonts, out of 3000000 for 9000
+ 28 hyphenation exceptions out of 8191
+ 18i,5n,14p,7946b,125s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

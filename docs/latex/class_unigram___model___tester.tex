@@ -1,0 +1,248 @@
+\hypertarget{class_unigram___model___tester}{
+\section{Unigram\_\-Model\_\-Tester Class Reference}
+\label{class_unigram___model___tester}\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}}
+}
+
+
+{\ttfamily \#include $<$Unigram\_\-Model\_\-Tester.h$>$}
+
+Inheritance diagram for Unigram\_\-Model\_\-Tester:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_unigram___model___tester}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_unigram___model___tester_af48089157061db407a1818403884a0a9}{Unigram\_\-Model\_\-Tester} (\hyperlink{class_type_topic_counts}{TypeTopicCounts} \&, \hyperlink{struct_parameter}{Parameter} \&, \hyperlink{struct_parameter}{Parameter} \&, \hyperlink{class_word_index_dictionary}{WordIndexDictionary} \&, bool no\_\-init=false)
+\item 
+virtual \hyperlink{class_unigram___model___tester_adb5becca4680bbc5caf22ac50f1f6d11}{$\sim$Unigram\_\-Model\_\-Tester} ()
+\item 
+google::protobuf::Message $\ast$ \hyperlink{class_unigram___model___tester_a81877bb24ead9124407d32109a83acba}{allocate\_\-document\_\-buffer} (size\_\-t)
+\item 
+void \hyperlink{class_unigram___model___tester_a239d3ab22007a073927dcd80501e6579}{deallocate\_\-document\_\-buffer} (google::protobuf::Message $\ast$)
+\item 
+google::protobuf::Message $\ast$ \hyperlink{class_unigram___model___tester_a0062dadca66fc40748590b4aa721a291}{get\_\-nth\_\-document} (google::protobuf::Message $\ast$docs, size\_\-t n)
+\item 
+void $\ast$ \hyperlink{class_unigram___model___tester_a3d6b3c06e90df22b72bbd979eedef78e}{read} (google::protobuf::Message \&)
+\item 
+void $\ast$ \hyperlink{class_unigram___model___tester_a81e1571fb84f36e059d8e68e01ab91f1}{sample} (void $\ast$)
+\item 
+void $\ast$ \hyperlink{class_unigram___model___tester_a067e8f0f15ce9c48eef77d22978eaceb}{update} (void $\ast$)
+\item 
+void $\ast$ \hyperlink{class_unigram___model___tester_a1f1c50061c974325ec32810e27428d08}{optimize} (void $\ast$)
+\item 
+void $\ast$ \hyperlink{class_unigram___model___tester_afb32ae60aac5863d0f8ac50af4fd9ff2}{eval} (void $\ast$, double \&)
+\item 
+void \hyperlink{class_unigram___model___tester_a9f9538866008fd7dfd681faaf4562b74}{write} (void $\ast$)
+\item 
+void \hyperlink{class_unigram___model___tester_a04021ed578bfeaa08a8956fc611c2722}{iteration\_\-done} ()
+\item 
+void $\ast$ \hyperlink{class_unigram___model___tester_ab006fec2130a391827c117a126b00d09}{test} (void $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static long \hyperlink{class_unigram___model___tester_a1c5f61eac028445bec986e4f039351a9}{doc\_\-index}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_type_topic_counts}{TypeTopicCounts} \& \hyperlink{class_unigram___model___tester_ab57a6e0b5a58a5d1b6e39d4ab800ca98}{\_\-ttc}
+\item 
+\hyperlink{struct_parameter}{Parameter} \& \hyperlink{class_unigram___model___tester_a80beff68624c3fc783c5f6771793861f}{\_\-alpha}
+\item 
+\hyperlink{struct_parameter}{Parameter} \& \hyperlink{class_unigram___model___tester_a5aafc151a4c9d0ed2db3061b559266f0}{\_\-beta}
+\item 
+bool \hyperlink{class_unigram___model___tester_ae83a2ed8e687c16a8d495e5004555444}{ignore\_\-old\_\-topic}
+\item 
+int \hyperlink{class_unigram___model___tester_a5e7c01034e841646de2c1748d39fd91b}{\_\-num\_\-words}
+\item 
+int \hyperlink{class_unigram___model___tester_ad8767c95bfebb76966c949e4547fe3dc}{\_\-num\_\-topics}
+\item 
+\hyperlink{class_document_reader}{DocumentReader} $\ast$ \hyperlink{class_unigram___model___tester_a77808c2107a7d92a6163545f08d45829}{\_\-wdoc\_\-rdr}
+\item 
+\hyperlink{class_document_writer}{DocumentWriter} $\ast$ \hyperlink{class_unigram___model___tester_abf32d713f43dd44a5db735b83eaf2239}{\_\-tdoc\_\-writer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_unigram___model___tester_af48089157061db407a1818403884a0a9}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}}
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{Unigram\_\-Model\_\-Tester}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model\_\-Tester::Unigram\_\-Model\_\-Tester ({\bf TypeTopicCounts} \& {\em ttc}, \/  {\bf Parameter} \& {\em alpha}, \/  {\bf Parameter} \& {\em beta}, \/  {\bf WordIndexDictionary} \& {\em local\_\-dict}, \/  bool {\em no\_\-init} = {\ttfamily false})}}
+\label{class_unigram___model___tester_af48089157061db407a1818403884a0a9}
+\hypertarget{class_unigram___model___tester_adb5becca4680bbc5caf22ac50f1f6d11}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!$\sim$Unigram\_\-Model\_\-Tester@{$\sim$Unigram\_\-Model\_\-Tester}}
+\index{$\sim$Unigram\_\-Model\_\-Tester@{$\sim$Unigram\_\-Model\_\-Tester}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{$\sim$Unigram\_\-Model\_\-Tester}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model\_\-Tester::$\sim$Unigram\_\-Model\_\-Tester ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___tester_adb5becca4680bbc5caf22ac50f1f6d11}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_unigram___model___tester_a81877bb24ead9124407d32109a83acba}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!allocate\_\-document\_\-buffer@{allocate\_\-document\_\-buffer}}
+\index{allocate\_\-document\_\-buffer@{allocate\_\-document\_\-buffer}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{allocate\_\-document\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}google::protobuf::Message $\ast$ Unigram\_\-Model\_\-Tester::allocate\_\-document\_\-buffer (size\_\-t {\em num\_\-docs})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___tester_a81877bb24ead9124407d32109a83acba}
+
+
+Implements \hyperlink{class_model___refiner_a516dd37d4b76cceeb18e6bdf269b8b04}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___tester_a239d3ab22007a073927dcd80501e6579}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!deallocate\_\-document\_\-buffer@{deallocate\_\-document\_\-buffer}}
+\index{deallocate\_\-document\_\-buffer@{deallocate\_\-document\_\-buffer}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{deallocate\_\-document\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Tester::deallocate\_\-document\_\-buffer (google::protobuf::Message $\ast$ {\em docs})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___tester_a239d3ab22007a073927dcd80501e6579}
+
+
+Implements \hyperlink{class_model___refiner_a3787b875dfd41de8db8b1e46cfe40d16}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___tester_afb32ae60aac5863d0f8ac50af4fd9ff2}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!eval@{eval}}
+\index{eval@{eval}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{eval}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Tester::eval (void $\ast$ {\em token}, \/  double \& {\em eval\_\-value})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___tester_afb32ae60aac5863d0f8ac50af4fd9ff2}
+
+
+Implements \hyperlink{class_model___refiner_afc5cd8181d1f6fc3ebf0a6bad1d8f023}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___tester_a0062dadca66fc40748590b4aa721a291}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!get\_\-nth\_\-document@{get\_\-nth\_\-document}}
+\index{get\_\-nth\_\-document@{get\_\-nth\_\-document}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{get\_\-nth\_\-document}]{\setlength{\rightskip}{0pt plus 5cm}google::protobuf::Message $\ast$ Unigram\_\-Model\_\-Tester::get\_\-nth\_\-document (google::protobuf::Message $\ast$ {\em docs}, \/  size\_\-t {\em n})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___tester_a0062dadca66fc40748590b4aa721a291}
+
+
+Implements \hyperlink{class_model___refiner_a6d3bb23a5d76951144004d61b2fdcbe7}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___tester_a04021ed578bfeaa08a8956fc611c2722}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!iteration\_\-done@{iteration\_\-done}}
+\index{iteration\_\-done@{iteration\_\-done}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{iteration\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Tester::iteration\_\-done ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___tester_a04021ed578bfeaa08a8956fc611c2722}
+
+
+Implements \hyperlink{class_model___refiner_a570c3bd6742f609ba86d724e8f070f1a}{Model\_\-Refiner}.
+
+
+
+Reimplemented in \hyperlink{class_unigram___model___streamer_a60124013b5da9fabc486558801fa3ab4}{Unigram\_\-Model\_\-Streamer}.
+
+\hypertarget{class_unigram___model___tester_a1f1c50061c974325ec32810e27428d08}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!optimize@{optimize}}
+\index{optimize@{optimize}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{optimize}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Tester::optimize (void $\ast$)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___tester_a1f1c50061c974325ec32810e27428d08}
+
+
+Implements \hyperlink{class_model___refiner_a238a8d648f8b1c0966ea8e4cbbaa9e9e}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___tester_a3d6b3c06e90df22b72bbd979eedef78e}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!read@{read}}
+\index{read@{read}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Tester::read (google::protobuf::Message \& {\em doc})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___tester_a3d6b3c06e90df22b72bbd979eedef78e}
+
+
+Implements \hyperlink{class_model___refiner_ae6b2ecaaddf8aa0876cfb42bff713607}{Model\_\-Refiner}.
+
+
+
+Reimplemented in \hyperlink{class_unigram___model___streamer_a8a092c8036f7eb09b76b200fb5524ea0}{Unigram\_\-Model\_\-Streamer}.
+
+\hypertarget{class_unigram___model___tester_a81e1571fb84f36e059d8e68e01ab91f1}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!sample@{sample}}
+\index{sample@{sample}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{sample}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Tester::sample (void $\ast$)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___tester_a81e1571fb84f36e059d8e68e01ab91f1}
+
+
+Implements \hyperlink{class_model___refiner_a6c2ecd4d1df247352c8319e0eb17e1e2}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___tester_ab006fec2130a391827c117a126b00d09}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!test@{test}}
+\index{test@{test}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{test}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Tester::test (void $\ast$ {\em token})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___tester_ab006fec2130a391827c117a126b00d09}
+
+
+Implements \hyperlink{class_model___refiner_a5aeef4eee7a0d4f1878356d891ded76d}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___tester_a067e8f0f15ce9c48eef77d22978eaceb}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!update@{update}}
+\index{update@{update}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Tester::update (void $\ast$)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___tester_a067e8f0f15ce9c48eef77d22978eaceb}
+
+
+Implements \hyperlink{class_model___refiner_a5766465773d95e73a36dac702cfe2298}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___tester_a9f9538866008fd7dfd681faaf4562b74}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!write@{write}}
+\index{write@{write}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Tester::write (void $\ast$ {\em token})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___tester_a9f9538866008fd7dfd681faaf4562b74}
+
+
+Implements \hyperlink{class_model___refiner_a7a98ac7633d5d15d959d9b9c1a414576}{Model\_\-Refiner}.
+
+
+
+Reimplemented in \hyperlink{class_unigram___model___streamer_a236395088d23966ec59a85582e4d470f}{Unigram\_\-Model\_\-Streamer}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_unigram___model___tester_a80beff68624c3fc783c5f6771793861f}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!\_\-alpha@{\_\-alpha}}
+\index{\_\-alpha@{\_\-alpha}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{\_\-alpha}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parameter}\& {\bf Unigram\_\-Model\_\-Tester::\_\-alpha}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___tester_a80beff68624c3fc783c5f6771793861f}
+\hypertarget{class_unigram___model___tester_a5aafc151a4c9d0ed2db3061b559266f0}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!\_\-beta@{\_\-beta}}
+\index{\_\-beta@{\_\-beta}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{\_\-beta}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Parameter}\& {\bf Unigram\_\-Model\_\-Tester::\_\-beta}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___tester_a5aafc151a4c9d0ed2db3061b559266f0}
+\hypertarget{class_unigram___model___tester_ad8767c95bfebb76966c949e4547fe3dc}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!\_\-num\_\-topics@{\_\-num\_\-topics}}
+\index{\_\-num\_\-topics@{\_\-num\_\-topics}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{\_\-num\_\-topics}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf Unigram\_\-Model\_\-Tester::\_\-num\_\-topics}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___tester_ad8767c95bfebb76966c949e4547fe3dc}
+\hypertarget{class_unigram___model___tester_a5e7c01034e841646de2c1748d39fd91b}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!\_\-num\_\-words@{\_\-num\_\-words}}
+\index{\_\-num\_\-words@{\_\-num\_\-words}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{\_\-num\_\-words}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf Unigram\_\-Model\_\-Tester::\_\-num\_\-words}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___tester_a5e7c01034e841646de2c1748d39fd91b}
+\hypertarget{class_unigram___model___tester_abf32d713f43dd44a5db735b83eaf2239}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!\_\-tdoc\_\-writer@{\_\-tdoc\_\-writer}}
+\index{\_\-tdoc\_\-writer@{\_\-tdoc\_\-writer}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{\_\-tdoc\_\-writer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DocumentWriter}$\ast$ {\bf Unigram\_\-Model\_\-Tester::\_\-tdoc\_\-writer}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___tester_abf32d713f43dd44a5db735b83eaf2239}
+\hypertarget{class_unigram___model___tester_ab57a6e0b5a58a5d1b6e39d4ab800ca98}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!\_\-ttc@{\_\-ttc}}
+\index{\_\-ttc@{\_\-ttc}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{\_\-ttc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TypeTopicCounts}\& {\bf Unigram\_\-Model\_\-Tester::\_\-ttc}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___tester_ab57a6e0b5a58a5d1b6e39d4ab800ca98}
+\hypertarget{class_unigram___model___tester_a77808c2107a7d92a6163545f08d45829}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!\_\-wdoc\_\-rdr@{\_\-wdoc\_\-rdr}}
+\index{\_\-wdoc\_\-rdr@{\_\-wdoc\_\-rdr}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{\_\-wdoc\_\-rdr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf DocumentReader}$\ast$ {\bf Unigram\_\-Model\_\-Tester::\_\-wdoc\_\-rdr}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___tester_a77808c2107a7d92a6163545f08d45829}
+\hypertarget{class_unigram___model___tester_a1c5f61eac028445bec986e4f039351a9}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!doc\_\-index@{doc\_\-index}}
+\index{doc\_\-index@{doc\_\-index}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{doc\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf Unigram\_\-Model\_\-Tester::doc\_\-index}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_unigram___model___tester_a1c5f61eac028445bec986e4f039351a9}
+\hypertarget{class_unigram___model___tester_ae83a2ed8e687c16a8d495e5004555444}{
+\index{Unigram\_\-Model\_\-Tester@{Unigram\_\-Model\_\-Tester}!ignore\_\-old\_\-topic@{ignore\_\-old\_\-topic}}
+\index{ignore\_\-old\_\-topic@{ignore\_\-old\_\-topic}!Unigram_Model_Tester@{Unigram\_\-Model\_\-Tester}}
+\subsubsection[{ignore\_\-old\_\-topic}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Unigram\_\-Model\_\-Tester::ignore\_\-old\_\-topic}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_unigram___model___tester_ae83a2ed8e687c16a8d495e5004555444}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model___tester_8h}{Unigram\_\-Model\_\-Tester.h}\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model___tester_8cpp}{Unigram\_\-Model\_\-Tester.cpp}\end{DoxyCompactItemize}

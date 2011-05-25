@@ -1,0 +1,35 @@
+package LDA;
+
+option optimize_for = SPEED;
+
+message unigram_document {
+    optional string docID = 1;
+    optional string url = 2;
+    repeated uint32 body = 3 [packed=true];
+    repeated uint32 topic_assignment = 4 [packed=true];
+    repeated uint32 topic_counts = 5 [packed=true];
+    repeated uint64 cnt_topics = 6 [packed=true];
+    repeated float topic_distribution = 7 [packed=true];
+}
+
+message unigram_counts{
+	repeated uint64 counts = 1 [packed=true];
+	repeated uint32 tokens_per_topic = 2 [packed=true];
+}
+
+message word_ind_pair {
+	repeated string word = 1;
+	repeated uint32 index = 2 [packed=true];
+	repeated uint32 frequency = 3 [packed=true];
+}
+
+message header {
+    required double version = 1;
+	optional uint32 num_words = 2;
+	optional uint32 num_topics = 3;
+}
+
+message parameters {
+      optional double alphasum = 1;
+      repeated double alphas = 2 [packed=true];
+}

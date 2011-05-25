@@ -1,0 +1,48 @@
+\hypertarget{class_server___helper}{
+\section{Server\_\-Helper Class Reference}
+\label{class_server___helper}\index{Server\_\-Helper@{Server\_\-Helper}}
+}
+
+
+Server Helper interface.  
+
+
+
+
+{\ttfamily \#include $<$Server\_\-Helper.h$>$}
+
+Inheritance diagram for Server\_\-Helper:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_server___helper}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_server___helper_a8dbb2fd15cdfcb6464a965893482b775}{combine} (const string entity, const string \&old, const string \&delta, string \&combined)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Server Helper interface. Users of the Distributed Map need to provide semantics for the put operation using this helper class.
+
+The put operation calls helper.combine() to perform the accumulate operation
+
+All server helpers must implement this interface 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_server___helper_a8dbb2fd15cdfcb6464a965893482b775}{
+\index{Server\_\-Helper@{Server\_\-Helper}!combine@{combine}}
+\index{combine@{combine}!Server_Helper@{Server\_\-Helper}}
+\subsubsection[{combine}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Server\_\-Helper::combine (const string {\em entity}, \/  const string \& {\em old}, \/  const string \& {\em delta}, \/  string \& {\em combined})\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_server___helper_a8dbb2fd15cdfcb6464a965893482b775}
+
+
+Implemented in \hyperlink{class_unigram___model___server___helper_a44b942cb380cbb1207bc994ac14a368c}{Unigram\_\-Model\_\-Server\_\-Helper}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/commons/Server/\hyperlink{_server___helper_8h}{Server\_\-Helper.h}\end{DoxyCompactItemize}

@@ -1,0 +1,184 @@
+\hypertarget{class_unigram___model___trainer}{
+\section{Unigram\_\-Model\_\-Trainer Class Reference}
+\label{class_unigram___model___trainer}\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}}
+}
+
+
+{\ttfamily \#include $<$Unigram\_\-Model\_\-Trainer.h$>$}
+
+Inheritance diagram for Unigram\_\-Model\_\-Trainer:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_unigram___model___trainer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_unigram___model___trainer_a7cfa7c83a6ee199e53076e58c5a46a7e}{Unigram\_\-Model\_\-Trainer} (\hyperlink{class_type_topic_counts}{TypeTopicCounts} \&, \hyperlink{struct_parameter}{Parameter} \&, \hyperlink{struct_parameter}{Parameter} \&)
+\item 
+virtual \hyperlink{class_unigram___model___trainer_a4e72d620af52fdfa0a239e4bb8e97608}{$\sim$Unigram\_\-Model\_\-Trainer} ()
+\item 
+google::protobuf::Message $\ast$ \hyperlink{class_unigram___model___trainer_a92e5a9c1dcd4f1fdf4a2b158f6b31c7b}{allocate\_\-document\_\-buffer} (size\_\-t)
+\item 
+void \hyperlink{class_unigram___model___trainer_aa5f8c8441588c341c42ec6685bc313d7}{deallocate\_\-document\_\-buffer} (google::protobuf::Message $\ast$)
+\item 
+google::protobuf::Message $\ast$ \hyperlink{class_unigram___model___trainer_a032b2dcd9676b5a7ced2dcb57d509c84}{get\_\-nth\_\-document} (google::protobuf::Message $\ast$docs, size\_\-t n)
+\item 
+void $\ast$ \hyperlink{class_unigram___model___trainer_af4f1230edeb83227aaeee31e9f81aeeb}{read} (google::protobuf::Message \&)
+\item 
+void $\ast$ \hyperlink{class_unigram___model___trainer_a03d020dca2c75815773ba726c294e3d1}{sample} (void $\ast$)
+\item 
+void $\ast$ \hyperlink{class_unigram___model___trainer_af9031fc304f82bb2f9209c0913f36df6}{update} (void $\ast$)
+\item 
+void $\ast$ \hyperlink{class_unigram___model___trainer_afaf685a22d603c7a0b44ed692a928c13}{optimize} (void $\ast$)
+\item 
+void $\ast$ \hyperlink{class_unigram___model___trainer_a354f9cc690b803bc17284b6742702a66}{eval} (void $\ast$, double \&)
+\begin{DoxyCompactList}\small\item\em Compute the document portion of the log-\/likelihood. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_unigram___model___trainer_aab907b06b666d441ec60c4703d2a8e4e}{write} (void $\ast$)
+\item 
+void \hyperlink{class_unigram___model___trainer_a8034a5fd2767a6869f87a82956e127d6}{iteration\_\-done} ()
+\item 
+void $\ast$ \hyperlink{class_unigram___model___trainer_a959873d7b22e159694473fdbcd470785}{test} (void $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static long \hyperlink{class_unigram___model___trainer_abc69c53a2021d6af93b4ccca6ee26c6c}{doc\_\-index} = -\/1
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The default implementation of \hyperlink{class_model___refiner}{Model\_\-Refiner} for the Unigram model 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_unigram___model___trainer_a7cfa7c83a6ee199e53076e58c5a46a7e}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}}
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{Unigram\_\-Model\_\-Trainer}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model\_\-Trainer::Unigram\_\-Model\_\-Trainer ({\bf TypeTopicCounts} \& {\em ttc}, \/  {\bf Parameter} \& {\em alpha}, \/  {\bf Parameter} \& {\em beta})}}
+\label{class_unigram___model___trainer_a7cfa7c83a6ee199e53076e58c5a46a7e}
+\hypertarget{class_unigram___model___trainer_a4e72d620af52fdfa0a239e4bb8e97608}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!$\sim$Unigram\_\-Model\_\-Trainer@{$\sim$Unigram\_\-Model\_\-Trainer}}
+\index{$\sim$Unigram\_\-Model\_\-Trainer@{$\sim$Unigram\_\-Model\_\-Trainer}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{$\sim$Unigram\_\-Model\_\-Trainer}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model\_\-Trainer::$\sim$Unigram\_\-Model\_\-Trainer ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___trainer_a4e72d620af52fdfa0a239e4bb8e97608}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_unigram___model___trainer_a92e5a9c1dcd4f1fdf4a2b158f6b31c7b}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!allocate\_\-document\_\-buffer@{allocate\_\-document\_\-buffer}}
+\index{allocate\_\-document\_\-buffer@{allocate\_\-document\_\-buffer}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{allocate\_\-document\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}google::protobuf::Message $\ast$ Unigram\_\-Model\_\-Trainer::allocate\_\-document\_\-buffer (size\_\-t {\em num\_\-docs})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___trainer_a92e5a9c1dcd4f1fdf4a2b158f6b31c7b}
+
+
+Implements \hyperlink{class_model___refiner_a516dd37d4b76cceeb18e6bdf269b8b04}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___trainer_aa5f8c8441588c341c42ec6685bc313d7}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!deallocate\_\-document\_\-buffer@{deallocate\_\-document\_\-buffer}}
+\index{deallocate\_\-document\_\-buffer@{deallocate\_\-document\_\-buffer}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{deallocate\_\-document\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Trainer::deallocate\_\-document\_\-buffer (google::protobuf::Message $\ast$ {\em docs})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___trainer_aa5f8c8441588c341c42ec6685bc313d7}
+
+
+Implements \hyperlink{class_model___refiner_a3787b875dfd41de8db8b1e46cfe40d16}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___trainer_a354f9cc690b803bc17284b6742702a66}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!eval@{eval}}
+\index{eval@{eval}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{eval}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Trainer::eval (void $\ast$ {\em token}, \/  double \& {\em eval\_\-value})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___trainer_a354f9cc690b803bc17284b6742702a66}
+
+
+Compute the document portion of the log-\/likelihood. 
+
+
+
+Implements \hyperlink{class_model___refiner_afc5cd8181d1f6fc3ebf0a6bad1d8f023}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___trainer_a032b2dcd9676b5a7ced2dcb57d509c84}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!get\_\-nth\_\-document@{get\_\-nth\_\-document}}
+\index{get\_\-nth\_\-document@{get\_\-nth\_\-document}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{get\_\-nth\_\-document}]{\setlength{\rightskip}{0pt plus 5cm}google::protobuf::Message $\ast$ Unigram\_\-Model\_\-Trainer::get\_\-nth\_\-document (google::protobuf::Message $\ast$ {\em docs}, \/  size\_\-t {\em n})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___trainer_a032b2dcd9676b5a7ced2dcb57d509c84}
+
+
+Implements \hyperlink{class_model___refiner_a6d3bb23a5d76951144004d61b2fdcbe7}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___trainer_a8034a5fd2767a6869f87a82956e127d6}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!iteration\_\-done@{iteration\_\-done}}
+\index{iteration\_\-done@{iteration\_\-done}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{iteration\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Trainer::iteration\_\-done ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___trainer_a8034a5fd2767a6869f87a82956e127d6}
+
+
+Implements \hyperlink{class_model___refiner_a570c3bd6742f609ba86d724e8f070f1a}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___trainer_afaf685a22d603c7a0b44ed692a928c13}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!optimize@{optimize}}
+\index{optimize@{optimize}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{optimize}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Trainer::optimize (void $\ast$ {\em token})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___trainer_afaf685a22d603c7a0b44ed692a928c13}
+Performs stochastic GD to optimize the alphas. The gradients are accumulated for tau docs and then the global alphas are updated. 
+
+Implements \hyperlink{class_model___refiner_a238a8d648f8b1c0966ea8e4cbbaa9e9e}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___trainer_af4f1230edeb83227aaeee31e9f81aeeb}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!read@{read}}
+\index{read@{read}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Trainer::read (google::protobuf::Message \& {\em doc})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___trainer_af4f1230edeb83227aaeee31e9f81aeeb}
+Reads a document from the protobuf format word \& topic files using \hyperlink{class_document_reader}{DocumentReader} 
+
+Implements \hyperlink{class_model___refiner_ae6b2ecaaddf8aa0876cfb42bff713607}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___trainer_a03d020dca2c75815773ba726c294e3d1}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!sample@{sample}}
+\index{sample@{sample}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{sample}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Trainer::sample (void $\ast$ {\em token})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___trainer_a03d020dca2c75815773ba726c294e3d1}
+Does Gibbs sampling using \hyperlink{sampler_8cpp}{sampler.cpp} to figure out new topic assignments to each word present in the document passed in the msg 
+
+Implements \hyperlink{class_model___refiner_a6c2ecd4d1df247352c8319e0eb17e1e2}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___trainer_a959873d7b22e159694473fdbcd470785}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!test@{test}}
+\index{test@{test}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{test}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Trainer::test (void $\ast$ {\em token})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___trainer_a959873d7b22e159694473fdbcd470785}
+
+
+Implements \hyperlink{class_model___refiner_a5aeef4eee7a0d4f1878356d891ded76d}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___trainer_af9031fc304f82bb2f9209c0913f36df6}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!update@{update}}
+\index{update@{update}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Trainer::update (void $\ast$ {\em token})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___trainer_af9031fc304f82bb2f9209c0913f36df6}
+Takes a msg which contains the document to be processed and the updated topics for each word in the document as a vector. It then processes each update by just calling upd\_\-count on the \hyperlink{class_type_topic_counts}{TypeTopicCounts} object with the update details 
+
+Implements \hyperlink{class_model___refiner_a5766465773d95e73a36dac702cfe2298}{Model\_\-Refiner}.
+
+\hypertarget{class_unigram___model___trainer_aab907b06b666d441ec60c4703d2a8e4e}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!write@{write}}
+\index{write@{write}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Trainer::write (void $\ast$ {\em token})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___trainer_aab907b06b666d441ec60c4703d2a8e4e}
+Takes the document and writes it to disk. Here we use a simple optimization of not writing the body/words in the document but only the topics. This is because the words in the document never change. Its only the topics that change. The documents are written using a \hyperlink{class_document_writer}{DocumentWriter} to disk 
+
+Implements \hyperlink{class_model___refiner_a7a98ac7633d5d15d959d9b9c1a414576}{Model\_\-Refiner}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_unigram___model___trainer_abc69c53a2021d6af93b4ccca6ee26c6c}{
+\index{Unigram\_\-Model\_\-Trainer@{Unigram\_\-Model\_\-Trainer}!doc\_\-index@{doc\_\-index}}
+\index{doc\_\-index@{doc\_\-index}!Unigram_Model_Trainer@{Unigram\_\-Model\_\-Trainer}}
+\subsubsection[{doc\_\-index}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf Unigram\_\-Model\_\-Trainer::doc\_\-index} = -\/1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_unigram___model___trainer_abc69c53a2021d6af93b4ccca6ee26c6c}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model___trainer_8h}{Unigram\_\-Model\_\-Trainer.h}\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model___trainer_8cpp}{Unigram\_\-Model\_\-Trainer.cpp}\end{DoxyCompactItemize}

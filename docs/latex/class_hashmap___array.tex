@@ -1,0 +1,122 @@
+\hypertarget{class_hashmap___array}{
+\section{Hashmap\_\-Array$<$ Key, Value $>$ Class Template Reference}
+\label{class_hashmap___array}\index{Hashmap\_\-Array@{Hashmap\_\-Array}}
+}
+
+
+{\ttfamily \#include $<$Hashmap\_\-Array.h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_hashmap___array_1_1iterator}{iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef unordered\_\-map$<$ Key, Value $>$ \hyperlink{class_hashmap___array_adaad9865d64cbb9488e925a530c03786}{act\_\-map}
+\item 
+typedef unordered\_\-map$<$ Key, Value $>$::\hyperlink{class_hashmap___array_1_1iterator}{iterator} \hyperlink{class_hashmap___array_a0aaeec502621b4c78da9115c26797a64}{act\_\-map\_\-iter}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_hashmap___array_aa3f0961bafd3303fce6f490a5b2cac63}{Hashmap\_\-Array} ()
+\item 
+virtual \hyperlink{class_hashmap___array_aec77a7e86dcbe2ace59b2d8949e9e4ab}{$\sim$Hashmap\_\-Array} ()
+\item 
+size\_\-t \hyperlink{class_hashmap___array_aa42f51c115eda16684ecf8b2fc25e121}{size} () const 
+\item 
+size\_\-t \hyperlink{class_hashmap___array_a9db5027ea4a86a0e9907f017025b048f}{count} (Key key) const 
+\item 
+Value \& \hyperlink{class_hashmap___array_a856e61ce8b5a9c3286a2af305df4bfe4}{operator\mbox{[}$\,$\mbox{]}} (Key key)
+\item 
+void \hyperlink{class_hashmap___array_a0397d0bf1b29c5e71341b4f0c85b5bf1}{erase} (Key key)
+\item 
+word\_\-mutex\_\-t $\ast$ \hyperlink{class_hashmap___array_a98060703f13d5182cb879a327cc06622}{get\_\-lock} (Key key)
+\item 
+word\_\-mutex\_\-t $\ast$ \hyperlink{class_hashmap___array_adf8830a2535d8f3dd165ca6032204f51}{get\_\-structure\_\-lock} ()
+\item 
+\hyperlink{class_hashmap___array_1_1iterator}{iterator} \hyperlink{class_hashmap___array_a35beea246e2f628b6dfc025210ececda}{begin} ()
+\item 
+\hyperlink{class_hashmap___array_1_1iterator}{iterator} \hyperlink{class_hashmap___array_abd1273f016c450ddf9f400904a28e5ce}{end} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Key, class Value$>$ class Hashmap\_\-Array$<$ Key, Value $>$}
+
+An array of hash maps. Reduces Contention on multi-\/threaded access. 
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_hashmap___array_adaad9865d64cbb9488e925a530c03786}{
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!act\_\-map@{act\_\-map}}
+\index{act\_\-map@{act\_\-map}!Hashmap_Array@{Hashmap\_\-Array}}
+\subsubsection[{act\_\-map}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class Value$>$ typedef unordered\_\-map$<$Key, Value$>$ {\bf Hashmap\_\-Array}$<$ Key, Value $>$::{\bf act\_\-map}}}
+\label{class_hashmap___array_adaad9865d64cbb9488e925a530c03786}
+\hypertarget{class_hashmap___array_a0aaeec502621b4c78da9115c26797a64}{
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!act\_\-map\_\-iter@{act\_\-map\_\-iter}}
+\index{act\_\-map\_\-iter@{act\_\-map\_\-iter}!Hashmap_Array@{Hashmap\_\-Array}}
+\subsubsection[{act\_\-map\_\-iter}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class Value$>$ typedef unordered\_\-map$<$Key, Value$>$::{\bf iterator} {\bf Hashmap\_\-Array}$<$ Key, Value $>$::{\bf act\_\-map\_\-iter}}}
+\label{class_hashmap___array_a0aaeec502621b4c78da9115c26797a64}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_hashmap___array_aa3f0961bafd3303fce6f490a5b2cac63}{
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!Hashmap\_\-Array@{Hashmap\_\-Array}}
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!Hashmap_Array@{Hashmap\_\-Array}}
+\subsubsection[{Hashmap\_\-Array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class Value$>$ {\bf Hashmap\_\-Array}$<$ Key, Value $>$::{\bf Hashmap\_\-Array} ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_hashmap___array_aa3f0961bafd3303fce6f490a5b2cac63}
+\hypertarget{class_hashmap___array_aec77a7e86dcbe2ace59b2d8949e9e4ab}{
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!$\sim$Hashmap\_\-Array@{$\sim$Hashmap\_\-Array}}
+\index{$\sim$Hashmap\_\-Array@{$\sim$Hashmap\_\-Array}!Hashmap_Array@{Hashmap\_\-Array}}
+\subsubsection[{$\sim$Hashmap\_\-Array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class Value$>$ virtual {\bf Hashmap\_\-Array}$<$ Key, Value $>$::$\sim${\bf Hashmap\_\-Array} ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_hashmap___array_aec77a7e86dcbe2ace59b2d8949e9e4ab}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hashmap___array_a35beea246e2f628b6dfc025210ececda}{
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!begin@{begin}}
+\index{begin@{begin}!Hashmap_Array@{Hashmap\_\-Array}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class Value$>$ {\bf iterator} {\bf Hashmap\_\-Array}$<$ Key, Value $>$::begin ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_hashmap___array_a35beea246e2f628b6dfc025210ececda}
+\hypertarget{class_hashmap___array_a9db5027ea4a86a0e9907f017025b048f}{
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!count@{count}}
+\index{count@{count}!Hashmap_Array@{Hashmap\_\-Array}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class Value$>$ size\_\-t {\bf Hashmap\_\-Array}$<$ Key, Value $>$::count (Key {\em key}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_hashmap___array_a9db5027ea4a86a0e9907f017025b048f}
+\hypertarget{class_hashmap___array_abd1273f016c450ddf9f400904a28e5ce}{
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!end@{end}}
+\index{end@{end}!Hashmap_Array@{Hashmap\_\-Array}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class Value$>$ {\bf iterator} {\bf Hashmap\_\-Array}$<$ Key, Value $>$::end ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_hashmap___array_abd1273f016c450ddf9f400904a28e5ce}
+\hypertarget{class_hashmap___array_a0397d0bf1b29c5e71341b4f0c85b5bf1}{
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!erase@{erase}}
+\index{erase@{erase}!Hashmap_Array@{Hashmap\_\-Array}}
+\subsubsection[{erase}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class Value$>$ void {\bf Hashmap\_\-Array}$<$ Key, Value $>$::erase (Key {\em key})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_hashmap___array_a0397d0bf1b29c5e71341b4f0c85b5bf1}
+\hypertarget{class_hashmap___array_a98060703f13d5182cb879a327cc06622}{
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!get\_\-lock@{get\_\-lock}}
+\index{get\_\-lock@{get\_\-lock}!Hashmap_Array@{Hashmap\_\-Array}}
+\subsubsection[{get\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class Value$>$ word\_\-mutex\_\-t$\ast$ {\bf Hashmap\_\-Array}$<$ Key, Value $>$::get\_\-lock (Key {\em key})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_hashmap___array_a98060703f13d5182cb879a327cc06622}
+\hypertarget{class_hashmap___array_adf8830a2535d8f3dd165ca6032204f51}{
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!get\_\-structure\_\-lock@{get\_\-structure\_\-lock}}
+\index{get\_\-structure\_\-lock@{get\_\-structure\_\-lock}!Hashmap_Array@{Hashmap\_\-Array}}
+\subsubsection[{get\_\-structure\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class Value$>$ word\_\-mutex\_\-t$\ast$ {\bf Hashmap\_\-Array}$<$ Key, Value $>$::get\_\-structure\_\-lock ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_hashmap___array_adf8830a2535d8f3dd165ca6032204f51}
+\hypertarget{class_hashmap___array_a856e61ce8b5a9c3286a2af305df4bfe4}{
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Hashmap_Array@{Hashmap\_\-Array}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class Value$>$ Value\& {\bf Hashmap\_\-Array}$<$ Key, Value $>$::operator\mbox{[}$\,$\mbox{]} (Key {\em key})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_hashmap___array_a856e61ce8b5a9c3286a2af305df4bfe4}
+\hypertarget{class_hashmap___array_aa42f51c115eda16684ecf8b2fc25e121}{
+\index{Hashmap\_\-Array@{Hashmap\_\-Array}!size@{size}}
+\index{size@{size}!Hashmap_Array@{Hashmap\_\-Array}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class Value$>$ size\_\-t {\bf Hashmap\_\-Array}$<$ Key, Value $>$::size () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_hashmap___array_aa42f51c115eda16684ecf8b2fc25e121}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/commons/Server/\hyperlink{_hashmap___array_8h}{Hashmap\_\-Array.h}\end{DoxyCompactItemize}

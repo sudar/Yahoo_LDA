@@ -1,0 +1,90 @@
+\hypertarget{class_unigram___model___streamer}{
+\section{Unigram\_\-Model\_\-Streamer Class Reference}
+\label{class_unigram___model___streamer}\index{Unigram\_\-Model\_\-Streamer@{Unigram\_\-Model\_\-Streamer}}
+}
+
+
+{\ttfamily \#include $<$Unigram\_\-Model\_\-Streamer.h$>$}
+
+Inheritance diagram for Unigram\_\-Model\_\-Streamer:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_unigram___model___streamer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_unigram___model___streamer_a43e7f046831bcd22ac0b16fb6f39aacb}{Unigram\_\-Model\_\-Streamer} (\hyperlink{class_type_topic_counts}{TypeTopicCounts} \&, \hyperlink{struct_parameter}{Parameter} \&, \hyperlink{struct_parameter}{Parameter} \&, \hyperlink{class_word_index_dictionary}{WordIndexDictionary} \&, \hyperlink{class_word_index_dictionary}{WordIndexDictionary} \&)
+\item 
+virtual \hyperlink{class_unigram___model___streamer_a80613d9c8c9a500875c3fadc5f0ea595}{$\sim$Unigram\_\-Model\_\-Streamer} ()
+\item 
+void $\ast$ \hyperlink{class_unigram___model___streamer_a8a092c8036f7eb09b76b200fb5524ea0}{read} (google::protobuf::Message \&)
+\item 
+void \hyperlink{class_unigram___model___streamer_a236395088d23966ec59a85582e4d470f}{write} (void $\ast$)
+\item 
+void \hyperlink{class_unigram___model___streamer_a60124013b5da9fabc486558801fa3ab4}{iteration\_\-done} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_unigram___model___streamer_a51a09e569da02b64cec4a551cc4f3ba0}{insert\_\-word\_\-to\_\-dict} (std::string word)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_unigram___model___streamer_a43e7f046831bcd22ac0b16fb6f39aacb}{
+\index{Unigram\_\-Model\_\-Streamer@{Unigram\_\-Model\_\-Streamer}!Unigram\_\-Model\_\-Streamer@{Unigram\_\-Model\_\-Streamer}}
+\index{Unigram\_\-Model\_\-Streamer@{Unigram\_\-Model\_\-Streamer}!Unigram_Model_Streamer@{Unigram\_\-Model\_\-Streamer}}
+\subsubsection[{Unigram\_\-Model\_\-Streamer}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model\_\-Streamer::Unigram\_\-Model\_\-Streamer ({\bf TypeTopicCounts} \& {\em ttc}, \/  {\bf Parameter} \& {\em alpha}, \/  {\bf Parameter} \& {\em beta}, \/  {\bf WordIndexDictionary} \& {\em local\_\-dict}, \/  {\bf WordIndexDictionary} \& {\em global\_\-dict})}}
+\label{class_unigram___model___streamer_a43e7f046831bcd22ac0b16fb6f39aacb}
+\hypertarget{class_unigram___model___streamer_a80613d9c8c9a500875c3fadc5f0ea595}{
+\index{Unigram\_\-Model\_\-Streamer@{Unigram\_\-Model\_\-Streamer}!$\sim$Unigram\_\-Model\_\-Streamer@{$\sim$Unigram\_\-Model\_\-Streamer}}
+\index{$\sim$Unigram\_\-Model\_\-Streamer@{$\sim$Unigram\_\-Model\_\-Streamer}!Unigram_Model_Streamer@{Unigram\_\-Model\_\-Streamer}}
+\subsubsection[{$\sim$Unigram\_\-Model\_\-Streamer}]{\setlength{\rightskip}{0pt plus 5cm}Unigram\_\-Model\_\-Streamer::$\sim$Unigram\_\-Model\_\-Streamer ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___streamer_a80613d9c8c9a500875c3fadc5f0ea595}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_unigram___model___streamer_a51a09e569da02b64cec4a551cc4f3ba0}{
+\index{Unigram\_\-Model\_\-Streamer@{Unigram\_\-Model\_\-Streamer}!insert\_\-word\_\-to\_\-dict@{insert\_\-word\_\-to\_\-dict}}
+\index{insert\_\-word\_\-to\_\-dict@{insert\_\-word\_\-to\_\-dict}!Unigram_Model_Streamer@{Unigram\_\-Model\_\-Streamer}}
+\subsubsection[{insert\_\-word\_\-to\_\-dict}]{\setlength{\rightskip}{0pt plus 5cm}int Unigram\_\-Model\_\-Streamer::insert\_\-word\_\-to\_\-dict (std::string {\em word})\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{class_unigram___model___streamer_a51a09e569da02b64cec4a551cc4f3ba0}
+
+
+Reimplemented from \hyperlink{class_unigram___train___data___formatter_a0023886209f7fd1441a256238c86844a}{Unigram\_\-Train\_\-Data\_\-Formatter}.
+
+\hypertarget{class_unigram___model___streamer_a60124013b5da9fabc486558801fa3ab4}{
+\index{Unigram\_\-Model\_\-Streamer@{Unigram\_\-Model\_\-Streamer}!iteration\_\-done@{iteration\_\-done}}
+\index{iteration\_\-done@{iteration\_\-done}!Unigram_Model_Streamer@{Unigram\_\-Model\_\-Streamer}}
+\subsubsection[{iteration\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Streamer::iteration\_\-done ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___streamer_a60124013b5da9fabc486558801fa3ab4}
+
+
+Reimplemented from \hyperlink{class_unigram___model___tester_a04021ed578bfeaa08a8956fc611c2722}{Unigram\_\-Model\_\-Tester}.
+
+\hypertarget{class_unigram___model___streamer_a8a092c8036f7eb09b76b200fb5524ea0}{
+\index{Unigram\_\-Model\_\-Streamer@{Unigram\_\-Model\_\-Streamer}!read@{read}}
+\index{read@{read}!Unigram_Model_Streamer@{Unigram\_\-Model\_\-Streamer}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Unigram\_\-Model\_\-Streamer::read (google::protobuf::Message \& {\em doc})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___streamer_a8a092c8036f7eb09b76b200fb5524ea0}
+
+
+Reimplemented from \hyperlink{class_unigram___model___tester_a3d6b3c06e90df22b72bbd979eedef78e}{Unigram\_\-Model\_\-Tester}.
+
+\hypertarget{class_unigram___model___streamer_a236395088d23966ec59a85582e4d470f}{
+\index{Unigram\_\-Model\_\-Streamer@{Unigram\_\-Model\_\-Streamer}!write@{write}}
+\index{write@{write}!Unigram_Model_Streamer@{Unigram\_\-Model\_\-Streamer}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void Unigram\_\-Model\_\-Streamer::write (void $\ast$ {\em token})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_unigram___model___streamer_a236395088d23966ec59a85582e4d470f}
+
+
+Reimplemented from \hyperlink{class_unigram___model___tester_a9f9538866008fd7dfd681faaf4562b74}{Unigram\_\-Model\_\-Tester}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model___streamer_8h}{Unigram\_\-Model\_\-Streamer.h}\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_unigram___model___streamer_8cpp}{Unigram\_\-Model\_\-Streamer.cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,59 @@
+\hypertarget{class_filter___eval}{
+\section{Filter\_\-Eval Class Reference}
+\label{class_filter___eval}\index{Filter\_\-Eval@{Filter\_\-Eval}}
+}
+
+
+A filter in the TBB pipeline.  
+
+
+
+
+{\ttfamily \#include $<$Filter\_\-Eval.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_filter___eval_a045ecc48dc003fcf28074ecf9459aecd}{Filter\_\-Eval} (\hyperlink{class_model___refiner}{Model\_\-Refiner} \&)
+\item 
+virtual \hyperlink{class_filter___eval_a37b840fc1b612ea3814985d5149de219}{$\sim$Filter\_\-Eval} ()
+\item 
+void $\ast$ \hyperlink{class_filter___eval_aa76e239d1c12bb4d5d0ffd6b4b70bdbc}{operator()} (void $\ast$)
+\item 
+double \hyperlink{class_filter___eval_afe2256ba9ad738c4ffb23164df38d76a}{get\_\-eval} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A filter in the TBB pipeline. Delegates the task to be done to refiner.eval. The output from the eval step is accumulated and can be queried using \hyperlink{class_filter___eval_afe2256ba9ad738c4ffb23164df38d76a}{get\_\-eval()} 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_filter___eval_a045ecc48dc003fcf28074ecf9459aecd}{
+\index{Filter\_\-Eval@{Filter\_\-Eval}!Filter\_\-Eval@{Filter\_\-Eval}}
+\index{Filter\_\-Eval@{Filter\_\-Eval}!Filter_Eval@{Filter\_\-Eval}}
+\subsubsection[{Filter\_\-Eval}]{\setlength{\rightskip}{0pt plus 5cm}Filter\_\-Eval::Filter\_\-Eval ({\bf Model\_\-Refiner} \& {\em refiner})}}
+\label{class_filter___eval_a045ecc48dc003fcf28074ecf9459aecd}
+\hypertarget{class_filter___eval_a37b840fc1b612ea3814985d5149de219}{
+\index{Filter\_\-Eval@{Filter\_\-Eval}!$\sim$Filter\_\-Eval@{$\sim$Filter\_\-Eval}}
+\index{$\sim$Filter\_\-Eval@{$\sim$Filter\_\-Eval}!Filter_Eval@{Filter\_\-Eval}}
+\subsubsection[{$\sim$Filter\_\-Eval}]{\setlength{\rightskip}{0pt plus 5cm}Filter\_\-Eval::$\sim$Filter\_\-Eval ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_filter___eval_a37b840fc1b612ea3814985d5149de219}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_filter___eval_afe2256ba9ad738c4ffb23164df38d76a}{
+\index{Filter\_\-Eval@{Filter\_\-Eval}!get\_\-eval@{get\_\-eval}}
+\index{get\_\-eval@{get\_\-eval}!Filter_Eval@{Filter\_\-Eval}}
+\subsubsection[{get\_\-eval}]{\setlength{\rightskip}{0pt plus 5cm}double Filter\_\-Eval::get\_\-eval ()}}
+\label{class_filter___eval_afe2256ba9ad738c4ffb23164df38d76a}
+\hypertarget{class_filter___eval_aa76e239d1c12bb4d5d0ffd6b4b70bdbc}{
+\index{Filter\_\-Eval@{Filter\_\-Eval}!operator()@{operator()}}
+\index{operator()@{operator()}!Filter_Eval@{Filter\_\-Eval}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Filter\_\-Eval::operator() (void $\ast$ {\em token})}}
+\label{class_filter___eval_aa76e239d1c12bb4d5d0ffd6b4b70bdbc}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_filter___eval_8h}{Filter\_\-Eval.h}\item 
+src/commons/TopicLearner/\hyperlink{_filter___eval_8cpp}{Filter\_\-Eval.cpp}\end{DoxyCompactItemize}

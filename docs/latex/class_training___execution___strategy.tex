@@ -1,0 +1,65 @@
+\hypertarget{class_training___execution___strategy}{
+\section{Training\_\-Execution\_\-Strategy Class Reference}
+\label{class_training___execution___strategy}\index{Training\_\-Execution\_\-Strategy@{Training\_\-Execution\_\-Strategy}}
+}
+
+
+{\ttfamily \#include $<$Training\_\-Execution\_\-Strategy.h$>$}
+
+Inheritance diagram for Training\_\-Execution\_\-Strategy:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_training___execution___strategy}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_training___execution___strategy_a3909c97f68df5715cb7dc55b81b8cf56}{Training\_\-Execution\_\-Strategy} (\hyperlink{class_pipeline}{Pipeline} \&, \hyperlink{class_model}{Model} \&, \hyperlink{class_checkpointer}{Checkpointer} \&)
+\item 
+virtual \hyperlink{class_training___execution___strategy_a5e833297a246164949efd7a6088b2bbd}{$\sim$Training\_\-Execution\_\-Strategy} ()
+\item 
+void \hyperlink{class_training___execution___strategy_adc14f066d7a325e87035fb8224097c47}{execute} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is a default implementation for the \hyperlink{class_execution___strategy}{Execution\_\-Strategy} interface for training a model.
+
+This can use a passed in \hyperlink{class_checkpointer}{Checkpointer} to do failure recovery
+
+A pipeline needs to be passed. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_training___execution___strategy_a3909c97f68df5715cb7dc55b81b8cf56}{
+\index{Training\_\-Execution\_\-Strategy@{Training\_\-Execution\_\-Strategy}!Training\_\-Execution\_\-Strategy@{Training\_\-Execution\_\-Strategy}}
+\index{Training\_\-Execution\_\-Strategy@{Training\_\-Execution\_\-Strategy}!Training_Execution_Strategy@{Training\_\-Execution\_\-Strategy}}
+\subsubsection[{Training\_\-Execution\_\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}Training\_\-Execution\_\-Strategy::Training\_\-Execution\_\-Strategy ({\bf Pipeline} \& {\em pipeline}, \/  {\bf Model} \& {\em model}, \/  {\bf Checkpointer} \& {\em checkpointer})}}
+\label{class_training___execution___strategy_a3909c97f68df5715cb7dc55b81b8cf56}
+\hypertarget{class_training___execution___strategy_a5e833297a246164949efd7a6088b2bbd}{
+\index{Training\_\-Execution\_\-Strategy@{Training\_\-Execution\_\-Strategy}!$\sim$Training\_\-Execution\_\-Strategy@{$\sim$Training\_\-Execution\_\-Strategy}}
+\index{$\sim$Training\_\-Execution\_\-Strategy@{$\sim$Training\_\-Execution\_\-Strategy}!Training_Execution_Strategy@{Training\_\-Execution\_\-Strategy}}
+\subsubsection[{$\sim$Training\_\-Execution\_\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}Training\_\-Execution\_\-Strategy::$\sim$Training\_\-Execution\_\-Strategy ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_training___execution___strategy_a5e833297a246164949efd7a6088b2bbd}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_training___execution___strategy_adc14f066d7a325e87035fb8224097c47}{
+\index{Training\_\-Execution\_\-Strategy@{Training\_\-Execution\_\-Strategy}!execute@{execute}}
+\index{execute@{execute}!Training_Execution_Strategy@{Training\_\-Execution\_\-Strategy}}
+\subsubsection[{execute}]{\setlength{\rightskip}{0pt plus 5cm}void Training\_\-Execution\_\-Strategy::execute ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_training___execution___strategy_adc14f066d7a325e87035fb8224097c47}
+Define what filters need to added and when Runs the pipeline for 'iter' iterations 
+
+Implements \hyperlink{class_execution___strategy_a62fc15af296f2f27f44848eb56aa3ff9}{Execution\_\-Strategy}.
+
+
+
+Reimplemented in \hyperlink{class_synchronized___training___execution___strategy_a77e2fa3f19b544fa4392c9ed56c504e4}{Synchronized\_\-Training\_\-Execution\_\-Strategy}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_training___execution___strategy_8h}{Training\_\-Execution\_\-Strategy.h}\item 
+src/commons/TopicLearner/\hyperlink{_training___execution___strategy_8cpp}{Training\_\-Execution\_\-Strategy.cpp}\end{DoxyCompactItemize}

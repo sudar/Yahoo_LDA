@@ -1,0 +1,52 @@
+\hypertarget{class_filter___writer}{
+\section{Filter\_\-Writer Class Reference}
+\label{class_filter___writer}\index{Filter\_\-Writer@{Filter\_\-Writer}}
+}
+
+
+A filter in the TBB pipeline.  
+
+
+
+
+{\ttfamily \#include $<$Filter\_\-Writer.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_filter___writer_ae80c050e1f7c9cd377d6e54422209f2e}{Filter\_\-Writer} (\hyperlink{class_model___refiner}{Model\_\-Refiner} \&)
+\item 
+virtual \hyperlink{class_filter___writer_a8ffc07908727a4a23c0f703c487db4cc}{$\sim$Filter\_\-Writer} ()
+\item 
+void $\ast$ \hyperlink{class_filter___writer_a54da214300ac51202c3661152155c8ae}{operator()} (void $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A filter in the TBB pipeline. Delegates the task to be done to refiner.write() 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_filter___writer_ae80c050e1f7c9cd377d6e54422209f2e}{
+\index{Filter\_\-Writer@{Filter\_\-Writer}!Filter\_\-Writer@{Filter\_\-Writer}}
+\index{Filter\_\-Writer@{Filter\_\-Writer}!Filter_Writer@{Filter\_\-Writer}}
+\subsubsection[{Filter\_\-Writer}]{\setlength{\rightskip}{0pt plus 5cm}Filter\_\-Writer::Filter\_\-Writer ({\bf Model\_\-Refiner} \& {\em refiner})}}
+\label{class_filter___writer_ae80c050e1f7c9cd377d6e54422209f2e}
+\hypertarget{class_filter___writer_a8ffc07908727a4a23c0f703c487db4cc}{
+\index{Filter\_\-Writer@{Filter\_\-Writer}!$\sim$Filter\_\-Writer@{$\sim$Filter\_\-Writer}}
+\index{$\sim$Filter\_\-Writer@{$\sim$Filter\_\-Writer}!Filter_Writer@{Filter\_\-Writer}}
+\subsubsection[{$\sim$Filter\_\-Writer}]{\setlength{\rightskip}{0pt plus 5cm}Filter\_\-Writer::$\sim$Filter\_\-Writer ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_filter___writer_a8ffc07908727a4a23c0f703c487db4cc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_filter___writer_a54da214300ac51202c3661152155c8ae}{
+\index{Filter\_\-Writer@{Filter\_\-Writer}!operator()@{operator()}}
+\index{operator()@{operator()}!Filter_Writer@{Filter\_\-Writer}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Filter\_\-Writer::operator() (void $\ast$ {\em token})}}
+\label{class_filter___writer_a54da214300ac51202c3661152155c8ae}
+We receive the document to write to disk. This contains both words \& their topic assignments. We use write\_\-topics() to only write the topics which internally clears the words. 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_filter___writer_8h}{Filter\_\-Writer.h}\item 
+src/commons/TopicLearner/\hyperlink{_filter___writer_8cpp}{Filter\_\-Writer.cpp}\end{DoxyCompactItemize}

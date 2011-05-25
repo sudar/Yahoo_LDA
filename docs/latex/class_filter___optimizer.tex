@@ -1,0 +1,52 @@
+\hypertarget{class_filter___optimizer}{
+\section{Filter\_\-Optimizer Class Reference}
+\label{class_filter___optimizer}\index{Filter\_\-Optimizer@{Filter\_\-Optimizer}}
+}
+
+
+A filter in the TBB pipeline.  
+
+
+
+
+{\ttfamily \#include $<$Filter\_\-Optimizer.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_filter___optimizer_a9f6909dd505e2ee8c2d7632a1b962113}{Filter\_\-Optimizer} (\hyperlink{class_model___refiner}{Model\_\-Refiner} \&)
+\item 
+virtual \hyperlink{class_filter___optimizer_a098cadb780d0b2576e62641885d5750e}{$\sim$Filter\_\-Optimizer} ()
+\item 
+void $\ast$ \hyperlink{class_filter___optimizer_a3f515565820d3486c8671affd6e519ec}{operator()} (void $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A filter in the TBB pipeline. Delegates the task to be done to refiner.optimize() 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_filter___optimizer_a9f6909dd505e2ee8c2d7632a1b962113}{
+\index{Filter\_\-Optimizer@{Filter\_\-Optimizer}!Filter\_\-Optimizer@{Filter\_\-Optimizer}}
+\index{Filter\_\-Optimizer@{Filter\_\-Optimizer}!Filter_Optimizer@{Filter\_\-Optimizer}}
+\subsubsection[{Filter\_\-Optimizer}]{\setlength{\rightskip}{0pt plus 5cm}Filter\_\-Optimizer::Filter\_\-Optimizer ({\bf Model\_\-Refiner} \& {\em refiner})}}
+\label{class_filter___optimizer_a9f6909dd505e2ee8c2d7632a1b962113}
+\hypertarget{class_filter___optimizer_a098cadb780d0b2576e62641885d5750e}{
+\index{Filter\_\-Optimizer@{Filter\_\-Optimizer}!$\sim$Filter\_\-Optimizer@{$\sim$Filter\_\-Optimizer}}
+\index{$\sim$Filter\_\-Optimizer@{$\sim$Filter\_\-Optimizer}!Filter_Optimizer@{Filter\_\-Optimizer}}
+\subsubsection[{$\sim$Filter\_\-Optimizer}]{\setlength{\rightskip}{0pt plus 5cm}Filter\_\-Optimizer::$\sim$Filter\_\-Optimizer ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_filter___optimizer_a098cadb780d0b2576e62641885d5750e}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_filter___optimizer_a3f515565820d3486c8671affd6e519ec}{
+\index{Filter\_\-Optimizer@{Filter\_\-Optimizer}!operator()@{operator()}}
+\index{operator()@{operator()}!Filter_Optimizer@{Filter\_\-Optimizer}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ Filter\_\-Optimizer::operator() (void $\ast$ {\em token})}}
+\label{class_filter___optimizer_a3f515565820d3486c8671affd6e519ec}
+Each document is passed through the filter using this method If we have read in tau documents, we update the global alphas Else we compute gradients \& accumulate them in the local alphas 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_filter___optimizer_8h}{Filter\_\-Optimizer.h}\item 
+src/commons/TopicLearner/\hyperlink{_filter___optimizer_8cpp}{Filter\_\-Optimizer.cpp}\end{DoxyCompactItemize}

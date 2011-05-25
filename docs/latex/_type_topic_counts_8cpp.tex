@@ -1,0 +1,37 @@
+\hypertarget{_type_topic_counts_8cpp}{
+\section{src/Unigram\_\-Model/TopicLearner/TypeTopicCounts.cpp File Reference}
+\label{_type_topic_counts_8cpp}\index{src/Unigram\_\-Model/TopicLearner/TypeTopicCounts.cpp@{src/Unigram\_\-Model/TopicLearner/TypeTopicCounts.cpp}}
+}
+{\ttfamily \#include $<$algorithm$>$}\par
+{\ttfamily \#include \char`\"{}TypeTopicCounts.h\char`\"{}}\par
+{\ttfamily \#include $<$iostream$>$}\par
+{\ttfamily \#include $<$exception$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include \char`\"{}TopKList.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}tbb/atomic.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TopicCounts.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}WordIndexDictionary.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}DocumentReader.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}DocumentWriter.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}TopicLearner/Dirichlet.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Context.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{_type_topic_counts_8cpp_a31420f0b909b22fca77edb4e930977c5}{cnt\_\-cmp} (packed\_\-t i, packed\_\-t j)
+\item 
+bool \hyperlink{_type_topic_counts_8cpp_aa31ee6d997481cbdd0b392e6014b503c}{cnt\_\-cmp\_\-ttc} (cnt\_\-topic\_\-t i, cnt\_\-topic\_\-t j)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_type_topic_counts_8cpp_a31420f0b909b22fca77edb4e930977c5}{
+\index{TypeTopicCounts.cpp@{TypeTopicCounts.cpp}!cnt\_\-cmp@{cnt\_\-cmp}}
+\index{cnt\_\-cmp@{cnt\_\-cmp}!TypeTopicCounts.cpp@{TypeTopicCounts.cpp}}
+\subsubsection[{cnt\_\-cmp}]{\setlength{\rightskip}{0pt plus 5cm}bool cnt\_\-cmp (packed\_\-t {\em i}, \/  packed\_\-t {\em j})}}
+\label{_type_topic_counts_8cpp_a31420f0b909b22fca77edb4e930977c5}
+\hypertarget{_type_topic_counts_8cpp_aa31ee6d997481cbdd0b392e6014b503c}{
+\index{TypeTopicCounts.cpp@{TypeTopicCounts.cpp}!cnt\_\-cmp\_\-ttc@{cnt\_\-cmp\_\-ttc}}
+\index{cnt\_\-cmp\_\-ttc@{cnt\_\-cmp\_\-ttc}!TypeTopicCounts.cpp@{TypeTopicCounts.cpp}}
+\subsubsection[{cnt\_\-cmp\_\-ttc}]{\setlength{\rightskip}{0pt plus 5cm}bool cnt\_\-cmp\_\-ttc (cnt\_\-topic\_\-t {\em i}, \/  cnt\_\-topic\_\-t {\em j})}}
+\label{_type_topic_counts_8cpp_aa31ee6d997481cbdd0b392e6014b503c}

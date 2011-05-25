@@ -1,0 +1,99 @@
+\hypertarget{class_top_k_list}{
+\section{TopKList Class Reference}
+\label{class_top_k_list}\index{TopKList@{TopKList}}
+}
+
+
+{\ttfamily \#include $<$TopKList.h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef cnt\_\-topic\_\-t $\ast$ \hyperlink{class_top_k_list_ab5af055ff82cd242e13445917a847b43}{iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_top_k_list_a0a0f42241693e2905d1e88612756e915}{TopKList} (int K\_\-)
+\item 
+virtual \hyperlink{class_top_k_list_a38ffabab2bb7a66817462e2446099faf}{$\sim$TopKList} ()
+\item 
+void \hyperlink{class_top_k_list_a04d9d3639b61dcf3587a7595532846ed}{insert\_\-word} (const cnt\_\-word\_\-t \&cnt\_\-word)
+\item 
+bool \hyperlink{class_top_k_list_a29d4e49e4c5338f203e5228c6d7bb68e}{is\_\-sorted} ()
+\item 
+cnt\_\-word\_\-t \hyperlink{class_top_k_list_abab1ed86b746442e81eed7ba4235da21}{get\_\-max} ()
+\item 
+\hyperlink{class_top_k_list_ab5af055ff82cd242e13445917a847b43}{iterator} \hyperlink{class_top_k_list_ae2411dfb7c1fa91c9a28b8787e50b622}{get\_\-beg} ()
+\item 
+\hyperlink{class_top_k_list_ab5af055ff82cd242e13445917a847b43}{iterator} \hyperlink{class_top_k_list_a10dc87d4db7605d2afe754a620d10892}{get\_\-end} ()
+\item 
+void \hyperlink{class_top_k_list_af7ac4cc51231315ba1a67a92a66683f9}{print} ()
+\item 
+void \hyperlink{class_top_k_list_a4d7e1f2f37373b4b0ff1afd14b2e46fd}{clear} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_top_k_list_ab5af055ff82cd242e13445917a847b43}{
+\index{TopKList@{TopKList}!iterator@{iterator}}
+\index{iterator@{iterator}!TopKList@{TopKList}}
+\subsubsection[{iterator}]{\setlength{\rightskip}{0pt plus 5cm}typedef cnt\_\-topic\_\-t$\ast$ {\bf TopKList::iterator}}}
+\label{class_top_k_list_ab5af055ff82cd242e13445917a847b43}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_top_k_list_a0a0f42241693e2905d1e88612756e915}{
+\index{TopKList@{TopKList}!TopKList@{TopKList}}
+\index{TopKList@{TopKList}!TopKList@{TopKList}}
+\subsubsection[{TopKList}]{\setlength{\rightskip}{0pt plus 5cm}TopKList::TopKList (int {\em K\_\-})}}
+\label{class_top_k_list_a0a0f42241693e2905d1e88612756e915}
+Constructs a \hyperlink{class_top_k_list}{TopKList} supporting top K\_\- elements \hypertarget{class_top_k_list_a38ffabab2bb7a66817462e2446099faf}{
+\index{TopKList@{TopKList}!$\sim$TopKList@{$\sim$TopKList}}
+\index{$\sim$TopKList@{$\sim$TopKList}!TopKList@{TopKList}}
+\subsubsection[{$\sim$TopKList}]{\setlength{\rightskip}{0pt plus 5cm}TopKList::$\sim$TopKList ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_top_k_list_a38ffabab2bb7a66817462e2446099faf}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_top_k_list_a4d7e1f2f37373b4b0ff1afd14b2e46fd}{
+\index{TopKList@{TopKList}!clear@{clear}}
+\index{clear@{clear}!TopKList@{TopKList}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void TopKList::clear ()}}
+\label{class_top_k_list_a4d7e1f2f37373b4b0ff1afd14b2e46fd}
+Clears the list \hypertarget{class_top_k_list_ae2411dfb7c1fa91c9a28b8787e50b622}{
+\index{TopKList@{TopKList}!get\_\-beg@{get\_\-beg}}
+\index{get\_\-beg@{get\_\-beg}!TopKList@{TopKList}}
+\subsubsection[{get\_\-beg}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TopKList::iterator} TopKList::get\_\-beg ()}}
+\label{class_top_k_list_ae2411dfb7c1fa91c9a28b8787e50b622}
+Iterator methods. Return an iterator to the beginning of the list \hypertarget{class_top_k_list_a10dc87d4db7605d2afe754a620d10892}{
+\index{TopKList@{TopKList}!get\_\-end@{get\_\-end}}
+\index{get\_\-end@{get\_\-end}!TopKList@{TopKList}}
+\subsubsection[{get\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TopKList::iterator} TopKList::get\_\-end ()}}
+\label{class_top_k_list_a10dc87d4db7605d2afe754a620d10892}
+Iterator methods. Return an iterator to the end of the list \hypertarget{class_top_k_list_abab1ed86b746442e81eed7ba4235da21}{
+\index{TopKList@{TopKList}!get\_\-max@{get\_\-max}}
+\index{get\_\-max@{get\_\-max}!TopKList@{TopKList}}
+\subsubsection[{get\_\-max}]{\setlength{\rightskip}{0pt plus 5cm}cnt\_\-word\_\-t TopKList::get\_\-max ()}}
+\label{class_top_k_list_abab1ed86b746442e81eed7ba4235da21}
+Returns the max element which is the first elem \hypertarget{class_top_k_list_a04d9d3639b61dcf3587a7595532846ed}{
+\index{TopKList@{TopKList}!insert\_\-word@{insert\_\-word}}
+\index{insert\_\-word@{insert\_\-word}!TopKList@{TopKList}}
+\subsubsection[{insert\_\-word}]{\setlength{\rightskip}{0pt plus 5cm}void TopKList::insert\_\-word (const cnt\_\-word\_\-t \& {\em cnt\_\-word})}}
+\label{class_top_k_list_a04d9d3639b61dcf3587a7595532846ed}
+\hypertarget{class_top_k_list_a29d4e49e4c5338f203e5228c6d7bb68e}{
+\index{TopKList@{TopKList}!is\_\-sorted@{is\_\-sorted}}
+\index{is\_\-sorted@{is\_\-sorted}!TopKList@{TopKList}}
+\subsubsection[{is\_\-sorted}]{\setlength{\rightskip}{0pt plus 5cm}bool TopKList::is\_\-sorted ()}}
+\label{class_top_k_list_a29d4e49e4c5338f203e5228c6d7bb68e}
+Used for test convenience. Just to check the array is always sorted and has at most K elems. Should return true at any point of time \hypertarget{class_top_k_list_af7ac4cc51231315ba1a67a92a66683f9}{
+\index{TopKList@{TopKList}!print@{print}}
+\index{print@{print}!TopKList@{TopKList}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void TopKList::print ()}}
+\label{class_top_k_list_af7ac4cc51231315ba1a67a92a66683f9}
+Print the list to log(INFO) 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_top_k_list_8h}{TopKList.h}\item 
+src/Unigram\_\-Model/TopicLearner/\hyperlink{_top_k_list_8cpp}{TopKList.cpp}\end{DoxyCompactItemize}

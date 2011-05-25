@@ -1,0 +1,58 @@
+\hypertarget{_d_m___server_8h}{
+\section{src/commons/Server/DM\_\-Server.h File Reference}
+\label{_d_m___server_8h}\index{src/commons/Server/DM\_\-Server.h@{src/commons/Server/DM\_\-Server.h}}
+}
+{\ttfamily \#include $<$Ice/Ice.h$>$}\par
+{\ttfamily \#include \char`\"{}DistributedMap.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}Hashmap\_\-Array.h\char`\"{}}\par
+{\ttfamily \#include $<$IceUtil/Mutex.h$>$}\par
+{\ttfamily \#include $<$IceUtil/Handle.h$>$}\par
+{\ttfamily \#include $<$list$>$}\par
+{\ttfamily \#include \char`\"{}Server\_\-Helper.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_p_n_g_job}{PNGJob}
+\item 
+class \hyperlink{class_d_m___server}{DM\_\-Server}
+\begin{DoxyCompactList}\small\item\em The Server class that implements the DistributedMap Ice interface. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef IceUtil::Handle$<$ \hyperlink{class_p_n_g_job}{PNGJob} $>$ \hyperlink{_d_m___server_8h_a6c12b98001d104623625c219ad0bfdac}{PNGJobPtr}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{_d_m___server_8h_a0fe8a0f2c7555e6ef43dd4919f577349}{QUE\_\-FULL} = 50
+\item 
+const int \hyperlink{_d_m___server_8h_af7ea883f2308a8ed174ea1894479ec74}{NUM\_\-CONSUMERS} = 3
+\item 
+const int \hyperlink{_d_m___server_8h_aafb4f0b2e97659fc8d8a55990251fad8}{CHUNK} = 10
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_d_m___server_8h_a6c12b98001d104623625c219ad0bfdac}{
+\index{DM\_\-Server.h@{DM\_\-Server.h}!PNGJobPtr@{PNGJobPtr}}
+\index{PNGJobPtr@{PNGJobPtr}!DM_Server.h@{DM\_\-Server.h}}
+\subsubsection[{PNGJobPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef IceUtil::Handle$<${\bf PNGJob}$>$ {\bf PNGJobPtr}}}
+\label{_d_m___server_8h_a6c12b98001d104623625c219ad0bfdac}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_d_m___server_8h_aafb4f0b2e97659fc8d8a55990251fad8}{
+\index{DM\_\-Server.h@{DM\_\-Server.h}!CHUNK@{CHUNK}}
+\index{CHUNK@{CHUNK}!DM_Server.h@{DM\_\-Server.h}}
+\subsubsection[{CHUNK}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf CHUNK} = 10}}
+\label{_d_m___server_8h_aafb4f0b2e97659fc8d8a55990251fad8}
+\hypertarget{_d_m___server_8h_af7ea883f2308a8ed174ea1894479ec74}{
+\index{DM\_\-Server.h@{DM\_\-Server.h}!NUM\_\-CONSUMERS@{NUM\_\-CONSUMERS}}
+\index{NUM\_\-CONSUMERS@{NUM\_\-CONSUMERS}!DM_Server.h@{DM\_\-Server.h}}
+\subsubsection[{NUM\_\-CONSUMERS}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf NUM\_\-CONSUMERS} = 3}}
+\label{_d_m___server_8h_af7ea883f2308a8ed174ea1894479ec74}
+\hypertarget{_d_m___server_8h_a0fe8a0f2c7555e6ef43dd4919f577349}{
+\index{DM\_\-Server.h@{DM\_\-Server.h}!QUE\_\-FULL@{QUE\_\-FULL}}
+\index{QUE\_\-FULL@{QUE\_\-FULL}!DM_Server.h@{DM\_\-Server.h}}
+\subsubsection[{QUE\_\-FULL}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf QUE\_\-FULL} = 50}}
+\label{_d_m___server_8h_a0fe8a0f2c7555e6ef43dd4919f577349}

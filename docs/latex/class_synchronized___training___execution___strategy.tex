@@ -1,0 +1,62 @@
+\hypertarget{class_synchronized___training___execution___strategy}{
+\section{Synchronized\_\-Training\_\-Execution\_\-Strategy Class Reference}
+\label{class_synchronized___training___execution___strategy}\index{Synchronized\_\-Training\_\-Execution\_\-Strategy@{Synchronized\_\-Training\_\-Execution\_\-Strategy}}
+}
+
+
+Default implementation of the \hyperlink{class_execution___strategy}{Execution\_\-Strategy} interface.  
+
+
+
+
+{\ttfamily \#include $<$Synchronized\_\-Training\_\-Execution\_\-Strategy.h$>$}
+
+Inheritance diagram for Synchronized\_\-Training\_\-Execution\_\-Strategy:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_synchronized___training___execution___strategy}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_synchronized___training___execution___strategy_a8535193e2ad9ec0b80dbaf2ba82af453}{Synchronized\_\-Training\_\-Execution\_\-Strategy} (\hyperlink{class_pipeline}{Pipeline} \&, \hyperlink{class_model}{Model} \&, \hyperlink{class_checkpointer}{Checkpointer} \&, \hyperlink{class_synchronizer___helper}{Synchronizer\_\-Helper} \&)
+\item 
+virtual \hyperlink{class_synchronized___training___execution___strategy_a055e17959d75203bfdcc5919439eddd7}{$\sim$Synchronized\_\-Training\_\-Execution\_\-Strategy} ()
+\item 
+void \hyperlink{class_synchronized___training___execution___strategy_a77e2fa3f19b544fa4392c9ed56c504e4}{execute} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Default implementation of the \hyperlink{class_execution___strategy}{Execution\_\-Strategy} interface. Runs the \hyperlink{class_training___execution___strategy}{Training\_\-Execution\_\-Strategy} at its core and also provides for synchronization of the model 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_synchronized___training___execution___strategy_a8535193e2ad9ec0b80dbaf2ba82af453}{
+\index{Synchronized\_\-Training\_\-Execution\_\-Strategy@{Synchronized\_\-Training\_\-Execution\_\-Strategy}!Synchronized\_\-Training\_\-Execution\_\-Strategy@{Synchronized\_\-Training\_\-Execution\_\-Strategy}}
+\index{Synchronized\_\-Training\_\-Execution\_\-Strategy@{Synchronized\_\-Training\_\-Execution\_\-Strategy}!Synchronized_Training_Execution_Strategy@{Synchronized\_\-Training\_\-Execution\_\-Strategy}}
+\subsubsection[{Synchronized\_\-Training\_\-Execution\_\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}Synchronized\_\-Training\_\-Execution\_\-Strategy::Synchronized\_\-Training\_\-Execution\_\-Strategy ({\bf Pipeline} \& {\em pipeline}, \/  {\bf Model} \& {\em model}, \/  {\bf Checkpointer} \& {\em checkpointer}, \/  {\bf Synchronizer\_\-Helper} \& {\em sync\_\-helper})}}
+\label{class_synchronized___training___execution___strategy_a8535193e2ad9ec0b80dbaf2ba82af453}
+\hypertarget{class_synchronized___training___execution___strategy_a055e17959d75203bfdcc5919439eddd7}{
+\index{Synchronized\_\-Training\_\-Execution\_\-Strategy@{Synchronized\_\-Training\_\-Execution\_\-Strategy}!$\sim$Synchronized\_\-Training\_\-Execution\_\-Strategy@{$\sim$Synchronized\_\-Training\_\-Execution\_\-Strategy}}
+\index{$\sim$Synchronized\_\-Training\_\-Execution\_\-Strategy@{$\sim$Synchronized\_\-Training\_\-Execution\_\-Strategy}!Synchronized_Training_Execution_Strategy@{Synchronized\_\-Training\_\-Execution\_\-Strategy}}
+\subsubsection[{$\sim$Synchronized\_\-Training\_\-Execution\_\-Strategy}]{\setlength{\rightskip}{0pt plus 5cm}Synchronized\_\-Training\_\-Execution\_\-Strategy::$\sim$Synchronized\_\-Training\_\-Execution\_\-Strategy ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_synchronized___training___execution___strategy_a055e17959d75203bfdcc5919439eddd7}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_synchronized___training___execution___strategy_a77e2fa3f19b544fa4392c9ed56c504e4}{
+\index{Synchronized\_\-Training\_\-Execution\_\-Strategy@{Synchronized\_\-Training\_\-Execution\_\-Strategy}!execute@{execute}}
+\index{execute@{execute}!Synchronized_Training_Execution_Strategy@{Synchronized\_\-Training\_\-Execution\_\-Strategy}}
+\subsubsection[{execute}]{\setlength{\rightskip}{0pt plus 5cm}void Synchronized\_\-Training\_\-Execution\_\-Strategy::execute ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_synchronized___training___execution___strategy_a77e2fa3f19b544fa4392c9ed56c504e4}
+Define what filters need to added and when Runs the pipeline for 'iter' iterations 
+
+Reimplemented from \hyperlink{class_training___execution___strategy_adc14f066d7a325e87035fb8224097c47}{Training\_\-Execution\_\-Strategy}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+src/commons/TopicLearner/\hyperlink{_synchronized___training___execution___strategy_8h}{Synchronized\_\-Training\_\-Execution\_\-Strategy.h}\item 
+src/commons/TopicLearner/\hyperlink{_synchronized___training___execution___strategy_8cpp}{Synchronized\_\-Training\_\-Execution\_\-Strategy.cpp}\end{DoxyCompactItemize}
