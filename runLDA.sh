@@ -1,16 +1,19 @@
 #!/bin/sh
 # input:
-#   $1 : "train" or "test" or "teststream"
-#   $2 : The queue you want to use
-#   $3 : The hdfs directory that contains the input corpus
-#   $4 : The hdfs directory that should contain the output
-#   $5 : The max-memory to be used by the task. Also used
+#   $1 : 1 for Unigram_Model
+#	 If a new model is implemented this can be used to access it
+#   $2 : Flags that need to be passed to learntopics
+#   $3 : "train" or "test" or "teststream"
+#   $4 : The queue you want to use
+#   $5 : The hdfs directory that contains the input corpus
+#   $6 : The hdfs directory that should contain the output
+#   $7 : The max-memory to be used by the task. Also used
 #         to limit the memory used to load topic counts for 
 #         testing in streaming mode
-#   $6 : The number of topics to be learnt (default:1000)
-#   $7 : The number of iterations (default:1000)
-#   $8 : Full hdfs path of LDALibs.jar (default:hdfs://mithrilblue-nn1.blue.ygrid.yahoo.com/user/shravanm/LDALibs.jar)
-#   $9 : Output obtained when LDA used in training mode.
+#   $8 : The number of topics to be learnt (default:1000)
+#   $9 : The number of iterations (default:1000)
+#   $10: Full hdfs path of LDALibs.jar (default:hdfs://mithrilblue-nn1.blue.ygrid.yahoo.com/user/shravanm/LDALibs.jar)
+#   $11: Output obtained when LDA used in training mode.
 #        To be used when test mode is used
 # output:
 #   Creates <#mappers> folders in <output-dir> one for each client.

@@ -55,7 +55,7 @@
  *                         any job conf (job.xml) and searching the value of
  *                         &quot;mapred.cluster.max.map.memory.mb&quot; property.</P>
  *                         <LI><P STYLE="margin-bottom: 0cm">Run <CODE>runLDA.sh
- *                         1 [train|test] &quot;queue&quot;
+ *                         1 &quot;flags&quot; [train|test] &quot;queue&quot;
  *                         &quot;organized-corpus&quot; &quot;output-dir&quot; &quot;max-mem&quot;
  *                         &quot;#topics&quot; &quot;#iters&quot;
  *                         &quot;full_hdfs_path_of_LDALibs.jar&quot; [&quot;training-output&quot;]

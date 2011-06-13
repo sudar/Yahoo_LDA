@@ -34,7 +34,7 @@ Copy LDALibs.jar to HDFS
 Figure out the max memory allowed per map task for your cluster and use the same in the script via the maxmem parameter. This can be done by looking at any job conf (job.xml) and searching the value of "mapred.cluster.max.map.memory.mb" property. 
 \item 
 
-Run {\ttfamily runLDA.sh 1 \mbox{[}train$|$test\mbox{]} "queue" "organized-\/corpus" "output-\/dir" "max-\/mem" "topics" "iters" "full\_\-hdfs\_\-path\_\-of\_\-LDALibs.jar" \mbox{[}"training-\/output"\mbox{]} }  
+Run {\ttfamily runLDA.sh 1 "flags" \mbox{[}train$|$test\mbox{]} "queue" "organized-\/corpus" "output-\/dir" "max-\/mem" "topics" "iters" "full\_\-hdfs\_\-path\_\-of\_\-LDALibs.jar" \mbox{[}"training-\/output"\mbox{]} }  
 \item 
 
 This starts a map-\/only script on each machine. The script starts the \hyperlink{class_d_m___server}{DM\_\-Server} on all the machines. Then Y!LDA is run on each machine. The input is one chunk of the corpus. 
