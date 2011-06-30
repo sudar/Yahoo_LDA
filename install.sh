@@ -75,20 +75,20 @@ if [ $UNAME == "Linux" ];
 then 
   lib_dir=
   if [ $MACHINE_TYPE == "x86_64" ];
-    then
+  then
       lib_dir=lib64
       mv $prefix_dir/lib $prefix_dir/lib64
       buildlibrary Ice-3.4.1
       mv $prefix_dir/lib64 $prefix_dir/lib
-    else
+  else
       lib_dir=lib
       buildlibrary Ice-3.4.1
-    fi;
-    if [ test -d /usr/include/nptl ];
-    then
+  fi;
+  if [ -d /usr/include/nptl ];
+  then
       cp -r /usr/include/nptl/* $prefix_dir/include
       cp -r /usr/${lib_dir}/nptl/* $prefix_dir/lib
-    fi;
+  fi;
 
 fi;
 
