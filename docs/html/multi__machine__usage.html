@@ -58,11 +58,19 @@
 </li>
 <li>
 <p class="startli"></p>
+<p class="endli">Copy Formatter.sh LDA.sh functions.sh runLDA.sh to gateway </p>
+</li>
+<li>
+<p class="startli"></p>
 <p class="endli">Figure out the max memory allowed per map task for your cluster and use the same in the script via the maxmem parameter. This can be done by looking at any job conf (job.xml) and searching the value of "mapred.cluster.max.map.memory.mb" property. </p>
 </li>
 <li>
 <p class="startli"></p>
-<p class="endli">Run <code>runLDA.sh 1 "flags" [train|test] "queue" "organized-corpus" "output-dir" "max-mem" "topics" "iters" "full_hdfs_path_of_LDALibs.jar" ["training-output"] </code>  </p>
+<p class="endli">Run <code>runLDA.sh 1 "flags" [train|test] "queue" "organized-corpus" "output-dir" "max-mem" "topics" "iters" "full_hdfs_path_of_LDALibs.jar" ["training-output"] </code><br/>
+<br/>
+ For train ex. <code>runLDA.sh 1 "" train default "/user/me/organized-corpus" "/user/me/lda-output" 6144 100 100 "LDALibs.jar" </code><br/>
+<br/>
+ For test ex. <code>runLDA.sh 1 "" test default "/user/me/organized-corpus" "/user/me/lda-output" 6144 100 100 "LDALibs.jar" "/user/me/lda-output" </code>  </p>
 </li>
 <li>
 <p class="startli"></p>
@@ -185,6 +193,7 @@ Runs learntopics with the temporary directory containing the formatted input as 
 <ol>
 <li>
 <p class="startli"></p>
+<p>On every machine run </p>
 <p class="endli"><code>learntopics --topics=&lt;topics&gt; --iter=&lt;iter&gt; --servers=&lt;list-of-servers&gt; --chkptdir="/tmp" --chkptinterval=10000</code> </p>
 <ol>
 <li>
@@ -284,7 +293,7 @@ Runs learntopics with the temporary directory containing the formatted input as 
 </li>
 </ol>
 </div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Jun 13 16:49:25 2011 for Y!LDA by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Fri Jul 1 17:13:29 2011 for Y!LDA by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

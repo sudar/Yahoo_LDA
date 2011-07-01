@@ -58,6 +58,10 @@ lib_src=$prefix_dir/dependencies
 lib_build=$prefix_dir/build
 lib_opts=''
 
+#fetch the Ice distribution
+rm ${lib_src}/Ice-3.4.1.tar.gz
+wget -r --no-check-certificate https://github.com/shravanmn/LDA_ICE/raw/master/Ice-3.4.1.tar.gz -nd -P ${lib_src}
+
 mkdir /tmp/gflags		# fix a known build bug on OS X
 buildlibrary gflags-1.2
 rm -fr /tmp/gflags		# gflags wants to have /tmp/gflags but nobody else wants it ...
@@ -75,12 +79,12 @@ if [ $UNAME == "Linux" ];
 then 
   lib_dir=
   if [ $MACHINE_TYPE == "x86_64" ];
-  then
+    then
       lib_dir=lib64
       mv $prefix_dir/lib $prefix_dir/lib64
       buildlibrary Ice-3.4.1
       mv $prefix_dir/lib64 $prefix_dir/lib
-  else
+    else
       lib_dir=lib
       buildlibrary Ice-3.4.1
   fi;

@@ -49,6 +49,7 @@
  *                         <LI><P STYLE="margin-bottom: 0cm">Run make jar to create
  *                         LDALibs.jar file with all the required libraries and binaries</P>
  *                         <LI><P STYLE="margin-bottom: 0cm">Copy LDALibs.jar to HDFS</P>
+ *			   <LI><P STYLE="margin-bottom: 0cm">Copy Formatter.sh LDA.sh functions.sh runLDA.sh to gateway</P>
  *                         <LI><P STYLE="margin-bottom: 0cm">Figure out the max memory
  *                         allowed per map task for your cluster and use the same in the
  *                         script via the maxmem parameter. This can be done by looking at
@@ -59,6 +60,16 @@
  *                         &quot;organized-corpus&quot; &quot;output-dir&quot; &quot;max-mem&quot;
  *                         &quot;#topics&quot; &quot;#iters&quot;
  *                         &quot;full_hdfs_path_of_LDALibs.jar&quot; [&quot;training-output&quot;]
+ *                         </CODE><BR/><BR/>
+ *			   For train ex. <CODE>runLDA.sh
+ *                         1 &quot;&quot; train default
+ *                         &quot;/user/me/organized-corpus&quot; &quot;/user/me/lda-output&quot; 6144 100 100
+ *                         &quot;LDALibs.jar&quot;
+ *                         </CODE><BR/><BR/>
+ *			   For test ex. <CODE>runLDA.sh
+ *                         1 &quot;&quot; test default
+ *                         &quot;/user/me/organized-corpus&quot; &quot;/user/me/lda-output&quot; 6144 100 100
+ *                         &quot;LDALibs.jar&quot; &quot;/user/me/lda-output&quot;
  *                         </CODE>
  *                         </P>
  *                         <LI><P STYLE="margin-bottom: 0cm">This
@@ -175,7 +186,8 @@
  *              </OL>
  *              <LI><P STYLE="margin-bottom: 0cm">Run Y!LDA on the corpus:</P>
  *              <OL>
- *                      <LI><P STYLE="margin-bottom: 0cm"><CODE>learntopics
+ *                      <LI><P STYLE="margin-bottom: 0cm">On every machine run</P>
+ *			<P><CODE>learntopics
  *                      --topics=&lt;#topics&gt; --iter=&lt;#iter&gt;
  *                      --servers=&lt;list-of-servers&gt; --chkptdir=&quot;/tmp&quot;
  *                      --chkptinterval=10000</CODE></P>

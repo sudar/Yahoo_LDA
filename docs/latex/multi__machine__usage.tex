@@ -31,10 +31,17 @@ Run make jar to create LDALibs.jar file with all the required libraries and bina
 Copy LDALibs.jar to HDFS 
 \item 
 
+Copy Formatter.sh LDA.sh functions.sh runLDA.sh to gateway 
+\item 
+
 Figure out the max memory allowed per map task for your cluster and use the same in the script via the maxmem parameter. This can be done by looking at any job conf (job.xml) and searching the value of "mapred.cluster.max.map.memory.mb" property. 
 \item 
 
-Run {\ttfamily runLDA.sh 1 "flags" \mbox{[}train$|$test\mbox{]} "queue" "organized-\/corpus" "output-\/dir" "max-\/mem" "topics" "iters" "full\_\-hdfs\_\-path\_\-of\_\-LDALibs.jar" \mbox{[}"training-\/output"\mbox{]} }  
+Run {\ttfamily runLDA.sh 1 "flags" \mbox{[}train$|$test\mbox{]} "queue" "organized-\/corpus" "output-\/dir" "max-\/mem" "topics" "iters" "full\_\-hdfs\_\-path\_\-of\_\-LDALibs.jar" \mbox{[}"training-\/output"\mbox{]} }\par
+\par
+ For train ex. {\ttfamily runLDA.sh 1 "" train default "/user/me/organized-\/corpus" "/user/me/lda-\/output" 6144 100 100 "LDALibs.jar" }\par
+\par
+ For test ex. {\ttfamily runLDA.sh 1 "" test default "/user/me/organized-\/corpus" "/user/me/lda-\/output" 6144 100 100 "LDALibs.jar" "/user/me/lda-\/output" }  
 \item 
 
 This starts a map-\/only script on each machine. The script starts the \hyperlink{class_d_m___server}{DM\_\-Server} on all the machines. Then Y!LDA is run on each machine. The input is one chunk of the corpus. 
@@ -133,6 +140,8 @@ host:port-\/ the port and ip address on which the server must listen on
 Run Y!LDA on the corpus: 
 \begin{DoxyEnumerate}
 \item 
+
+On every machine run 
 
 {\ttfamily learntopics -\/-\/topics=$<$topics$>$ -\/-\/iter=$<$iter$>$ -\/-\/servers=$<$list-\/of-\/servers$>$ -\/-\/chkptdir="/tmp" -\/-\/chkptinterval=10000} 
 \begin{DoxyEnumerate}

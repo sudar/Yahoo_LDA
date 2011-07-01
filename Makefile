@@ -11,6 +11,7 @@ LIBS=-lprotobuf -ltbb -lcppunit -lpthread -lgflags -lglog -lIce -lIceUtil -lrt
 all: compile link
 
 compile: libraries children
+	chmod +x learntopics formatter DM_Server Merge_Dictionaries Merge_Topic_Counts
 
 children:
 	$(MAKE) -C src all
@@ -22,9 +23,9 @@ link:
 	$(CXX) $(CXXFLAGS) -Llib src/commons/*.o src/Unigram_Model/Merge/Merge_Dictionaries.o -o Merge_Dictionaries $(LIBS)
 	$(CXX) $(CXXFLAGS) -Llib src/commons/*.o src/commons/Server/DistributedMap.o src/Unigram_Model/Merge/Merge_Topic_Counts.o src/Unigram_Model/TopicLearner/TopKList.o src/Unigram_Model/TopicLearner/TypeTopicCounts.o src/commons/TopicLearner/DM_Client.o src/Unigram_Model/TopicLearner/TopicCounts.o src/Unigram_Model/TopicLearner/eff_small_map.o -o Merge_Topic_Counts $(LIBS)
 
-libraries: $(LDAHOME)/lib/libIce.so
+libraries: $(LDAHOME)/build/Ice-3.4.1/LICENSE $(LDAHOME)/lib/libIce.so
 
-$(LDAHOME)/lib/libIce.so: $(LDAHOME)/dependencies/Ice-3.4.1.tar.gz
+$(LDAHOME)/build/Ice-3.4.1/LICENSE: 
 	./install.sh
 
 jar: LDALibs.jar
@@ -40,6 +41,6 @@ clean:
 	$(MAKE) -C src clean
 
 distclean:
-	-rm -rf bin/ config/ ICE_LICENSE include/ lib/ LICENSE man/ share/ slice/ build/ formatter learntopics DM_Server Merge_Dictionaries Merge_Topic_Counts LDALibs.jar
+	-rm -rf bin/ config/ ICE_LICENSE include/ lib/ LICENSE man/ share/ slice/ build/ formatter learntopics DM_Server Merge_Dictionaries Merge_Topic_Counts LDALibs.jar dependencies/Ice-3.4.1.tar.gz
 
 .PHONY: clean distclean children link
