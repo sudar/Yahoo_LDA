@@ -6,19 +6,7 @@ Please take a look at \hyperlink{single__machine__usage}{Single Machine Usage} f
 \begin{DoxyEnumerate}
 \item 
 
-Organize your corpus on HDFS: 
-\begin{DoxyEnumerate}
-\item 
-
-Run {\ttfamily splitter.sh "queue" "orig-\/corpus" "organized-\/corpus" "chunks"} 
-
-The splitter program is a simple map-\/reduce streaming script that splits your original corpus into chunks gzip files. This enables Y!LDA to process one chunk on one machine. We advise you to use one full machine to run one instance of Y!LDA as the memory requirements may be large depending on your corpus size. A very large corpus of the order of 10 to 20 Million moderately sized documents can need anywhere from 5 to 6 GB of memory. You can reduce this by using more machines though. For ex., if you have a corpus of 1.5 Million documents you might want to split it across 8 machines using: 
-
-{\ttfamily splitter.sh "queue" "orig-\/corpus" "organized-\/corpus" 8} 
-\end{DoxyEnumerate}
-\item 
-
-Run Y!LDA on the organized corpus: 
+Run Y!LDA on the corpus: 
 \begin{DoxyEnumerate}
 \item 
 
@@ -31,20 +19,20 @@ Run make jar to create LDALibs.jar file with all the required libraries and bina
 Copy LDALibs.jar to HDFS 
 \item 
 
-Copy Formatter.sh LDA.sh functions.sh runLDA.sh to gateway 
+Copy Formatter.sh LDA.sh functions.sh runLDA.sh to gateway. A gateway is any machine with access to the grid. Think of it as a machine from which you run your hadoop commands. 
 \item 
 
 Figure out the max memory allowed per map task for your cluster and use the same in the script via the maxmem parameter. This can be done by looking at any job conf (job.xml) and searching the value of "mapred.cluster.max.map.memory.mb" property. 
 \item 
 
-Run {\ttfamily runLDA.sh 1 "flags" \mbox{[}train$|$test\mbox{]} "queue" "organized-\/corpus" "output-\/dir" "max-\/mem" "topics" "iters" "full\_\-hdfs\_\-path\_\-of\_\-LDALibs.jar" \mbox{[}"training-\/output"\mbox{]} }\par
+Run {\ttfamily runLDA.sh 1 "flags" \mbox{[}train$|$test\mbox{]} "queue" "organized-\/corpus" "output-\/dir" "max-\/mem" "number\_\-of\_\-topics" "number\_\-of\_\-iters" "full\_\-hdfs\_\-path\_\-of\_\-LDALibs.jar" "number\_\-of\_\-machines" \mbox{[}"training-\/output"\mbox{]} }\par
 \par
- For train ex. {\ttfamily runLDA.sh 1 "" train default "/user/me/organized-\/corpus" "/user/me/lda-\/output" 6144 100 100 "LDALibs.jar" }\par
+ For train ex. {\ttfamily runLDA.sh 1 "" train default "/user/me/organized-\/corpus" "/user/me/lda-\/output" 6144 100 100 "LDALibs.jar" 10 }\par
 \par
- For test ex. {\ttfamily runLDA.sh 1 "" test default "/user/me/organized-\/corpus" "/user/me/lda-\/output" 6144 100 100 "LDALibs.jar" "/user/me/lda-\/output" }  
+ For test ex. {\ttfamily runLDA.sh 1 "" test default "/user/me/organized-\/corpus" "/user/me/lda-\/output" 6144 100 100 "LDALibs.jar" 10 "/user/me/lda-\/output" }  
 \item 
 
-This starts a map-\/only script on each machine. The script starts the \hyperlink{class_d_m___server}{DM\_\-Server} on all the machines. Then Y!LDA is run on each machine. The input is one chunk of the corpus. 
+This starts 2 Map Reduce Streaming jobs. The first job does the formatting \& the second job starts a map-\/only script on each machine. This script starts the \hyperlink{class_d_m___server}{DM\_\-Server} on all the machines. Then Y!LDA is run on each machine. The input is one chunk of the corpus. The first job runs the formatter in the reducer using the supplied number\_\-of\_\-machines as the number of reduce tasks. So your corpus will be split into number\_\-of\_\-machines parts and formatted into protobuffer format files as needed by the second job. The second job uses this formatted input as its input and will also run on number\_\-of\_\-machines separate machines with each task working on one chunk. 
 \item 
 
 For testing, use the test flag and provide directory storing the training output. 
@@ -55,7 +43,7 @@ Output generated
 \begin{DoxyEnumerate}
 \item 
 
-Creates $<$chunks$>$ folders in $<$output-\/dir$>$ one for each client.  
+Creates $<$number\_\-of\_\-machines$>$ folders in $<$output-\/dir$>$ one for each client.  
 \item 
 
 Each of these directories hold the same output as the single machine case but from different clients.  
@@ -90,7 +78,7 @@ Failure Recovery
 We provide a check-\/pointing mechanism to handle recovery from failures. The current scheme works in local mode and for distributed mode using Hadoop. The reason for this being that the distributed check-\/pointing uses the hdfs to store the check-\/points. The following is the process:  
 \begin{DoxyEnumerate}
 \item The formatter task is run on the inputs and the formatted input is stored in a temporary location. 
-\item The learntopics task is run using the temporary location as an input and the specified output as the output directory. Care is taken to start the same number of mappers for both the formatter and learntopics tasks. The input is a dummy directory structure with dummy directories equal to the number of mappers. 
+\item The learntopics task is run using the temporary location as an input and the specified output as the output directory. Care is taken to start the same number of mappers as the number\_\-of\_\-machines for learntopics tasks. The input is a dummy directory structure with dummy directories equal to the number\_\-of\_\-machines parameter supplied by the user. 
 \item Each learntopics task copies its portion of the formatted input by dfs copy\_\-to\_\-local the folder corresponding to its mapred\_\-task\_\-partition. 
 \item Runs learntopics with the temporary directory containing the formatted input as a check-\/point directory. So all information needed to start learntopics from the previous check-\/pointed iteration is available locally and any progress made is written back to the temporary input directory. 
 \end{DoxyEnumerate}

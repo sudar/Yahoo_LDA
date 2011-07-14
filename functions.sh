@@ -33,3 +33,11 @@ check_exit_status(){
   fi
 }
 
+get_num_mappers(){
+  name=`expr $1 : "\(.*\)\..*"`;
+  ext=`expr $1 : "$name\.\(.*\)"`;
+  #echo $name $ext 1>&2;
+  if [ $ext ] && [ $ext == "gz" ]; then echo 1; return 1;
+  else num=`echo "($2 / $3) + 1" | bc`; echo $num; return $num;
+  fi;
+}

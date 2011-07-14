@@ -22,34 +22,16 @@
  * <OL>
  *         <LI><P STYLE="margin-bottom: 0cm"><B>Using Hadoop</B></P>
  *         <OL>
- *                 <LI><P STYLE="margin-bottom: 0cm">Organize your corpus on HDFS:</P>
- *                 <OL>
- *                         <LI><P STYLE="margin-bottom: 0cm">Run <CODE>splitter.sh
- *                         &quot;queue&quot; &quot;orig-corpus&quot; &quot;organized-corpus&quot;
- *                         &quot;#chunks&quot;</CODE></P>
- *                         <P STYLE="margin-bottom: 0cm">The splitter program is a simple
- *                         map-reduce streaming script that splits your original corpus into
- *                         #chunks gzip files. This enables Y!LDA to process one chunk on one
- *                         machine. We advise you to use one full machine to run one instance
- *                         of Y!LDA as the memory requirements may be large depending on your
- *                         corpus size. A very large corpus of the order of 10 to 20 Million
- *                         moderately sized documents can need anywhere from 5 to 6 GB of
- *                         memory. You can reduce this by using more machines though. For
- *                         ex., if you have a corpus of 1.5 Million documents you might want
- *                         to split it across 8 machines using:</P>
- *                         <P STYLE="margin-bottom: 0cm"><CODE>splitter.sh
- *                         &quot;queue&quot; &quot;orig-corpus&quot; &quot;organized-corpus&quot;
- *                         8</CODE></P>
- *                 </OL>
- *                 <LI><P STYLE="margin-bottom: 0cm">Run Y!LDA on the organized
- *                 corpus:</P>
+ *                 <LI><P STYLE="margin-bottom: 0cm">Run Y!LDA on the corpus:</P>
  *                 <OL>
  *                         <LI><P STYLE="margin-bottom: 0cm">Assuming you have a homogenous
  *                         setup, install Y!LDA on one machine.</P>
  *                         <LI><P STYLE="margin-bottom: 0cm">Run make jar to create
  *                         LDALibs.jar file with all the required libraries and binaries</P>
  *                         <LI><P STYLE="margin-bottom: 0cm">Copy LDALibs.jar to HDFS</P>
- *			   <LI><P STYLE="margin-bottom: 0cm">Copy Formatter.sh LDA.sh functions.sh runLDA.sh to gateway</P>
+ *			   <LI><P STYLE="margin-bottom: 0cm">Copy Formatter.sh LDA.sh functions.sh 
+ *			   runLDA.sh to gateway. A gateway is any machine with access to the grid. 
+ *			   Think of it as a machine from which you run your hadoop commands.</P>
  *                         <LI><P STYLE="margin-bottom: 0cm">Figure out the max memory
  *                         allowed per map task for your cluster and use the same in the
  *                         script via the maxmem parameter. This can be done by looking at
@@ -58,24 +40,30 @@
  *                         <LI><P STYLE="margin-bottom: 0cm">Run <CODE>runLDA.sh
  *                         1 &quot;flags&quot; [train|test] &quot;queue&quot;
  *                         &quot;organized-corpus&quot; &quot;output-dir&quot; &quot;max-mem&quot;
- *                         &quot;#topics&quot; &quot;#iters&quot;
- *                         &quot;full_hdfs_path_of_LDALibs.jar&quot; [&quot;training-output&quot;]
+ *                         &quot;number_of_topics&quot; &quot;number_of_iters&quot;
+ *                         &quot;full_hdfs_path_of_LDALibs.jar&quot; &quot;number_of_machines&quot; [&quot;training-output&quot;]
  *                         </CODE><BR/><BR/>
  *			   For train ex. <CODE>runLDA.sh
  *                         1 &quot;&quot; train default
  *                         &quot;/user/me/organized-corpus&quot; &quot;/user/me/lda-output&quot; 6144 100 100
- *                         &quot;LDALibs.jar&quot;
+ *                         &quot;LDALibs.jar&quot; 10
  *                         </CODE><BR/><BR/>
  *			   For test ex. <CODE>runLDA.sh
  *                         1 &quot;&quot; test default
  *                         &quot;/user/me/organized-corpus&quot; &quot;/user/me/lda-output&quot; 6144 100 100
- *                         &quot;LDALibs.jar&quot; &quot;/user/me/lda-output&quot;
+ *                         &quot;LDALibs.jar&quot; 10 &quot;/user/me/lda-output&quot;
  *                         </CODE>
  *                         </P>
- *                         <LI><P STYLE="margin-bottom: 0cm">This
- *                         starts a map-only script on each machine. The script starts the
+ *                         <LI><P STYLE="margin-bottom: 0cm">This starts 2 Map Reduce Streaming jobs.
+ *			   The first job does the formatting & the second job
+ *                         starts a map-only script on each machine. This script starts the
  *                         DM_Server on all the machines. Then Y!LDA is run on each machine.
- *                         The input is one chunk of the corpus.</P>
+ *                         The input is one chunk of the corpus. The first job runs the formatter
+ * 			   in the reducer using the supplied number_of_machines as the number of reduce tasks.
+ *			   So your corpus will be split into number_of_machines parts and formatted into protobuffer
+ *			   format files as needed by the second job. The second job uses this formatted input
+ *			   as its input and will also run on number_of_machines separate machines with each task 
+ *			   working on one chunk.</P>
  *                         <LI><P STYLE="margin-bottom: 0cm">For
  *                         testing, use the test flag and provide directory storing the
  *                         training output.</P>
@@ -83,7 +71,7 @@
  *                 <LI><P STYLE="margin-bottom: 0cm">Output
  *                 generated</P>
  *                 <OL>
- *                         <LI><P STYLE="margin-bottom: 0cm">Creates &lt;#chunks&gt; folders
+ *                         <LI><P STYLE="margin-bottom: 0cm">Creates &lt;number_of_machines&gt; folders
  *                         in &lt;output-dir&gt; one for each client. 
  *                         </P>
  *                         <LI><P STYLE="margin-bottom: 0cm">Each of these directories hold
@@ -123,10 +111,10 @@
  *                 the check-points. The following is the process: </P>
  *                 <OL>
  *                 <LI>The formatter task is run on the inputs and the formatted input is stored in a temporary location.
- *                 <LI>The learntopics task is run using the temporary location as an input and the specified output as the
- *                 output directory. Care is taken to start the same number of mappers for both the formatter and
+ *                 <LI>The learntopics task is run using the temporary location as an input and the specified output as 
+ *                 the output directory. Care is taken to start the same number of mappers as the number_of_machines for
  *                 learntopics tasks. The input is a dummy directory structure with dummy directories equal to the
- *                 number of mappers.
+ *                 number_of_machines parameter supplied by the user.
  *                 <LI>Each learntopics task copies its portion of the formatted input by dfs copy_to_local the
  *                 folder corresponding to its mapred_task_partition.
  *                 <LI>Runs learntopics with the temporary directory containing the formatted input

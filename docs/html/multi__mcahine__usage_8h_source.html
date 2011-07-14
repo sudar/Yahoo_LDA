@@ -48,248 +48,236 @@
 <a name="l00022"></a>00022 <span class="comment"> * &lt;OL&gt;</span>
 <a name="l00023"></a>00023 <span class="comment"> *         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;B&gt;Using Hadoop&lt;/B&gt;&lt;/P&gt;</span>
 <a name="l00024"></a>00024 <span class="comment"> *         &lt;OL&gt;</span>
-<a name="l00025"></a>00025 <span class="comment"> *                 &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Organize your corpus on HDFS:&lt;/P&gt;</span>
+<a name="l00025"></a>00025 <span class="comment"> *                 &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run Y!LDA on the corpus:&lt;/P&gt;</span>
 <a name="l00026"></a>00026 <span class="comment"> *                 &lt;OL&gt;</span>
-<a name="l00027"></a>00027 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run &lt;CODE&gt;splitter.sh</span>
-<a name="l00028"></a>00028 <span class="comment"> *                         &amp;quot;queue&amp;quot; &amp;quot;orig-corpus&amp;quot; &amp;quot;organized-corpus&amp;quot;</span>
-<a name="l00029"></a>00029 <span class="comment"> *                         &amp;quot;#chunks&amp;quot;&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00030"></a>00030 <span class="comment"> *                         &lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;The splitter program is a simple</span>
-<a name="l00031"></a>00031 <span class="comment"> *                         map-reduce streaming script that splits your original corpus into</span>
-<a name="l00032"></a>00032 <span class="comment"> *                         #chunks gzip files. This enables Y!LDA to process one chunk on one</span>
-<a name="l00033"></a>00033 <span class="comment"> *                         machine. We advise you to use one full machine to run one instance</span>
-<a name="l00034"></a>00034 <span class="comment"> *                         of Y!LDA as the memory requirements may be large depending on your</span>
-<a name="l00035"></a>00035 <span class="comment"> *                         corpus size. A very large corpus of the order of 10 to 20 Million</span>
-<a name="l00036"></a>00036 <span class="comment"> *                         moderately sized documents can need anywhere from 5 to 6 GB of</span>
-<a name="l00037"></a>00037 <span class="comment"> *                         memory. You can reduce this by using more machines though. For</span>
-<a name="l00038"></a>00038 <span class="comment"> *                         ex., if you have a corpus of 1.5 Million documents you might want</span>
-<a name="l00039"></a>00039 <span class="comment"> *                         to split it across 8 machines using:&lt;/P&gt;</span>
-<a name="l00040"></a>00040 <span class="comment"> *                         &lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;splitter.sh</span>
-<a name="l00041"></a>00041 <span class="comment"> *                         &amp;quot;queue&amp;quot; &amp;quot;orig-corpus&amp;quot; &amp;quot;organized-corpus&amp;quot;</span>
-<a name="l00042"></a>00042 <span class="comment"> *                         8&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00043"></a>00043 <span class="comment"> *                 &lt;/OL&gt;</span>
-<a name="l00044"></a>00044 <span class="comment"> *                 &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run Y!LDA on the organized</span>
-<a name="l00045"></a>00045 <span class="comment"> *                 corpus:&lt;/P&gt;</span>
-<a name="l00046"></a>00046 <span class="comment"> *                 &lt;OL&gt;</span>
-<a name="l00047"></a>00047 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Assuming you have a homogenous</span>
-<a name="l00048"></a>00048 <span class="comment"> *                         setup, install Y!LDA on one machine.&lt;/P&gt;</span>
-<a name="l00049"></a>00049 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run make jar to create</span>
-<a name="l00050"></a>00050 <span class="comment"> *                         LDALibs.jar file with all the required libraries and binaries&lt;/P&gt;</span>
-<a name="l00051"></a>00051 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Copy LDALibs.jar to HDFS&lt;/P&gt;</span>
-<a name="l00052"></a>00052 <span class="comment"> *             &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Copy Formatter.sh LDA.sh functions.sh runLDA.sh to gateway&lt;/P&gt;</span>
-<a name="l00053"></a>00053 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Figure out the max memory</span>
-<a name="l00054"></a>00054 <span class="comment"> *                         allowed per map task for your cluster and use the same in the</span>
-<a name="l00055"></a>00055 <span class="comment"> *                         script via the maxmem parameter. This can be done by looking at</span>
-<a name="l00056"></a>00056 <span class="comment"> *                         any job conf (job.xml) and searching the value of</span>
-<a name="l00057"></a>00057 <span class="comment"> *                         &amp;quot;mapred.cluster.max.map.memory.mb&amp;quot; property.&lt;/P&gt;</span>
-<a name="l00058"></a>00058 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run &lt;CODE&gt;runLDA.sh</span>
-<a name="l00059"></a>00059 <span class="comment"> *                         1 &amp;quot;flags&amp;quot; [train|test] &amp;quot;queue&amp;quot;</span>
-<a name="l00060"></a>00060 <span class="comment"> *                         &amp;quot;organized-corpus&amp;quot; &amp;quot;output-dir&amp;quot; &amp;quot;max-mem&amp;quot;</span>
-<a name="l00061"></a>00061 <span class="comment"> *                         &amp;quot;#topics&amp;quot; &amp;quot;#iters&amp;quot;</span>
-<a name="l00062"></a>00062 <span class="comment"> *                         &amp;quot;full_hdfs_path_of_LDALibs.jar&amp;quot; [&amp;quot;training-output&amp;quot;]</span>
-<a name="l00063"></a>00063 <span class="comment"> *                         &lt;/CODE&gt;&lt;BR/&gt;&lt;BR/&gt;</span>
-<a name="l00064"></a>00064 <span class="comment"> *             For train ex. &lt;CODE&gt;runLDA.sh</span>
-<a name="l00065"></a>00065 <span class="comment"> *                         1 &amp;quot;&amp;quot; train default</span>
-<a name="l00066"></a>00066 <span class="comment"> *                         &amp;quot;/user/me/organized-corpus&amp;quot; &amp;quot;/user/me/lda-output&amp;quot; 6144 100 100</span>
-<a name="l00067"></a>00067 <span class="comment"> *                         &amp;quot;LDALibs.jar&amp;quot;</span>
-<a name="l00068"></a>00068 <span class="comment"> *                         &lt;/CODE&gt;&lt;BR/&gt;&lt;BR/&gt;</span>
-<a name="l00069"></a>00069 <span class="comment"> *             For test ex. &lt;CODE&gt;runLDA.sh</span>
-<a name="l00070"></a>00070 <span class="comment"> *                         1 &amp;quot;&amp;quot; test default</span>
-<a name="l00071"></a>00071 <span class="comment"> *                         &amp;quot;/user/me/organized-corpus&amp;quot; &amp;quot;/user/me/lda-output&amp;quot; 6144 100 100</span>
-<a name="l00072"></a>00072 <span class="comment"> *                         &amp;quot;LDALibs.jar&amp;quot; &amp;quot;/user/me/lda-output&amp;quot;</span>
-<a name="l00073"></a>00073 <span class="comment"> *                         &lt;/CODE&gt;</span>
-<a name="l00074"></a>00074 <span class="comment"> *                         &lt;/P&gt;</span>
-<a name="l00075"></a>00075 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;This</span>
-<a name="l00076"></a>00076 <span class="comment"> *                         starts a map-only script on each machine. The script starts the</span>
-<a name="l00077"></a>00077 <span class="comment"> *                         DM_Server on all the machines. Then Y!LDA is run on each machine.</span>
-<a name="l00078"></a>00078 <span class="comment"> *                         The input is one chunk of the corpus.&lt;/P&gt;</span>
-<a name="l00079"></a>00079 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;For</span>
-<a name="l00080"></a>00080 <span class="comment"> *                         testing, use the test flag and provide directory storing the</span>
-<a name="l00081"></a>00081 <span class="comment"> *                         training output.&lt;/P&gt;</span>
-<a name="l00082"></a>00082 <span class="comment"> *                 &lt;/OL&gt;</span>
-<a name="l00083"></a>00083 <span class="comment"> *                 &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Output</span>
-<a name="l00084"></a>00084 <span class="comment"> *                 generated&lt;/P&gt;</span>
-<a name="l00085"></a>00085 <span class="comment"> *                 &lt;OL&gt;</span>
-<a name="l00086"></a>00086 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Creates &amp;lt;#chunks&amp;gt; folders</span>
-<a name="l00087"></a>00087 <span class="comment"> *                         in &amp;lt;output-dir&amp;gt; one for each client. </span>
-<a name="l00088"></a>00088 <span class="comment"> *                         &lt;/P&gt;</span>
-<a name="l00089"></a>00089 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Each of these directories hold</span>
-<a name="l00090"></a>00090 <span class="comment"> *                         the same output as the single machine case but from different</span>
-<a name="l00091"></a>00091 <span class="comment"> *                         clients. </span>
-<a name="l00092"></a>00092 <span class="comment"> *                         &lt;/P&gt;</span>
-<a name="l00093"></a>00093 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&amp;lt;output-dir&amp;gt;/&amp;lt;client-id&amp;gt;/learntopics.WARNING</span>
-<a name="l00094"></a>00094 <span class="comment"> *                         contains the output written to stderr by client &amp;lt;client-id&amp;gt;&lt;/P&gt;</span>
-<a name="l00095"></a>00095 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&amp;lt;output-dir&amp;gt;/&amp;lt;client-id&amp;gt;/lda.docToTop.txt</span>
-<a name="l00096"></a>00096 <span class="comment"> *                         contains the topic proportions assigned to the documents in the</span>
-<a name="l00097"></a>00097 <span class="comment"> *                         portion of the corpus alloted to client &amp;lt;client-id&amp;gt;&lt;/P&gt;</span>
-<a name="l00098"></a>00098 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&amp;lt;output-dir&amp;gt;/&amp;lt;client-id&amp;gt;/lda.topToWor.txt</span>
-<a name="l00099"></a>00099 <span class="comment"> *                         contains the salient words learned for each topic. This remains</span>
-<a name="l00100"></a>00100 <span class="comment"> *                         almost same across clients. So you can pick one of these as the</span>
-<a name="l00101"></a>00101 <span class="comment"> *                         salient words per topic for the full corpus.&lt;/P&gt;</span>
-<a name="l00102"></a>00102 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&amp;lt;output-dir&amp;gt;/&amp;lt;client-id&amp;gt;/lda.ttc.dump</span>
-<a name="l00103"></a>00103 <span class="comment"> *                         contains the actual model. Even this like the salient words is</span>
-<a name="l00104"></a>00104 <span class="comment"> *                         almost same across clients and any one can be used as the model</span>
-<a name="l00105"></a>00105 <span class="comment"> *                         for the full corpus.&lt;/P&gt;</span>
-<a name="l00106"></a>00106 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&amp;lt;output-dir&amp;gt;/global</span>
-<a name="l00107"></a>00107 <span class="comment"> *                         contains the dump of the global dictionary and the partitioned</span>
-<a name="l00108"></a>00108 <span class="comment"> *                         gobal topic counts table. These are generated in the training</span>
-<a name="l00109"></a>00109 <span class="comment"> *                         phase and are critical for the test option to work.&lt;/P&gt;</span>
-<a name="l00110"></a>00110 <span class="comment"> *                 &lt;/OL&gt;</span>
-<a name="l00111"></a>00111 <span class="comment"> *                 &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Viewing</span>
-<a name="l00112"></a>00112 <span class="comment"> *                 progress&lt;/P&gt;</span>
-<a name="l00113"></a>00113 <span class="comment"> *                 &lt;OL&gt;</span>
-<a name="l00114"></a>00114 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;The</span>
-<a name="l00115"></a>00115 <span class="comment"> *                         stderr output of the code will be redirected into hadoop logs. So</span>
-<a name="l00116"></a>00116 <span class="comment"> *                         you can check the task logs from the tracking URL displayed in the</span>
-<a name="l00117"></a>00117 <span class="comment"> *                         output of runLDA.sh to see what is happening&lt;/P&gt;</span>
-<a name="l00118"></a>00118 <span class="comment"> *                 &lt;/OL&gt;</span>
-<a name="l00119"></a>00119 <span class="comment"> *                 &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Failure Recovery&lt;/P&gt;</span>
-<a name="l00120"></a>00120 <span class="comment"> *                 &lt;P&gt; We provide a check-pointing mechanism to handle recovery from failures.</span>
-<a name="l00121"></a>00121 <span class="comment"> *                 The current scheme works in local mode and for distributed mode using Hadoop.</span>
-<a name="l00122"></a>00122 <span class="comment"> *                 The reason for this being that the distributed check-pointing uses the hdfs to store</span>
-<a name="l00123"></a>00123 <span class="comment"> *                 the check-points. The following is the process: &lt;/P&gt;</span>
-<a name="l00124"></a>00124 <span class="comment"> *                 &lt;OL&gt;</span>
-<a name="l00125"></a>00125 <span class="comment"> *                 &lt;LI&gt;The formatter task is run on the inputs and the formatted input is stored in a temporary location.</span>
-<a name="l00126"></a>00126 <span class="comment"> *                 &lt;LI&gt;The learntopics task is run using the temporary location as an input and the specified output as the</span>
-<a name="l00127"></a>00127 <span class="comment"> *                 output directory. Care is taken to start the same number of mappers for both the formatter and</span>
-<a name="l00128"></a>00128 <span class="comment"> *                 learntopics tasks. The input is a dummy directory structure with dummy directories equal to the</span>
-<a name="l00129"></a>00129 <span class="comment"> *                 number of mappers.</span>
-<a name="l00130"></a>00130 <span class="comment"> *                 &lt;LI&gt;Each learntopics task copies its portion of the formatted input by dfs copy_to_local the</span>
-<a name="l00131"></a>00131 <span class="comment"> *                 folder corresponding to its mapred_task_partition.</span>
-<a name="l00132"></a>00132 <span class="comment"> *                 &lt;LI&gt;Runs learntopics with the temporary directory containing the formatted input</span>
-<a name="l00133"></a>00133 <span class="comment"> *                 as a check-point directory. So all information needed to start learntopics from</span>
-<a name="l00134"></a>00134 <span class="comment"> *                 the previous check-pointed iteration is available locally and any progress made</span>
-<a name="l00135"></a>00135 <span class="comment"> *                 is written back to the temporary input directory.</span>
-<a name="l00136"></a>00136 <span class="comment"> *                 &lt;/OL&gt;</span>
-<a name="l00137"></a>00137 <span class="comment"> *                 &lt;P&gt;This mechanism is utilized by the scripts to detect failure cases</span>
-<a name="l00138"></a>00138 <span class="comment"> *                 and attempt to re-run the task again from the previous checkpoint. As learntopics is</span>
-<a name="l00139"></a>00139 <span class="comment"> *                 designed to check if check-point metadata is available in the working directory and</span>
-<a name="l00140"></a>00140 <span class="comment"> *                 use it to start-off from there a separate restart option is obviated. &lt;/P&gt;</span>
-<a name="l00141"></a>00141 <span class="comment"> *                 &lt;P&gt;As a by product one gets the facility of doing incremental runs, that is,</span>
-<a name="l00142"></a>00142 <span class="comment"> *                 to run say 100 iterations, check the output and run the next 100 iterations if needed.</span>
-<a name="l00143"></a>00143 <span class="comment"> *                 The scripts detect this condition and ask you if you want to start-off from where you left</span>
-<a name="l00144"></a>00144 <span class="comment"> *                 or restart from the beginning.&lt;/P&gt;</span>
-<a name="l00145"></a>00145 <span class="comment"> *                 &lt;P&gt;The scripts are designed in such a fashion that these</span>
-<a name="l00146"></a>00146 <span class="comment"> *                 happen transparently to the user. This is information for developers and for cases</span>
-<a name="l00147"></a>00147 <span class="comment"> *                 where the recovery mechanism could not handle the failure in the specified number of</span>
-<a name="l00148"></a>00148 <span class="comment"> *                 attempts. Check the stderr logs to see what the reason for failure is. Most times it is due</span>
-<a name="l00149"></a>00149 <span class="comment"> *                 to wrong usage which results in unrecoverable aborts. If you think its because of a flaky</span>
-<a name="l00150"></a>00150 <span class="comment"> *                 cluster, then try increasing the number of attempts. If nothing works and you think there</span>
-<a name="l00151"></a>00151 <span class="comment"> *                 is a bug in the code please let us know.&lt;/P&gt;</span>
-<a name="l00152"></a>00152 <span class="comment"> *         &lt;/OL&gt;</span>
-<a name="l00153"></a>00153 <span class="comment"> * &lt;/OL&gt;</span>
-<a name="l00154"></a>00154 <span class="comment"> * &lt;OL START=2&gt;</span>
-<a name="l00155"></a>00155 <span class="comment"> *      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;B&gt;Using SSH - Assume you have</span>
-<a name="l00156"></a>00156 <span class="comment"> *      &#39;m&#39; machines&lt;/B&gt;&lt;/P&gt;</span>
-<a name="l00157"></a>00157 <span class="comment"> *      &lt;OL&gt;</span>
-<a name="l00158"></a>00158 <span class="comment"> *              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;If you have a homogenous set up,</span>
-<a name="l00159"></a>00159 <span class="comment"> *              install Y!LDA on one machine, run make jar and copy LDALibs.jar to</span>
-<a name="l00160"></a>00160 <span class="comment"> *              all the other machines in the set up. Else install Y!LDA on all</span>
-<a name="l00161"></a>00161 <span class="comment"> *              machines.&lt;/P&gt;</span>
-<a name="l00162"></a>00162 <span class="comment"> *              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Split the corpus into &#39;m&#39; parts</span>
-<a name="l00163"></a>00163 <span class="comment"> *              and distribute them to the &#39;m&#39; machines&lt;/P&gt;</span>
-<a name="l00164"></a>00164 <span class="comment"> *              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run formatter on each split of</span>
-<a name="l00165"></a>00165 <span class="comment"> *              the corpus on every machine.&lt;/P&gt;</span>
-<a name="l00166"></a>00166 <span class="comment"> *              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run the Distributed_Map Server on</span>
-<a name="l00167"></a>00167 <span class="comment"> *              each machine as a background process using nohup:&lt;/P&gt;</span>
-<a name="l00168"></a>00168 <span class="comment"> *              &lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;nohup</span>
-<a name="l00169"></a>00169 <span class="comment"> *              ./DM_Server &amp;lt;model&amp;gt; &amp;lt;server_id&amp;gt; &amp;lt;num_clients&amp;gt;</span>
-<a name="l00170"></a>00170 <span class="comment"> *              &amp;lt;host:port&amp;gt; --Ice.ThreadPool.Server.SizeMax=9 &amp;amp;&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00171"></a>00171 <span class="comment"> *              &lt;OL&gt;</span>
-<a name="l00172"></a>00172 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;model: an integer that</span>
-<a name="l00173"></a>00173 <span class="comment"> *                      represents the model. Set it to 1 for Unigram_Model&lt;/P&gt;</span>
-<a name="l00174"></a>00174 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;server_id: a number that denotes</span>
-<a name="l00175"></a>00175 <span class="comment"> *                      the index of this server in the list of servers that is provided</span>
-<a name="l00176"></a>00176 <span class="comment"> *                      to &#39;learntopics&#39;. If server1 has h:p, 10.1.1.1:10000 &amp;amp; is</span>
-<a name="l00177"></a>00177 <span class="comment"> *                      assigned id 0, server2 has h:p, 10.1.1.2:10000 &amp;amp; is assigned</span>
-<a name="l00178"></a>00178 <span class="comment"> *                      id 1, the list of servers that is provided to &#39;learntopics&#39; has to</span>
-<a name="l00179"></a>00179 <span class="comment"> *                      be 10.1.1.1:10000, 10.1.1.2:10000 and not the other way around.&lt;/P&gt;</span>
-<a name="l00180"></a>00180 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;num_clients: a number that</span>
-<a name="l00181"></a>00181 <span class="comment"> *                      denotes the number of clients that will access the Distributed</span>
-<a name="l00182"></a>00182 <span class="comment"> *                      Map. This is usually equal to &#39;m&#39;. This is used to provide a</span>
-<a name="l00183"></a>00183 <span class="comment"> *                      barrier implementation&lt;/P&gt;</span>
-<a name="l00184"></a>00184 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;host:port- the port and ip</span>
-<a name="l00185"></a>00185 <span class="comment"> *                      address on which the server must listen on&lt;/P&gt;</span>
-<a name="l00186"></a>00186 <span class="comment"> *              &lt;/OL&gt;</span>
-<a name="l00187"></a>00187 <span class="comment"> *              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run Y!LDA on the corpus:&lt;/P&gt;</span>
-<a name="l00188"></a>00188 <span class="comment"> *              &lt;OL&gt;</span>
-<a name="l00189"></a>00189 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;On every machine run&lt;/P&gt;</span>
-<a name="l00190"></a>00190 <span class="comment"> *          &lt;P&gt;&lt;CODE&gt;learntopics</span>
-<a name="l00191"></a>00191 <span class="comment"> *                      --topics=&amp;lt;#topics&amp;gt; --iter=&amp;lt;#iter&amp;gt;</span>
-<a name="l00192"></a>00192 <span class="comment"> *                      --servers=&amp;lt;list-of-servers&amp;gt; --chkptdir=&amp;quot;/tmp&amp;quot;</span>
-<a name="l00193"></a>00193 <span class="comment"> *                      --chkptinterval=10000&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00194"></a>00194 <span class="comment"> *                      &lt;OL&gt;</span>
-<a name="l00195"></a>00195 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&amp;lt;list-of-servers&amp;gt;: The</span>
-<a name="l00196"></a>00196 <span class="comment"> *                              comma separated list of ip:port numbers of the servers involved</span>
-<a name="l00197"></a>00197 <span class="comment"> *                              in the set-up. The index of the ip:port numbers should be as per</span>
-<a name="l00198"></a>00198 <span class="comment"> *                              the server_id parameter used in starting the server&lt;/P&gt;</span>
-<a name="l00199"></a>00199 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;chkptdir &amp;amp; chkptinterval:</span>
-<a name="l00200"></a>00200 <span class="comment"> *                              These are currently used only with the Hadoop set-up. Set</span>
-<a name="l00201"></a>00201 <span class="comment"> *                              chkptdir to something dummy. In order that the checkpointing code</span>
-<a name="l00202"></a>00202 <span class="comment"> *                              does not execute, set the chkptinterval to a very large value or</span>
-<a name="l00203"></a>00203 <span class="comment"> *                              some number greater than the number of iterations&lt;/P&gt;</span>
-<a name="l00204"></a>00204 <span class="comment"> *                      &lt;/OL&gt;</span>
-<a name="l00205"></a>00205 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Create Global Dictionary - Run</span>
-<a name="l00206"></a>00206 <span class="comment"> *                      the following on server with id 0.  Assuming learntopics was run</span>
-<a name="l00207"></a>00207 <span class="comment"> *                      in the folder /tmp/corpus&lt;/P&gt;</span>
-<a name="l00208"></a>00208 <span class="comment"> *                      &lt;OL&gt;</span>
-<a name="l00209"></a>00209 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt; &lt;CODE&gt;mkdir</span>
-<a name="l00210"></a>00210 <span class="comment"> *                              -p /tmp/corpus/global_dict; cd /tmp/corpus/global_dict;&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00211"></a>00211 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt; &lt;CODE&gt;scp</span>
-<a name="l00212"></a>00212 <span class="comment"> *                              server_i:/tmp/corpus/lda.dict.dump lda.dict.dump.i &lt;/CODE&gt;</span>
-<a name="l00213"></a>00213 <span class="comment"> *                              where the variable &#39;i&#39; is the same as the server_id.&lt;/P&gt;</span>
-<a name="l00214"></a>00214 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Merge Dictionaries&lt;BR&gt;</span>
-<a name="l00215"></a>00215 <span class="comment"> *                              &lt;CODE&gt;Merge_Dictionaries</span>
-<a name="l00216"></a>00216 <span class="comment"> *                              --dictionaries=m --dumpprefix=lda.dict.dump&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00217"></a>00217 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt; &lt;CODE&gt;mkdir</span>
-<a name="l00218"></a>00218 <span class="comment"> *                              -p ../global; mkdir -p ../global/topic_counts; cp lda.dict.dump</span>
-<a name="l00219"></a>00219 <span class="comment"> *                              ../global/;&lt;/CODE&gt; </span>
-<a name="l00220"></a>00220 <span class="comment"> *                              &lt;/P&gt;</span>
-<a name="l00221"></a>00221 <span class="comment"> *                      &lt;/OL&gt;</span>
-<a name="l00222"></a>00222 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Create a sharded Global</span>
-<a name="l00223"></a>00223 <span class="comment"> *                      Word-Topic Counts dump - Run on every machine in the set-up&lt;/P&gt;</span>
-<a name="l00224"></a>00224 <span class="comment"> *                      &lt;OL&gt;</span>
-<a name="l00225"></a>00225 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;mkdir</span>
-<a name="l00226"></a>00226 <span class="comment"> *                              -p /tmp/corpus/global_top_cnts; cd /tmp/corpus/global_top_cnts;&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00227"></a>00227 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;scp</span>
-<a name="l00228"></a>00228 <span class="comment"> *                              server_0:/tmp/corpus/global/lda.dict.dump lda.dict.dump.global&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00229"></a>00229 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;Merge_Topic_Counts</span>
-<a name="l00230"></a>00230 <span class="comment"> *                              --topics=&amp;lt;#topics&amp;gt; --clientid=&amp;lt;server-id&amp;gt;</span>
-<a name="l00231"></a>00231 <span class="comment"> *                              --servers=&amp;lt;list-of-servers&amp;gt;</span>
-<a name="l00232"></a>00232 <span class="comment"> *                              --globaldictionary=&amp;quot;lda.dict.dump.global&amp;quot;&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00233"></a>00233 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;scp</span>
-<a name="l00234"></a>00234 <span class="comment"> *                              lda.ttc.dump</span>
-<a name="l00235"></a>00235 <span class="comment"> *                              server_0:/tmp/corpus/global/topic_counts/lda.ttc.dump.$server-id&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00236"></a>00236 <span class="comment"> *                      &lt;/OL&gt;</span>
-<a name="l00237"></a>00237 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Copy the parameters dump file to</span>
-<a name="l00238"></a>00238 <span class="comment"> *                      global dump - Run on server_0&lt;/P&gt;</span>
-<a name="l00239"></a>00239 <span class="comment"> *                      &lt;OL&gt;</span>
-<a name="l00240"></a>00240 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;cd</span>
-<a name="l00241"></a>00241 <span class="comment"> *                              /tmp/corpus; cp lda.par.dump global/topic_counts/lda.par.dump&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00242"></a>00242 <span class="comment"> *                      &lt;/OL&gt;</span>
-<a name="l00243"></a>00243 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;This completes training and the</span>
-<a name="l00244"></a>00244 <span class="comment"> *                      model is available on server_0:/tmp/corpus/global&lt;/P&gt;</span>
-<a name="l00245"></a>00245 <span class="comment"> *              &lt;/OL&gt;</span>
-<a name="l00246"></a>00246 <span class="comment"> *              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Running Y!LDA is test mode: Run</span>
-<a name="l00247"></a>00247 <span class="comment"> *              on server_0. Assuming test corpus is in /tmp/test_corpus&lt;/P&gt;</span>
-<a name="l00248"></a>00248 <span class="comment"> *              &lt;OL&gt;</span>
-<a name="l00249"></a>00249 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;cd</span>
-<a name="l00250"></a>00250 <span class="comment"> *                      /tmp/test_corpus;&lt;/CODE&gt; </span>
-<a name="l00251"></a>00251 <span class="comment"> *                      &lt;/P&gt;</span>
-<a name="l00252"></a>00252 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;cp</span>
-<a name="l00253"></a>00253 <span class="comment"> *                      -r ../corpus/global .&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00254"></a>00254 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;learntopics</span>
-<a name="l00255"></a>00255 <span class="comment"> *                      -teststream --dumpprefix=global/topic_counts/lda --numdumps=m</span>
-<a name="l00256"></a>00256 <span class="comment"> *                      --dictionary=global/lda.dict.dump --maxmemory=2048</span>
-<a name="l00257"></a>00257 <span class="comment"> *                      --topics=&amp;lt;#topics&amp;gt;&lt;/CODE&gt;&lt;/P&gt;</span>
-<a name="l00258"></a>00258 <span class="comment"> *                      &lt;LI&gt;&lt;P ALIGN=JUSTIFY STYLE=&quot;margin-bottom: 0cm&quot;&gt;cat all your</span>
-<a name="l00259"></a>00259 <span class="comment"> *                      documents, in the same format that &#39;formatter&#39; expects, to the</span>
-<a name="l00260"></a>00260 <span class="comment"> *                      above command&#39;s stdin&lt;/P&gt;</span>
-<a name="l00261"></a>00261 <span class="comment"> *              &lt;/OL&gt;</span>
-<a name="l00262"></a>00262 <span class="comment"> *      &lt;/OL&gt;</span>
-<a name="l00263"></a>00263 <span class="comment"> * &lt;/OL&gt;</span>
-<a name="l00264"></a>00264 <span class="comment"> */</span>
+<a name="l00027"></a>00027 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Assuming you have a homogenous</span>
+<a name="l00028"></a>00028 <span class="comment"> *                         setup, install Y!LDA on one machine.&lt;/P&gt;</span>
+<a name="l00029"></a>00029 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run make jar to create</span>
+<a name="l00030"></a>00030 <span class="comment"> *                         LDALibs.jar file with all the required libraries and binaries&lt;/P&gt;</span>
+<a name="l00031"></a>00031 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Copy LDALibs.jar to HDFS&lt;/P&gt;</span>
+<a name="l00032"></a>00032 <span class="comment"> *             &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Copy Formatter.sh LDA.sh functions.sh </span>
+<a name="l00033"></a>00033 <span class="comment"> *             runLDA.sh to gateway. A gateway is any machine with access to the grid. </span>
+<a name="l00034"></a>00034 <span class="comment"> *             Think of it as a machine from which you run your hadoop commands.&lt;/P&gt;</span>
+<a name="l00035"></a>00035 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Figure out the max memory</span>
+<a name="l00036"></a>00036 <span class="comment"> *                         allowed per map task for your cluster and use the same in the</span>
+<a name="l00037"></a>00037 <span class="comment"> *                         script via the maxmem parameter. This can be done by looking at</span>
+<a name="l00038"></a>00038 <span class="comment"> *                         any job conf (job.xml) and searching the value of</span>
+<a name="l00039"></a>00039 <span class="comment"> *                         &amp;quot;mapred.cluster.max.map.memory.mb&amp;quot; property.&lt;/P&gt;</span>
+<a name="l00040"></a>00040 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run &lt;CODE&gt;runLDA.sh</span>
+<a name="l00041"></a>00041 <span class="comment"> *                         1 &amp;quot;flags&amp;quot; [train|test] &amp;quot;queue&amp;quot;</span>
+<a name="l00042"></a>00042 <span class="comment"> *                         &amp;quot;organized-corpus&amp;quot; &amp;quot;output-dir&amp;quot; &amp;quot;max-mem&amp;quot;</span>
+<a name="l00043"></a>00043 <span class="comment"> *                         &amp;quot;number_of_topics&amp;quot; &amp;quot;number_of_iters&amp;quot;</span>
+<a name="l00044"></a>00044 <span class="comment"> *                         &amp;quot;full_hdfs_path_of_LDALibs.jar&amp;quot; &amp;quot;number_of_machines&amp;quot; [&amp;quot;training-output&amp;quot;]</span>
+<a name="l00045"></a>00045 <span class="comment"> *                         &lt;/CODE&gt;&lt;BR/&gt;&lt;BR/&gt;</span>
+<a name="l00046"></a>00046 <span class="comment"> *             For train ex. &lt;CODE&gt;runLDA.sh</span>
+<a name="l00047"></a>00047 <span class="comment"> *                         1 &amp;quot;&amp;quot; train default</span>
+<a name="l00048"></a>00048 <span class="comment"> *                         &amp;quot;/user/me/organized-corpus&amp;quot; &amp;quot;/user/me/lda-output&amp;quot; 6144 100 100</span>
+<a name="l00049"></a>00049 <span class="comment"> *                         &amp;quot;LDALibs.jar&amp;quot; 10</span>
+<a name="l00050"></a>00050 <span class="comment"> *                         &lt;/CODE&gt;&lt;BR/&gt;&lt;BR/&gt;</span>
+<a name="l00051"></a>00051 <span class="comment"> *             For test ex. &lt;CODE&gt;runLDA.sh</span>
+<a name="l00052"></a>00052 <span class="comment"> *                         1 &amp;quot;&amp;quot; test default</span>
+<a name="l00053"></a>00053 <span class="comment"> *                         &amp;quot;/user/me/organized-corpus&amp;quot; &amp;quot;/user/me/lda-output&amp;quot; 6144 100 100</span>
+<a name="l00054"></a>00054 <span class="comment"> *                         &amp;quot;LDALibs.jar&amp;quot; 10 &amp;quot;/user/me/lda-output&amp;quot;</span>
+<a name="l00055"></a>00055 <span class="comment"> *                         &lt;/CODE&gt;</span>
+<a name="l00056"></a>00056 <span class="comment"> *                         &lt;/P&gt;</span>
+<a name="l00057"></a>00057 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;This starts 2 Map Reduce Streaming jobs.</span>
+<a name="l00058"></a>00058 <span class="comment"> *             The first job does the formatting &amp; the second job</span>
+<a name="l00059"></a>00059 <span class="comment"> *                         starts a map-only script on each machine. This script starts the</span>
+<a name="l00060"></a>00060 <span class="comment"> *                         DM_Server on all the machines. Then Y!LDA is run on each machine.</span>
+<a name="l00061"></a>00061 <span class="comment"> *                         The input is one chunk of the corpus. The first job runs the formatter</span>
+<a name="l00062"></a>00062 <span class="comment"> *             in the reducer using the supplied number_of_machines as the number of reduce tasks.</span>
+<a name="l00063"></a>00063 <span class="comment"> *             So your corpus will be split into number_of_machines parts and formatted into protobuffer</span>
+<a name="l00064"></a>00064 <span class="comment"> *             format files as needed by the second job. The second job uses this formatted input</span>
+<a name="l00065"></a>00065 <span class="comment"> *             as its input and will also run on number_of_machines separate machines with each task </span>
+<a name="l00066"></a>00066 <span class="comment"> *             working on one chunk.&lt;/P&gt;</span>
+<a name="l00067"></a>00067 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;For</span>
+<a name="l00068"></a>00068 <span class="comment"> *                         testing, use the test flag and provide directory storing the</span>
+<a name="l00069"></a>00069 <span class="comment"> *                         training output.&lt;/P&gt;</span>
+<a name="l00070"></a>00070 <span class="comment"> *                 &lt;/OL&gt;</span>
+<a name="l00071"></a>00071 <span class="comment"> *                 &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Output</span>
+<a name="l00072"></a>00072 <span class="comment"> *                 generated&lt;/P&gt;</span>
+<a name="l00073"></a>00073 <span class="comment"> *                 &lt;OL&gt;</span>
+<a name="l00074"></a>00074 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Creates &amp;lt;number_of_machines&amp;gt; folders</span>
+<a name="l00075"></a>00075 <span class="comment"> *                         in &amp;lt;output-dir&amp;gt; one for each client. </span>
+<a name="l00076"></a>00076 <span class="comment"> *                         &lt;/P&gt;</span>
+<a name="l00077"></a>00077 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Each of these directories hold</span>
+<a name="l00078"></a>00078 <span class="comment"> *                         the same output as the single machine case but from different</span>
+<a name="l00079"></a>00079 <span class="comment"> *                         clients. </span>
+<a name="l00080"></a>00080 <span class="comment"> *                         &lt;/P&gt;</span>
+<a name="l00081"></a>00081 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&amp;lt;output-dir&amp;gt;/&amp;lt;client-id&amp;gt;/learntopics.WARNING</span>
+<a name="l00082"></a>00082 <span class="comment"> *                         contains the output written to stderr by client &amp;lt;client-id&amp;gt;&lt;/P&gt;</span>
+<a name="l00083"></a>00083 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&amp;lt;output-dir&amp;gt;/&amp;lt;client-id&amp;gt;/lda.docToTop.txt</span>
+<a name="l00084"></a>00084 <span class="comment"> *                         contains the topic proportions assigned to the documents in the</span>
+<a name="l00085"></a>00085 <span class="comment"> *                         portion of the corpus alloted to client &amp;lt;client-id&amp;gt;&lt;/P&gt;</span>
+<a name="l00086"></a>00086 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&amp;lt;output-dir&amp;gt;/&amp;lt;client-id&amp;gt;/lda.topToWor.txt</span>
+<a name="l00087"></a>00087 <span class="comment"> *                         contains the salient words learned for each topic. This remains</span>
+<a name="l00088"></a>00088 <span class="comment"> *                         almost same across clients. So you can pick one of these as the</span>
+<a name="l00089"></a>00089 <span class="comment"> *                         salient words per topic for the full corpus.&lt;/P&gt;</span>
+<a name="l00090"></a>00090 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&amp;lt;output-dir&amp;gt;/&amp;lt;client-id&amp;gt;/lda.ttc.dump</span>
+<a name="l00091"></a>00091 <span class="comment"> *                         contains the actual model. Even this like the salient words is</span>
+<a name="l00092"></a>00092 <span class="comment"> *                         almost same across clients and any one can be used as the model</span>
+<a name="l00093"></a>00093 <span class="comment"> *                         for the full corpus.&lt;/P&gt;</span>
+<a name="l00094"></a>00094 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&amp;lt;output-dir&amp;gt;/global</span>
+<a name="l00095"></a>00095 <span class="comment"> *                         contains the dump of the global dictionary and the partitioned</span>
+<a name="l00096"></a>00096 <span class="comment"> *                         gobal topic counts table. These are generated in the training</span>
+<a name="l00097"></a>00097 <span class="comment"> *                         phase and are critical for the test option to work.&lt;/P&gt;</span>
+<a name="l00098"></a>00098 <span class="comment"> *                 &lt;/OL&gt;</span>
+<a name="l00099"></a>00099 <span class="comment"> *                 &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Viewing</span>
+<a name="l00100"></a>00100 <span class="comment"> *                 progress&lt;/P&gt;</span>
+<a name="l00101"></a>00101 <span class="comment"> *                 &lt;OL&gt;</span>
+<a name="l00102"></a>00102 <span class="comment"> *                         &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;The</span>
+<a name="l00103"></a>00103 <span class="comment"> *                         stderr output of the code will be redirected into hadoop logs. So</span>
+<a name="l00104"></a>00104 <span class="comment"> *                         you can check the task logs from the tracking URL displayed in the</span>
+<a name="l00105"></a>00105 <span class="comment"> *                         output of runLDA.sh to see what is happening&lt;/P&gt;</span>
+<a name="l00106"></a>00106 <span class="comment"> *                 &lt;/OL&gt;</span>
+<a name="l00107"></a>00107 <span class="comment"> *                 &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Failure Recovery&lt;/P&gt;</span>
+<a name="l00108"></a>00108 <span class="comment"> *                 &lt;P&gt; We provide a check-pointing mechanism to handle recovery from failures.</span>
+<a name="l00109"></a>00109 <span class="comment"> *                 The current scheme works in local mode and for distributed mode using Hadoop.</span>
+<a name="l00110"></a>00110 <span class="comment"> *                 The reason for this being that the distributed check-pointing uses the hdfs to store</span>
+<a name="l00111"></a>00111 <span class="comment"> *                 the check-points. The following is the process: &lt;/P&gt;</span>
+<a name="l00112"></a>00112 <span class="comment"> *                 &lt;OL&gt;</span>
+<a name="l00113"></a>00113 <span class="comment"> *                 &lt;LI&gt;The formatter task is run on the inputs and the formatted input is stored in a temporary location.</span>
+<a name="l00114"></a>00114 <span class="comment"> *                 &lt;LI&gt;The learntopics task is run using the temporary location as an input and the specified output as </span>
+<a name="l00115"></a>00115 <span class="comment"> *                 the output directory. Care is taken to start the same number of mappers as the number_of_machines for</span>
+<a name="l00116"></a>00116 <span class="comment"> *                 learntopics tasks. The input is a dummy directory structure with dummy directories equal to the</span>
+<a name="l00117"></a>00117 <span class="comment"> *                 number_of_machines parameter supplied by the user.</span>
+<a name="l00118"></a>00118 <span class="comment"> *                 &lt;LI&gt;Each learntopics task copies its portion of the formatted input by dfs copy_to_local the</span>
+<a name="l00119"></a>00119 <span class="comment"> *                 folder corresponding to its mapred_task_partition.</span>
+<a name="l00120"></a>00120 <span class="comment"> *                 &lt;LI&gt;Runs learntopics with the temporary directory containing the formatted input</span>
+<a name="l00121"></a>00121 <span class="comment"> *                 as a check-point directory. So all information needed to start learntopics from</span>
+<a name="l00122"></a>00122 <span class="comment"> *                 the previous check-pointed iteration is available locally and any progress made</span>
+<a name="l00123"></a>00123 <span class="comment"> *                 is written back to the temporary input directory.</span>
+<a name="l00124"></a>00124 <span class="comment"> *                 &lt;/OL&gt;</span>
+<a name="l00125"></a>00125 <span class="comment"> *                 &lt;P&gt;This mechanism is utilized by the scripts to detect failure cases</span>
+<a name="l00126"></a>00126 <span class="comment"> *                 and attempt to re-run the task again from the previous checkpoint. As learntopics is</span>
+<a name="l00127"></a>00127 <span class="comment"> *                 designed to check if check-point metadata is available in the working directory and</span>
+<a name="l00128"></a>00128 <span class="comment"> *                 use it to start-off from there a separate restart option is obviated. &lt;/P&gt;</span>
+<a name="l00129"></a>00129 <span class="comment"> *                 &lt;P&gt;As a by product one gets the facility of doing incremental runs, that is,</span>
+<a name="l00130"></a>00130 <span class="comment"> *                 to run say 100 iterations, check the output and run the next 100 iterations if needed.</span>
+<a name="l00131"></a>00131 <span class="comment"> *                 The scripts detect this condition and ask you if you want to start-off from where you left</span>
+<a name="l00132"></a>00132 <span class="comment"> *                 or restart from the beginning.&lt;/P&gt;</span>
+<a name="l00133"></a>00133 <span class="comment"> *                 &lt;P&gt;The scripts are designed in such a fashion that these</span>
+<a name="l00134"></a>00134 <span class="comment"> *                 happen transparently to the user. This is information for developers and for cases</span>
+<a name="l00135"></a>00135 <span class="comment"> *                 where the recovery mechanism could not handle the failure in the specified number of</span>
+<a name="l00136"></a>00136 <span class="comment"> *                 attempts. Check the stderr logs to see what the reason for failure is. Most times it is due</span>
+<a name="l00137"></a>00137 <span class="comment"> *                 to wrong usage which results in unrecoverable aborts. If you think its because of a flaky</span>
+<a name="l00138"></a>00138 <span class="comment"> *                 cluster, then try increasing the number of attempts. If nothing works and you think there</span>
+<a name="l00139"></a>00139 <span class="comment"> *                 is a bug in the code please let us know.&lt;/P&gt;</span>
+<a name="l00140"></a>00140 <span class="comment"> *         &lt;/OL&gt;</span>
+<a name="l00141"></a>00141 <span class="comment"> * &lt;/OL&gt;</span>
+<a name="l00142"></a>00142 <span class="comment"> * &lt;OL START=2&gt;</span>
+<a name="l00143"></a>00143 <span class="comment"> *      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;B&gt;Using SSH - Assume you have</span>
+<a name="l00144"></a>00144 <span class="comment"> *      &#39;m&#39; machines&lt;/B&gt;&lt;/P&gt;</span>
+<a name="l00145"></a>00145 <span class="comment"> *      &lt;OL&gt;</span>
+<a name="l00146"></a>00146 <span class="comment"> *              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;If you have a homogenous set up,</span>
+<a name="l00147"></a>00147 <span class="comment"> *              install Y!LDA on one machine, run make jar and copy LDALibs.jar to</span>
+<a name="l00148"></a>00148 <span class="comment"> *              all the other machines in the set up. Else install Y!LDA on all</span>
+<a name="l00149"></a>00149 <span class="comment"> *              machines.&lt;/P&gt;</span>
+<a name="l00150"></a>00150 <span class="comment"> *              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Split the corpus into &#39;m&#39; parts</span>
+<a name="l00151"></a>00151 <span class="comment"> *              and distribute them to the &#39;m&#39; machines&lt;/P&gt;</span>
+<a name="l00152"></a>00152 <span class="comment"> *              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run formatter on each split of</span>
+<a name="l00153"></a>00153 <span class="comment"> *              the corpus on every machine.&lt;/P&gt;</span>
+<a name="l00154"></a>00154 <span class="comment"> *              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run the Distributed_Map Server on</span>
+<a name="l00155"></a>00155 <span class="comment"> *              each machine as a background process using nohup:&lt;/P&gt;</span>
+<a name="l00156"></a>00156 <span class="comment"> *              &lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;nohup</span>
+<a name="l00157"></a>00157 <span class="comment"> *              ./DM_Server &amp;lt;model&amp;gt; &amp;lt;server_id&amp;gt; &amp;lt;num_clients&amp;gt;</span>
+<a name="l00158"></a>00158 <span class="comment"> *              &amp;lt;host:port&amp;gt; --Ice.ThreadPool.Server.SizeMax=9 &amp;amp;&lt;/CODE&gt;&lt;/P&gt;</span>
+<a name="l00159"></a>00159 <span class="comment"> *              &lt;OL&gt;</span>
+<a name="l00160"></a>00160 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;model: an integer that</span>
+<a name="l00161"></a>00161 <span class="comment"> *                      represents the model. Set it to 1 for Unigram_Model&lt;/P&gt;</span>
+<a name="l00162"></a>00162 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;server_id: a number that denotes</span>
+<a name="l00163"></a>00163 <span class="comment"> *                      the index of this server in the list of servers that is provided</span>
+<a name="l00164"></a>00164 <span class="comment"> *                      to &#39;learntopics&#39;. If server1 has h:p, 10.1.1.1:10000 &amp;amp; is</span>
+<a name="l00165"></a>00165 <span class="comment"> *                      assigned id 0, server2 has h:p, 10.1.1.2:10000 &amp;amp; is assigned</span>
+<a name="l00166"></a>00166 <span class="comment"> *                      id 1, the list of servers that is provided to &#39;learntopics&#39; has to</span>
+<a name="l00167"></a>00167 <span class="comment"> *                      be 10.1.1.1:10000, 10.1.1.2:10000 and not the other way around.&lt;/P&gt;</span>
+<a name="l00168"></a>00168 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;num_clients: a number that</span>
+<a name="l00169"></a>00169 <span class="comment"> *                      denotes the number of clients that will access the Distributed</span>
+<a name="l00170"></a>00170 <span class="comment"> *                      Map. This is usually equal to &#39;m&#39;. This is used to provide a</span>
+<a name="l00171"></a>00171 <span class="comment"> *                      barrier implementation&lt;/P&gt;</span>
+<a name="l00172"></a>00172 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;host:port- the port and ip</span>
+<a name="l00173"></a>00173 <span class="comment"> *                      address on which the server must listen on&lt;/P&gt;</span>
+<a name="l00174"></a>00174 <span class="comment"> *              &lt;/OL&gt;</span>
+<a name="l00175"></a>00175 <span class="comment"> *              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Run Y!LDA on the corpus:&lt;/P&gt;</span>
+<a name="l00176"></a>00176 <span class="comment"> *              &lt;OL&gt;</span>
+<a name="l00177"></a>00177 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;On every machine run&lt;/P&gt;</span>
+<a name="l00178"></a>00178 <span class="comment"> *          &lt;P&gt;&lt;CODE&gt;learntopics</span>
+<a name="l00179"></a>00179 <span class="comment"> *                      --topics=&amp;lt;#topics&amp;gt; --iter=&amp;lt;#iter&amp;gt;</span>
+<a name="l00180"></a>00180 <span class="comment"> *                      --servers=&amp;lt;list-of-servers&amp;gt; --chkptdir=&amp;quot;/tmp&amp;quot;</span>
+<a name="l00181"></a>00181 <span class="comment"> *                      --chkptinterval=10000&lt;/CODE&gt;&lt;/P&gt;</span>
+<a name="l00182"></a>00182 <span class="comment"> *                      &lt;OL&gt;</span>
+<a name="l00183"></a>00183 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&amp;lt;list-of-servers&amp;gt;: The</span>
+<a name="l00184"></a>00184 <span class="comment"> *                              comma separated list of ip:port numbers of the servers involved</span>
+<a name="l00185"></a>00185 <span class="comment"> *                              in the set-up. The index of the ip:port numbers should be as per</span>
+<a name="l00186"></a>00186 <span class="comment"> *                              the server_id parameter used in starting the server&lt;/P&gt;</span>
+<a name="l00187"></a>00187 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;chkptdir &amp;amp; chkptinterval:</span>
+<a name="l00188"></a>00188 <span class="comment"> *                              These are currently used only with the Hadoop set-up. Set</span>
+<a name="l00189"></a>00189 <span class="comment"> *                              chkptdir to something dummy. In order that the checkpointing code</span>
+<a name="l00190"></a>00190 <span class="comment"> *                              does not execute, set the chkptinterval to a very large value or</span>
+<a name="l00191"></a>00191 <span class="comment"> *                              some number greater than the number of iterations&lt;/P&gt;</span>
+<a name="l00192"></a>00192 <span class="comment"> *                      &lt;/OL&gt;</span>
+<a name="l00193"></a>00193 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Create Global Dictionary - Run</span>
+<a name="l00194"></a>00194 <span class="comment"> *                      the following on server with id 0.  Assuming learntopics was run</span>
+<a name="l00195"></a>00195 <span class="comment"> *                      in the folder /tmp/corpus&lt;/P&gt;</span>
+<a name="l00196"></a>00196 <span class="comment"> *                      &lt;OL&gt;</span>
+<a name="l00197"></a>00197 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt; &lt;CODE&gt;mkdir</span>
+<a name="l00198"></a>00198 <span class="comment"> *                              -p /tmp/corpus/global_dict; cd /tmp/corpus/global_dict;&lt;/CODE&gt;&lt;/P&gt;</span>
+<a name="l00199"></a>00199 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt; &lt;CODE&gt;scp</span>
+<a name="l00200"></a>00200 <span class="comment"> *                              server_i:/tmp/corpus/lda.dict.dump lda.dict.dump.i &lt;/CODE&gt;</span>
+<a name="l00201"></a>00201 <span class="comment"> *                              where the variable &#39;i&#39; is the same as the server_id.&lt;/P&gt;</span>
+<a name="l00202"></a>00202 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Merge Dictionaries&lt;BR&gt;</span>
+<a name="l00203"></a>00203 <span class="comment"> *                              &lt;CODE&gt;Merge_Dictionaries</span>
+<a name="l00204"></a>00204 <span class="comment"> *                              --dictionaries=m --dumpprefix=lda.dict.dump&lt;/CODE&gt;&lt;/P&gt;</span>
+<a name="l00205"></a>00205 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt; &lt;CODE&gt;mkdir</span>
+<a name="l00206"></a>00206 <span class="comment"> *                              -p ../global; mkdir -p ../global/topic_counts; cp lda.dict.dump</span>
+<a name="l00207"></a>00207 <span class="comment"> *                              ../global/;&lt;/CODE&gt; </span>
+<a name="l00208"></a>00208 <span class="comment"> *                              &lt;/P&gt;</span>
+<a name="l00209"></a>00209 <span class="comment"> *                      &lt;/OL&gt;</span>
+<a name="l00210"></a>00210 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Create a sharded Global</span>
+<a name="l00211"></a>00211 <span class="comment"> *                      Word-Topic Counts dump - Run on every machine in the set-up&lt;/P&gt;</span>
+<a name="l00212"></a>00212 <span class="comment"> *                      &lt;OL&gt;</span>
+<a name="l00213"></a>00213 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;mkdir</span>
+<a name="l00214"></a>00214 <span class="comment"> *                              -p /tmp/corpus/global_top_cnts; cd /tmp/corpus/global_top_cnts;&lt;/CODE&gt;&lt;/P&gt;</span>
+<a name="l00215"></a>00215 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;scp</span>
+<a name="l00216"></a>00216 <span class="comment"> *                              server_0:/tmp/corpus/global/lda.dict.dump lda.dict.dump.global&lt;/CODE&gt;&lt;/P&gt;</span>
+<a name="l00217"></a>00217 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;Merge_Topic_Counts</span>
+<a name="l00218"></a>00218 <span class="comment"> *                              --topics=&amp;lt;#topics&amp;gt; --clientid=&amp;lt;server-id&amp;gt;</span>
+<a name="l00219"></a>00219 <span class="comment"> *                              --servers=&amp;lt;list-of-servers&amp;gt;</span>
+<a name="l00220"></a>00220 <span class="comment"> *                              --globaldictionary=&amp;quot;lda.dict.dump.global&amp;quot;&lt;/CODE&gt;&lt;/P&gt;</span>
+<a name="l00221"></a>00221 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;scp</span>
+<a name="l00222"></a>00222 <span class="comment"> *                              lda.ttc.dump</span>
+<a name="l00223"></a>00223 <span class="comment"> *                              server_0:/tmp/corpus/global/topic_counts/lda.ttc.dump.$server-id&lt;/CODE&gt;&lt;/P&gt;</span>
+<a name="l00224"></a>00224 <span class="comment"> *                      &lt;/OL&gt;</span>
+<a name="l00225"></a>00225 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Copy the parameters dump file to</span>
+<a name="l00226"></a>00226 <span class="comment"> *                      global dump - Run on server_0&lt;/P&gt;</span>
+<a name="l00227"></a>00227 <span class="comment"> *                      &lt;OL&gt;</span>
+<a name="l00228"></a>00228 <span class="comment"> *                              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;cd</span>
+<a name="l00229"></a>00229 <span class="comment"> *                              /tmp/corpus; cp lda.par.dump global/topic_counts/lda.par.dump&lt;/CODE&gt;&lt;/P&gt;</span>
+<a name="l00230"></a>00230 <span class="comment"> *                      &lt;/OL&gt;</span>
+<a name="l00231"></a>00231 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;This completes training and the</span>
+<a name="l00232"></a>00232 <span class="comment"> *                      model is available on server_0:/tmp/corpus/global&lt;/P&gt;</span>
+<a name="l00233"></a>00233 <span class="comment"> *              &lt;/OL&gt;</span>
+<a name="l00234"></a>00234 <span class="comment"> *              &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;Running Y!LDA is test mode: Run</span>
+<a name="l00235"></a>00235 <span class="comment"> *              on server_0. Assuming test corpus is in /tmp/test_corpus&lt;/P&gt;</span>
+<a name="l00236"></a>00236 <span class="comment"> *              &lt;OL&gt;</span>
+<a name="l00237"></a>00237 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;cd</span>
+<a name="l00238"></a>00238 <span class="comment"> *                      /tmp/test_corpus;&lt;/CODE&gt; </span>
+<a name="l00239"></a>00239 <span class="comment"> *                      &lt;/P&gt;</span>
+<a name="l00240"></a>00240 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;cp</span>
+<a name="l00241"></a>00241 <span class="comment"> *                      -r ../corpus/global .&lt;/CODE&gt;&lt;/P&gt;</span>
+<a name="l00242"></a>00242 <span class="comment"> *                      &lt;LI&gt;&lt;P STYLE=&quot;margin-bottom: 0cm&quot;&gt;&lt;CODE&gt;learntopics</span>
+<a name="l00243"></a>00243 <span class="comment"> *                      -teststream --dumpprefix=global/topic_counts/lda --numdumps=m</span>
+<a name="l00244"></a>00244 <span class="comment"> *                      --dictionary=global/lda.dict.dump --maxmemory=2048</span>
+<a name="l00245"></a>00245 <span class="comment"> *                      --topics=&amp;lt;#topics&amp;gt;&lt;/CODE&gt;&lt;/P&gt;</span>
+<a name="l00246"></a>00246 <span class="comment"> *                      &lt;LI&gt;&lt;P ALIGN=JUSTIFY STYLE=&quot;margin-bottom: 0cm&quot;&gt;cat all your</span>
+<a name="l00247"></a>00247 <span class="comment"> *                      documents, in the same format that &#39;formatter&#39; expects, to the</span>
+<a name="l00248"></a>00248 <span class="comment"> *                      above command&#39;s stdin&lt;/P&gt;</span>
+<a name="l00249"></a>00249 <span class="comment"> *              &lt;/OL&gt;</span>
+<a name="l00250"></a>00250 <span class="comment"> *      &lt;/OL&gt;</span>
+<a name="l00251"></a>00251 <span class="comment"> * &lt;/OL&gt;</span>
+<a name="l00252"></a>00252 <span class="comment"> */</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Fri Jul 1 17:13:29 2011 for Y!LDA by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Jul 14 12:04:31 2011 for Y!LDA by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

@@ -7,7 +7,13 @@ import java.util.regex.Pattern;
 
 public class Tokenizer {
     public static final Pattern LEX_ALPHA = Pattern.compile ("\\p{Alpha}+");
-    
+
+    public static String clean(String text_line){
+        text_line = text_line.replaceAll("\\p{Punct}"," ");
+        text_line = text_line.replaceAll("\\p{Space}+", " ");
+        return text_line.toLowerCase().trim();
+    }
+   
     /**
      * @param args
      * @throws IOException 
@@ -30,7 +36,8 @@ public class Tokenizer {
             String label = s.substring(firstSpace+1,secSpace);
             String cont = s.substring(secSpace+1,s.length());
             StringBuffer sb = new StringBuffer(url + " " + label + " ");
-            
+
+	    cont = clean(cont);            
             Matcher matcher = LEX_ALPHA.matcher(cont.subSequence(0, cont.length()));
             String matchText = null;
             while(matcher.find()){

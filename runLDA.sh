@@ -13,7 +13,8 @@
 #   $8 : The number of topics to be learnt (default:1000)
 #   $9 : The number of iterations (default:1000)
 #   $10: Full hdfs path of LDALibs.jar (default:hdfs://mithrilblue-nn1.blue.ygrid.yahoo.com/user/shravanm/LDALibs.jar)
-#   $11: Output obtained when LDA used in training mode.
+#   $11: The number of machines to be used.
+#   $12: Output obtained when LDA used in training mode.
 #        To be used when test mode is used
 # output:
 #   Creates <#mappers> folders in <output-dir> one for each client.
@@ -27,14 +28,7 @@
 #   your input and provide the directory containing the gzip files as
 #   <input-dir>
 
-get_num_mappers(){
-  name=`expr $1 : "\(.*\)\..*"`;
-  ext=`expr $1 : "$name\.\(.*\)"`;
-  #echo $name $ext 1>&2;
-  if [ $ext ] && [ $ext == "gz" ]; then echo 1; return 1;
-  else num=`echo "($2 / $3) + 1" | bc`; echo $num; return $num;
-  fi;
-}
+. ./functions.sh
 
 model=$1;
 flags=$2;
@@ -54,81 +48,74 @@ if [ ! ${jar_file} ]; then
   exit 1;
 fi;
 shift
+num_machines=$9;
+if [ ! ${num_machines} ]; then
+  echo "You need to specify the number of machines to be used";
+  exit 1;
+fi;
+shift
 trained_data=$9;
 temp="temporary";
 mr_ulimit=`echo "$maxmem * 1000 + 1000" | bc`;
 user=`whoami`;
+HADOOP_CMD="${HADOOP_HOME+${HADOOP_HOME}/bin/}hadoop";
 
-num_mappers=0;
-block_size=134217728;
-mkdir -p /tmp/$user;
-hadoop dfs -ls $input >/tmp/$user/ls_out;
-while read line; do
-file=`echo $line | tr -s " " | cut -d' ' -f8`;
-if [ $file ]; then
-  size=`echo $line | tr -s " " | cut -d' ' -f5`;
-  cur_num_mappers=`get_num_mappers $file $size $block_size`;
-  num_mappers=`expr $num_mappers + $cur_num_mappers`;
-fi;
-done < /tmp/$user/ls_out;
-echo "Num Mappers : $num_mappers";
-if [ $num_mappers -gt 100 ]; then 
-  echo "/**********************************************************/";
-  echo "                    WARNING WARNING WARNING                 ";
-  echo "          Will try to use $num_mappers number of nodes      ";
-  echo " Please ensure your queue has enough slots (mostly 4 times) ";
-  echo "/**********************************************************/";
-fi;
-
+formatter_output="${output}_0"
 runformatter=1;
-`hadoop dfs -test -d "${output}_0"`
+`${HADOOP_CMD} dfs -test -d "${formatter_output}"`
 if [ $? -eq 0 ]; then
-#exists
-echo "A checkpointed directory exists. Do you want to start from this checkpoint?";
-read answer;
-if [ $answer == "yes" ]; then runformatter=0; fi
+  #exists
+  echo "A checkpointed directory exists. Do you want to start from this checkpoint?";
+  read answer;
+  if [ $answer == "yes" ]; then runformatter=0; fi
 fi;
 
 if [ $runformatter -eq 1 ]; then
-  hadoop dfs -rmr "${output}_0";
+  ${HADOOP_CMD} dfs -rmr "${formatter_output}";
   set -x;
-  hadoop jar $HADOOP_HOME/hadoop-streaming.jar \
+  ${HADOOP_CMD} jar $HADOOP_HOME/hadoop-streaming.jar \
   -Dmapred.job.queue.name=$queue \
-  -Dmapred.map.tasks.speculative.execution=false \
-  -Dmapred.job.map.memory.mb=${maxmem} \
-  -Dmapred.map.tasks=1 \
+  -Dmapred.reduce.tasks.speculative.execution=false \
+  -Dmapred.job.reduce.memory.mb=${maxmem} \
+  -Dmapred.reduce.tasks=1 \
   -Dmapred.child.ulimit=${mr_ulimit} \
   -Dmapred.task.timeout=1800000 \
-  -Dmapred.map.max.attempts=1 \
+  -Dmapred.reduce.max.attempts=1 \
   -Dmapreduce.job.acl-view-job="shravanm,smola" \
   -input $input \
-  -output "${output}_0" \
+  -output "${formatter_output}" \
   -cacheArchive ${jar_file}#LDALibs \
-  -mapper "Formatter.sh $model" \
+  -mapper "/bin/cat" \
+  -reducer "Formatter.sh $model \" \" ${trained_data}" \
   -file Formatter.sh \
   -file functions.sh \
-  -numReduceTasks 0;
+  -numReduceTasks ${num_machines};
   exit_code=$?;
   set +x;
   if [ $exit_code -ne 0 ]; then
     echo "Unable to run Formatter on your corpus";
     exit $exit_code;
   else
-    echo "Formatting complete. Formatted output stored at ${output}_0";
+    echo "Formatting complete. Formatted output stored at ${formatter_output}";
   fi;
-  hadoop dfs -rmr -skipTrash $output/part-* $output/temporary
+  ${HADOOP_CMD} dfs -rmr -skipTrash ${formatter_output}/part-*
 fi;
 
 mapper="";
 max_attempts=5;
+map_max_attempts=1;
+map_input="${formatter_output}/input";
 if [ $mode == "train" ]; then
   mapper="LDA.sh $model \" $flags \" ${topics} ${iters}";
 elif [ $mode == "test" ]; then
   mapper="LDA.sh $model \" $flags \" ${topics} ${iters} ${trained_data}";
   max_attemts=1;
-elif [ $mode == "teststream" ]; then
-  mapper="LDA.sh $model \" $flags \" ${topics} ${iters} ${trained_data} ${maxmem}";
-  max_attemts=1;
+  map_max_attempts=4;
+#elif [ $mode == "teststream" ]; then
+#  mapper="LDA.sh $model \" $flags \" ${topics} ${iters} ${trained_data} ${maxmem}";
+#  max_attemts=1;
+#  map_max_attempts=4;
+#  map_input=$input;
 fi;
 
 echo $mapper;
@@ -138,18 +125,18 @@ exit_code=0;
 while [ $cur_attempt -lt $max_attempts ];
 do
   echo "######################################## Attempt: $cur_attempt";
-  hadoop dfs -rmr $output;
+  ${HADOOP_CMD} dfs -rmr $output;
   set -x;
-  hadoop jar $HADOOP_HOME/hadoop-streaming.jar \
+  ${HADOOP_CMD} jar $HADOOP_HOME/hadoop-streaming.jar \
   -Dmapred.job.queue.name=$queue \
   -Dmapred.map.tasks.speculative.execution=false \
   -Dmapred.job.map.memory.mb=${maxmem} \
   -Dmapred.map.tasks=1 \
   -Dmapred.child.ulimit=${mr_ulimit} \
   -Dmapred.task.timeout=1800000 \
-  -Dmapred.map.max.attempts=1 \
+  -Dmapred.map.max.attempts=${map_max_attempts} \
   -Dmapreduce.job.acl-view-job="shravanm,smola" \
-  -input "${output}_0/input" \
+  -input "${map_input}" \
   -output $output \
   -cacheArchive ${jar_file}#LDALibs \
   -mapper "$mapper" \
@@ -159,7 +146,7 @@ do
   exit_code=$?;
   set +x;
   if [ $exit_code -eq 0 ]; then
-    hadoop dfs -rmr -skipTrash $output/part-* $output/temporary
+    ${HADOOP_CMD} dfs -rmr -skipTrash $output/part-*
     if [ $mode == "test" ]; then
       echo "Topic Assignmnents for the test documents have been produced using the provided model";
     elif [ $mode == "train" ]; then
