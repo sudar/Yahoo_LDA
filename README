@@ -1,1 +1,47 @@
-Please refer to the html or pdf documentation present at docs/html/index.html & docs/latex/refman.pdf respectively.
+The Yahoo_LDA project uses several 3rd party open source libraries and tools.
+
+This file summarizes the tools used, their purpose, and the licenses under which they're released. 
+
+Except as specifically stated below, the 3rd party software packages are not distributed as part of
+
+this project, but instead are separately downloaded and built on the developer’s machine as a 
+
+pre-build step. 
+
+* Ice-3.4.1 (GNU GENERAL PUBLIC LICENSE)
+* An efficient inter process communication framework which is used for the distributed storage of (topic, word) tables.
+* http://www.zeroc.com/
+
+* cppunit-1.12.1 (GNU LESSER GENERAL PUBLIC LICENSE)
+* C++ unit testing framework. We use this for unit tests.
+* http://cppunit.sourceforge.net
+
+* glog-0.3.0 (BSD)
+* Logfile generation (Google's log library).
+* http://code.google.com/p/google-glog/
+
+* mcpp-2.7.2 (BSD)
+* C++ preprocessor
+* http://mcpp.sourceforge.net/
+
+* tbb22_20090809oss (GNU GENERAL PUBLIC LICENSE)
+* Intel Threading Building Blocks. Multithreaded processing library. Much easier to use than pthreads. We use the pipeline class.
+* http://threadingbuildingblocks.org
+
+* bzip2-1.0.5 (BSD)
+* Data compression
+* http://www.bzip.org/
+
+* gflags-1.2 (BSD)
+* Google's flag processing library (used for commandline options) 
+* http://code.google.com/p/google-gflags/
+
+* protobuf-2.2.0a (BSD)
+* Protocol buffers (used for serializing data to disk and as internal key data structure). Google's serialization library 
+* http://code.google.com/p/protobuf/
+
+* boost-1.46.0 (Boost Software License - Version 1.0 - August 17th, 2003)
+* Boost Libraries (various datatypes)
+* http://www.boost.org/
+
+Please refer to the html or pdf documentation present at docs/html/index.html & docs/latex/refman.pdf respectively for more information.

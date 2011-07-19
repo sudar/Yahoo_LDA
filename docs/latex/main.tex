@@ -28,7 +28,7 @@ It provides a fast C++ implementation of the inferencing algorithm which can use
 
 The code has been mainly tested on the linux platform. If you want to install on other platforms, since the source and libraries along with source are provided, you can try compiling them and let us know if it works. \subsubsection*{Dependencies:}
 
-The code has dependencies on a number of libraries. To facilitate distribution we have shipped the code with the sources for the associated libraries. The following is the list: \par
+The code has dependencies on a number of libraries. To facilitate distribution we have hosted the libraries separately. The install script shipped with the code fetches the sources for the associated libraries and builds them on the developer's machine. The following is the list: \par
  
 \begin{DoxyEnumerate}
 \item 
@@ -67,7 +67,7 @@ The code has dependencies on a number of libraries. To facilitate distribution w
 
 {\bfseries tbb22\_\-20090809oss.tar.gz }\par
  Intel Threading Building Blocks. Multithreaded processing library. Much easier to use than pthreads. We use the pipeline class. 
-\end{DoxyEnumerate}All the libraries except Ice should install without problems. With Ice, there are a lot dependencies involved and our automated build script might not work in your set-\/up. If so please install Ice manually. \section*{How do you install?}
+\end{DoxyEnumerate}All the libraries except Ice should install without problems. With Ice, there are a lot dependencies involved and our automated build script might not work in your set-\/up. If so please install Ice manually and copy the required includes \& libs into the Yahoo\_\-LDA directory \section*{How do you install?}
 
 
 \begin{DoxyEnumerate}

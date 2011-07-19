@@ -24,163 +24,182 @@
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>src/Unigram_Model/TopicLearner/TypeTopicCounts.h</h1><a href="_type_topic_counts_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*****************************************************************************</span>
-<a name="l00002"></a>00002 <span class="comment">     The contents of this file are subject to the Mozilla Public License</span>
-<a name="l00003"></a>00003 <span class="comment">     Version 1.1 (the &quot;License&quot;); you may not use this file except in</span>
-<a name="l00004"></a>00004 <span class="comment">     compliance with the License. You may obtain a copy of the License at</span>
-<a name="l00005"></a>00005 <span class="comment">     http://www.mozilla.org/MPL/</span>
-<a name="l00006"></a>00006 <span class="comment"></span>
-<a name="l00007"></a>00007 <span class="comment">     Software distributed under the License is distributed on an &quot;AS IS&quot;</span>
-<a name="l00008"></a>00008 <span class="comment">     basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the</span>
-<a name="l00009"></a>00009 <span class="comment">     License for the specific language governing rights and limitations</span>
-<a name="l00010"></a>00010 <span class="comment">     under the License.</span>
-<a name="l00011"></a>00011 <span class="comment"></span>
-<a name="l00012"></a>00012 <span class="comment">     The Original Code is Copyright (C) by Yahoo! Research.</span>
-<a name="l00013"></a>00013 <span class="comment"></span>
-<a name="l00014"></a>00014 <span class="comment">     The Initial Developer of the Original Code is Shravan Narayanamurthy.</span>
-<a name="l00015"></a>00015 <span class="comment"></span>
-<a name="l00016"></a>00016 <span class="comment">     All Rights Reserved.</span>
-<a name="l00017"></a>00017 <span class="comment">******************************************************************************/</span>
-<a name="l00018"></a>00018 <span class="comment">/*</span>
-<a name="l00019"></a>00019 <span class="comment"> * TypeTopicCounts.h</span>
-<a name="l00020"></a>00020 <span class="comment"> * The Main class so to say which maintains the</span>
-<a name="l00021"></a>00021 <span class="comment"> * Word-Topic counts table (n(t,w)). This is just a wrapper</span>
-<a name="l00022"></a>00022 <span class="comment"> * around the TopicCounts structure that gives a</span>
-<a name="l00023"></a>00023 <span class="comment"> * sparse matrix view out of sparse vector(TopicCounts)</span>
-<a name="l00024"></a>00024 <span class="comment"> * Also note that the words are not strings but indexes</span>
-<a name="l00025"></a>00025 <span class="comment"> * which can be lookedup in the dictionary if needed.</span>
-<a name="l00026"></a>00026 <span class="comment"> * The protobuf file also stores the word indexes instead</span>
-<a name="l00027"></a>00027 <span class="comment"> * of words to save space</span>
-<a name="l00028"></a>00028 <span class="comment"> *</span>
-<a name="l00029"></a>00029 <span class="comment"> * It basically has 2 types of initializations:</span>
-<a name="l00030"></a>00030 <span class="comment"> * 1. Directly from the words &amp; Topics files (initialize_from_docs) Slow</span>
-<a name="l00031"></a>00031 <span class="comment"> * 2. From a binary dump produced by the dump() method (initialize_from_dump) Faster</span>
-<a name="l00032"></a>00032 <span class="comment"> *</span>
-<a name="l00033"></a>00033 <span class="comment"> * The basic structure maintains the for each unique word</span>
-<a name="l00034"></a>00034 <span class="comment"> * found in the corpus/dictionary the number of times</span>
-<a name="l00035"></a>00035 <span class="comment"> * each topic has been assigned. It supports multithreaded</span>
-<a name="l00036"></a>00036 <span class="comment"> * access with a per word locking granularity. Its designed</span>
-<a name="l00037"></a>00037 <span class="comment"> * to do fast updates. The locks are classified into read</span>
-<a name="l00038"></a>00038 <span class="comment"> * and write locks to minimize contention. The updates/setters</span>
-<a name="l00039"></a>00039 <span class="comment"> * hold a write lock and block further reads and writes on the</span>
-<a name="l00040"></a>00040 <span class="comment"> * locked word. The get_counts methods hold a read lock and allow</span>
-<a name="l00041"></a>00041 <span class="comment"> * other reads which are way more frequent as there are multiple</span>
-<a name="l00042"></a>00042 <span class="comment"> * sampler threads trying to read the topic counts whereas there</span>
-<a name="l00043"></a>00043 <span class="comment"> * is only a single thread updating in the single machine case</span>
-<a name="l00044"></a>00044 <span class="comment"> * and 2 background threads and the updater thread</span>
-<a name="l00045"></a>00045 <span class="comment"> * in the case of multi-machine code. Since update locks are</span>
-<a name="l00046"></a>00046 <span class="comment"> * expensive, we try to optimize updates.</span>
+<h1>src/Unigram_Model/TopicLearner/TypeTopicCounts.h</h1><a href="_type_topic_counts_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*******************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (c) 2011, Yahoo! Inc.</span>
+<a name="l00003"></a>00003 <span class="comment">    All rights reserved.</span>
+<a name="l00004"></a>00004 <span class="comment"></span>
+<a name="l00005"></a>00005 <span class="comment">    Redistribution and use of this software in source and binary forms, </span>
+<a name="l00006"></a>00006 <span class="comment">    with or without modification, are permitted provided that the following </span>
+<a name="l00007"></a>00007 <span class="comment">    conditions are met:</span>
+<a name="l00008"></a>00008 <span class="comment"></span>
+<a name="l00009"></a>00009 <span class="comment">    * Redistributions of source code must retain the above</span>
+<a name="l00010"></a>00010 <span class="comment">      copyright notice, this list of conditions and the</span>
+<a name="l00011"></a>00011 <span class="comment">      following disclaimer.</span>
+<a name="l00012"></a>00012 <span class="comment"></span>
+<a name="l00013"></a>00013 <span class="comment">    * Redistributions in binary form must reproduce the above</span>
+<a name="l00014"></a>00014 <span class="comment">      copyright notice, this list of conditions and the</span>
+<a name="l00015"></a>00015 <span class="comment">      following disclaimer in the documentation and/or other</span>
+<a name="l00016"></a>00016 <span class="comment">      materials provided with the distribution.</span>
+<a name="l00017"></a>00017 <span class="comment"></span>
+<a name="l00018"></a>00018 <span class="comment">    * Neither the name of Yahoo! Inc. nor the names of its</span>
+<a name="l00019"></a>00019 <span class="comment">      contributors may be used to endorse or promote products</span>
+<a name="l00020"></a>00020 <span class="comment">      derived from this software without specific prior</span>
+<a name="l00021"></a>00021 <span class="comment">      written permission of Yahoo! Inc.</span>
+<a name="l00022"></a>00022 <span class="comment"></span>
+<a name="l00023"></a>00023 <span class="comment">    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS </span>
+<a name="l00024"></a>00024 <span class="comment">    IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED </span>
+<a name="l00025"></a>00025 <span class="comment">    TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A </span>
+<a name="l00026"></a>00026 <span class="comment">    PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT </span>
+<a name="l00027"></a>00027 <span class="comment">    OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, </span>
+<a name="l00028"></a>00028 <span class="comment">    SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT </span>
+<a name="l00029"></a>00029 <span class="comment">    LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, </span>
+<a name="l00030"></a>00030 <span class="comment">    DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY </span>
+<a name="l00031"></a>00031 <span class="comment">    THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT </span>
+<a name="l00032"></a>00032 <span class="comment">    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE </span>
+<a name="l00033"></a>00033 <span class="comment">    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
+<a name="l00034"></a>00034 <span class="comment"></span>
+<a name="l00035"></a>00035 <span class="comment">    The Initial Developer of the Original Code is Shravan Narayanamurthy.</span>
+<a name="l00036"></a>00036 <span class="comment">******************************************************************************/</span>
+<a name="l00037"></a>00037 <span class="comment">/*</span>
+<a name="l00038"></a>00038 <span class="comment"> * TypeTopicCounts.h</span>
+<a name="l00039"></a>00039 <span class="comment"> * The Main class so to say which maintains the</span>
+<a name="l00040"></a>00040 <span class="comment"> * Word-Topic counts table (n(t,w)). This is just a wrapper</span>
+<a name="l00041"></a>00041 <span class="comment"> * around the TopicCounts structure that gives a</span>
+<a name="l00042"></a>00042 <span class="comment"> * sparse matrix view out of sparse vector(TopicCounts)</span>
+<a name="l00043"></a>00043 <span class="comment"> * Also note that the words are not strings but indexes</span>
+<a name="l00044"></a>00044 <span class="comment"> * which can be lookedup in the dictionary if needed.</span>
+<a name="l00045"></a>00045 <span class="comment"> * The protobuf file also stores the word indexes instead</span>
+<a name="l00046"></a>00046 <span class="comment"> * of words to save space</span>
 <a name="l00047"></a>00047 <span class="comment"> *</span>
-<a name="l00048"></a>00048 <span class="comment"> * The basic access pattern is assumed to be:</span>
-<a name="l00049"></a>00049 <span class="comment"> * Do get_counts on the reqd word.</span>
-<a name="l00050"></a>00050 <span class="comment"> * Update the counts thread locally and</span>
-<a name="l00051"></a>00051 <span class="comment"> * Update the shared table.</span>
-<a name="l00052"></a>00052 <span class="comment"> *</span>
-<a name="l00053"></a>00053 <span class="comment"> * So the basic design aim is to support multi-threaded reads and</span>
-<a name="l00054"></a>00054 <span class="comment"> * almost single threaded updates</span>
-<a name="l00055"></a>00055 <span class="comment"> *</span>
-<a name="l00056"></a>00056 <span class="comment"> * This also maintains the sum of topic counts across the corpus (n(t))</span>
-<a name="l00057"></a>00057 <span class="comment"> * However, there is no locking involved while doing this as it is</span>
-<a name="l00058"></a>00058 <span class="comment"> * declared as an array of tbb::atomics.</span>
-<a name="l00059"></a>00059 <span class="comment"> *</span>
-<a name="l00060"></a>00060 <span class="comment"> *  Created on: 24 Mar, 2009</span>
-<a name="l00061"></a>00061 <span class="comment"> *      </span>
-<a name="l00062"></a>00062 <span class="comment"> */</span>
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 <span class="preprocessor">#ifndef TYPETOPICCOUNTS_H_</span>
-<a name="l00065"></a>00065 <span class="preprocessor"></span><span class="preprocessor">#define TYPETOPICCOUNTS_H_</span>
-<a name="l00066"></a>00066 <span class="preprocessor"></span>
-<a name="l00067"></a>00067 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00068"></a>00068 <span class="preprocessor">#include &lt;exception&gt;</span>
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 <span class="preprocessor">#include &quot;<a class="code" href="_top_k_list_8h.html">TopKList.h</a>&quot;</span>
-<a name="l00073"></a>00073 <span class="preprocessor">#include &quot;tbb/atomic.h&quot;</span>
-<a name="l00074"></a>00074 <span class="preprocessor">#include &quot;<a class="code" href="_topic_counts_8h.html">TopicCounts.h</a>&quot;</span>
-<a name="l00075"></a>00075 <span class="preprocessor">#include &quot;<a class="code" href="_word_index_dictionary_8h.html">WordIndexDictionary.h</a>&quot;</span>
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077 <span class="keyword">using namespace </span>std;
-<a name="l00078"></a>00078 <span class="keyword">using namespace </span>tbb;
-<a name="l00079"></a>00079 <span class="keyword">using namespace </span>LDA;
-<a name="l00080"></a>00080 <span class="keyword">using namespace </span>boost;
-<a name="l00081"></a>00081 
-<a name="l00082"></a><a class="code" href="class_type_topic_counts.html">00082</a> <span class="keyword">class </span><a class="code" href="class_type_topic_counts.html">TypeTopicCounts</a> {
-<a name="l00083"></a>00083 <span class="keyword">public</span>:
-<a name="l00084"></a>00084     <span class="comment">/************* Init ************/</span>
-<a name="l00085"></a>00085     <a class="code" href="class_type_topic_counts.html#a461c45af231cb3a4c6c116eb9daa5ee5">TypeTopicCounts</a>();
-<a name="l00086"></a>00086     <a class="code" href="class_type_topic_counts.html#a461c45af231cb3a4c6c116eb9daa5ee5">TypeTopicCounts</a>(word_t num_words, topic_t <a class="code" href="class_type_topic_counts.html#a11093a2580f604279b5799ef494a8e66">num_topics</a>);
-<a name="l00087"></a>00087     <span class="keyword">virtual</span> <a class="code" href="class_type_topic_counts.html#a96bfd72683e9d117836c6118e62f2957">~TypeTopicCounts</a>();
+<a name="l00048"></a>00048 <span class="comment"> * It basically has 2 types of initializations:</span>
+<a name="l00049"></a>00049 <span class="comment"> * 1. Directly from the words &amp; Topics files (initialize_from_docs) Slow</span>
+<a name="l00050"></a>00050 <span class="comment"> * 2. From a binary dump produced by the dump() method (initialize_from_dump) Faster</span>
+<a name="l00051"></a>00051 <span class="comment"> *</span>
+<a name="l00052"></a>00052 <span class="comment"> * The basic structure maintains the for each unique word</span>
+<a name="l00053"></a>00053 <span class="comment"> * found in the corpus/dictionary the number of times</span>
+<a name="l00054"></a>00054 <span class="comment"> * each topic has been assigned. It supports multithreaded</span>
+<a name="l00055"></a>00055 <span class="comment"> * access with a per word locking granularity. Its designed</span>
+<a name="l00056"></a>00056 <span class="comment"> * to do fast updates. The locks are classified into read</span>
+<a name="l00057"></a>00057 <span class="comment"> * and write locks to minimize contention. The updates/setters</span>
+<a name="l00058"></a>00058 <span class="comment"> * hold a write lock and block further reads and writes on the</span>
+<a name="l00059"></a>00059 <span class="comment"> * locked word. The get_counts methods hold a read lock and allow</span>
+<a name="l00060"></a>00060 <span class="comment"> * other reads which are way more frequent as there are multiple</span>
+<a name="l00061"></a>00061 <span class="comment"> * sampler threads trying to read the topic counts whereas there</span>
+<a name="l00062"></a>00062 <span class="comment"> * is only a single thread updating in the single machine case</span>
+<a name="l00063"></a>00063 <span class="comment"> * and 2 background threads and the updater thread</span>
+<a name="l00064"></a>00064 <span class="comment"> * in the case of multi-machine code. Since update locks are</span>
+<a name="l00065"></a>00065 <span class="comment"> * expensive, we try to optimize updates.</span>
+<a name="l00066"></a>00066 <span class="comment"> *</span>
+<a name="l00067"></a>00067 <span class="comment"> * The basic access pattern is assumed to be:</span>
+<a name="l00068"></a>00068 <span class="comment"> * Do get_counts on the reqd word.</span>
+<a name="l00069"></a>00069 <span class="comment"> * Update the counts thread locally and</span>
+<a name="l00070"></a>00070 <span class="comment"> * Update the shared table.</span>
+<a name="l00071"></a>00071 <span class="comment"> *</span>
+<a name="l00072"></a>00072 <span class="comment"> * So the basic design aim is to support multi-threaded reads and</span>
+<a name="l00073"></a>00073 <span class="comment"> * almost single threaded updates</span>
+<a name="l00074"></a>00074 <span class="comment"> *</span>
+<a name="l00075"></a>00075 <span class="comment"> * This also maintains the sum of topic counts across the corpus (n(t))</span>
+<a name="l00076"></a>00076 <span class="comment"> * However, there is no locking involved while doing this as it is</span>
+<a name="l00077"></a>00077 <span class="comment"> * declared as an array of tbb::atomics.</span>
+<a name="l00078"></a>00078 <span class="comment"> *</span>
+<a name="l00079"></a>00079 <span class="comment"> *  Created on: 24 Mar, 2009</span>
+<a name="l00080"></a>00080 <span class="comment"> *      </span>
+<a name="l00081"></a>00081 <span class="comment"> */</span>
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 <span class="preprocessor">#ifndef TYPETOPICCOUNTS_H_</span>
+<a name="l00084"></a>00084 <span class="preprocessor"></span><span class="preprocessor">#define TYPETOPICCOUNTS_H_</span>
+<a name="l00085"></a>00085 <span class="preprocessor"></span>
+<a name="l00086"></a>00086 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00087"></a>00087 <span class="preprocessor">#include &lt;exception&gt;</span>
 <a name="l00088"></a>00088 
-<a name="l00089"></a>00089     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a1e51d6aa7ceb480b3b1e1a2e598a2486">initialize_from_docs</a>(<span class="keywordtype">string</span> wfname, <span class="keywordtype">string</span> tfname);
-<a name="l00090"></a>00090     <span class="keywordtype">int</span> <a class="code" href="class_type_topic_counts.html#adc1724643b2210fce240202fdfc5144c">verify_header</a>(<a class="code" href="class_document_reader.html">DocumentReader</a>&amp; doc_rdr);
-<a name="l00091"></a>00091     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a54768567ed8fbf4cd34f2ff7a5222190">initialize_from_string</a>(word_t word, <span class="keywordtype">string</span>&amp; counts);
-<a name="l00092"></a>00092     <span class="keywordtype">bool</span> <a class="code" href="class_type_topic_counts.html#a71ca87bf1f9cf612323f792594d3de29">initialize_from_dump</a>(<span class="keywordtype">string</span> fname,
-<a name="l00093"></a>00093             <a class="code" href="class_word_index_dictionary.html" title="A two way dictionary of words to indices.">WordIndexDictionary</a>* local_dict = NULL,
-<a name="l00094"></a>00094             <a class="code" href="class_word_index_dictionary.html" title="A two way dictionary of words to indices.">WordIndexDictionary</a>* global_dict = NULL, <span class="keywordtype">size_t</span> offset = 0);
-<a name="l00095"></a>00095     <span class="comment">//    void initialize_from_memcached(const char* servers, int cli_id, int num_clis, WordIndexDictionary* dict, int from, int to);</span>
-<a name="l00096"></a>00096     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#ae8c2f500e74a2f6a6bb1f6e830c66142">initialize_from_ttc</a>(<a class="code" href="class_type_topic_counts.html">TypeTopicCounts</a>* ttc);
-<a name="l00097"></a>00097     <span class="keyword">static</span> pair&lt;int, float&gt; <a class="code" href="class_type_topic_counts.html#a050a1b09ad130d2ac048511df424e53b">estimate_fit</a>(<span class="keywordtype">string</span> fname,
-<a name="l00098"></a>00098             <a class="code" href="class_word_index_dictionary.html" title="A two way dictionary of words to indices.">WordIndexDictionary</a>* dict);
-<a name="l00099"></a>00099     <span class="keyword">static</span> pair&lt;int, float&gt; <a class="code" href="class_type_topic_counts.html#a050a1b09ad130d2ac048511df424e53b">estimate_fit</a>(<span class="keywordtype">string</span> fname, <span class="keywordtype">float</span> used_memory,
-<a name="l00100"></a>00100             <span class="keywordtype">int</span>&amp; incoming_words);
-<a name="l00101"></a>00101     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#af81d800d17306cb9f53e5bfe0ba49094">estimate_alphas</a>(<span class="keywordtype">double</span>* alphas, <span class="keywordtype">double</span>&amp; alpha_sum);
-<a name="l00102"></a>00102     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#ad5b4a0efaccdf397d696ef3a59ff5bc5">dump</a>(<span class="keywordtype">string</span> fname);
-<a name="l00103"></a>00103     <span class="comment">/************* Init Ends ********/</span>
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105     <span class="comment">/************* Getters   ********/</span>
-<a name="l00106"></a>00106     topic_t <a class="code" href="class_type_topic_counts.html#af6811be58a729eed6909236f0c22c554">get_counts</a>(word_t word, <a class="code" href="struct_topic_counts.html">topicCounts</a>* tc);
-<a name="l00107"></a>00107     topic_t <a class="code" href="class_type_topic_counts.html#af6811be58a729eed6909236f0c22c554">get_counts</a>(atomic&lt;topic_t&gt;* tc);
-<a name="l00108"></a>00108 
-<a name="l00109"></a>00109     word_t <a class="code" href="class_type_topic_counts.html#a18f351c45c28ebc4be0f0d3df001fde4">get_num_words</a>();
-<a name="l00110"></a>00110     topic_t <a class="code" href="class_type_topic_counts.html#a443c1fcce5b88993cea9891137f9f5fa">get_num_topics</a>();
-<a name="l00111"></a>00111     word_mutex_t* <a class="code" href="class_type_topic_counts.html#a109fdf5a24f0dc898d828e5ebe55e34f">get_lock</a>(word_t word);
-<a name="l00112"></a>00112     pair&lt;TopKList**, TopKList*&gt; <a class="code" href="class_type_topic_counts.html#a0a41df650f7c2975f7517d02deb6d868">get_topic_stats</a>();
-<a name="l00113"></a>00113 
-<a name="l00114"></a>00114     <span class="comment">//    double model_loglikelihood();</span>
-<a name="l00115"></a>00115     <span class="comment">/************* Getters End********/</span>
-<a name="l00116"></a>00116 
-<a name="l00117"></a>00117     <span class="comment">/************* Setters    ********/</span>
-<a name="l00118"></a>00118     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a8d29734547e3cbe1936282967b62c9e7">replace</a>(word_t word, <a class="code" href="struct_topic_counts.html">topicCounts</a>&amp; tc);
-<a name="l00119"></a>00119     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a6ccff3b11d661503a45bc382411af9ad">upd_count</a>(word_t word, topic_t old_topic, topic_t new_topic,
-<a name="l00120"></a>00120             <span class="keywordtype">bool</span> ignore_old_topic = <span class="keyword">false</span>);
-<a name="l00121"></a>00121     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a6ccff3b11d661503a45bc382411af9ad">upd_count</a>(word_t word, <a class="code" href="types_8h.html#a4fed6ff282eca8f2c6ebdb4bc2e99e8b">mapped_vec</a> delta, <span class="keywordtype">string</span> dbg = <span class="stringliteral">&quot;&quot;</span>);
-<a name="l00122"></a>00122     <span class="comment">/************* Setters End********/</span>
+<a name="l00089"></a>00089 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 <span class="preprocessor">#include &quot;<a class="code" href="_top_k_list_8h.html">TopKList.h</a>&quot;</span>
+<a name="l00092"></a>00092 <span class="preprocessor">#include &quot;tbb/atomic.h&quot;</span>
+<a name="l00093"></a>00093 <span class="preprocessor">#include &quot;<a class="code" href="_topic_counts_8h.html">TopicCounts.h</a>&quot;</span>
+<a name="l00094"></a>00094 <span class="preprocessor">#include &quot;<a class="code" href="_word_index_dictionary_8h.html">WordIndexDictionary.h</a>&quot;</span>
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 <span class="keyword">using namespace </span>std;
+<a name="l00097"></a>00097 <span class="keyword">using namespace </span>tbb;
+<a name="l00098"></a>00098 <span class="keyword">using namespace </span>LDA;
+<a name="l00099"></a>00099 <span class="keyword">using namespace </span>boost;
+<a name="l00100"></a>00100 
+<a name="l00101"></a><a class="code" href="class_type_topic_counts.html">00101</a> <span class="keyword">class </span><a class="code" href="class_type_topic_counts.html">TypeTopicCounts</a> {
+<a name="l00102"></a>00102 <span class="keyword">public</span>:
+<a name="l00103"></a>00103     <span class="comment">/************* Init ************/</span>
+<a name="l00104"></a>00104     <a class="code" href="class_type_topic_counts.html#a461c45af231cb3a4c6c116eb9daa5ee5">TypeTopicCounts</a>();
+<a name="l00105"></a>00105     <a class="code" href="class_type_topic_counts.html#a461c45af231cb3a4c6c116eb9daa5ee5">TypeTopicCounts</a>(word_t num_words, topic_t <a class="code" href="class_type_topic_counts.html#a11093a2580f604279b5799ef494a8e66">num_topics</a>);
+<a name="l00106"></a>00106     <span class="keyword">virtual</span> <a class="code" href="class_type_topic_counts.html#a96bfd72683e9d117836c6118e62f2957">~TypeTopicCounts</a>();
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a1e51d6aa7ceb480b3b1e1a2e598a2486">initialize_from_docs</a>(<span class="keywordtype">string</span> wfname, <span class="keywordtype">string</span> tfname);
+<a name="l00109"></a>00109     <span class="keywordtype">int</span> <a class="code" href="class_type_topic_counts.html#adc1724643b2210fce240202fdfc5144c">verify_header</a>(<a class="code" href="class_document_reader.html">DocumentReader</a>&amp; doc_rdr);
+<a name="l00110"></a>00110     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a54768567ed8fbf4cd34f2ff7a5222190">initialize_from_string</a>(word_t word, <span class="keywordtype">string</span>&amp; counts);
+<a name="l00111"></a>00111     <span class="keywordtype">bool</span> <a class="code" href="class_type_topic_counts.html#a71ca87bf1f9cf612323f792594d3de29">initialize_from_dump</a>(<span class="keywordtype">string</span> fname,
+<a name="l00112"></a>00112             <a class="code" href="class_word_index_dictionary.html" title="A two way dictionary of words to indices.">WordIndexDictionary</a>* local_dict = NULL,
+<a name="l00113"></a>00113             <a class="code" href="class_word_index_dictionary.html" title="A two way dictionary of words to indices.">WordIndexDictionary</a>* global_dict = NULL, <span class="keywordtype">size_t</span> offset = 0);
+<a name="l00114"></a>00114     <span class="comment">//    void initialize_from_memcached(const char* servers, int cli_id, int num_clis, WordIndexDictionary* dict, int from, int to);</span>
+<a name="l00115"></a>00115     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#ae8c2f500e74a2f6a6bb1f6e830c66142">initialize_from_ttc</a>(<a class="code" href="class_type_topic_counts.html">TypeTopicCounts</a>* ttc);
+<a name="l00116"></a>00116     <span class="keyword">static</span> pair&lt;int, float&gt; <a class="code" href="class_type_topic_counts.html#a050a1b09ad130d2ac048511df424e53b">estimate_fit</a>(<span class="keywordtype">string</span> fname,
+<a name="l00117"></a>00117             <a class="code" href="class_word_index_dictionary.html" title="A two way dictionary of words to indices.">WordIndexDictionary</a>* dict);
+<a name="l00118"></a>00118     <span class="keyword">static</span> pair&lt;int, float&gt; <a class="code" href="class_type_topic_counts.html#a050a1b09ad130d2ac048511df424e53b">estimate_fit</a>(<span class="keywordtype">string</span> fname, <span class="keywordtype">float</span> used_memory,
+<a name="l00119"></a>00119             <span class="keywordtype">int</span>&amp; incoming_words);
+<a name="l00120"></a>00120     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#af81d800d17306cb9f53e5bfe0ba49094">estimate_alphas</a>(<span class="keywordtype">double</span>* alphas, <span class="keywordtype">double</span>&amp; alpha_sum);
+<a name="l00121"></a>00121     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#ad5b4a0efaccdf397d696ef3a59ff5bc5">dump</a>(<span class="keywordtype">string</span> fname);
+<a name="l00122"></a>00122     <span class="comment">/************* Init Ends ********/</span>
 <a name="l00123"></a>00123 
-<a name="l00124"></a>00124     <span class="comment">/************* Test &amp; Debug ********/</span>
-<a name="l00125"></a>00125     <span class="keywordtype">bool</span> <a class="code" href="class_type_topic_counts.html#aca203c070ed5c7338ebfe7b2b2574ae4">equal</a>(<span class="keyword">const</span> <a class="code" href="class_type_topic_counts.html">TypeTopicCounts</a>&amp; expected);
-<a name="l00126"></a>00126     <span class="keywordtype">string</span> <a class="code" href="class_type_topic_counts.html#a126d74c21ec8eda16a875711b9879f86">print</a>(word_t word);
-<a name="l00127"></a>00127     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a126d74c21ec8eda16a875711b9879f86">print</a>();
-<a name="l00128"></a>00128     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a0f6527f9f996e4e39859a6cb266ebf12">initialize</a>(<a class="code" href="struct_topic_counts.html">topicCounts</a>* wtc, atomic&lt;topic_t&gt;* tc, word_t word = 0);
-<a name="l00129"></a>00129     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a0f6527f9f996e4e39859a6cb266ebf12">initialize</a>(<a class="code" href="struct_topic_counts.html">topicCounts</a>** wtc, atomic&lt;topic_t&gt;* tc);
-<a name="l00130"></a>00130     <span class="comment">/************* Test &amp; Debug Ends ********/</span>
-<a name="l00131"></a>00131 
-<a name="l00132"></a>00132     <span class="keyword">friend</span> <span class="keyword">class </span>Ice_Synchronizer;
-<a name="l00133"></a><a class="code" href="class_type_topic_counts.html#a262cd29ee3b1d36569101e365d04b725">00133</a>     <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_type_topic_counts.html#a262cd29ee3b1d36569101e365d04b725">Memcached_Synchronizer</a>;
-<a name="l00134"></a>00134 
-<a name="l00135"></a>00135 <span class="keyword">protected</span>:
-<a name="l00136"></a><a class="code" href="class_type_topic_counts.html#ab1fcbc4b5558d7d8df4404d5db290e8d">00136</a>     atomic&lt;topic_t&gt; *<a class="code" href="class_type_topic_counts.html#ab1fcbc4b5558d7d8df4404d5db290e8d">tokens_per_topic</a>; <span class="comment">//n(t)</span>
-<a name="l00137"></a><a class="code" href="class_type_topic_counts.html#a11093a2580f604279b5799ef494a8e66">00137</a>     topic_t num_topics; <span class="comment">// The number of topics being learnt</span>
-<a name="l00138"></a><a class="code" href="class_type_topic_counts.html#a1fd0fdd37107d5837fe5cc78191f5e8a">00138</a>     <a class="code" href="class_top_k_list.html">TopKList</a> **<a class="code" href="class_type_topic_counts.html#a1fd0fdd37107d5837fe5cc78191f5e8a">topic_stats</a>, <span class="comment">//Topic Statistics per topic</span>
-<a name="l00139"></a>00139             *<a class="code" href="class_type_topic_counts.html#aa31724ba039f4e58d2ac2d3344b94d46">top_topics</a>; <span class="comment">//The hot/top topics</span>
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141 
-<a name="l00142"></a>00142     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#ab69a6701ed9e110f9c5ac25e933899ec">estimate_memoryn_warn</a>(<span class="keywordtype">long</span> num_elems);
-<a name="l00143"></a>00143     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a0e039d80803bd0d1310d8d34478651ec">clear_stats</a>();
-<a name="l00144"></a>00144     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a6eb9abe7c1ca5cfeaf15d49b910fd24f">init</a>(topic_t num_topics_);
-<a name="l00145"></a>00145     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a0ed91f07819b6534de5592d22e6278d3">destroy</a>();
-<a name="l00146"></a>00146 
-<a name="l00147"></a>00147 <span class="keyword">private</span>:
-<a name="l00148"></a>00148     <a class="code" href="struct_topic_counts.html">topicCounts</a> **wt; <span class="comment">//The pointer to and array of topicCounts one per word</span>
-<a name="l00149"></a>00149     word_mutex_t *word_mutexes; <span class="comment">//An array of locks one per word</span>
-<a name="l00150"></a>00150     word_t num_words; <span class="comment">//The num of unique words</span>
-<a name="l00151"></a>00151 
-<a name="l00152"></a>00152     <span class="keywordtype">bool</span> validate();
-<a name="l00153"></a>00153 };
-<a name="l00154"></a>00154 
-<a name="l00155"></a>00155 <span class="preprocessor">#endif </span><span class="comment">/* TYPETOPICCOUNTS_H_ */</span>
+<a name="l00124"></a>00124     <span class="comment">/************* Getters   ********/</span>
+<a name="l00125"></a>00125     topic_t <a class="code" href="class_type_topic_counts.html#af6811be58a729eed6909236f0c22c554">get_counts</a>(word_t word, <a class="code" href="struct_topic_counts.html">topicCounts</a>* tc);
+<a name="l00126"></a>00126     topic_t <a class="code" href="class_type_topic_counts.html#af6811be58a729eed6909236f0c22c554">get_counts</a>(atomic&lt;topic_t&gt;* tc);
+<a name="l00127"></a>00127 
+<a name="l00128"></a>00128     word_t <a class="code" href="class_type_topic_counts.html#a18f351c45c28ebc4be0f0d3df001fde4">get_num_words</a>();
+<a name="l00129"></a>00129     topic_t <a class="code" href="class_type_topic_counts.html#a443c1fcce5b88993cea9891137f9f5fa">get_num_topics</a>();
+<a name="l00130"></a>00130     word_mutex_t* <a class="code" href="class_type_topic_counts.html#a109fdf5a24f0dc898d828e5ebe55e34f">get_lock</a>(word_t word);
+<a name="l00131"></a>00131     pair&lt;TopKList**, TopKList*&gt; <a class="code" href="class_type_topic_counts.html#a0a41df650f7c2975f7517d02deb6d868">get_topic_stats</a>();
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133     <span class="comment">//    double model_loglikelihood();</span>
+<a name="l00134"></a>00134     <span class="comment">/************* Getters End********/</span>
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136     <span class="comment">/************* Setters    ********/</span>
+<a name="l00137"></a>00137     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a8d29734547e3cbe1936282967b62c9e7">replace</a>(word_t word, <a class="code" href="struct_topic_counts.html">topicCounts</a>&amp; tc);
+<a name="l00138"></a>00138     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a6ccff3b11d661503a45bc382411af9ad">upd_count</a>(word_t word, topic_t old_topic, topic_t new_topic,
+<a name="l00139"></a>00139             <span class="keywordtype">bool</span> ignore_old_topic = <span class="keyword">false</span>);
+<a name="l00140"></a>00140     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a6ccff3b11d661503a45bc382411af9ad">upd_count</a>(word_t word, <a class="code" href="types_8h.html#a4fed6ff282eca8f2c6ebdb4bc2e99e8b">mapped_vec</a> delta, <span class="keywordtype">string</span> dbg = <span class="stringliteral">&quot;&quot;</span>);
+<a name="l00141"></a>00141     <span class="comment">/************* Setters End********/</span>
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143     <span class="comment">/************* Test &amp; Debug ********/</span>
+<a name="l00144"></a>00144     <span class="keywordtype">bool</span> <a class="code" href="class_type_topic_counts.html#aca203c070ed5c7338ebfe7b2b2574ae4">equal</a>(<span class="keyword">const</span> <a class="code" href="class_type_topic_counts.html">TypeTopicCounts</a>&amp; expected);
+<a name="l00145"></a>00145     <span class="keywordtype">string</span> <a class="code" href="class_type_topic_counts.html#a126d74c21ec8eda16a875711b9879f86">print</a>(word_t word);
+<a name="l00146"></a>00146     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a126d74c21ec8eda16a875711b9879f86">print</a>();
+<a name="l00147"></a>00147     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a0f6527f9f996e4e39859a6cb266ebf12">initialize</a>(<a class="code" href="struct_topic_counts.html">topicCounts</a>* wtc, atomic&lt;topic_t&gt;* tc, word_t word = 0);
+<a name="l00148"></a>00148     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a0f6527f9f996e4e39859a6cb266ebf12">initialize</a>(<a class="code" href="struct_topic_counts.html">topicCounts</a>** wtc, atomic&lt;topic_t&gt;* tc);
+<a name="l00149"></a>00149     <span class="comment">/************* Test &amp; Debug Ends ********/</span>
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151     <span class="keyword">friend</span> <span class="keyword">class </span>Ice_Synchronizer;
+<a name="l00152"></a><a class="code" href="class_type_topic_counts.html#a262cd29ee3b1d36569101e365d04b725">00152</a>     <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_type_topic_counts.html#a262cd29ee3b1d36569101e365d04b725">Memcached_Synchronizer</a>;
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154 <span class="keyword">protected</span>:
+<a name="l00155"></a><a class="code" href="class_type_topic_counts.html#ab1fcbc4b5558d7d8df4404d5db290e8d">00155</a>     atomic&lt;topic_t&gt; *<a class="code" href="class_type_topic_counts.html#ab1fcbc4b5558d7d8df4404d5db290e8d">tokens_per_topic</a>; <span class="comment">//n(t)</span>
+<a name="l00156"></a><a class="code" href="class_type_topic_counts.html#a11093a2580f604279b5799ef494a8e66">00156</a>     topic_t num_topics; <span class="comment">// The number of topics being learnt</span>
+<a name="l00157"></a><a class="code" href="class_type_topic_counts.html#a1fd0fdd37107d5837fe5cc78191f5e8a">00157</a>     <a class="code" href="class_top_k_list.html">TopKList</a> **<a class="code" href="class_type_topic_counts.html#a1fd0fdd37107d5837fe5cc78191f5e8a">topic_stats</a>, <span class="comment">//Topic Statistics per topic</span>
+<a name="l00158"></a>00158             *<a class="code" href="class_type_topic_counts.html#aa31724ba039f4e58d2ac2d3344b94d46">top_topics</a>; <span class="comment">//The hot/top topics</span>
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160 
+<a name="l00161"></a>00161     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#ab69a6701ed9e110f9c5ac25e933899ec">estimate_memoryn_warn</a>(<span class="keywordtype">long</span> num_elems);
+<a name="l00162"></a>00162     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a0e039d80803bd0d1310d8d34478651ec">clear_stats</a>();
+<a name="l00163"></a>00163     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a6eb9abe7c1ca5cfeaf15d49b910fd24f">init</a>(topic_t num_topics_);
+<a name="l00164"></a>00164     <span class="keywordtype">void</span> <a class="code" href="class_type_topic_counts.html#a0ed91f07819b6534de5592d22e6278d3">destroy</a>();
+<a name="l00165"></a>00165 
+<a name="l00166"></a>00166 <span class="keyword">private</span>:
+<a name="l00167"></a>00167     <a class="code" href="struct_topic_counts.html">topicCounts</a> **wt; <span class="comment">//The pointer to and array of topicCounts one per word</span>
+<a name="l00168"></a>00168     word_mutex_t *word_mutexes; <span class="comment">//An array of locks one per word</span>
+<a name="l00169"></a>00169     word_t num_words; <span class="comment">//The num of unique words</span>
+<a name="l00170"></a>00170 
+<a name="l00171"></a>00171     <span class="keywordtype">bool</span> validate();
+<a name="l00172"></a>00172 };
+<a name="l00173"></a>00173 
+<a name="l00174"></a>00174 <span class="preprocessor">#endif </span><span class="comment">/* TYPETOPICCOUNTS_H_ */</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Jul 14 12:04:31 2011 for Y!LDA by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Tue Jul 19 11:45:24 2011 for Y!LDA by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

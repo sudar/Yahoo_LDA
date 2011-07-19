@@ -9,9 +9,9 @@ export OTHERS=-MMD -MP
 LIBS=-lprotobuf -ltbb -lcppunit -lpthread -lgflags -lglog -lIce -lIceUtil -lrt
 
 all: compile link
+	chmod +x learntopics formatter DM_Server Merge_Dictionaries Merge_Topic_Counts
 
 compile: libraries children
-	chmod +x learntopics formatter DM_Server Merge_Dictionaries Merge_Topic_Counts
 
 children:
 	$(MAKE) -C src all

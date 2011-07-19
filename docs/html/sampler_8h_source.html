@@ -24,79 +24,98 @@
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>src/Unigram_Model/TopicLearner/sampler.h</h1><a href="sampler_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*****************************************************************************</span>
-<a name="l00002"></a>00002 <span class="comment">     The contents of this file are subject to the Mozilla Public License</span>
-<a name="l00003"></a>00003 <span class="comment">     Version 1.1 (the &quot;License&quot;); you may not use this file except in</span>
-<a name="l00004"></a>00004 <span class="comment">     compliance with the License. You may obtain a copy of the License at</span>
-<a name="l00005"></a>00005 <span class="comment">     http://www.mozilla.org/MPL/</span>
-<a name="l00006"></a>00006 <span class="comment"></span>
-<a name="l00007"></a>00007 <span class="comment">     Software distributed under the License is distributed on an &quot;AS IS&quot;</span>
-<a name="l00008"></a>00008 <span class="comment">     basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the</span>
-<a name="l00009"></a>00009 <span class="comment">     License for the specific language governing rights and limitations</span>
-<a name="l00010"></a>00010 <span class="comment">     under the License.</span>
-<a name="l00011"></a>00011 <span class="comment"></span>
-<a name="l00012"></a>00012 <span class="comment">     The Original Code is Copyright (C) by Yahoo! Research.</span>
-<a name="l00013"></a>00013 <span class="comment"></span>
-<a name="l00014"></a>00014 <span class="comment">     The Initial Developer of the Original Code is Shravan Narayanamurthy.</span>
-<a name="l00015"></a>00015 <span class="comment"></span>
-<a name="l00016"></a>00016 <span class="comment">     All Rights Reserved.</span>
-<a name="l00017"></a>00017 <span class="comment">******************************************************************************/</span>
-<a name="l00018"></a>00018 <span class="comment">/*</span>
-<a name="l00019"></a>00019 <span class="comment"> * sampler.h</span>
-<a name="l00020"></a>00020 <span class="comment"> *</span>
-<a name="l00021"></a>00021 <span class="comment"> * The sampling function which samples the</span>
-<a name="l00022"></a>00022 <span class="comment"> * new topic assignment using the collapsed</span>
-<a name="l00023"></a>00023 <span class="comment"> * Gibbs Sampler approach. It takes in the</span>
-<a name="l00024"></a>00024 <span class="comment"> * topic counts for the current word, the</span>
-<a name="l00025"></a>00025 <span class="comment"> * local topic counts for the document being</span>
-<a name="l00026"></a>00026 <span class="comment"> * processed and Abar, Bbar &amp; Ccached</span>
-<a name="l00027"></a>00027 <span class="comment"> *</span>
-<a name="l00028"></a>00028 <span class="comment"> * The procedure is simple. It computes C(t)</span>
-<a name="l00029"></a>00029 <span class="comment"> * and Cbar. It then generates a</span>
-<a name="l00030"></a>00030 <span class="comment"> * random number using the uniform RNG passed</span>
-<a name="l00031"></a>00031 <span class="comment"> * in. It scales the number by Abar + Bbar + Cbar</span>
-<a name="l00032"></a>00032 <span class="comment"> * It checks to which probability mass the number</span>
-<a name="l00033"></a>00033 <span class="comment"> * generated belongs. Based on that samples the</span>
-<a name="l00034"></a>00034 <span class="comment"> * topic responsible for generating this number</span>
-<a name="l00035"></a>00035 <span class="comment"> *</span>
-<a name="l00036"></a>00036 <span class="comment"> *  Created on: 24 Apr, 2009</span>
-<a name="l00037"></a>00037 <span class="comment"> *      </span>
-<a name="l00038"></a>00038 <span class="comment"> */</span>
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 <span class="preprocessor">#ifndef SAMPLER_H_</span>
-<a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">#define SAMPLER_H_</span>
-<a name="l00042"></a>00042 <span class="preprocessor"></span>
-<a name="l00043"></a>00043 <span class="preprocessor">#include &quot;<a class="code" href="constants_8h.html">constants.h</a>&quot;</span>
-<a name="l00044"></a>00044 <span class="preprocessor">#include &lt;boost/random/variate_generator.hpp&gt;</span>
-<a name="l00045"></a>00045 <span class="preprocessor">#include &lt;boost/random/uniform_real.hpp&gt;</span>
-<a name="l00046"></a>00046 <span class="preprocessor">#include &quot;tbb/atomic.h&quot;</span>
-<a name="l00047"></a>00047 <span class="preprocessor">#include &quot;<a class="code" href="_topic_counts_8h.html">TopicCounts.h</a>&quot;</span>
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 <span class="keyword">using namespace </span>boost;
-<a name="l00050"></a>00050 <span class="keyword">using namespace </span>tbb;
-<a name="l00051"></a>00051 <span class="keyword">namespace </span>sampler {
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 topic_t
-<a name="l00054"></a>00054         <a class="code" href="namespacesampler.html#a5e94e46fa64275d6575d568932f827be">sample</a>(
-<a name="l00055"></a>00055                 <span class="keyword">const</span> <a class="code" href="struct_topic_counts.html">topicCounts</a>* currentTypeTopicCounts,
-<a name="l00056"></a>00056                 <span class="keyword">const</span> topic_t old_topic,
-<a name="l00057"></a>00057                 <span class="keyword">const</span> atomic&lt;topic_t&gt;* tokens_per_topic,
-<a name="l00058"></a>00058                 <span class="keyword">const</span> topic_t* loca_topic_counts,
-<a name="l00059"></a>00059                 <span class="keyword">const</span> topic_t* loca_topic_index,
-<a name="l00060"></a>00060                 <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; non_zero_topics,
-<a name="l00061"></a>00061                 <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; smoothingOnlyMass,
-<a name="l00062"></a>00062                 <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; topicBetaMass,
-<a name="l00063"></a>00063                 <span class="keyword">const</span> <span class="keywordtype">double</span>* cachedCoefficients,
-<a name="l00064"></a>00064                 <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; betaSum,
-<a name="l00065"></a>00065                 <span class="keyword">const</span> <span class="keywordtype">double</span>* alpha,
-<a name="l00066"></a>00066                 <span class="keywordtype">double</span>* topic_term_scores,
-<a name="l00067"></a>00067                 <span class="keyword">const</span> topic_t&amp; numTopics,
-<a name="l00068"></a>00068                 variate_generator&lt;<a class="code" href="types_8h.html#a17e4235145adf580fbfd1b811467e3b9">base_generator_type</a>&amp;, boost::uniform_real&lt;&gt; &gt;* unif01);
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 } <span class="comment">// namespace sampler</span>
-<a name="l00071"></a>00071 <span class="preprocessor">#endif </span><span class="comment">/* SAMPLER_H_ */</span>
+<h1>src/Unigram_Model/TopicLearner/sampler.h</h1><a href="sampler_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*******************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (c) 2011, Yahoo! Inc.</span>
+<a name="l00003"></a>00003 <span class="comment">    All rights reserved.</span>
+<a name="l00004"></a>00004 <span class="comment"></span>
+<a name="l00005"></a>00005 <span class="comment">    Redistribution and use of this software in source and binary forms, </span>
+<a name="l00006"></a>00006 <span class="comment">    with or without modification, are permitted provided that the following </span>
+<a name="l00007"></a>00007 <span class="comment">    conditions are met:</span>
+<a name="l00008"></a>00008 <span class="comment"></span>
+<a name="l00009"></a>00009 <span class="comment">    * Redistributions of source code must retain the above</span>
+<a name="l00010"></a>00010 <span class="comment">      copyright notice, this list of conditions and the</span>
+<a name="l00011"></a>00011 <span class="comment">      following disclaimer.</span>
+<a name="l00012"></a>00012 <span class="comment"></span>
+<a name="l00013"></a>00013 <span class="comment">    * Redistributions in binary form must reproduce the above</span>
+<a name="l00014"></a>00014 <span class="comment">      copyright notice, this list of conditions and the</span>
+<a name="l00015"></a>00015 <span class="comment">      following disclaimer in the documentation and/or other</span>
+<a name="l00016"></a>00016 <span class="comment">      materials provided with the distribution.</span>
+<a name="l00017"></a>00017 <span class="comment"></span>
+<a name="l00018"></a>00018 <span class="comment">    * Neither the name of Yahoo! Inc. nor the names of its</span>
+<a name="l00019"></a>00019 <span class="comment">      contributors may be used to endorse or promote products</span>
+<a name="l00020"></a>00020 <span class="comment">      derived from this software without specific prior</span>
+<a name="l00021"></a>00021 <span class="comment">      written permission of Yahoo! Inc.</span>
+<a name="l00022"></a>00022 <span class="comment"></span>
+<a name="l00023"></a>00023 <span class="comment">    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS </span>
+<a name="l00024"></a>00024 <span class="comment">    IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED </span>
+<a name="l00025"></a>00025 <span class="comment">    TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A </span>
+<a name="l00026"></a>00026 <span class="comment">    PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT </span>
+<a name="l00027"></a>00027 <span class="comment">    OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, </span>
+<a name="l00028"></a>00028 <span class="comment">    SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT </span>
+<a name="l00029"></a>00029 <span class="comment">    LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, </span>
+<a name="l00030"></a>00030 <span class="comment">    DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY </span>
+<a name="l00031"></a>00031 <span class="comment">    THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT </span>
+<a name="l00032"></a>00032 <span class="comment">    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE </span>
+<a name="l00033"></a>00033 <span class="comment">    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
+<a name="l00034"></a>00034 <span class="comment"></span>
+<a name="l00035"></a>00035 <span class="comment">    The Initial Developer of the Original Code is Shravan Narayanamurthy.</span>
+<a name="l00036"></a>00036 <span class="comment">******************************************************************************/</span>
+<a name="l00037"></a>00037 <span class="comment">/*</span>
+<a name="l00038"></a>00038 <span class="comment"> * sampler.h</span>
+<a name="l00039"></a>00039 <span class="comment"> *</span>
+<a name="l00040"></a>00040 <span class="comment"> * The sampling function which samples the</span>
+<a name="l00041"></a>00041 <span class="comment"> * new topic assignment using the collapsed</span>
+<a name="l00042"></a>00042 <span class="comment"> * Gibbs Sampler approach. It takes in the</span>
+<a name="l00043"></a>00043 <span class="comment"> * topic counts for the current word, the</span>
+<a name="l00044"></a>00044 <span class="comment"> * local topic counts for the document being</span>
+<a name="l00045"></a>00045 <span class="comment"> * processed and Abar, Bbar &amp; Ccached</span>
+<a name="l00046"></a>00046 <span class="comment"> *</span>
+<a name="l00047"></a>00047 <span class="comment"> * The procedure is simple. It computes C(t)</span>
+<a name="l00048"></a>00048 <span class="comment"> * and Cbar. It then generates a</span>
+<a name="l00049"></a>00049 <span class="comment"> * random number using the uniform RNG passed</span>
+<a name="l00050"></a>00050 <span class="comment"> * in. It scales the number by Abar + Bbar + Cbar</span>
+<a name="l00051"></a>00051 <span class="comment"> * It checks to which probability mass the number</span>
+<a name="l00052"></a>00052 <span class="comment"> * generated belongs. Based on that samples the</span>
+<a name="l00053"></a>00053 <span class="comment"> * topic responsible for generating this number</span>
+<a name="l00054"></a>00054 <span class="comment"> *</span>
+<a name="l00055"></a>00055 <span class="comment"> *  Created on: 24 Apr, 2009</span>
+<a name="l00056"></a>00056 <span class="comment"> *      </span>
+<a name="l00057"></a>00057 <span class="comment"> */</span>
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="preprocessor">#ifndef SAMPLER_H_</span>
+<a name="l00060"></a>00060 <span class="preprocessor"></span><span class="preprocessor">#define SAMPLER_H_</span>
+<a name="l00061"></a>00061 <span class="preprocessor"></span>
+<a name="l00062"></a>00062 <span class="preprocessor">#include &quot;<a class="code" href="constants_8h.html">constants.h</a>&quot;</span>
+<a name="l00063"></a>00063 <span class="preprocessor">#include &lt;boost/random/variate_generator.hpp&gt;</span>
+<a name="l00064"></a>00064 <span class="preprocessor">#include &lt;boost/random/uniform_real.hpp&gt;</span>
+<a name="l00065"></a>00065 <span class="preprocessor">#include &quot;tbb/atomic.h&quot;</span>
+<a name="l00066"></a>00066 <span class="preprocessor">#include &quot;<a class="code" href="_topic_counts_8h.html">TopicCounts.h</a>&quot;</span>
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 <span class="keyword">using namespace </span>boost;
+<a name="l00069"></a>00069 <span class="keyword">using namespace </span>tbb;
+<a name="l00070"></a>00070 <span class="keyword">namespace </span>sampler {
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 topic_t
+<a name="l00073"></a>00073         <a class="code" href="namespacesampler.html#a5e94e46fa64275d6575d568932f827be">sample</a>(
+<a name="l00074"></a>00074                 <span class="keyword">const</span> <a class="code" href="struct_topic_counts.html">topicCounts</a>* currentTypeTopicCounts,
+<a name="l00075"></a>00075                 <span class="keyword">const</span> topic_t old_topic,
+<a name="l00076"></a>00076                 <span class="keyword">const</span> atomic&lt;topic_t&gt;* tokens_per_topic,
+<a name="l00077"></a>00077                 <span class="keyword">const</span> topic_t* loca_topic_counts,
+<a name="l00078"></a>00078                 <span class="keyword">const</span> topic_t* loca_topic_index,
+<a name="l00079"></a>00079                 <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; non_zero_topics,
+<a name="l00080"></a>00080                 <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; smoothingOnlyMass,
+<a name="l00081"></a>00081                 <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; topicBetaMass,
+<a name="l00082"></a>00082                 <span class="keyword">const</span> <span class="keywordtype">double</span>* cachedCoefficients,
+<a name="l00083"></a>00083                 <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; betaSum,
+<a name="l00084"></a>00084                 <span class="keyword">const</span> <span class="keywordtype">double</span>* alpha,
+<a name="l00085"></a>00085                 <span class="keywordtype">double</span>* topic_term_scores,
+<a name="l00086"></a>00086                 <span class="keyword">const</span> topic_t&amp; numTopics,
+<a name="l00087"></a>00087                 variate_generator&lt;<a class="code" href="types_8h.html#a17e4235145adf580fbfd1b811467e3b9">base_generator_type</a>&amp;, boost::uniform_real&lt;&gt; &gt;* unif01);
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 } <span class="comment">// namespace sampler</span>
+<a name="l00090"></a>00090 <span class="preprocessor">#endif </span><span class="comment">/* SAMPLER_H_ */</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Jul 14 12:04:31 2011 for Y!LDA by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Tue Jul 19 11:45:24 2011 for Y!LDA by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

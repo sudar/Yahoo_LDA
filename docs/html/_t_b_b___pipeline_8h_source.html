@@ -24,84 +24,103 @@
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>src/commons/TopicLearner/TBB_Pipeline.h</h1><a href="_t_b_b___pipeline_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*****************************************************************************</span>
-<a name="l00002"></a>00002 <span class="comment">     The contents of this file are subject to the Mozilla Public License</span>
-<a name="l00003"></a>00003 <span class="comment">     Version 1.1 (the &quot;License&quot;); you may not use this file except in</span>
-<a name="l00004"></a>00004 <span class="comment">     compliance with the License. You may obtain a copy of the License at</span>
-<a name="l00005"></a>00005 <span class="comment">     http://www.mozilla.org/MPL/</span>
-<a name="l00006"></a>00006 <span class="comment"></span>
-<a name="l00007"></a>00007 <span class="comment">     Software distributed under the License is distributed on an &quot;AS IS&quot;</span>
-<a name="l00008"></a>00008 <span class="comment">     basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the</span>
-<a name="l00009"></a>00009 <span class="comment">     License for the specific language governing rights and limitations</span>
-<a name="l00010"></a>00010 <span class="comment">     under the License.</span>
-<a name="l00011"></a>00011 <span class="comment"></span>
-<a name="l00012"></a>00012 <span class="comment">     The Original Code is Copyright (C) by Yahoo! Research.</span>
-<a name="l00013"></a>00013 <span class="comment"></span>
-<a name="l00014"></a>00014 <span class="comment">     The Initial Developer of the Original Code is Shravan Narayanamurthy.</span>
-<a name="l00015"></a>00015 <span class="comment"></span>
-<a name="l00016"></a>00016 <span class="comment">     All Rights Reserved.</span>
-<a name="l00017"></a>00017 <span class="comment">******************************************************************************/</span>
-<a name="l00018"></a>00018 <span class="comment">/*</span>
-<a name="l00019"></a>00019 <span class="comment"> * TBB_Pipeline.h</span>
-<a name="l00020"></a>00020 <span class="comment"> *</span>
-<a name="l00021"></a>00021 <span class="comment"> *</span>
-<a name="l00022"></a>00022 <span class="comment"> *  Created on: 04-Jan-2011</span>
-<a name="l00023"></a>00023 <span class="comment"> *      </span>
-<a name="l00024"></a>00024 <span class="comment"> */</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="preprocessor">#ifndef TBB_PIPELINE_H_</span>
-<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#define TBB_PIPELINE_H_</span>
-<a name="l00028"></a>00028 <span class="preprocessor"></span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="_pipeline_8h.html">Pipeline.h</a>&quot;</span>
-<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;tbb/task_scheduler_init.h&quot;</span>
-<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;tbb/pipeline.h&quot;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="_model___refiner_8h.html">Model_Refiner.h</a>&quot;</span>
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keyword">using namespace </span>tbb;
-<a name="l00035"></a>00035 <span class="comment"></span>
-<a name="l00036"></a>00036 <span class="comment">//!An implementation of the Pipeline interface using</span>
-<a name="l00037"></a>00037 <span class="comment">//!Intel&#39;s Threading Building Blocks.</span>
-<a name="l00038"></a>00038 <span class="comment"></span><span class="comment">/**</span>
-<a name="l00039"></a>00039 <span class="comment"> * TBB::filter is the basic unit of computation and TBB::Pipeline</span>
-<a name="l00040"></a>00040 <span class="comment"> * puts the filters together.</span>
-<a name="l00041"></a>00041 <span class="comment"> *</span>
-<a name="l00042"></a>00042 <span class="comment"> * What filters exist in a pipeline and how the pipeline</span>
-<a name="l00043"></a>00043 <span class="comment"> * is executed is implemented via an Execution Strategy</span>
-<a name="l00044"></a>00044 <span class="comment"> *</span>
-<a name="l00045"></a>00045 <span class="comment"> * Calling each of the add methods adds that particular</span>
-<a name="l00046"></a>00046 <span class="comment"> * filter to the pipeline</span>
-<a name="l00047"></a>00047 <span class="comment"> */</span>
-<a name="l00048"></a><a class="code" href="class_t_b_b___pipeline.html">00048</a> <span class="keyword">class </span><a class="code" href="class_t_b_b___pipeline.html">TBB_Pipeline</a>: <span class="keyword">public</span> <a class="code" href="class_pipeline.html" title="An interface that all pipeline objects must implement.">Pipeline</a> {
-<a name="l00049"></a>00049 <span class="keyword">public</span>:
-<a name="l00050"></a>00050     <a class="code" href="class_t_b_b___pipeline.html#a561ce191121bc84b60f10e37f68a98ba">TBB_Pipeline</a>(<a class="code" href="class_model___refiner.html">Model_Refiner</a>&amp;);
-<a name="l00051"></a>00051     <span class="keyword">virtual</span> <a class="code" href="class_t_b_b___pipeline.html#a65557a5775e20adea05413e6d61a0395">~TBB_Pipeline</a>();
-<a name="l00052"></a>00052     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#aa4730c25bfcb3a817452024c7d77006f">init</a>();
-<a name="l00053"></a>00053     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a80c9dfeac28acbbfd58bb74667aed6c0">add_reader</a>();
-<a name="l00054"></a>00054     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a366b2c3a7c457132fdf1e37e4176cc2a">add_sampler</a>();
-<a name="l00055"></a>00055     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a510fca80eb5804ab4a3fd102e008b166">add_updater</a>();
-<a name="l00056"></a>00056     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a69754a3a67b889f107a09cb54a86aa99">add_optimizer</a>();
-<a name="l00057"></a>00057     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a8e0e2d2172adea44eceecb7538a69435">add_eval</a>();
-<a name="l00058"></a>00058     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#ae6c06e4aa81d4141810fe48af846357a">add_writer</a>();
-<a name="l00059"></a>00059     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a08d85d063aa95ccc7ff3b637ca626376">add_tester</a>();
-<a name="l00060"></a>00060     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#abff2c28ffcec8d6483ab5e5fae829600">clear</a>();
-<a name="l00061"></a>00061     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#aeaa444a64c92dbf4a3e81ba4864d5086">destroy</a>();
-<a name="l00062"></a>00062     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a8f7d9f64786ae4269e213bcefab17d2f">run</a>();
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064     <a class="code" href="class_model___refiner.html">Model_Refiner</a>&amp; <a class="code" href="class_t_b_b___pipeline.html#aa1880e8333868d0d0d15edf202cd6a03">get_refiner</a>();
-<a name="l00065"></a>00065     <span class="keywordtype">double</span> <a class="code" href="class_t_b_b___pipeline.html#aaa0d5fa5c3095a21692e20763a79d11f">get_eval</a>();
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 <span class="keyword">protected</span>:
-<a name="l00068"></a><a class="code" href="class_t_b_b___pipeline.html#a5afa7b7dd6ea345daf478a30ae856a01">00068</a>     task_scheduler_init <a class="code" href="class_t_b_b___pipeline.html#a5afa7b7dd6ea345daf478a30ae856a01">_init</a>;
-<a name="l00069"></a><a class="code" href="class_t_b_b___pipeline.html#a71a2339f6141d223b204d5cb710b380d">00069</a>     tbb::pipeline* <a class="code" href="class_t_b_b___pipeline.html#a71a2339f6141d223b204d5cb710b380d">_pipeline</a>;
-<a name="l00070"></a><a class="code" href="class_t_b_b___pipeline.html#a429639439a653192fbb488fa2b9e7fc1">00070</a>     <a class="code" href="class_model___refiner.html">Model_Refiner</a>&amp; <a class="code" href="class_t_b_b___pipeline.html#a429639439a653192fbb488fa2b9e7fc1">_refiner</a>;
-<a name="l00071"></a>00071 
-<a name="l00072"></a><a class="code" href="class_t_b_b___pipeline.html#a4da76c6cef0601a18612938486a0324b">00072</a>     filter *<a class="code" href="class_t_b_b___pipeline.html#aee550ec35ad5fce3fe82a171334e17b0">_reader</a>, *<a class="code" href="class_t_b_b___pipeline.html#a67ef0e2e97fda0e3a417c7c06eeebb5e">_sampler</a>, *<a class="code" href="class_t_b_b___pipeline.html#a78a0c5508945e6e7f8b1683cb392ff6b">_updater</a>, *<a class="code" href="class_t_b_b___pipeline.html#aa1ee5801dbd1747a71d5e0ea09e8e4fe">_optimizer</a>, *<a class="code" href="class_t_b_b___pipeline.html#a1587eefcdc92c74bc6f3960c1a8ee229">_eval</a>, *<a class="code" href="class_t_b_b___pipeline.html#a4da76c6cef0601a18612938486a0324b">_writer</a>,
-<a name="l00073"></a>00073             *<a class="code" href="class_t_b_b___pipeline.html#a846043268728c75f49907f1f06d25be8">_tester</a>;
-<a name="l00074"></a>00074 };
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076 <span class="preprocessor">#endif </span><span class="comment">/* TBB_PIPELINE_H_ */</span>
+<h1>src/commons/TopicLearner/TBB_Pipeline.h</h1><a href="_t_b_b___pipeline_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*******************************************************************************</span>
+<a name="l00002"></a>00002 <span class="comment">    Copyright (c) 2011, Yahoo! Inc.</span>
+<a name="l00003"></a>00003 <span class="comment">    All rights reserved.</span>
+<a name="l00004"></a>00004 <span class="comment"></span>
+<a name="l00005"></a>00005 <span class="comment">    Redistribution and use of this software in source and binary forms, </span>
+<a name="l00006"></a>00006 <span class="comment">    with or without modification, are permitted provided that the following </span>
+<a name="l00007"></a>00007 <span class="comment">    conditions are met:</span>
+<a name="l00008"></a>00008 <span class="comment"></span>
+<a name="l00009"></a>00009 <span class="comment">    * Redistributions of source code must retain the above</span>
+<a name="l00010"></a>00010 <span class="comment">      copyright notice, this list of conditions and the</span>
+<a name="l00011"></a>00011 <span class="comment">      following disclaimer.</span>
+<a name="l00012"></a>00012 <span class="comment"></span>
+<a name="l00013"></a>00013 <span class="comment">    * Redistributions in binary form must reproduce the above</span>
+<a name="l00014"></a>00014 <span class="comment">      copyright notice, this list of conditions and the</span>
+<a name="l00015"></a>00015 <span class="comment">      following disclaimer in the documentation and/or other</span>
+<a name="l00016"></a>00016 <span class="comment">      materials provided with the distribution.</span>
+<a name="l00017"></a>00017 <span class="comment"></span>
+<a name="l00018"></a>00018 <span class="comment">    * Neither the name of Yahoo! Inc. nor the names of its</span>
+<a name="l00019"></a>00019 <span class="comment">      contributors may be used to endorse or promote products</span>
+<a name="l00020"></a>00020 <span class="comment">      derived from this software without specific prior</span>
+<a name="l00021"></a>00021 <span class="comment">      written permission of Yahoo! Inc.</span>
+<a name="l00022"></a>00022 <span class="comment"></span>
+<a name="l00023"></a>00023 <span class="comment">    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS </span>
+<a name="l00024"></a>00024 <span class="comment">    IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED </span>
+<a name="l00025"></a>00025 <span class="comment">    TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A </span>
+<a name="l00026"></a>00026 <span class="comment">    PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT </span>
+<a name="l00027"></a>00027 <span class="comment">    OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, </span>
+<a name="l00028"></a>00028 <span class="comment">    SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT </span>
+<a name="l00029"></a>00029 <span class="comment">    LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, </span>
+<a name="l00030"></a>00030 <span class="comment">    DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY </span>
+<a name="l00031"></a>00031 <span class="comment">    THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT </span>
+<a name="l00032"></a>00032 <span class="comment">    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE </span>
+<a name="l00033"></a>00033 <span class="comment">    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
+<a name="l00034"></a>00034 <span class="comment"></span>
+<a name="l00035"></a>00035 <span class="comment">    The Initial Developer of the Original Code is Shravan Narayanamurthy.</span>
+<a name="l00036"></a>00036 <span class="comment">******************************************************************************/</span>
+<a name="l00037"></a>00037 <span class="comment">/*</span>
+<a name="l00038"></a>00038 <span class="comment"> * TBB_Pipeline.h</span>
+<a name="l00039"></a>00039 <span class="comment"> *</span>
+<a name="l00040"></a>00040 <span class="comment"> *</span>
+<a name="l00041"></a>00041 <span class="comment"> *  Created on: 04-Jan-2011</span>
+<a name="l00042"></a>00042 <span class="comment"> *      </span>
+<a name="l00043"></a>00043 <span class="comment"> */</span>
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 <span class="preprocessor">#ifndef TBB_PIPELINE_H_</span>
+<a name="l00046"></a>00046 <span class="preprocessor"></span><span class="preprocessor">#define TBB_PIPELINE_H_</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span>
+<a name="l00048"></a>00048 <span class="preprocessor">#include &quot;<a class="code" href="_pipeline_8h.html">Pipeline.h</a>&quot;</span>
+<a name="l00049"></a>00049 <span class="preprocessor">#include &quot;tbb/task_scheduler_init.h&quot;</span>
+<a name="l00050"></a>00050 <span class="preprocessor">#include &quot;tbb/pipeline.h&quot;</span>
+<a name="l00051"></a>00051 <span class="preprocessor">#include &quot;<a class="code" href="_model___refiner_8h.html">Model_Refiner.h</a>&quot;</span>
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="keyword">using namespace </span>tbb;
+<a name="l00054"></a>00054 <span class="comment"></span>
+<a name="l00055"></a>00055 <span class="comment">//!An implementation of the Pipeline interface using</span>
+<a name="l00056"></a>00056 <span class="comment">//!Intel&#39;s Threading Building Blocks.</span>
+<a name="l00057"></a>00057 <span class="comment"></span><span class="comment">/**</span>
+<a name="l00058"></a>00058 <span class="comment"> * TBB::filter is the basic unit of computation and TBB::Pipeline</span>
+<a name="l00059"></a>00059 <span class="comment"> * puts the filters together.</span>
+<a name="l00060"></a>00060 <span class="comment"> *</span>
+<a name="l00061"></a>00061 <span class="comment"> * What filters exist in a pipeline and how the pipeline</span>
+<a name="l00062"></a>00062 <span class="comment"> * is executed is implemented via an Execution Strategy</span>
+<a name="l00063"></a>00063 <span class="comment"> *</span>
+<a name="l00064"></a>00064 <span class="comment"> * Calling each of the add methods adds that particular</span>
+<a name="l00065"></a>00065 <span class="comment"> * filter to the pipeline</span>
+<a name="l00066"></a>00066 <span class="comment"> */</span>
+<a name="l00067"></a><a class="code" href="class_t_b_b___pipeline.html">00067</a> <span class="keyword">class </span><a class="code" href="class_t_b_b___pipeline.html">TBB_Pipeline</a>: <span class="keyword">public</span> <a class="code" href="class_pipeline.html" title="An interface that all pipeline objects must implement.">Pipeline</a> {
+<a name="l00068"></a>00068 <span class="keyword">public</span>:
+<a name="l00069"></a>00069     <a class="code" href="class_t_b_b___pipeline.html#a561ce191121bc84b60f10e37f68a98ba">TBB_Pipeline</a>(<a class="code" href="class_model___refiner.html">Model_Refiner</a>&amp;);
+<a name="l00070"></a>00070     <span class="keyword">virtual</span> <a class="code" href="class_t_b_b___pipeline.html#a65557a5775e20adea05413e6d61a0395">~TBB_Pipeline</a>();
+<a name="l00071"></a>00071     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#aa4730c25bfcb3a817452024c7d77006f">init</a>();
+<a name="l00072"></a>00072     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a80c9dfeac28acbbfd58bb74667aed6c0">add_reader</a>();
+<a name="l00073"></a>00073     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a366b2c3a7c457132fdf1e37e4176cc2a">add_sampler</a>();
+<a name="l00074"></a>00074     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a510fca80eb5804ab4a3fd102e008b166">add_updater</a>();
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a69754a3a67b889f107a09cb54a86aa99">add_optimizer</a>();
+<a name="l00076"></a>00076     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a8e0e2d2172adea44eceecb7538a69435">add_eval</a>();
+<a name="l00077"></a>00077     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#ae6c06e4aa81d4141810fe48af846357a">add_writer</a>();
+<a name="l00078"></a>00078     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a08d85d063aa95ccc7ff3b637ca626376">add_tester</a>();
+<a name="l00079"></a>00079     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#abff2c28ffcec8d6483ab5e5fae829600">clear</a>();
+<a name="l00080"></a>00080     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#aeaa444a64c92dbf4a3e81ba4864d5086">destroy</a>();
+<a name="l00081"></a>00081     <span class="keywordtype">void</span> <a class="code" href="class_t_b_b___pipeline.html#a8f7d9f64786ae4269e213bcefab17d2f">run</a>();
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083     <a class="code" href="class_model___refiner.html">Model_Refiner</a>&amp; <a class="code" href="class_t_b_b___pipeline.html#aa1880e8333868d0d0d15edf202cd6a03">get_refiner</a>();
+<a name="l00084"></a>00084     <span class="keywordtype">double</span> <a class="code" href="class_t_b_b___pipeline.html#aaa0d5fa5c3095a21692e20763a79d11f">get_eval</a>();
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="keyword">protected</span>:
+<a name="l00087"></a><a class="code" href="class_t_b_b___pipeline.html#a5afa7b7dd6ea345daf478a30ae856a01">00087</a>     task_scheduler_init <a class="code" href="class_t_b_b___pipeline.html#a5afa7b7dd6ea345daf478a30ae856a01">_init</a>;
+<a name="l00088"></a><a class="code" href="class_t_b_b___pipeline.html#a71a2339f6141d223b204d5cb710b380d">00088</a>     tbb::pipeline* <a class="code" href="class_t_b_b___pipeline.html#a71a2339f6141d223b204d5cb710b380d">_pipeline</a>;
+<a name="l00089"></a><a class="code" href="class_t_b_b___pipeline.html#a429639439a653192fbb488fa2b9e7fc1">00089</a>     <a class="code" href="class_model___refiner.html">Model_Refiner</a>&amp; <a class="code" href="class_t_b_b___pipeline.html#a429639439a653192fbb488fa2b9e7fc1">_refiner</a>;
+<a name="l00090"></a>00090 
+<a name="l00091"></a><a class="code" href="class_t_b_b___pipeline.html#a4da76c6cef0601a18612938486a0324b">00091</a>     filter *<a class="code" href="class_t_b_b___pipeline.html#aee550ec35ad5fce3fe82a171334e17b0">_reader</a>, *<a class="code" href="class_t_b_b___pipeline.html#a67ef0e2e97fda0e3a417c7c06eeebb5e">_sampler</a>, *<a class="code" href="class_t_b_b___pipeline.html#a78a0c5508945e6e7f8b1683cb392ff6b">_updater</a>, *<a class="code" href="class_t_b_b___pipeline.html#aa1ee5801dbd1747a71d5e0ea09e8e4fe">_optimizer</a>, *<a class="code" href="class_t_b_b___pipeline.html#a1587eefcdc92c74bc6f3960c1a8ee229">_eval</a>, *<a class="code" href="class_t_b_b___pipeline.html#a4da76c6cef0601a18612938486a0324b">_writer</a>,
+<a name="l00092"></a>00092             *<a class="code" href="class_t_b_b___pipeline.html#a846043268728c75f49907f1f06d25be8">_tester</a>;
+<a name="l00093"></a>00093 };
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095 <span class="preprocessor">#endif </span><span class="comment">/* TBB_PIPELINE_H_ */</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Jul 14 12:04:31 2011 for Y!LDA by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Tue Jul 19 11:45:24 2011 for Y!LDA by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

@@ -100,8 +100,10 @@
  * works.</P>
  * <H3 CLASS="western">Dependencies:</H3>
  * <P>The code has dependencies on a number of libraries. To facilitate
- * distribution we have shipped the code with the sources for the
- * associated libraries.  The following is the list: <BR>
+ * distribution we have hosted the libraries separately. The install script
+ * shipped with the code fetches the sources for the associated libraries and
+ * builds them on the developer's machine.
+ * The following is the list: <BR>
  * <OL>
  * <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm"><B>Ice-3.4.1.tar.gz </B><BR>
  * An efficient inter process communication framework which is used for
@@ -129,7 +131,8 @@
  * All the libraries except Ice should install without
  * problems. With Ice, there are a lot dependencies involved and our
  * automated build script might not work in your set-up. If so please
- * install Ice manually.</B></P>
+ * install Ice manually and copy the required includes & libs into
+ * the Yahoo_LDA directory</B></P>
  * <H1 CLASS="western">How do you install?</H1>
  * <OL>
  * 	<LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0cm">Run make from the

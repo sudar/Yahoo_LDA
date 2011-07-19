@@ -40,7 +40,7 @@
 <h2 class="western">Software Requirements:</h2>
 <p>The code has been mainly tested on the linux platform. If you want to install on other platforms, since the source and libraries along with source are provided, you can try compiling them and let us know if it works. </p>
 <h3 class="western">Dependencies:</h3>
-<p>The code has dependencies on a number of libraries. To facilitate distribution we have shipped the code with the sources for the associated libraries. The following is the list: <br/>
+<p>The code has dependencies on a number of libraries. To facilitate distribution we have hosted the libraries separately. The install script shipped with the code fetches the sources for the associated libraries and builds them on the developer's machine. The following is the list: <br/>
  </p>
 <ol>
 <li>
@@ -89,7 +89,7 @@
  Intel Threading Building Blocks. Multithreaded processing library. Much easier to use than pthreads. We use the pipeline class. </p>
 </li>
 </ol>
-<p>All the libraries except Ice should install without problems. With Ice, there are a lot dependencies involved and our automated build script might not work in your set-up. If so please install Ice manually. </p>
+<p>All the libraries except Ice should install without problems. With Ice, there are a lot dependencies involved and our automated build script might not work in your set-up. If so please install Ice manually and copy the required includes &amp; libs into the Yahoo_LDA directory </p>
 <h1 class="western">How do you install?</h1>
 <ol>
 <li>
@@ -139,7 +139,7 @@
 <h1 class="western">Where to find the developer documentation?</h1>
 <p><a class="el" href="architecture.html">Y!LDA Architecture</a> &amp; the code documentation made available through Doxygen </p>
 </div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Jul 14 12:04:31 2011 for Y!LDA by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Tue Jul 19 11:45:24 2011 for Y!LDA by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

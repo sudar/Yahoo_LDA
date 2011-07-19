@@ -58,9 +58,17 @@ lib_src=$prefix_dir/dependencies
 lib_build=$prefix_dir/build
 lib_opts=''
 
-#fetch the Ice distribution
-rm ${lib_src}/Ice-3.4.1.tar.gz
+#fetch the 3rd party libraries
+rm ${lib_src}/*
 wget -r --no-check-certificate https://github.com/shravanmn/LDA_ICE/raw/master/Ice-3.4.1.tar.gz -nd -P ${lib_src}
+wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/boostinclude.tar.gz -nd -P ${lib_src}
+wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/bzip2-1.0.5.tar.gz -nd -P ${lib_src}
+wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/cppunit-1.12.1.tar.gz -nd -P ${lib_src}
+wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/gflags-1.2.tar.gz -nd -P ${lib_src}
+wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/glog-0.3.0.tar.gz -nd -P ${lib_src}
+wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/mcpp-2.7.2.tar.gz -nd -P ${lib_src}
+wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/protobuf-2.2.0a.tar.gz -nd -P ${lib_src}
+wget -r --no-check-certificate https://github.com/shravanmn/LDA_Dependencies/raw/master/tbb22_20090809oss.tar.gz -nd -P ${lib_src}
 
 mkdir /tmp/gflags		# fix a known build bug on OS X
 buildlibrary gflags-1.2
