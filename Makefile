@@ -3,8 +3,8 @@ export BINDIR=$(LDAHOME)/bin
 export INCDIRS=-I $(LDAHOME)/include -I $(LDAHOME)/src -I $(LDAHOME)/src/commons -I $(LDAHOME)/src/Unigram_Model
 export CXX=g++
 export CXXFLAGS=$(OPTIM) $(OTHERS) $(DEBUG)
-export DEBUG=-g
-export OPTIM=-O0
+export DEBUG=
+export OPTIM=-O4
 export OTHERS=-MMD -MP
 LIBS=-lprotobuf -ltbb -lcppunit -lpthread -lgflags -lglog -lIce -lIceUtil -lrt
 
