@@ -28,7 +28,15 @@
 #   your input and provide the directory containing the gzip files as
 #   <input-dir>
 
-. ./functions.sh
+# check to see if a YLDA_HOME environment variable has been set and,
+# if so, change into that directory first. Otherwise it assumes that
+# YLDA_HOME is the local directory. This makes it so that YLDA does
+# not have to be run from the YLDA root
+if [ -z ${YLDA_HOME} ]; then
+    YLDA_HOME=`pwd`;
+fi;
+cd ${YLDA_HOME}
+. ${YLDA_HOME}/functions.sh
 
 model=$1;
 flags=$2;
