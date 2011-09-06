@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # input:
 #   $1 : 1 for Unigram_Model
 #	 If a new model is implemented this can be used to access it
