@@ -135,6 +135,7 @@ do
   -Dmapred.child.ulimit=${mr_ulimit} \
   -Dmapred.task.timeout=1800000 \
   -Dmapred.map.max.attempts=${map_max_attempts} \
+  -Dmapred.max.tracker.failures=${map_max_attempts} \
   -Dmapreduce.job.acl-view-job="shravanm,smola" \
   -input "${map_input}" \
   -output $output \
